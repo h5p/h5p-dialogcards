@@ -1,0 +1,71 @@
+.dialogcard-title {
+	text-align: center;
+}
+.dialogcard-description {
+	text-align: center;
+}
+.dialogcard-panel {
+	padding-bottom: 50px;
+}
+.dialogcontainer {
+  margin-top: 50px;
+  height: 120px;
+  width: 330px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dialogcard {
+  height: inherit;
+  width: inherit;
+  position: relative;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.dialogcard-question {
+  background-color: #ffffcc;
+}
+.dialogcard-answer {
+  background-color: #74c6fd;
+}
+.dialogcard-text {
+  font-weight: bold;
+  padding-top: 40px;
+  text-align: center;
+}
+.dialogcard-navigation-button div {
+  margin: 1px;
+  background-color: #159ef8;
+  width: 80px;
+  height: 24px;
+  line-height: 25px;
+  border: 1px solid #FFFFFF;
+  border-radius: 4px;
+}
+.dialogcard-navigation-button div:hover {
+  background-color: #0280d4;
+}
+.dialogcard-navigation {
+  position: relative;
+  width: 330px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dialogcard-navigation-button {
+  bottom: -18px;
+  right: -40px;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  font-size: 12px;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+.answer-dialog {
+  display: none;
+}
+.next-dialog {
+  display: none;
+}
