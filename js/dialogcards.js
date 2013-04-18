@@ -10,20 +10,6 @@ H5P.Dialogcards = function (options, contentId) {
     return new H5P.Dialogcards(options, contentId);
   }
 
-  var cp = H5P.getContentPath(contentId);
-
-  var getScore = function(){
-  }
-
-  var getAnswerGiven = function(){
-  };
-
-  var totalScore = function(){
-  };
-
-  var showScore = function(){
-  }
-
   function addElement(container, id, className, el) {
     var text = el.text ? el.text : '';
     var $el = $('<div class="'+className+'">'+text+'</div>');
@@ -59,7 +45,7 @@ H5P.Dialogcards = function (options, contentId) {
     $target = $(el);
     $target.addClass('dialogcard');
     $panel = addElement($target, 'panel-'+$target.attr('data-content-id'), 'dialogcard-panel', { });
-    $panel.append('<H2 class="dialogcard-title">' + options.title + '</h2>');
+    $panel.append('<h2 class="dialogcard-title">' + options.title + '</h2>');
     addElement($panel, null, 'dialogcard-description', { text: options.description });
 
     var $dialog_container = addElement($panel, 'dialogcontainer-'+$target.attr('data-content-id'), 'dialogcontainer', { });
@@ -70,32 +56,32 @@ H5P.Dialogcards = function (options, contentId) {
     var $answer = addElement($navigation, 'next-dialogcard', 'dialogcard-navigation-button answer-dialog', {
       text: '<div>'+options.answer+'</div>',
       click: function() {
-         $answer.css('display', 'none');
-         $dialog.fadeOut('slow', function() {
-           $dialog.removeClass('dialogcard-question');
-           $dialog.addClass('dialogcard-answer');
-			  $dialogtext.html(options.dialogs[current].answer);
-           $dialog.fadeIn('fast', function() {
-             if(current < options.dialogs.length - 1) {
-               $next.css('display', 'inline');
-             }
-           });
-         });
+        $answer.css('display', 'none');
+        $dialog.fadeOut('slow', function() {
+          $dialog.removeClass('dialogcard-question');
+          $dialog.addClass('dialogcard-answer');
+			    $dialogtext.html(options.dialogs[current].answer);
+          $dialog.fadeIn('fast', function() {
+            if(current < options.dialogs.length - 1) {
+              $next.css('display', 'inline');
+            }
+          });
+        });
       }
     });
     var $next = addElement($navigation, 'next-dialogcard', 'dialogcard-navigation-button next-dialog', {
-      text: '<div>'+options.next+'</div>',
+      text: '<div>' + options.next + '</div>',
       click: function() {
-         current++;
-         $next.css('display', 'none');
-         $dialog.fadeOut('slow', function() {
-           $dialog.addClass('dialogcard-question');
-           $dialog.removeClass('dialogcard-answer');
-			  $dialogtext.html(options.dialogs[current].text);
-           $dialog.fadeIn('fast', function() {
-             $answer.css('display', 'inline');
-           });
-         });
+        current++;
+        $next.css('display', 'none');
+        $dialog.fadeOut('slow', function() {
+          $dialog.addClass('dialogcard-question');
+          $dialog.removeClass('dialogcard-answer');
+			    $dialogtext.html(options.dialogs[current].text);
+          $dialog.fadeIn('fast', function() {
+            $answer.css('display', 'inline');
+          });
+        });
       }
     });
 
@@ -108,10 +94,7 @@ H5P.Dialogcards = function (options, contentId) {
 
   var returnObject = {
     attach: attach,
-    machineName: 'H5P.Dialogcards',
-    getScore: getScore,
-    getAnswerGiven: getAnswerGiven,
-    totalScore: totalScore
+    machineName: 'H5P.Dialogcards'
   };
 
   return returnObject;

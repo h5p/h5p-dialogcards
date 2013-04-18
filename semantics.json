@@ -2,14 +2,12 @@
   {
     "name": "title",
     "type": "text",
-    "label": "Tittel",
-    "description": "Tittel"
+    "label": "Tittel"
   },
   {
     "name": "description",
     "type": "text",
-    "label": "Oppgavetekst",
-    "description": "Tekst til oppgaven"
+    "label": "Oppgavetekst"
   },
   {
     "name": "dialogs",
@@ -26,15 +24,13 @@
           "name": "text",
           "type": "text",
           "label": "Tekst",
-          "optional": true,
-          "description": "Tekst"
+          "optional": true
         },
         {
           "name": "answer",
           "type": "text",
           "label": "Svar",
-          "optional": true,
-          "description": "Svar"
+          "optional": true
         }
       ]
     }
