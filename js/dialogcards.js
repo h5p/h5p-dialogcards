@@ -57,7 +57,7 @@ H5P.Dialogcards = function (options, contentId) {
 
   var attach = function (el) {
     $target = $(el);
-    $target.addClass('flashcard');
+    $target.addClass('dialogcard');
     $panel = addElement($target, 'panel-'+$target.attr('data-content-id'), 'dialogcard-panel', { });
     $panel.append('<H2 class="dialogcard-title">' + options.title + '</h2>');
     addElement($panel, null, 'dialogcard-description', { text: options.description });
