@@ -2,18 +2,19 @@
   {
     "name": "title",
     "type": "text",
-    "label": "Tittel"
+    "label": "Title"
   },
   {
     "name": "description",
     "type": "text",
-    "label": "Oppgavetekst"
+    "label": "Task description",
+    "default": "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut."
   },
   {
     "name": "dialogs",
     "type": "list",
     "label": "Dialogs",
-    "entity": "dialogs",
+    "entity": "dialog",
     "max": 20,
     "field": {
       "name": "question",
@@ -23,30 +24,30 @@
         {
           "name": "text",
           "type": "text",
-          "label": "Tekst",
-          "optional": true
+          "label": "Text",
+          "description": "Hint for the first part of the dialogue"
         },
         {
           "name": "answer",
           "type": "text",
-          "label": "Svar",
-          "optional": true
+          "label": "Answer",
+          "description": "Hint for the second part of the dialogue"
         }
       ]
     }
   },
   {
-    "label": "Text for the next button",
+    "label": "Text for the turn button",
+    "name": "answer",
     "type": "text",
-    "name": "next",
-    "hint": "Next",
+    "default": "Turn",
     "common": true
   },
   {
-    "label": "Text for the answer button",
-    "name": "answer",
+    "label": "Text for the next button",
     "type": "text",
-    "hint": "Answer",
+    "name": "next",
+    "default": "Next",
     "common": true
   }
 ]

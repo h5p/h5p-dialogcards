@@ -5,6 +5,12 @@ H5P.Dialogcards = function (options, contentId) {
   var $target;
   var current = 0;
   var $ = H5P.jQuery;
+  this.options = $.extend({}, {
+    title: "Dialogue",
+    description: "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
+    next: "Next",
+    answer: "Turn"
+  }, options);
 
   if ( !(this instanceof H5P.Dialogcards) ){
     return new H5P.Dialogcards(options, contentId);

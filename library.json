@@ -1,9 +1,9 @@
 {
-  "title": "Dialogcards",
+  "title": "Dialogue cards",
   "description": "void",
   "majorVersion": 1,
   "minorVersion": 0,
-  "patchVersion": 10,
+  "patchVersion": 12,
   "runnable": 1,
   "author": "Amendor AS",
   "license": "cc-by-sa",
@@ -13,7 +13,5 @@
   ],
   "preloadedJs": [
     {"path": "js/dialogcards.js"}
-  ],
-  "w": 635,
-  "h": 500
+  ]
 }
