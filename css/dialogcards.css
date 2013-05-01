@@ -7,11 +7,9 @@
 }
 .dialogcontainer {
   margin: 3em auto;
-  height: 10em;
-  width: 17.72em;
+  max-width: 40%;
 }
 .dialogcard {
-  height: 100%;
   width: 100%;
   line-height: 1.5em;
   position: relative;
@@ -27,7 +25,7 @@
 .dialogcard-text {
   font-weight: bold;
   text-align: center;
-  line-height: 10em;
+  padding: 3em 1em;
 }
 .dialogcard-navigation-button div {
   margin: 0.0832em;
