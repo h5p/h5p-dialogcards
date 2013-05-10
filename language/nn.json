@@ -4,8 +4,8 @@
       "label": "Tittel"
     },
     {
-      "label": "Oppgavetekst",
-      "default": "Sitt i par og lag setninger hvor du inkluderer uttrykka under.<br/>Eksempel: Jeg skulle ha sagt ja, IMIDLERTID holdt jeg munn."
+      "label": "Oppgåvetekst",
+      "default": "Sit i par og lag setningar der du inkluderer uttrykka under. <br/>Eksempel: Eg skulle ha sagt ja, i staden haldt eg munn."
     },
     {
       "label": "Dialogkort",
@@ -15,11 +15,11 @@
         "fields": [
           {
             "label": "Tekst",
-            "description": " Nøkkelord til første del av dialogen"
+            "description": "Nøkkelord til første delen av dialogen"
           },
           {
             "label": "Svar",
-            "description": " Nøkkelord til neste del av dialogen"
+            "description": "Nøkkelord til neste delen av dialogen"
           }
         ]
       }
