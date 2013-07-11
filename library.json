@@ -13,5 +13,12 @@
   ],
   "preloadedJs": [
     {"path": "js/dialogcards.js"}
+  ],
+  "editorDependencies": [
+    {
+      "machineName": "H5PEditor.VerticalTabs",
+      "majorVersion": 1,
+      "minorVersion": 0
+    }
   ]
 }
