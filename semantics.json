@@ -7,6 +7,7 @@
   {
     "name": "description",
     "type": "text",
+    "widget": "html",
     "label": "Task description",
     "default": "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut."
   },
