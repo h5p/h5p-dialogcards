@@ -23,7 +23,6 @@
     "widget": "verticalTabs",
     "label": "Dialogs",
     "entity": "dialog",
-    "max": 20,
     "field": {
       "name": "question",
       "type": "group",
