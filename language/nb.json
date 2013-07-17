@@ -15,11 +15,11 @@
         "fields": [
           {
             "label": "Tekst",
-            "description": " Nøkkelord til første del av dialogen"
+            "description": "Nøkkelord til første del av dialogen"
           },
           {
             "label": "Svar",
-            "description": " Nøkkelord til neste del av dialogen"
+            "description": "Nøkkelord til neste del av dialogen"
           }
         ]
       }
