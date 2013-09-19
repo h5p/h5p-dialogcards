@@ -9,7 +9,8 @@ H5P.Dialogcards = function (options, contentId) {
     title: "Dialogue",
     description: "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
     next: "Next",
-    answer: "Turn"
+    answer: "Turn",
+    postUserStatistics: (H5P.postUserStatistics === true)
   }, options);
 
   if ( !(this instanceof H5P.Dialogcards) ){
@@ -68,8 +69,11 @@ H5P.Dialogcards = function (options, contentId) {
           $dialog.addClass('dialogcard-answer');
 			    $dialogtext.html(options.dialogs[current].answer);
           $dialog.fadeIn('fast', function() {
-            if(current < options.dialogs.length - 1) {
+            if (current < options.dialogs.length - 1) {
               $next.css('display', 'inline');
+            }
+            else if (this.options.postUserStatistics === true) {
+              H5P.setFinished(contentId, 0, 0);
             }
           });
         });
