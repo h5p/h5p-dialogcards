@@ -1,111 +1,136 @@
 var H5P = H5P || {};
 
-H5P.Dialogcards = function (options, contentId) {
-  var $panel;
-  var $target;
-  var current = 0;
-  var $ = H5P.jQuery;
-  this.options = $.extend({}, {
-    title: "Dialogue",
-    description: "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
-    next: "Next",
-    answer: "Turn",
-    postUserStatistics: (H5P.postUserStatistics === true)
-  }, options);
+/**
+ * Dialogcards module
+ *
+ * @param {jQuery} $
+ */
+H5P.Dialogcards = (function ($) {
 
-  if ( !(this instanceof H5P.Dialogcards) ){
-    return new H5P.Dialogcards(options, contentId);
-  }
+  /**
+   * Initialize module.
+   *
+   * @param {Object} params Behavior settings
+   * @param {Number} id Content identification
+   * @returns {_L8.C}
+   */
+  function C(params, id) {
+    this.id = id;
 
-  function addElement(container, id, className, el) {
-    var text = el.text ? el.text : '';
-    var $el = $('<div class="'+className+'">'+text+'</div>');
-    container.append($el);
-    if(el.top) {
-      $el.css({ top: el.top});
-    }
-    if(el.left) {
-      $el.css({ left: el.left});
-    }
-    if(el.right) {
-      $el.css({ right: el.right});
-    }
-    if(el.bottom) {
-      $el.css({ bottom: el.bottom});
-    }
-    if(id) {
-      $el.attr('id', id);
-    }
-    if(el.height) {
-      $el.css({ height: el.height });
-    }
-    if(el.width) {
-      $el.css({ width: el.width });
-    }
-    if(el.click) {
-      $el.click(el.click);
-    }
-    return $el;
-  }
-
-  var attach = function (el) {
-    $target = $(el);
-    $target.addClass('dialogcard');
-    $panel = addElement($target, 'panel-'+$target.attr('data-content-id'), 'dialogcard-panel', { });
-    $panel.append('<h2 class="dialogcard-title">' + options.title + '</h2>');
-    addElement($panel, null, 'dialogcard-description', { text: options.description });
-
-    var $dialog_container = addElement($panel, 'dialogcontainer-'+$target.attr('data-content-id'), 'dialogcontainer', { });
-    var $dialog = addElement($dialog_container, 'dialog-'+$target.attr('data-content-id'), 'dialogcard dialogcard-question', { });
-    var $dialogtext = addElement($dialog, 'dialog-text', 'dialogcard-text', { text: options.dialogs[0].text });
-    var $navigation = addElement($panel, 'navigation-'+$target.attr('data-content-id'), 'dialogcard-navigation', { });
-
-    var $answer = addElement($navigation, 'next-dialogcard', 'dialogcard-navigation-button answer-dialog', {
-      text: '<div>'+options.answer+'</div>',
-      click: function() {
-        $answer.css('display', 'none');
-        $dialog.fadeOut('slow', function() {
-          $dialog.removeClass('dialogcard-question');
-          $dialog.addClass('dialogcard-answer');
-			    $dialogtext.html(options.dialogs[current].answer);
-          $dialog.fadeIn('fast', function() {
-            if (current < options.dialogs.length - 1) {
-              $next.css('display', 'inline');
-            }
-            else if (this.options.postUserStatistics === true) {
-              H5P.setFinished(contentId, 0, 0);
-            }
-          });
-        });
-      }
-    });
-    var $next = addElement($navigation, 'next-dialogcard', 'dialogcard-navigation-button next-dialog', {
-      text: '<div>' + options.next + '</div>',
-      click: function() {
-        current++;
-        $next.css('display', 'none');
-        $dialog.fadeOut('slow', function() {
-          $dialog.addClass('dialogcard-question');
-          $dialog.removeClass('dialogcard-answer');
-			    $dialogtext.html(options.dialogs[current].text);
-          $dialog.fadeIn('fast', function() {
-            $answer.css('display', 'inline');
-          });
-        });
-      }
-    });
-
-    if(options.dialogs[0].answer) {
-      $answer.css('display', 'inline');
-    }
-
-    return this;
+    // Set default behavior.
+    this.params = $.extend({
+      title: "Dialogue",
+      description: "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
+      next: "Next",
+      prev: "Previous",
+      answer: "Turn",
+      progressText: "Card @card of @total",
+      endComment: "This was the last card. Press Try again to start over.",
+      postUserStatistics: (H5P.postUserStatistics === true)
+    }, params);
+    
+    this._current = -1;
+    this._turned = [];
   };
 
-  var returnObject = {
-    attach: attach,
-    machineName: 'H5P.Dialogcards'
+  /**
+   * Append field to wrapper.
+   *
+   * @param {jQuery} $container
+   */
+  C.prototype.attach = function ($container) {
+    var self = this;
+    
+    this._$inner = $container.addClass('h5p-dialogcards').html('\
+      <div class="h5p-title">' + this.params.title + '</div>\
+      <div class="h5p-description">' + this.params.description + '</div>\
+     ' + C.createCards(this.params.dialogs, this.params.answer) + '\
+      <div class="h5p-inner">\
+        <div class="h5p-button h5p-prev" role="button" tabindex="1">' + this.params.prev + '</div>\
+        <div class="h5p-button h5p-next" role="button" tabindex="1">' + this.params.next + '</div>\
+        <div class="h5p-progress"></div>\
+      </div>');
+    
+    this._$progress = this._$inner.find('.h5p-progress');
+    this._$current = this._$inner.find('.h5p-current');
+    
+    this._$inner.find('.h5p-turn').click(function () {
+      self.turnCard($(this).parent().parent());
+    });
+    
+    this._$prev = this._$inner.find('.h5p-prev').click(function () {
+      self.prevCard();
+    });
+    
+    this._$next = this._$inner.find('.h5p-next').click(function () {
+      self.nextCard();
+    });
+    
+    this.updateNavigation();
   };
+  
+  C.createCards = function (cards, turn) {
+    var html = '';
+    for (var i = 0; i < cards.length; i++) {
+      html += '\
+        <div class="h5p-cardwrap' + (i === 0 ? ' h5p-current' : '') + '">\
+          <div class="h5p-cardholder">\
+            <div class="h5p-card">' + cards[i].text + '</div>\
+            <div class="h5p-button h5p-turn" role="button">' + turn + '</div>\
+          </div>\
+        </div>';
+    }
+    return html;
+  };
+  
+  C.prototype.updateNavigation = function () {
+    if (this._$current.next('.h5p-cardwrap').length) {
+      this._$next.removeClass('h5p-disabled');
+    }
+    else {
+      this._$next.addClass('h5p-disabled');
+    }
+    
+    if (this._$current.prev('.h5p-cardwrap').length) {
+      this._$prev.removeClass('h5p-disabled');
+    }
+    else {
+      this._$prev.addClass('h5p-disabled');
+    }
+    
+    this._$progress.text(this.params.progressText.replace('@card', this._$current.index() - 1).replace('@total', this.params.dialogs.length));
+  };
+  
+  C.prototype.nextCard = function () {
+    var $next = this._$current.next('.h5p-cardwrap');
+    if ($next.length) {
+      this._$current.removeClass('h5p-current').addClass('h5p-previous');
+      this._$current = $next.addClass('h5p-current');
+      this.updateNavigation();
+    }
+  };
+  
+  C.prototype.prevCard = function () {
+    var $prev = this._$current.prev('.h5p-cardwrap');
+    if ($prev.length) {
+      this._$current.removeClass('h5p-current');
+      this._$current = $prev.addClass('h5p-current').removeClass('h5p-previous');
+      this.updateNavigation();
+    }
+  };
+    
+  C.prototype.turnCard = function ($card) {
+    $card.find('.h5p-card').text(this.params.dialogs[$card.index() - 2].answer);
+    $card.find('.h5p-card').addClass('h5p-collapse');
+    setTimeout(function () {
+        $card.find('.h5p-card').removeClass('h5p-collapse');
+      }, 150);
+    $card.find('.h5p-turn').addClass('h5p-disabled');
+    if (!this._$current.next('.h5p-cardwrap').length) {
+      $card.find('.h5p-cardholder').append('<div class="h5p-endcomment">' + this.params.endComment + '</div>');
+    }
+  };
+  
+  return C;
+})(H5P.jQuery);
 
-  return returnObject;
-};
