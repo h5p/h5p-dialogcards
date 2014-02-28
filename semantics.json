@@ -56,5 +56,34 @@
     "name": "next",
     "default": "Next",
     "common": true
+  },
+  {
+    "name": "prev",
+    "type": "text",
+    "label": "Text for the previous button",
+    "default": "Previous",
+    "common": true
+  },
+  {
+    "name": "retry",
+    "type": "text",
+    "label": "Text for the retry button",
+    "default": "Try again",
+    "common": true
+  },
+  {
+    "name": "progressText",
+    "type": "text",
+    "label": "Progress text",
+    "description": "Available variables are @card and @total.",
+    "default": "Card @card of @total",
+    "common": true
+  },
+  {
+    "name": "endComment",
+    "type": "text",
+    "label": "Text when turning the laste card",
+    "default": "This was the last card. Press Try again to start over.",
+    "common": true
   }
 ]

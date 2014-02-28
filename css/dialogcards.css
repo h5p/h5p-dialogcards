@@ -1,7 +1,3 @@
-.h5p-dialogcards .h5p-disabled {
-  visibility: hidden;
-}
-
 .h5p-dialogcards .h5p-title {
   font-family: Verdana, sans-serif;
   text-align: left;
@@ -11,22 +7,8 @@
   padding: 0.375em 0 0.375em;
 }
 
-.dialogcard-description {
-  margin: 0.25em 0;
-  font-size: 14px;
-}
-.dialogcontainer {
-  margin: 1em auto;
-}
-.dialogcard {
-  width: 100%;
-  line-height: 1.5em;
-  position: relative; 
-  border-radius: 0.3125em;
-}
-
 .h5p-dialogcards {
-/*  overflow: hidden;*/
+  overflow: hidden;
   position: relative;
 }
 .h5p-dialogcards .h5p-inner {
@@ -38,18 +20,23 @@
 }
 
 .h5p-dialogcards .h5p-cardwrap {
+  margin-top: 15px;
   position: absolute;
   left: 100%;
   width: 100%;
   visibility: hidden;
-  -webkit-transition: visibility 0s linear 0.3s, left 300ms;
-  -moz-transition: left 300ms;
-  -ms-transform: left 300ms;
-  transition: left 300ms;
+  -webkit-transition: visibility 0s 0.3s, left 300ms;
+  -moz-transition: visibility 0s 0.3s, left 300ms;
+  -ms-transition: visibility 0s 0.3s, left 300ms;
+  transition: visibility 0s 0.3s, left 300ms;
 }
 .h5p-dialogcards .h5p-cardwrap.h5p-current {
   visibility: visible;
   left: 0;
+  -webkit-transition: left 300ms;
+  -moz-transition: left 300ms;
+  -ms-transition: left 300ms;
+  transition: left 300ms;
 }
 .h5p-dialogcards .h5p-cardwrap.h5p-previous {
   left: -100%;
@@ -83,12 +70,12 @@
   transform: translateX(0);
 }
 
-.h5p-dialogcards .h5p-cardholder .h5p-card {
+.h5p-dialogcards .h5p-card {
+  overflow: hidden;
   margin: 18px 18px 82px;
   width: auto;
   width: 460px;
   height: 100px;
-  line-height: 100px;
   display: block;
   font-weight: bold;
   background: white;
@@ -107,11 +94,20 @@
   -moz-transition: -moz-transform 0.15s;
   -ms-transform: -ms-transform 0.15s;
   transition: transform 0.15s;
-  
-  /*-webkit-transform: scale(0,1);
-  -moz-transform: scale(0,1);
-  -ms-transform: scale(0,1);
-  transform: scale(0,1);*/
+}
+
+.h5p-dialogcards .h5p-card > table, 
+.h5p-dialogcards .h5p-card > table > tbody, 
+.h5p-dialogcards .h5p-card > table > tbody > tr, 
+.h5p-dialogcards .h5p-card > table > tbody > tr > td {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.h5p-dialogcards .h5p-card > table > tbody > tr > td {
+  line-height: 25px;
+  padding: 0 5px;
 }
 
 .h5p-dialogcards .h5p-collapse {
@@ -128,8 +124,11 @@
   margin-top: -54px;
 }
 
-.h5p-dialogcards .h5p-retry {
-  
+.h5p-dialogcards .h5p-middle {
+  display: table-cell;
+}
+.h5p-dialogcards .h5p-left {
+  text-align: left;
 }
 
 .h5p-dialogcards .h5p-button {
@@ -154,8 +153,14 @@
   background: -webkit-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* Chrome10+,Safari5.1+ */
   background: -o-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* Opera 11.10+ */
   background: -ms-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* IE10+ */
+  
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-
 .h5p-dialogcards .h5p-button:hover {
   background: rgb(4,104,206); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(4,104,206,1) 0%, rgba(100,152,254,1) 100%); /* FF3.6+ */
@@ -164,10 +169,15 @@
   background: -o-linear-gradient(top,  rgba(4,104,206,1) 0%,rgba(100,152,254,1) 100%); /* Opera 11.10+ */
   background: -ms-linear-gradient(top,  rgba(4,104,206,1) 0%,rgba(100,152,254,1) 100%); /* IE10+ */
 }
+.h5p-dialogcards .h5p-button.h5p-disabled {
+  display: none;
+}
 
 .h5p-dialogcards .h5p-progress {
   text-align: center;
   margin-top: 6.5em;
+  position: absolute;
+  width: 460px;
 }
 
 .h5p-dialogcards .h5p-progress {
@@ -219,18 +229,4 @@
   font-family: H5PFontAwesome4;
   content: "\f054";
   margin-left: 0.1875em;
-}
-
-.dialogcard-navigation {
-  position: relative;
-  width: 17.72em;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.answer-dialog {
-  display: none;
-}
-
-.next-dialog {
 }
