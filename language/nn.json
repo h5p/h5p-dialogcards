@@ -34,20 +34,20 @@
     },
     {
       "label": "Tekst til \"Forrige\" knappen",
-      "default": "Forrige",
+      "default": "Forrige"
     },
     {
       "label": "Tekst til \"Omstart\" knappen",
-      "default": "Prøv igjen", 
+      "default": "Prøv igjen"
     },
     {
       "label": "Fremgangstekst",
       "description": "Tilgjengelege variablar er @card og @total.",
-      "default": "Kort @card av @total", 
+      "default": "Kort @card av @total"
     },
     {
       "label": "Tekst når det siste kort snues.",
-      "default": "Dette var det siste kortet. Trykk Prøv igjen for å starte på nytt.",
+      "default": "Dette var det siste kortet. Trykk Prøv igjen for å starte på nytt."
     }
   ]
 }
