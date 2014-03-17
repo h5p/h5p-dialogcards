@@ -118,7 +118,7 @@
 }
 
 .h5p-dialogcards .h5p-endcomment {
-  font-size: 16px;
+  font-size: 1em;
   color: #666;
   text-align: center;
   margin-top: -54px;
@@ -134,8 +134,9 @@
 .h5p-dialogcards .h5p-button {
   position: relative;
   cursor: pointer;
-  width: 100px;
-  font-size: 16px;
+  font-size: 1em;
+  max-width: 10em;
+  min-width: 6em;
   display: inline-block;
   padding: 0.125em 0.6875em;
   border: 0.1875em solid #fff;
@@ -181,7 +182,7 @@
 }
 
 .h5p-dialogcards .h5p-progress {
-  margin-top: 1.625em;
+  margin-top: 2.625em;
   color: #999;
   text-align: center;
 }
@@ -199,7 +200,7 @@
 }
 
 .h5p-dialogcards .h5p-button.h5p-prev {
-  margin-top: 20px;
+  margin-top: 2.375em;
   float: left;
 }
 
@@ -210,19 +211,19 @@
 }
 
 .h5p-dialogcards .h5p-button.h5p-next {
-  margin-top: 20px;
+  margin-top: 2.375em;
   float: right;
 }
 
 .h5p-dialogcards .h5p-button.h5p-retry {
-  margin-top: 20px;
+  margin-top: 2.375em;
   float: right;
 }
 
 .h5p-dialogcards .h5p-button.h5p-retry:before {
   font-family: H5PFontAwesome4;
   content: "\f01e";
-  margin-left: 0.1875em;
+  margin-right: 0.1875em;
 }
 
 .h5p-dialogcards .h5p-button.h5p-next:after {
