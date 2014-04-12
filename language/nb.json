@@ -20,6 +20,19 @@
           {
             "label": "Svar",
             "description": "Nøkkelord til neste del av dialogen"
+          },
+          {
+            "label": "Tips",
+            "fields": [
+              {
+                "label": "Tips til tekst",
+                "description": "Tips til første del av dialogen"
+              },
+              {
+                "label": "Tips til svar",
+                "description": "Tips til neste del av dialogen"
+              }
+            ]
           }
         ]
       }

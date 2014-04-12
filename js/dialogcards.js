@@ -57,7 +57,14 @@ H5P.Dialogcards = (function ($) {
       </div>');
       
     self._$inner.find('.h5p-card').each(function () {
-      self.alignText($(this));
+      var $this = $(this);
+      self.alignText($this);
+      
+      // Add tip:
+      var tip = $this.data('front-tip');
+      if (tip !== undefined && tip.trim().length > 0) {
+        $('table', $this).append(H5P.JoubelUI.createTip(tip));
+      }
     });
     
     self._$progress = self._$inner.find('.h5p-progress');
@@ -96,10 +103,17 @@ H5P.Dialogcards = (function ($) {
   C.createCards = function (cards, turn) {
     var html = '';
     for (var i = 0; i < cards.length; i++) {
+      var frontTip = '';
+      var backTip = '';
+      if(cards[i].tips !== undefined) {
+        frontTip = (cards[i].tips.front !== undefined ? cards[i].tips.front : '');
+        backTip = (cards[i].tips.back !== undefined ? cards[i].tips.back : '');
+      }
+       
       html += '\
         <div class="h5p-cardwrap' + (i === 0 ? ' h5p-current' : '') + '">\
           <div class="h5p-cardholder">\
-            <div class="h5p-card"><table><tr><td>' + cards[i].text + '</td></tr></table></div>\
+            <div class="h5p-card" data-front-tip="' + frontTip + '" data-back-tip="' + backTip + '"><table><tr><td>' + cards[i].text + '</td></tr></table></div>\
             <div class="h5p-button h5p-turn" role="button">' + turn + '</div>\
           </div>\
         </div>';
@@ -171,9 +185,18 @@ H5P.Dialogcards = (function ($) {
     var self = this;
     var $c = $card.find('.h5p-card').addClass('h5p-collapse');
 
+    // Remove frontside tip:
+    $c.find('.joubel-tip-container').remove();
+    
     setTimeout(function () {
       $c.removeClass('h5p-collapse');
       self.alignText($c, self.params.dialogs[$card.index() - 2].answer);
+      
+      // Add backside tip
+      var tip = $c.data('back-tip');
+      if (tip !== undefined && tip.trim().length > 0) {
+        $('table',$c).append(H5P.JoubelUI.createTip(tip));
+      }
     }, 150);
       
     $card.find('.h5p-turn').addClass('h5p-disabled');

@@ -39,6 +39,27 @@
           "type": "text",
           "label": "Answer",
           "description": "Hint for the second part of the dialogue"
+        },
+        {
+          "name": "tips",
+          "type": "group",
+          "label": "Tips",
+          "fields": [
+            {
+              "name": "front",
+              "type": "text",
+              "label": "Tip for text",
+              "optional": true,
+              "description": "Tip for the first part of the dialogue"
+            },
+            {
+              "name": "back",
+              "type": "text",
+              "label": "Tip for answer",
+              "optional": true,
+              "description": "Tip for the second part of the dialogue"
+            }
+          ]
         }
       ]
     }

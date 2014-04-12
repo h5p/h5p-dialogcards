@@ -16,7 +16,8 @@
   width: 460px;
   margin-top: 200px;
   overflow: hidden;
-  padding: 20px
+  padding: 20px;
+  min-height: 4em; /* Make sure progress is shown even if only one card */
 }
 
 .h5p-dialogcards .h5p-cardwrap {
@@ -95,7 +96,9 @@
   -ms-transform: -ms-transform 0.15s;
   transition: transform 0.15s;
 }
-
+.h5p-dialogcards .h5p-card > table {
+  position: relative;
+}
 .h5p-dialogcards .h5p-card > table, 
 .h5p-dialogcards .h5p-card > table > tbody, 
 .h5p-dialogcards .h5p-card > table > tbody > tr, 
@@ -230,4 +233,10 @@
   font-family: H5PFontAwesome4;
   content: "\f054";
   margin-left: 0.1875em;
+}
+
+.h5p-dialogcards .joubel-tip-container {
+  position: absolute;
+  right: 0;
+  top: 0;
 }

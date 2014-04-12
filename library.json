@@ -3,7 +3,7 @@
   "description": "void",
   "majorVersion": 1,
   "minorVersion": 0,
-  "patchVersion": 21,
+  "patchVersion": 22,
   "runnable": 1,
   "author": "Amendor AS",
   "license": "cc-by-sa",
@@ -13,6 +13,13 @@
   ],
   "preloadedJs": [
     {"path": "js/dialogcards.js"}
+  ],
+  "preloadedDependencies": [
+    {
+      "machineName": "H5P.JoubelUI",
+      "majorVersion": 1,
+      "minorVersion": 0
+    }
   ],
   "editorDependencies": [
     {
