@@ -63,7 +63,7 @@ H5P.Dialogcards = (function ($) {
       // Add tip:
       var tip = $this.data('front-tip');
       if (tip !== undefined && tip.trim().length > 0) {
-        $('table', $this).append(H5P.JoubelUI.createTip(tip));
+        $this.append(H5P.JoubelUI.createTip(tip));
       }
     });
     
@@ -195,7 +195,7 @@ H5P.Dialogcards = (function ($) {
       // Add backside tip
       var tip = $c.data('back-tip');
       if (tip !== undefined && tip.trim().length > 0) {
-        $('table',$c).append(H5P.JoubelUI.createTip(tip));
+        $c.append(H5P.JoubelUI.createTip(tip));
       }
     }, 150);
       

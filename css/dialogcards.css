@@ -239,6 +239,6 @@
 
 .h5p-dialogcards .joubel-tip-container {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 1.2em;
+  top: 1em;
 }
