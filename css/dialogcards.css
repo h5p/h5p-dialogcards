@@ -107,10 +107,12 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  background: transparent;
 }
 .h5p-dialogcards .h5p-card > table > tbody > tr > td {
   line-height: 25px;
   padding: 0 5px;
+  text-align: center;
 }
 
 .h5p-dialogcards .h5p-collapse {
