@@ -26,7 +26,7 @@ H5P.Dialogcards = (function ($) {
       description: "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
       next: "Next",
       prev: "Previous",
-      retry: "Try again",
+      retry: "Retry",
       answer: "Turn",
       progressText: "Card @card of @total",
       endComment: "This was the last card. Press Try again to start over.",
@@ -61,10 +61,7 @@ H5P.Dialogcards = (function ($) {
       self.alignText($this);
       
       // Add tip:
-      var tip = $this.data('front-tip');
-      if (tip !== undefined && tip.trim().length > 0) {
-        $this.append(H5P.JoubelUI.createTip(tip));
-      }
+      C.addTipToCard($this, true);
     });
     
     self._$progress = self._$inner.find('.h5p-progress');
@@ -91,6 +88,26 @@ H5P.Dialogcards = (function ($) {
     self.$.on('reset', function () {
       self.reset();
     });
+  };
+  
+  /**
+   * Adds tip to a card
+   * 
+   * @param {jQuery object} $card The card
+   * @param {boolean} isFront True means front, false means back 
+   */
+  C.addTipToCard = function($card, isFront) {
+    // Remove tip:
+    $card.find('.joubel-tip-container').remove();
+    
+    // Add tip
+    var tip = isFront ? $card.data('front-tip') : $card.data('back-tip');
+    
+    console.log($card, tip, isFront);
+    
+    if (tip !== undefined && tip.trim().length > 0) {
+      $card.append(H5P.JoubelUI.createTip(tip));
+    }
   };
   
   /**
@@ -185,7 +202,7 @@ H5P.Dialogcards = (function ($) {
     var self = this;
     var $c = $card.find('.h5p-card').addClass('h5p-collapse');
 
-    // Remove frontside tip:
+    // Removes tip, since it destroys the animation:
     $c.find('.joubel-tip-container').remove();
     
     setTimeout(function () {
@@ -193,10 +210,10 @@ H5P.Dialogcards = (function ($) {
       self.alignText($c, self.params.dialogs[$card.index() - 2].answer);
       
       // Add backside tip
-      var tip = $c.data('back-tip');
-      if (tip !== undefined && tip.trim().length > 0) {
-        $c.append(H5P.JoubelUI.createTip(tip));
-      }
+      // Had to wait a little, if not Chrome will displace tip icon 
+      setTimeout(function () {
+        C.addTipToCard($c, false);
+      }, 300);
     }, 150);
       
     $card.find('.h5p-turn').addClass('h5p-disabled');
@@ -257,10 +274,12 @@ H5P.Dialogcards = (function ($) {
     $cards.each(function (index) {
       var $card = $(this).removeClass('h5p-previous');
       self.alignText($card, self.params.dialogs[$card.index() - 2].text);
+      
+      C.addTipToCard($card.find('.h5p-card'), true);
     });
-    self._$inner.find('.h5p-turn').removeClass('h5p-disabled');      
+    self._$inner.find('.h5p-turn').removeClass('h5p-disabled');
     self._$inner.find('.h5p-endcomment').remove();
-  }
+  };
   
   return C;
 })(H5P.jQuery);
