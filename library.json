@@ -3,7 +3,7 @@
   "description": "void",
   "majorVersion": 1,
   "minorVersion": 0,
-  "patchVersion": 25,
+  "patchVersion": 26,
   "runnable": 1,
   "author": "Amendor AS",
   "license": "cc-by-sa",
@@ -19,6 +19,11 @@
     }
   ],
   "preloadedDependencies": [
+    {
+      "machineName": "FontAwesome",
+      "majorVersion": 4,
+      "minorVersion": 1
+    },
     {
       "machineName": "H5P.JoubelUI",
       "majorVersion": 1,

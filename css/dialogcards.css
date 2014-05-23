@@ -199,7 +199,7 @@
 }
 
 .h5p-dialogcards .h5p-button.h5p-turn:before {
-  font-family: H5PFontAwesome4;
+  font-family: 'H5PFontAwesome4';
   content: "\f021";
   margin-right: 0.1875em;
 }
@@ -210,7 +210,7 @@
 }
 
 .h5p-dialogcards .h5p-button.h5p-prev:before {
-  font-family: H5PFontAwesome4;
+  font-family: 'H5PFontAwesome4';
   content: "\f053";
   margin-right: 0.1875em;
 }
@@ -226,13 +226,13 @@
 }
 
 .h5p-dialogcards .h5p-button.h5p-retry:before {
-  font-family: H5PFontAwesome4;
+  font-family: 'H5PFontAwesome4';
   content: "\f01e";
   margin-right: 0.1875em;
 }
 
 .h5p-dialogcards .h5p-button.h5p-next:after {
-  font-family: H5PFontAwesome4;
+  font-family: 'H5PFontAwesome4';
   content: "\f054";
   margin-left: 0.1875em;
 }
