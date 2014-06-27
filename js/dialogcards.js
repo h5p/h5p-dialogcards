@@ -51,8 +51,8 @@ H5P.Dialogcards = (function ($) {
      ' + C.createCards(self.params.dialogs, self.params.answer) + '\
       <div class="h5p-inner">\
         <div class="h5p-progress"></div>\
-        <div class="h5p-button h5p-prev" role="button" tabindex="1">' + self.params.prev + '</div>\
-        <div class="h5p-button h5p-next" role="button" tabindex="1">' + self.params.next + '</div>\
+        <div class="h5p-button h5p-prev" role="button" tabindex="1" title="' + self.params.prev + '"></div>\
+        <div class="h5p-button h5p-next" role="button" tabindex="1" title="' + self.params.next + '"></div>\
         <div class="h5p-button h5p-retry h5p-disabled" role="button" tabindex="1">' + self.params.retry + '</div>\
       </div>');
       
