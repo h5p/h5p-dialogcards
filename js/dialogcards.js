@@ -103,8 +103,6 @@ H5P.Dialogcards = (function ($) {
     // Add tip
     var tip = isFront ? $card.data('front-tip') : $card.data('back-tip');
     
-    console.log($card, tip, isFront);
-    
     if (tip !== undefined && tip.trim().length > 0) {
       $card.append(H5P.JoubelUI.createTip(tip));
     }
@@ -244,7 +242,7 @@ H5P.Dialogcards = (function ($) {
     }
     
     if (text !== undefined) {
-      $td.text(text);
+      $td.html(text);
     }
     $t.css('height', '');
     if ($t.height() > self._oneLineHeight) {
