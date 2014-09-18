@@ -242,7 +242,7 @@ H5P.Dialogcards = (function ($) {
     }
     
     if (text !== undefined) {
-      $td.html(text);
+      $td.text(text);
     }
     $t.css('height', '');
     if ($t.height() > self._oneLineHeight) {
