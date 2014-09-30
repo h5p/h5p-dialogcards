@@ -109,6 +109,7 @@
   line-height: 25px;
   padding: 0 5px;
   text-align: center;
+  vertical-align: middle;
 }
 
 .h5p-dialogcards .h5p-collapse {
