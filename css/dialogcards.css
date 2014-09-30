@@ -1,8 +1,4 @@
 .h5p-dialogcards .h5p-title {
-  font-family: Verdana, sans-serif;
-  text-align: left;
-  margin: 0;
-  font-size: 16px;
   border-bottom: 0.1em solid #ddd;
   padding: 0.375em 0 0.375em;
 }
@@ -99,9 +95,9 @@
 .h5p-dialogcards .h5p-card > table {
   position: relative;
 }
-.h5p-dialogcards .h5p-card > table, 
-.h5p-dialogcards .h5p-card > table > tbody, 
-.h5p-dialogcards .h5p-card > table > tbody > tr, 
+.h5p-dialogcards .h5p-card > table,
+.h5p-dialogcards .h5p-card > table > tbody,
+.h5p-dialogcards .h5p-card > table > tbody > tr,
 .h5p-dialogcards .h5p-card > table > tbody > tr > td {
   border: 0;
   margin: 0;
@@ -159,7 +155,7 @@
   background: -webkit-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* Chrome10+,Safari5.1+ */
   background: -o-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* Opera 11.10+ */
   background: -ms-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* IE10+ */
-  
+
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
