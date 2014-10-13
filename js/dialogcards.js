@@ -30,7 +30,6 @@ H5P.Dialogcards = (function ($) {
       answer: "Turn",
       progressText: "Card @card of @total",
       endComment: "This was the last card. Press Try again to start over.",
-      postUserStatistics: (H5P.postUserStatistics === true)
     }, params);
     
     self._current = -1;
@@ -80,12 +79,12 @@ H5P.Dialogcards = (function ($) {
     });
     
     self._$retry = self._$inner.find('.h5p-retry').click(function () {
-      self.$.trigger('reset');
+      self.triggerH5PEvent('reset');
     });
     
     self.updateNavigation();
     
-    self.$.on('reset', function () {
+    self.registerH5PEventListener('reset', function () {
       self.reset();
     });
   };
