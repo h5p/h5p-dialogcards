@@ -23,6 +23,8 @@
     "widget": "verticalTabs",
     "label": "Dialogs",
     "entity": "dialog",
+    "min": 1,
+    "defaultNum": 1,
     "field": {
       "name": "question",
       "type": "group",
