@@ -16,7 +16,7 @@ H5P.Dialogcards = (function ($) {
    */
   function C(params, id) {
     var self = this;
-    
+
     self.$ = $(self);
     self.id = id;
 
@@ -32,10 +32,10 @@ H5P.Dialogcards = (function ($) {
       endComment: "This was the last card. Press Try again to start over.",
       postUserStatistics: (H5P.postUserStatistics === true)
     }, params);
-    
+
     self._current = -1;
     self._turned = [];
-  };
+  }
 
   /**
    * Attach h5p inside the given container.
@@ -44,7 +44,7 @@ H5P.Dialogcards = (function ($) {
    */
   C.prototype.attach = function ($container) {
     var self = this;
-    
+
     self._$inner = $container.addClass('h5p-dialogcards').html('\
       <div class="h5p-title">' + self.params.title + '</div>\
       <div class="h5p-description">' + self.params.description + '</div>\
@@ -160,45 +160,45 @@ H5P.Dialogcards = (function ($) {
         self._$retry.removeClass('h5p-disabled');
       }
     }
-    
+
     if (self._$current.prev('.h5p-cardwrap').length) {
       self._$prev.removeClass('h5p-disabled');
     }
     else {
       self._$prev.addClass('h5p-disabled');
     }
-    
+
     self._$progress.text(self.params.progressText.replace('@card', self._$current.index() - 1).replace('@total', self.params.dialogs.length));
   };
-  
+
   /**
    * Show next card.
    */
   C.prototype.nextCard = function () {
     var self = this;
     var $next = self._$current.next('.h5p-cardwrap');
-    
+
     if ($next.length) {
       self._$current.removeClass('h5p-current').addClass('h5p-previous');
       self._$current = $next.addClass('h5p-current');
       self.updateNavigation();
     }
   };
-  
+
   /**
    * Show previous card.
    */
   C.prototype.prevCard = function () {
     var self = this;
     var $prev = self._$current.prev('.h5p-cardwrap');
-    
+
     if ($prev.length) {
       self._$current.removeClass('h5p-current');
       self._$current = $prev.addClass('h5p-current').removeClass('h5p-previous');
       self.updateNavigation();
     }
   };
-  
+
   /**
    * Show the opposite site of the card.
    *
@@ -248,7 +248,7 @@ H5P.Dialogcards = (function ($) {
       $td.text('M'); // Test char.
       self._oneLineHeight = $t.height();
     }
-    
+
     if (text !== undefined) {
       $td.text(text);
     }
