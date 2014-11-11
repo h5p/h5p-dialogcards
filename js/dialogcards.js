@@ -243,14 +243,14 @@ H5P.Dialogcards = (function ($) {
 
     if (self._oneLineHeight === undefined) {
       if (text === undefined) {
-        text = $td.text();
+        text = $td.html();
       }
       $td.text('M'); // Test char.
       self._oneLineHeight = $t.height();
     }
 
     if (text !== undefined) {
-      $td.text(text);
+      $td.html(text);
     }
     $t.css('height', '');
     if ($t.height() > self._oneLineHeight) {
