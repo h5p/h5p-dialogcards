@@ -9,19 +9,26 @@
 }
 .h5p-dialogcards .h5p-inner {
   margin: auto;
-  width: 460px;
-  margin-top: 200px;
   overflow: hidden;
-  padding: 20px;
-  min-height: 4em; /* Make sure progress is shown even if only one card */
+  line-height: 2em;
+  padding: 1em;
+  margin-top: 0.5em;
+  max-width: 32em;
+
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
 }
 
 .h5p-dialogcards .h5p-cardwrap {
-  margin-top: 15px;
+  margin-top: 1em;
   position: absolute;
   left: 100%;
   width: 100%;
   visibility: hidden;
+  height: inherit;
+
   -webkit-transition: visibility 0s 0.3s, left 300ms;
   -moz-transition: visibility 0s 0.3s, left 300ms;
   -ms-transition: visibility 0s 0.3s, left 300ms;
@@ -30,6 +37,7 @@
 .h5p-dialogcards .h5p-cardwrap.h5p-current {
   visibility: visible;
   left: 0;
+
   -webkit-transition: left 300ms;
   -moz-transition: left 300ms;
   -ms-transition: left 300ms;
@@ -40,9 +48,11 @@
 }
 
 .h5p-dialogcards .h5p-cardholder {
-  width: 500px;
-  height: 200px;
   margin: auto;
+  text-align: center;
+  max-width: 32em;
+  height: 100%;
+  padding-bottom: 0.5em;
 
   background: #f4f4f4; /* Old browsers */
   background: -moz-linear-gradient(top, #f4f4f4 0%, #e0e0e0 100%); /* FF3.6+ */
@@ -52,9 +62,9 @@
   background: -ms-linear-gradient(top, #f4f4f4 0%,#e0e0e0 100%); /* IE10+ */
   background: linear-gradient(to bottom, #f4f4f4 0%,#e0e0e0 100%); /* W3C */
 
-  -webkit-box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.5);
-  -moz-box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.5);
-  box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.5);
+  -webkit-box-shadow: 0em 0em 0.4em rgba(50, 50, 50, 0.5);
+  -moz-box-shadow: 0em 0em 0.4em rgba(50, 50, 50, 0.5);
+  box-shadow: 0em 0em 0.4em rgba(50, 50, 50, 0.5);
 
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
@@ -65,22 +75,26 @@
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0);
+
+  -webkit-transition: -webkit-transform 0.15s;
+  -moz-transition: -moz-transform 0.15s;
+  -ms-transform: -ms-transform 0.15s;
+  transition: transform 0.15s;
 }
 
 .h5p-dialogcards .h5p-card {
   overflow: hidden;
-  margin: 18px 18px 82px;
+  margin: 1em 1em;
   width: auto;
-  width: 460px;
-  height: 100px;
+  height: 6em;
   display: block;
   font-weight: normal;
   background: white;
   text-align: center;
 
-  -webkit-box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.5);
-  -moz-box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.5);
-  box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.5);
+  -webkit-box-shadow: 0em 0em 0.4em rgba(50, 50, 50, 0.5);
+  -moz-box-shadow: 0em 0em 0.4em rgba(50, 50, 50, 0.5);
+  box-shadow: 0em 0em 0.4em rgba(50, 50, 50, 0.5);
 
   -moz-border-radius: 0.4em;
   -webkit-border-radius: 0.4em;
@@ -106,8 +120,8 @@
   background: transparent;
 }
 .h5p-dialogcards .h5p-card > table > tbody > tr > td {
-  line-height: 25px;
-  padding: 0 5px;
+  line-height: 1.5em;
+  padding: 0 0.4em;
   text-align: center;
   vertical-align: middle;
 }
@@ -123,7 +137,7 @@
   font-size: 1em;
   color: #666;
   text-align: center;
-  margin-top: -54px;
+  margin: 0em 1em;
 }
 
 .h5p-dialogcards .h5p-middle {
@@ -134,11 +148,9 @@
 }
 
 .h5p-dialogcards .h5p-button {
-  position: relative;
+  position: absolute;
   cursor: pointer;
   font-size: 1em;
-  max-width: 10em;
-  min-width: 6em;
   display: inline-block;
   padding: 0.125em 0.6875em;
   border: 0.1875em solid #fff;
@@ -177,33 +189,23 @@
 }
 
 .h5p-dialogcards .h5p-progress {
-  text-align: center;
-  margin-top: 6.5em;
-  position: absolute;
-  width: 460px;
-}
-
-.h5p-dialogcards .h5p-progress {
-  margin-top: 2.625em;
   color: #999;
   text-align: center;
 }
 
 .h5p-dialogcards .h5p-button.h5p-turn {
-  position: absolute;
-  left: 190px;
-  top: 144px;
+  position: relative;
+  padding: 0.1em 1.5em 0.1em 1.5em;
 }
 
 .h5p-dialogcards .h5p-button.h5p-turn:before {
   font-family: 'H5PFontAwesome4';
   content: "\f021";
-  margin-right: 0.1875em;
+  margin-right: 0.5em;
 }
 
 .h5p-dialogcards .h5p-button.h5p-prev {
-  margin-top: 2.375em;
-  float: left;
+  left: 1em;
 }
 
 .h5p-dialogcards .h5p-button.h5p-prev:before {
@@ -213,13 +215,11 @@
 }
 
 .h5p-dialogcards .h5p-button.h5p-next {
-  margin-top: 2.375em;
-  float: right;
+  right: 1em;
 }
 
 .h5p-dialogcards .h5p-button.h5p-retry {
-  margin-top: 2.375em;
-  float: right;
+  right: 1em;
 }
 
 .h5p-dialogcards .h5p-button.h5p-retry:before {
@@ -238,4 +238,11 @@
   position: absolute;
   right: 1.5em;
   top: 1.2em;
+}
+
+.h5p-dialogcards .h5p-cardwrap-set {
+  margin: auto;
+  text-align: center;
+  padding-bottom: 1em;
+  max-width: 32em;
 }
