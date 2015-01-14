@@ -304,7 +304,6 @@ H5P.Dialogcards = (function ($) {
     //Find max required height for all cards
     self._$cardwrapperSet.children().each( function (cardWrapper) {
       var wrapperHeight = $(this).css('height', 'initial').outerHeight();
-      console.log("wrapperheight: "+wrapperHeight);
       $(this).css('height', 'inherit');
       maxHeight = wrapperHeight > maxHeight ? wrapperHeight : maxHeight;
 
