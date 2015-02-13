@@ -50,12 +50,14 @@ H5P.Dialogcards = (function ($) {
     self._$inner = $container.addClass('h5p-dialogcards').html('\
       <div class="h5p-title">' + self.params.title + '</div>\
       <div class="h5p-description">' + self.params.description + '</div>\
-     ' + C.createCards(self.params.dialogs, self.params.answer) + '\
+      <div class="h5p-cardwrap-set">'
+      + C.createCards(self.params.dialogs, self.params.answer) + '\
+      </div>\
       <div class="h5p-inner">\
-        <div class="h5p-progress"></div>\
         <div class="h5p-button h5p-prev" role="button" tabindex="1" title="' + self.params.prev + '"></div>\
         <div class="h5p-button h5p-next" role="button" tabindex="1" title="' + self.params.next + '"></div>\
         <div class="h5p-button h5p-retry h5p-disabled" role="button" tabindex="1">' + self.params.retry + '</div>\
+        <div class="h5p-progress"></div>\
       </div>');
 
     self._$inner.find('.h5p-card').each(function (i) {
@@ -66,6 +68,7 @@ H5P.Dialogcards = (function ($) {
       self.addTipToCard($this, 'front', i);
     });
 
+    self._$cardwrapperSet = self._$inner.find('.h5p-cardwrap-set');
     self._$progress = self._$inner.find('.h5p-progress');
     self._$current = self._$inner.find('.h5p-current');
 
@@ -90,6 +93,8 @@ H5P.Dialogcards = (function ($) {
     self.on('reset', function () {
       self.reset();
     });
+
+    self.resize();
   };
 
   /**
@@ -108,8 +113,9 @@ H5P.Dialogcards = (function ($) {
     }
 
     // Make sure we have an index
+
     if (index === undefined) {
-      index = $card.parent().parent().index() - 2;
+      index = $card.parent().parent().index();
     }
 
     // Remove any old tips
@@ -170,7 +176,7 @@ H5P.Dialogcards = (function ($) {
       self._$prev.addClass('h5p-disabled');
     }
 
-    self._$progress.text(self.params.progressText.replace('@card', self._$current.index() - 1).replace('@total', self.params.dialogs.length));
+    self._$progress.text(self.params.progressText.replace('@card', self._$current.index() + 1).replace('@total', self.params.dialogs.length));
   };
 
   /**
@@ -208,32 +214,33 @@ H5P.Dialogcards = (function ($) {
    */
   C.prototype.turnCard = function ($card) {
     var self = this;
-    var $c = $card.find('.h5p-card').addClass('h5p-collapse');
+    var $c = $card.find('.h5p-card');
+    var $ch = $card.find('.h5p-cardholder').addClass('h5p-collapse');
 
     // Removes tip, since it destroys the animation:
     $c.find('.joubel-tip-container').remove();
 
     setTimeout(function () {
-      $c.removeClass('h5p-collapse');
-      self.alignText($c, self.params.dialogs[$card.index() - 2].answer);
+      $ch.removeClass('h5p-collapse');
+      self.alignText($c, self.params.dialogs[$card.index()].answer);
 
       // Add backside tip
       // Had to wait a little, if not Chrome will displace tip icon
       setTimeout(function () {
         self.addTipToCard($c, 'back');
+        if (!self._$current.next('.h5p-cardwrap').length) {
+          $card.find('.h5p-cardholder').append('<div class="h5p-endcomment">' + self.params.endComment + '</div>');
+          self._$retry.removeClass('h5p-disabled');
+        }
       }, 300);
-    }, 150);
+    }, 200);
 
     $card.find('.h5p-turn').addClass('h5p-disabled');
-    if (!self._$current.next('.h5p-cardwrap').length) {
-      $card.find('.h5p-cardholder').append('<div class="h5p-endcomment">' + self.params.endComment + '</div>');
-      self._$retry.removeClass('h5p-disabled');
-    }
   };
 
   /**
    * Use a table to vertically align text in the middle.
-   * Alignes text to the left if it's multiple lines.
+   * Aligns text to the left if it's multiple lines.
    *
    * @param {jQuery} $card
    * @param {String} text
@@ -281,12 +288,39 @@ H5P.Dialogcards = (function ($) {
 
     $cards.each(function (index) {
       var $card = $(this).removeClass('h5p-previous');
-      self.alignText($card, self.params.dialogs[$card.index() - 2].text);
+      self.alignText($card, self.params.dialogs[$card.index()].text);
 
       self.addTipToCard($card.find('.h5p-card'), 'front', index);
     });
     self._$inner.find('.h5p-turn').removeClass('h5p-disabled');
     self._$inner.find('.h5p-endcomment').remove();
+  };
+
+  /**
+   * Update the dimensions of the task when resizing the task.
+   */
+  C.prototype.resize = function () {
+    var self = this;
+    var maxHeight = 0;
+
+    //Find max required height for all cards
+    self._$cardwrapperSet.children().each( function (cardWrapper) {
+      var wrapperHeight = $(this).css('height', 'initial').outerHeight();
+      $(this).css('height', 'inherit');
+      maxHeight = wrapperHeight > maxHeight ? wrapperHeight : maxHeight;
+
+      //Check height with endcomment
+      if ((!$(this).next('.h5p-cardwrap').length) && (!$(this).find('.h5p-endcomment')[0])) {
+        $(this).find('.h5p-turn').addClass('h5p-disabled');
+        $(this).find('.h5p-cardholder').append('<div class="h5p-endcomment">' + self.params.endComment + '</div>');
+        var initialHeight = $(this).find('.h5p-cardholder').css('height', 'initial').outerHeight();
+        maxHeight = initialHeight > maxHeight ? initialHeight : maxHeight;
+        $(this).find('.h5p-cardholder').css('height', 'inherit');
+        $(this).find('.h5p-turn').removeClass('h5p-disabled');
+        $(this).find('.h5p-endcomment').remove();
+      }
+    });
+    self._$cardwrapperSet.css('height', maxHeight + 'px');
   };
 
   return C;
