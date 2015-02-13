@@ -16,9 +16,9 @@ H5P.Dialogcards = (function ($) {
    */
   function C(params, id) {
     var self = this;
-
-    self.$ = $(self);
-    self.id = id;
+    H5P.EventDispatcher.call(this);
+    
+    self.contentId = self.id = id;
 
     // Set default behavior.
     self.params = $.extend({
@@ -30,12 +30,14 @@ H5P.Dialogcards = (function ($) {
       answer: "Turn",
       progressText: "Card @card of @total",
       endComment: "This was the last card. Press Try again to start over.",
-      postUserStatistics: (H5P.postUserStatistics === true)
     }, params);
 
     self._current = -1;
     self._turned = [];
   }
+
+  C.prototype = Object.create(H5P.EventDispatcher.prototype);
+  C.prototype.constructor = C;
 
   /**
    * Attach h5p inside the given container.
@@ -80,12 +82,12 @@ H5P.Dialogcards = (function ($) {
     });
 
     self._$retry = self._$inner.find('.h5p-retry').click(function () {
-      self.$.trigger('reset');
+      self.trigger('reset');
     });
 
     self.updateNavigation();
-
-    self.$.on('reset', function () {
+    
+    self.on('reset', function () {
       self.reset();
     });
   };
