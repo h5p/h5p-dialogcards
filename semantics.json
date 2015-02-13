@@ -20,7 +20,12 @@
   {
     "name": "dialogs",
     "type": "list",
-    "widget": "verticalTabs",
+    "widgets": [
+      {
+        "name": "VerticalTabs",
+        "label": "Default"
+      }
+    ],
     "label": "Dialogs",
     "entity": "dialog",
     "field": {
