@@ -2,11 +2,11 @@
   "title": "Dialog cards",
   "description": "void",
   "majorVersion": 1,
-  "minorVersion": 0,
-  "patchVersion": 36,
+  "minorVersion": 1,
+  "patchVersion": 0,
   "runnable": 1,
-  "author": "Amendor AS",
-  "license": "cc-by-sa",
+  "author": "Joubel AS",
+  "license": "MIT",
   "machineName": "H5P.Dialogcards",
   "preloadedCss": [
     {
@@ -27,14 +27,14 @@
     {
       "machineName": "H5P.JoubelUI",
       "majorVersion": 1,
-      "minorVersion": 0
+      "minorVersion": 1
     }
   ],
   "editorDependencies": [
     {
       "machineName": "H5PEditor.VerticalTabs",
       "majorVersion": 1,
-      "minorVersion": 0
+      "minorVersion": 1
     }
   ]
 }
