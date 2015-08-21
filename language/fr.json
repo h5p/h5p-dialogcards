@@ -1,0 +1,71 @@
+{
+  "semantics": [
+    {
+      "label": "Titre"
+    },
+    {
+      "label": "Consigne",
+      "default": "Classez par paires et complétez les phrases où vous intégrerez  l'expressions ci-dessous.<br/>Exemple: J'aurais du dire oui pourtant j'ai gardé le silence."
+    },
+    {
+      "widgets": [
+        {
+          "label": "Par défaut"
+        }
+      ],
+      "label": "Dialogues",
+      "entity": "dialogue",
+      "field": {
+        "label": "Question",
+        "fields": [
+          {
+            "label": "Texte",
+            "description": "Allusion pour la première partie du dialogue"
+          },
+          {
+            "label": "Réponse",
+            "description": "Allusion pour la seconde partie du dialogue"
+          },
+          {
+            "label": "Aide",
+            "fields": [
+              {
+                "label": "Aide pour le texte",
+                "description": "Aide pour la première partie du dialogue"
+              },
+              {
+                "label": "Aide pour la réponse",
+                "description": "Aide pour la seconde partie du dialogue"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "Texte pour le bouton retourner",
+      "default": "Retourner"
+    },
+    {
+      "label": "Texte pour le bouton suivant",
+      "default": "Suivant"
+    },
+    {
+      "label": "Texte pour le bouton précédent",
+      "default": "Précédent"
+    },
+    {
+      "label": "Texte pour le bouton Réessayer",
+      "default": "Réessayer"
+    },
+    {
+      "label": "Texte de progression",
+      "description": "Les variables disponibles sont @card and @total.",
+      "default": "Carte @carte de @total"
+    },
+    {
+      "label": "Texte quand on retourne la dernière carte",
+      "default": "Ceci est la dernière carte. taper Réessayer pour recommencer."
+    }
+  ]
+}
