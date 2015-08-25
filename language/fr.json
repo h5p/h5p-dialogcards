@@ -4,8 +4,7 @@
       "label": "Titre"
     },
     {
-      "label": "Consigne",
-      "default": "Classez par paires et complétez les phrases où vous intégrerez  l'expressions ci-dessous.<br/>Exemple: J'aurais du dire oui pourtant j'ai gardé le silence."
+      "label": "Consigne"
     },
     {
       "widgets": [
@@ -43,29 +42,23 @@
       }
     },
     {
-      "label": "Texte pour le bouton retourner",
-      "default": "Retourner"
+      "label": "Texte pour le bouton retourner"
     },
     {
-      "label": "Texte pour le bouton suivant",
-      "default": "Suivant"
+      "label": "Texte pour le bouton suivant"
     },
     {
-      "label": "Texte pour le bouton précédent",
-      "default": "Précédent"
+      "label": "Texte pour le bouton précédent"
     },
     {
-      "label": "Texte pour le bouton Réessayer",
-      "default": "Réessayer"
+      "label": "Texte pour le bouton Réessayer"
     },
     {
       "label": "Texte de progression",
-      "description": "Les variables disponibles sont @card and @total.",
-      "default": "Carte @carte de @total"
+      "description": "Les variables disponibles sont @card and @total."
     },
     {
-      "label": "Texte quand on retourne la dernière carte",
-      "default": "Ceci est la dernière carte. taper Réessayer pour recommencer."
+      "label": "Texte quand on retourne la dernière carte"
     }
   ]
 }
