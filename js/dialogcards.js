@@ -17,7 +17,7 @@ H5P.Dialogcards = (function ($) {
   function C(params, id) {
     var self = this;
     H5P.EventDispatcher.call(this);
-    
+
     self.contentId = self.id = id;
 
     // Set default behavior.
@@ -47,18 +47,18 @@ H5P.Dialogcards = (function ($) {
   C.prototype.attach = function ($container) {
     var self = this;
 
-    self._$inner = $container.addClass('h5p-dialogcards').html('\
-      <div class="h5p-title">' + self.params.title + '</div>\
-      <div class="h5p-description">' + self.params.description + '</div>\
-      <div class="h5p-cardwrap-set">'
-      + C.createCards(self.params.dialogs, self.params.answer) + '\
-      </div>\
-      <div class="h5p-inner">\
-        <div class="h5p-button h5p-prev" role="button" tabindex="1" title="' + self.params.prev + '"></div>\
-        <div class="h5p-button h5p-next" role="button" tabindex="1" title="' + self.params.next + '"></div>\
-        <div class="h5p-button h5p-retry h5p-disabled" role="button" tabindex="1">' + self.params.retry + '</div>\
-        <div class="h5p-progress"></div>\
-      </div>');
+    self._$inner = $container.addClass('h5p-dialogcards').html(
+      '<div class="h5p-title">' + self.params.title + '</div>' +
+      '<div class="h5p-description">' + self.params.description + '</div>' +
+      '<div class="h5p-cardwrap-set">' +
+        C.createCards(self.params.dialogs, self.params.answer) +
+      '</div>' +
+      '<div class="h5p-inner">' +
+        '<div class="h5p-button h5p-prev" role="button" tabindex="1" title="' + self.params.prev + '"></div>' +
+        '<div class="h5p-button h5p-next" role="button" tabindex="1" title="' + self.params.next + '"></div>' +
+        '<div class="h5p-button h5p-retry h5p-disabled" role="button" tabindex="1">' + self.params.retry + '</div>' +
+        '<div class="h5p-progress"></div>' +
+      '</div>');
 
     self._$inner.find('.h5p-card').each(function (i) {
       var $this = $(this);
@@ -89,7 +89,7 @@ H5P.Dialogcards = (function ($) {
     });
 
     self.updateNavigation();
-    
+
     self.on('reset', function () {
       self.reset();
     });
@@ -141,13 +141,13 @@ H5P.Dialogcards = (function ($) {
   C.createCards = function (cards, turn) {
     var html = '';
     for (var i = 0; i < cards.length; i++) {
-      html += '\
-        <div class="h5p-cardwrap' + (i === 0 ? ' h5p-current' : '') + '">\
-          <div class="h5p-cardholder">\
-            <div class="h5p-card"><table><tr><td>' + cards[i].text + '</td></tr></table></div>\
-            <div class="h5p-button h5p-turn" role="button">' + turn + '</div>\
-          </div>\
-        </div>';
+      html +=
+        '<div class="h5p-cardwrap' + (i === 0 ? ' h5p-current' : '') + '">' +
+          '<div class="h5p-cardholder">' +
+            '<div class="h5p-card"><table><tr><td>' + cards[i].text + '</td></tr></table></div>' +
+            '<div class="h5p-button h5p-turn" role="button">' + turn + '</div>' +
+          '</div>' +
+        '</div>';
     }
     return html;
   };
