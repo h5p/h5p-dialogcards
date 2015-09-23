@@ -2,6 +2,14 @@
   border-bottom: 0.1em solid #ddd;
   padding: 0.375em 0 0.375em;
 }
+.h5p-dialogcards .h5p-title p:first-child,
+.h5p-dialogcards .h5p-card p:first-child {
+  margin-top: 0;
+}
+.h5p-dialogcards .h5p-title p:last-child,
+.h5p-dialogcards .h5p-card p:last-child {
+  margin-bottom: 0;
+}
 
 .h5p-dialogcards {
   overflow: hidden;
@@ -125,6 +133,9 @@
   text-align: center;
   vertical-align: middle;
 }
+.h5p-dialogcards .h5p-card > table > tbody > tr > td.h5p-left {
+  text-align: left;
+}
 
 .h5p-dialogcards .h5p-collapse {
   -webkit-transform: scale(0,1);
@@ -142,9 +153,6 @@
 
 .h5p-dialogcards .h5p-middle {
   display: table-cell;
-}
-.h5p-dialogcards .h5p-left {
-  text-align: left;
 }
 
 .h5p-dialogcards .h5p-button {

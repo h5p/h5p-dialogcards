@@ -2,7 +2,9 @@
   {
     "name": "title",
     "type": "text",
-    "label": "Title"
+    "widget": "html",
+    "label": "Title",
+    "tags": ["p", "br", "strong", "em"]
   },
   {
     "name": "description",
@@ -10,12 +12,7 @@
     "widget": "html",
     "label": "Task description",
     "default": "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
-    "tags": [
-      "p",
-      "br",
-      "strong",
-      "em"
-    ]
+    "tags": ["p", "br", "strong", "em"]
   },
   {
     "name": "dialogs",
@@ -38,14 +35,18 @@
         {
           "name": "text",
           "type": "text",
+          "widget": "html",
           "label": "Text",
-          "description": "Hint for the first part of the dialogue"
+          "description": "Hint for the first part of the dialogue",
+          "tags": ["p", "br", "strong", "em"]
         },
         {
           "name": "answer",
           "type": "text",
+          "widget": "html",
           "label": "Answer",
-          "description": "Hint for the second part of the dialogue"
+          "description": "Hint for the second part of the dialogue",
+          "tags": ["p", "br", "strong", "em"]
         },
         {
           "name": "tips",
@@ -55,16 +56,20 @@
             {
               "name": "front",
               "type": "text",
+              "widget": "html",
               "label": "Tip for text",
               "optional": true,
-              "description": "Tip for the first part of the dialogue"
+              "description": "Tip for the first part of the dialogue",
+              "tags": ["p", "br", "strong", "em"]
             },
             {
               "name": "back",
               "type": "text",
+              "widget": "html",
               "label": "Tip for answer",
               "optional": true,
-              "description": "Tip for the second part of the dialogue"
+              "description": "Tip for the second part of the dialogue",
+              "tags": ["p", "br", "strong", "em"]
             }
           ]
         }
