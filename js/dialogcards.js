@@ -50,24 +50,21 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
     self.$inner = $container.append($('' +
       '<div class="h5p-title">' + self.params.title + '</div>' +
-      '<div class="h5p-description">' + self.params.description + '</div>' +
-      '<div class="h5p-cardwrap-set"></div>' +
-      '<div class="h5p-footer"></div>'
+      '<div class="h5p-description">' + self.params.description + '</div>'
       ));
 
-    self.$cardwrapperSet = self.$inner.children('.h5p-cardwrap-set');
-    self.createCards(self.params.dialogs);
-    self.$progress = self.$inner.find('.h5p-progress');
-    self.$current = self.$inner.find('.h5p-current');
+    self.$cardwrapperSet = self.createCards(self.params.dialogs)
+      .appendTo(self.$inner);
 
+    self.createFooter()
+      .appendTo(self.$inner);
+
+    // Add tips
     self.$inner.find('.h5p-card-content').each(function (i) {
-      var $this = $(this);
-
-      // Add tip:
-      self.addTipToCard($this, 'front', i);
+      self.addTipToCard($(this), 'front', i);
     });
 
-    self.createFooter();
+
     self.updateNavigation();
 
     self.on('reset', function () {
@@ -79,11 +76,15 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   };
 
   /**
-   * Create footer buttons
+   * Create footer/navigation line
+   *
+   * @returns {*|jQuery|HTMLElement} Footer element
    */
   C.prototype.createFooter = function () {
     var self = this;
-    var $footer = self.$inner.find('.h5p-footer');
+    var $footer = $('<div>', {
+      'class': 'h5p-footer'
+    });
 
     self.$prev = JoubelUI.createButton({
       'class': 'h5p-footer-button h5p-prev truncated',
@@ -109,6 +110,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.$progress = $('<div>', {
       'class': 'h5p-progress'
     }).appendTo($footer);
+
+    return $footer
   };
 
   /**
@@ -117,7 +120,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   C.prototype.updateImageSize = function () {
     var self = this;
 
-    // Find highest image and set task height.
+    // Find highest card content
     var height = 180;
     var j;
     for (j = 0; j < self.$images.length; j++) {
@@ -127,6 +130,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         continue;
       }
 
+      $image.parent().css('height', 'auto');
       var imageHeight = $image.height();
       if (imageHeight > height) {
         height = imageHeight;
@@ -135,10 +139,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     var relativeImageHeight = height / parseFloat(self.$inner.css('font-size'));
     self.$images.forEach(function ($img) {
-      $img.css('height', relativeImageHeight + 'em');
+      $img.parent().css('height', relativeImageHeight + 'em');
     });
-
-    self.resize();
   };
 
   /**
@@ -176,35 +178,49 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   };
 
   /**
-   * Creates html for all the cards.
-   * Uses a table to center text vertically.
+   * Creates all cards and appends them to card wrapper.
    *
-   * @param {Array} cards
-   * @param {String} turn button text
+   * @param {Array} cards Card parameters
+   * @returns {*|jQuery|HTMLElement} Card wrapper set
    */
   C.prototype.createCards = function (cards) {
     var self = this;
     var loaded = 0;
+
+    var $cardWrapperSet = $('<div>', {
+      'class': 'h5p-cardwrap-set'
+    });
+
     var load = function () {
       loaded++;
       if (loaded === self.params.dialogs.length) {
-        self.updateImageSize();
+        self.resize();
       }
     };
 
 
     for (var i = 0; i < cards.length; i++) {
-      var $cardWrapper = self.createCard(cards[i], load)
-        .toggleClass('h5p-current', i === 0);
-      self.$cardwrapperSet.append($cardWrapper);
+      var $cardWrapper = self.createCard(cards[i], load);
+
+      // Set current card
+      if (i === 0) {
+        $cardWrapper.addClass('h5p-current');
+        self.$current = $cardWrapper;
+      }
+
+      $cardWrapperSet.append($cardWrapper);
     }
 
-    if (self.hasAudio) {
-      self.$cardwrapperSet.find('.h5p-audio-wrapper')
-        .addClass('expand');
-    }
+    return $cardWrapperSet;
   };
 
+  /**
+   * Create a single card card
+   *
+   * @param {Object} card Card parameters
+   * @param {Function} loadCallback Function to call when loading image
+   * @returns {*|jQuery|HTMLElement} Card wrapper
+   */
   C.prototype.createCard = function (card, loadCallback) {
     var self = this;
     var $cardWrapper = $('<div>', {
@@ -225,6 +241,13 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
   };
 
+  /**
+   * Create content for a card
+   *
+   * @param {Object} card Card parameters
+   * @param {Function} loadCallback Function to call when loading image
+   * @returns {*|jQuery|HTMLElement} Card content wrapper
+   */
   C.prototype.createCardContent = function (card, loadCallback) {
     var self = this;
     var $cardContent = $('<div>', {
@@ -233,7 +256,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     self.createCardImage(card, loadCallback)
       .appendTo($cardContent);
-
 
     var $cardTextWrapper = $('<div>', {
       'class': 'h5p-card-text-wrapper'
@@ -251,9 +273,18 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'html': card.text
     }).appendTo($cardTextInner);
 
+    if (card.audio || card.text) {
+      $cardTextWrapper.addClass('show');
+    }
+
     return $cardContent;
   };
 
+  /**
+   * Create card footer
+   *
+   * @returns {*|jQuery|HTMLElement} Card footer element
+   */
   C.prototype.createCardFooter = function () {
     var self = this;
     var $cardFooter = $('<div>', {
@@ -270,6 +301,13 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     return $cardFooter;
   };
 
+  /**
+   * Create card image
+   *
+   * @param {Object} card Card parameters
+   * @param {Function} loadCallback Function to call when loading image
+   * @returns {*|jQuery|HTMLElement} Card image wrapper
+   */
   C.prototype.createCardImage = function (card, loadCallback) {
     var self = this;
     var $image;
@@ -290,6 +328,12 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     return $imageWrapper;
   };
 
+  /**
+   * Create card audio
+   *
+   * @param {Object} card Card parameters
+   * @returns {*|jQuery|HTMLElement} Card audio element
+   */
   C.prototype.createCardAudio = function (card) {
     var self = this;
     var $audioWrapper = $('<div>', {
@@ -302,7 +346,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       };
       var audio = new Audio(audioDefaults, self.id);
       audio.attach($audioWrapper);
-      self.hasAudio = true;
     }
     else {
       $audioWrapper.addClass('hide');
@@ -397,11 +440,19 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     $card.find('.h5p-turn').addClass('h5p-disabled');
   };
 
+  /**
+   * Hide audio button
+   *
+   * @param $card
+   */
   C.prototype.removeAudio = function ($card) {
     $card.find('.h5p-audio-inner')
       .addClass('hide');
   };
 
+  /**
+   * Show all audio buttons
+   */
   C.prototype.showAllAudio = function () {
     var self = this;
     self.$cardwrapperSet.find('.h5p-audio-inner')
@@ -437,7 +488,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var maxHeight = 0;
 
     //Find max required height for all cards
-    self.$cardwrapperSet.children().each( function (cardWrapper) {
+    self.$cardwrapperSet.children().each( function () {
+      self.updateImageSize();
       var wrapperHeight = $(this).css('height', 'initial').outerHeight();
       $(this).css('height', 'inherit');
       maxHeight = wrapperHeight > maxHeight ? wrapperHeight : maxHeight;
