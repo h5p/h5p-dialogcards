@@ -7,22 +7,17 @@
   overflow: hidden;
   position: relative;
 }
-.h5p-dialogcards .h5p-inner {
+.h5p-dialogcards .h5p-footer {
   margin: auto;
   overflow: hidden;
   line-height: 2em;
   padding: 1em;
-  margin-top: 0.5em;
+  margin-top: 1.5em;
   max-width: 32em;
-
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  transform: translateX(0);
+  position: relative;
 }
 
 .h5p-dialogcards .h5p-cardwrap {
-  margin-top: 1em;
   position: absolute;
   left: 100%;
   width: 100%;
@@ -30,8 +25,6 @@
   height: inherit;
 
   -webkit-transition: visibility 0s 0.3s, left 300ms;
-  -moz-transition: visibility 0s 0.3s, left 300ms;
-  -ms-transition: visibility 0s 0.3s, left 300ms;
   transition: visibility 0s 0.3s, left 300ms;
 }
 .h5p-dialogcards .h5p-cardwrap.h5p-current {
@@ -39,8 +32,6 @@
   left: 0;
 
   -webkit-transition: left 300ms;
-  -moz-transition: left 300ms;
-  -ms-transition: left 300ms;
   transition: left 300ms;
 }
 .h5p-dialogcards .h5p-cardwrap.h5p-previous {
@@ -52,84 +43,71 @@
   text-align: center;
   max-width: 32em;
   height: 100%;
-  padding-bottom: 0.5em;
-
-  background: #f4f4f4; /* Old browsers */
-  background: -moz-linear-gradient(top, #f4f4f4 0%, #e0e0e0 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4f4f4), color-stop(100%,#e0e0e0)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #f4f4f4 0%,#e0e0e0 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #f4f4f4 0%,#e0e0e0 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #f4f4f4 0%,#e0e0e0 100%); /* IE10+ */
-  background: linear-gradient(to bottom, #f4f4f4 0%,#e0e0e0 100%); /* W3C */
-
-  -webkit-box-shadow: 0em 0em 0.4em rgba(50, 50, 50, 0.5);
-  -moz-box-shadow: 0em 0em 0.4em rgba(50, 50, 50, 0.5);
-  box-shadow: 0em 0em 0.4em rgba(50, 50, 50, 0.5);
-
-  -webkit-border-radius: 1em;
-  -moz-border-radius: 1em;
-  border-radius: 1em;
-  border: 0.1em solid #b6b6b6;
-
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  transform: translateX(0);
-
-  -webkit-transition: -webkit-transform 0.15s;
-  -moz-transition: -moz-transform 0.15s;
-  -ms-transform: -ms-transform 0.15s;
-  transition: transform 0.15s;
+  background: #e0e0e0;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
-.h5p-dialogcards .h5p-card {
+.h5p-dialogcards .h5p-card-content {
+  padding: 1em;
+}
+
+.h5p-dialogcards .h5p-card-footer {
+  padding: 1em;
+}
+
+.h5p-dialogcards .h5p-image-wrapper {
+}
+
+.h5p-dialogcards .h5p-image-wrapper > .h5p-image {
+  text-align: center;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+.h5p-dialogcards .h5p-audio-inner.hide {
+  display: none;
+}
+
+.h5p-dialogcards .h5p-card-text-wrapper {
+  position: relative;
   overflow: hidden;
-  margin: 1em 1em;
-  width: auto;
   height: 6em;
-  display: block;
-  font-weight: normal;
   background: white;
   text-align: center;
-
-  -webkit-box-shadow: 0em 0em 0.4em rgba(50, 50, 50, 0.5);
-  -moz-box-shadow: 0em 0em 0.4em rgba(50, 50, 50, 0.5);
-  box-shadow: 0em 0em 0.4em rgba(50, 50, 50, 0.5);
-
-  -moz-border-radius: 0.4em;
-  -webkit-border-radius: 0.4em;
-  border-radius: 0.4em;
-  border: 0.1em solid #b6b6b6;
-
-  -webkit-transition: -webkit-transform 0.15s;
-  -moz-transition: -moz-transform 0.15s;
-  -ms-transform: -ms-transform 0.15s;
-  transition: transform 0.15s;
+  box-shadow: 0 0.1em 0 #ccc;
 }
-.h5p-dialogcards .h5p-card > table {
-  position: relative;
+
+.h5p-dialogcards .h5p-audio-wrapper {
+  display: inline-block;
+  margin-right: 0.5em;
+  vertical-align: text-top;
 }
-.h5p-dialogcards .h5p-card > table,
-.h5p-dialogcards .h5p-card > table > tbody,
-.h5p-dialogcards .h5p-card > table > tbody > tr,
-.h5p-dialogcards .h5p-card > table > tbody > tr > td {
-  border: 0;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background: transparent;
+
+.h5p-dialogcards .h5p-audio-wrapper.hide {
+  display: none;
 }
-.h5p-dialogcards .h5p-card > table > tbody > tr > td {
-  line-height: 1.5em;
-  padding: 0 0.4em;
-  text-align: center;
-  vertical-align: middle;
+
+.h5p-dialogcards .h5p-audio-minimal-button {
+  border: none;
+  background: #1a73d9;
+}
+
+.h5p-dialogcards .h5p-card-text-inner {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.h5p-dialogcards .h5p-card-text {
+  display: inline-block;
 }
 
 .h5p-dialogcards .h5p-collapse {
   -webkit-transform: scale(0,1);
-  -moz-transform: scale(0,1);
-  -ms-transform: scale(0,1);
   transform: scale(0,1);
 }
 
@@ -148,10 +126,8 @@
 }
 
 .h5p-dialogcards .h5p-button {
-  position: absolute;
   cursor: pointer;
   font-size: 1em;
-  display: inline-block;
   padding: 0.125em 0.6875em;
   border: 0.1875em solid #fff;
   border-radius: 0.3125em;
@@ -163,29 +139,17 @@
   margin: auto;
 
   background: rgb(100,152,254); /* Old browsers */
-  background: -moz-linear-gradient(top,  rgba(100,152,254,1) 0%, rgba(4,104,206,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(100,152,254,1)), color-stop(100%,rgba(4,104,206,1))); /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* IE10+ */
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 .h5p-dialogcards .h5p-button:hover {
   background: rgb(4,104,206); /* Old browsers */
-  background: -moz-linear-gradient(top,  rgba(4,104,206,1) 0%, rgba(100,152,254,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(4,104,206,1)), color-stop(100%,rgba(100,152,254,1))); /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(top,  rgba(4,104,206,1) 0%,rgba(100,152,254,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(4,104,206,1) 0%,rgba(100,152,254,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(4,104,206,1) 0%,rgba(100,152,254,1) 100%); /* IE10+ */
-}
-.h5p-dialogcards .h5p-button.h5p-disabled {
-  display: none;
 }
 
 .h5p-dialogcards .h5p-progress {
@@ -193,45 +157,52 @@
   text-align: center;
 }
 
-.h5p-dialogcards .h5p-button.h5p-turn {
-  position: relative;
-  padding: 0.1em 1.5em 0.1em 1.5em;
+.h5p-dialogcards .h5p-joubelui-button.h5p-turn {
+  margin: 0;
 }
 
-.h5p-dialogcards .h5p-button.h5p-turn:before {
+.h5p-dialogcards .h5p-turn:before {
   font-family: 'H5PFontAwesome4';
   content: "\f021";
-  margin-right: 0.5em;
 }
 
-.h5p-dialogcards .h5p-button.h5p-prev {
+.h5p-dialogcards .h5p-footer-button {
+  position: absolute;
+  display: inline-block;
+  margin: 0;
+}
+
+.h5p-dialogcards .h5p-footer-button:before {
+  padding-right: 0;
+}
+
+.h5p-dialogcards .h5p-prev {
   left: 1em;
 }
 
-.h5p-dialogcards .h5p-button.h5p-prev:before {
+.h5p-dialogcards .h5p-prev:before {
   font-family: 'H5PFontAwesome4';
   content: "\f053";
-  margin-right: 0.1875em;
+  margin-right: 0.2em;
 }
 
-.h5p-dialogcards .h5p-button.h5p-next {
+.h5p-dialogcards .h5p-next {
   right: 1em;
 }
 
-.h5p-dialogcards .h5p-button.h5p-retry {
+.h5p-dialogcards .h5p-retry {
   right: 1em;
 }
 
-.h5p-dialogcards .h5p-button.h5p-retry:before {
+.h5p-dialogcards .h5p-retry:before {
   font-family: 'H5PFontAwesome4';
   content: "\f01e";
-  margin-right: 0.1875em;
 }
 
-.h5p-dialogcards .h5p-button.h5p-next:after {
+.h5p-dialogcards .h5p-next:after {
   font-family: 'H5PFontAwesome4';
   content: "\f054";
-  margin-left: 0.1875em;
+  margin-left: 0.2em;
 }
 
 .h5p-dialogcards .joubel-tip-container {
@@ -243,6 +214,9 @@
 .h5p-dialogcards .h5p-cardwrap-set {
   margin: auto;
   text-align: center;
-  padding-bottom: 1em;
   max-width: 32em;
+}
+
+.h5p-dialogcards .h5p-disabled {
+  display: none;
 }

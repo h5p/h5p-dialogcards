@@ -28,6 +28,11 @@
       "machineName": "H5P.JoubelUI",
       "majorVersion": 1,
       "minorVersion": 2
+    },
+    {
+      "machineName": "H5P.Audio",
+      "majorVersion": 1,
+      "minorVersion": 2
     }
   ],
   "editorDependencies": [

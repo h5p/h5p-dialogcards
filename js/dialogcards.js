@@ -5,7 +5,7 @@ var H5P = H5P || {};
  *
  * @param {jQuery} $
  */
-H5P.Dialogcards = (function ($) {
+H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
   /**
    * Initialize module.
@@ -17,7 +17,7 @@ H5P.Dialogcards = (function ($) {
   function C(params, id) {
     var self = this;
     H5P.EventDispatcher.call(this);
-    
+
     self.contentId = self.id = id;
 
     // Set default behavior.
@@ -30,10 +30,12 @@ H5P.Dialogcards = (function ($) {
       answer: "Turn",
       progressText: "Card @card of @total",
       endComment: "This was the last card. Press Try again to start over.",
+      dialogs: []
     }, params);
 
     self._current = -1;
     self._turned = [];
+    self.$images = [];
   }
 
   C.prototype = Object.create(H5P.EventDispatcher.prototype);
@@ -46,52 +48,94 @@ H5P.Dialogcards = (function ($) {
    */
   C.prototype.attach = function ($container) {
     var self = this;
+    self.$inner = $container.append($('' +
+      '<div class="h5p-title">' + self.params.title + '</div>' +
+      '<div class="h5p-description">' + self.params.description + '</div>' +
+      '<div class="h5p-cardwrap-set"></div>' +
+      '<div class="h5p-footer"></div>'
+      ));
 
-    self._$inner = $container.addClass('h5p-dialogcards').html('\
-      <div class="h5p-title">' + self.params.title + '</div>\
-      <div class="h5p-description">' + self.params.description + '</div>\
-      <div class="h5p-cardwrap-set">'
-      + C.createCards(self.params.dialogs, self.params.answer) + '\
-      </div>\
-      <div class="h5p-inner">\
-        <div class="h5p-button h5p-prev" role="button" tabindex="1" title="' + self.params.prev + '"></div>\
-        <div class="h5p-button h5p-next" role="button" tabindex="1" title="' + self.params.next + '"></div>\
-        <div class="h5p-button h5p-retry h5p-disabled" role="button" tabindex="1">' + self.params.retry + '</div>\
-        <div class="h5p-progress"></div>\
-      </div>');
+    self.$cardwrapperSet = self.$inner.children('.h5p-cardwrap-set');
+    self.createCards(self.params.dialogs);
+    self.$progress = self.$inner.find('.h5p-progress');
+    self.$current = self.$inner.find('.h5p-current');
 
-    self._$inner.find('.h5p-card').each(function (i) {
+    self.$inner.find('.h5p-card-content').each(function (i) {
       var $this = $(this);
-      self.alignText($this);
 
       // Add tip:
       self.addTipToCard($this, 'front', i);
     });
 
-    self._$cardwrapperSet = self._$inner.find('.h5p-cardwrap-set');
-    self._$progress = self._$inner.find('.h5p-progress');
-    self._$current = self._$inner.find('.h5p-current');
-
-    self._$inner.find('.h5p-turn').click(function () {
-      self.turnCard($(this).parent().parent());
-    });
-
-    self._$prev = self._$inner.find('.h5p-prev').click(function () {
-      self.prevCard();
-    });
-
-    self._$next = self._$inner.find('.h5p-next').click(function () {
-      self.nextCard();
-    });
-
-    self._$retry = self._$inner.find('.h5p-retry').click(function () {
-      self.trigger('reset');
-    });
-
+    self.createFooter();
     self.updateNavigation();
-    
+
     self.on('reset', function () {
       self.reset();
+    });
+
+    $container.addClass('h5p-dialogcards').append(self.$inner);
+    self.resize();
+  };
+
+  /**
+   * Create footer buttons
+   */
+  C.prototype.createFooter = function () {
+    var self = this;
+    var $footer = self.$inner.find('.h5p-footer');
+
+    self.$prev = JoubelUI.createButton({
+      'class': 'h5p-footer-button h5p-prev truncated',
+      'title': self.params.prev
+    }).click(function () {
+      self.prevCard();
+    }).appendTo($footer);
+
+    self.$next = JoubelUI.createButton({
+      'class': 'h5p-footer-button h5p-next truncated',
+      'title': self.params.next
+    }).click(function () {
+      self.nextCard();
+    }).appendTo($footer);
+
+    self.$retry = JoubelUI.createButton({
+      'class': 'h5p-footer-button h5p-retry h5p-disabled truncated',
+      'title': self.params.retry
+    }).click(function () {
+      self.trigger('reset');
+    }).appendTo($footer);
+
+    self.$progress = $('<div>', {
+      'class': 'h5p-progress'
+    }).appendTo($footer);
+  };
+
+  /**
+   * Called when all cards has been loaded.
+   */
+  C.prototype.updateImageSize = function () {
+    var self = this;
+
+    // Find highest image and set task height.
+    var height = 180;
+    var j;
+    for (j = 0; j < self.$images.length; j++) {
+      var $image = self.$images[j];
+
+      if ($image === undefined) {
+        continue;
+      }
+
+      var imageHeight = $image.height();
+      if (imageHeight > height) {
+        height = imageHeight;
+      }
+    }
+
+    var relativeImageHeight = height / parseFloat(self.$inner.css('font-size'));
+    self.$images.forEach(function ($img) {
+      $img.css('height', relativeImageHeight + 'em');
     });
 
     self.resize();
@@ -115,7 +159,7 @@ H5P.Dialogcards = (function ($) {
     // Make sure we have an index
 
     if (index === undefined) {
-      index = $card.parent().parent().index();
+      index = self.$current.index();
     }
 
     // Remove any old tips
@@ -126,7 +170,7 @@ H5P.Dialogcards = (function ($) {
     if (tips !== undefined && tips[side] !== undefined) {
       var tip = tips[side].trim();
       if (tip.length) {
-        $card.append(H5P.JoubelUI.createTip(tip));
+        $card.append(JoubelUI.createTip(tip));
       }
     }
   };
@@ -138,18 +182,133 @@ H5P.Dialogcards = (function ($) {
    * @param {Array} cards
    * @param {String} turn button text
    */
-  C.createCards = function (cards, turn) {
-    var html = '';
+  C.prototype.createCards = function (cards) {
+    var self = this;
+    var loaded = 0;
+    var load = function () {
+      loaded++;
+      if (loaded === self.params.dialogs.length) {
+        self.updateImageSize();
+      }
+    };
+
+
     for (var i = 0; i < cards.length; i++) {
-      html += '\
-        <div class="h5p-cardwrap' + (i === 0 ? ' h5p-current' : '') + '">\
-          <div class="h5p-cardholder">\
-            <div class="h5p-card"><table><tr><td>' + cards[i].text + '</td></tr></table></div>\
-            <div class="h5p-button h5p-turn" role="button">' + turn + '</div>\
-          </div>\
-        </div>';
+      var $cardWrapper = self.createCard(cards[i], load)
+        .toggleClass('h5p-current', i === 0);
+      self.$cardwrapperSet.append($cardWrapper);
     }
-    return html;
+
+    if (self.hasAudio) {
+      self.$cardwrapperSet.find('.h5p-audio-wrapper')
+        .addClass('expand');
+    }
+  };
+
+  C.prototype.createCard = function (card, loadCallback) {
+    var self = this;
+    var $cardWrapper = $('<div>', {
+      'class': 'h5p-cardwrap'
+    });
+
+    var $cardHolder = $('<div>', {
+      'class': 'h5p-cardholder'
+    }).appendTo($cardWrapper);
+
+    self.createCardContent(card, loadCallback)
+      .appendTo($cardHolder);
+
+    self.createCardFooter()
+      .appendTo($cardHolder);
+
+    return $cardWrapper;
+
+  };
+
+  C.prototype.createCardContent = function (card, loadCallback) {
+    var self = this;
+    var $cardContent = $('<div>', {
+      'class': 'h5p-card-content'
+    });
+
+    self.createCardImage(card, loadCallback)
+      .appendTo($cardContent);
+
+
+    var $cardTextWrapper = $('<div>', {
+      'class': 'h5p-card-text-wrapper'
+    }).appendTo($cardContent);
+
+    var $cardTextInner = $('<div>', {
+      'class': 'h5p-card-text-inner'
+    }).appendTo($cardTextWrapper);
+
+    self.createCardAudio(card)
+      .appendTo($cardTextInner);
+
+    $('<div>', {
+      'class': 'h5p-card-text',
+      'html': card.text
+    }).appendTo($cardTextInner);
+
+    return $cardContent;
+  };
+
+  C.prototype.createCardFooter = function () {
+    var self = this;
+    var $cardFooter = $('<div>', {
+      'class': 'h5p-card-footer'
+    });
+
+    JoubelUI.createButton({
+      'class': 'h5p-turn',
+      'html': self.params.answer
+    }).click(function () {
+      self.turnCard($(this).parents('.h5p-cardwrap'));
+    }).appendTo($cardFooter);
+
+    return $cardFooter;
+  };
+
+  C.prototype.createCardImage = function (card, loadCallback) {
+    var self = this;
+    var $image;
+    var $imageWrapper = $('<div>', {
+      'class': 'h5p-image-wrapper'
+    });
+
+    if (card.image !== undefined) {
+      $image = $('<img class="h5p-image" src="' + H5P.getPath(card.image.path, self.id) + '"/>').load(loadCallback);
+    }
+    else {
+      $image = $('<div class="h5p-image"></div>');
+      loadCallback();
+    }
+    $image.appendTo($imageWrapper);
+    self.$images.push($image);
+
+    return $imageWrapper;
+  };
+
+  C.prototype.createCardAudio = function (card) {
+    var self = this;
+    var $audioWrapper = $('<div>', {
+      'class': 'h5p-audio-wrapper'
+    });
+    if (card.audio !== undefined) {
+
+      var audioDefaults = {
+        files: card.audio
+      };
+      var audio = new Audio(audioDefaults, self.id);
+      audio.attach($audioWrapper);
+      self.hasAudio = true;
+    }
+    else {
+      $audioWrapper.addClass('hide');
+    }
+
+    return $audioWrapper;
   };
 
   /**
@@ -158,25 +317,25 @@ H5P.Dialogcards = (function ($) {
   C.prototype.updateNavigation = function () {
     var self = this;
 
-    if (self._$current.next('.h5p-cardwrap').length) {
-      self._$next.removeClass('h5p-disabled');
-      self._$retry.addClass('h5p-disabled');
+    if (self.$current.next('.h5p-cardwrap').length) {
+      self.$next.removeClass('h5p-disabled');
+      self.$retry.addClass('h5p-disabled');
     }
     else {
-      self._$next.addClass('h5p-disabled');
-      if (self._$current.find('.h5p-turn').hasClass('h5p-disabled')) {
-        self._$retry.removeClass('h5p-disabled');
+      self.$next.addClass('h5p-disabled');
+      if (self.$current.find('.h5p-turn').hasClass('h5p-disabled')) {
+        self.$retry.removeClass('h5p-disabled');
       }
     }
 
-    if (self._$current.prev('.h5p-cardwrap').length) {
-      self._$prev.removeClass('h5p-disabled');
+    if (self.$current.prev('.h5p-cardwrap').length) {
+      self.$prev.removeClass('h5p-disabled');
     }
     else {
-      self._$prev.addClass('h5p-disabled');
+      self.$prev.addClass('h5p-disabled');
     }
 
-    self._$progress.text(self.params.progressText.replace('@card', self._$current.index() + 1).replace('@total', self.params.dialogs.length));
+    self.$progress.text(self.params.progressText.replace('@card', self.$current.index() + 1).replace('@total', self.params.dialogs.length));
   };
 
   /**
@@ -184,11 +343,11 @@ H5P.Dialogcards = (function ($) {
    */
   C.prototype.nextCard = function () {
     var self = this;
-    var $next = self._$current.next('.h5p-cardwrap');
+    var $next = self.$current.next('.h5p-cardwrap');
 
     if ($next.length) {
-      self._$current.removeClass('h5p-current').addClass('h5p-previous');
-      self._$current = $next.addClass('h5p-current');
+      self.$current.removeClass('h5p-current').addClass('h5p-previous');
+      self.$current = $next.addClass('h5p-current');
       self.updateNavigation();
     }
   };
@@ -198,11 +357,11 @@ H5P.Dialogcards = (function ($) {
    */
   C.prototype.prevCard = function () {
     var self = this;
-    var $prev = self._$current.prev('.h5p-cardwrap');
+    var $prev = self.$current.prev('.h5p-cardwrap');
 
     if ($prev.length) {
-      self._$current.removeClass('h5p-current');
-      self._$current = $prev.addClass('h5p-current').removeClass('h5p-previous');
+      self.$current.removeClass('h5p-current');
+      self.$current = $prev.addClass('h5p-current').removeClass('h5p-previous');
       self.updateNavigation();
     }
   };
@@ -222,57 +381,31 @@ H5P.Dialogcards = (function ($) {
 
     setTimeout(function () {
       $ch.removeClass('h5p-collapse');
-      self.alignText($c, self.params.dialogs[$card.index()].answer);
+      self.removeAudio($ch);
 
       // Add backside tip
       // Had to wait a little, if not Chrome will displace tip icon
       setTimeout(function () {
         self.addTipToCard($c, 'back');
-        if (!self._$current.next('.h5p-cardwrap').length) {
+        if (!self.$current.next('.h5p-cardwrap').length) {
           $card.find('.h5p-cardholder').append('<div class="h5p-endcomment">' + self.params.endComment + '</div>');
-          self._$retry.removeClass('h5p-disabled');
+          self.$retry.removeClass('h5p-disabled');
         }
-      }, 300);
+      }, 200);
     }, 200);
 
     $card.find('.h5p-turn').addClass('h5p-disabled');
   };
 
-  /**
-   * Use a table to vertically align text in the middle.
-   * Aligns text to the left if it's multiple lines.
-   *
-   * @param {jQuery} $card
-   * @param {String} text
-   */
-  C.prototype.alignText = function ($card, text) {
+  C.prototype.removeAudio = function ($card) {
+    $card.find('.h5p-audio-inner')
+      .addClass('hide');
+  };
+
+  C.prototype.showAllAudio = function () {
     var self = this;
-    var $t = $card.find('table');
-    var $td = $t.find('td');
-
-    if (self._oneLineHeight === undefined) {
-      if (text === undefined) {
-        text = $td.html();
-      }
-      $td.text('M'); // Test char.
-      self._oneLineHeight = $t.height();
-    }
-
-    if (text !== undefined) {
-      $td.html(text);
-    }
-    $t.css('height', '');
-    if ($t.height() > self._oneLineHeight) {
-      $td.addClass('h5p-left');
-    }
-    else {
-      $td.removeClass('h5p-left');
-    }
-
-    if (self._cardHeight === undefined) {
-      self._cardHeight = $t.parent().height();
-    }
-    $t.css('height', self._cardHeight + 'px');
+    self.$cardwrapperSet.find('.h5p-audio-inner')
+      .removeClass('hide');
   };
 
   /**
@@ -280,20 +413,20 @@ H5P.Dialogcards = (function ($) {
    */
   C.prototype.reset = function () {
     var self = this;
-    var $cards = self._$inner.find('.h5p-cardwrap');
+    var $cards = self.$inner.find('.h5p-cardwrap');
 
-    self._$current.removeClass('h5p-current');
-    self._$current = $cards.filter(':first').addClass('h5p-current');
+    self.$current.removeClass('h5p-current');
+    self.$current = $cards.filter(':first').addClass('h5p-current');
     self.updateNavigation();
 
     $cards.each(function (index) {
       var $card = $(this).removeClass('h5p-previous');
-      self.alignText($card, self.params.dialogs[$card.index()].text);
 
       self.addTipToCard($card.find('.h5p-card'), 'front', index);
     });
-    self._$inner.find('.h5p-turn').removeClass('h5p-disabled');
-    self._$inner.find('.h5p-endcomment').remove();
+    self.$inner.find('.h5p-turn').removeClass('h5p-disabled');
+    self.$inner.find('.h5p-endcomment').remove();
+    self.showAllAudio();
   };
 
   /**
@@ -304,7 +437,7 @@ H5P.Dialogcards = (function ($) {
     var maxHeight = 0;
 
     //Find max required height for all cards
-    self._$cardwrapperSet.children().each( function (cardWrapper) {
+    self.$cardwrapperSet.children().each( function (cardWrapper) {
       var wrapperHeight = $(this).css('height', 'initial').outerHeight();
       $(this).css('height', 'inherit');
       maxHeight = wrapperHeight > maxHeight ? wrapperHeight : maxHeight;
@@ -320,8 +453,8 @@ H5P.Dialogcards = (function ($) {
         $(this).find('.h5p-endcomment').remove();
       }
     });
-    self._$cardwrapperSet.css('height', maxHeight + 'px');
+    self.$cardwrapperSet.css('height', maxHeight + 'px');
   };
 
   return C;
-})(H5P.jQuery);
+})(H5P.jQuery, H5P.Audio, H5P.JoubelUI);

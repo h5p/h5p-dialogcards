@@ -48,6 +48,19 @@
           "description": "Hint for the second part of the dialogue"
         },
         {
+          "name": "image",
+          "type": "image",
+          "label": "Image",
+          "optional": true,
+          "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+        },
+        {
+          "name": "audio",
+          "type": "audio",
+          "label": "Audio files",
+          "optional": true
+        },
+        {
           "name": "tips",
           "type": "group",
           "label": "Tips",
