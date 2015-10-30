@@ -26,6 +26,13 @@
             "description": "Suggerimento per la seconda parte del dialogo"
           },
           {
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+          },
+          {
+            "label": "Audio files"
+          },
+          {
             "label": "Suggerimenti",
             "fields": [
               {
