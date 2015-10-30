@@ -176,7 +176,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     if (tips !== undefined && tips[side] !== undefined) {
       var tip = tips[side].trim();
       if (tip.length) {
-        $card.append(JoubelUI.createTip(tip));
+        $card.find('.h5p-card-text-wrapper').append(JoubelUI.createTip(tip));
       }
     }
   };

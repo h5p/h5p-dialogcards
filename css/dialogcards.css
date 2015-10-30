@@ -109,7 +109,7 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: calc(100% - 4em);
 }
 
 .h5p-dialogcards .h5p-card-text {
@@ -191,8 +191,8 @@
 
 .h5p-dialogcards .joubel-tip-container {
   position: absolute;
-  right: 1.5em;
-  top: 1.2em;
+  right: 0;
+  top: 0;
 }
 
 .h5p-dialogcards .h5p-cardwrap-set {
