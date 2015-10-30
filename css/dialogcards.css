@@ -99,6 +99,7 @@
 .h5p-dialogcards .h5p-audio-minimal-button {
   border: none;
   background: #1a73d9;
+  font-weight: normal;
 }
 
 .h5p-dialogcards .h5p-card-text-inner {
@@ -141,6 +142,7 @@
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-turn {
   margin: 0;
+  font-weight: normal;
 }
 
 .h5p-dialogcards .h5p-turn:before {
