@@ -1,6 +1,22 @@
+.h5p-dialogcards {
+  margin: 1em;
+}
+
+.h5p-no-frame .h5p-dialogcards,
+.h5p-dialogcards.transparent {
+  margin: 0;
+}
+
 .h5p-dialogcards .h5p-title {
-  border-bottom: 0.1em solid #ddd;
   padding: 0.375em 0 0.375em;
+}
+
+.h5p-dialogcards .h5p-description {
+  margin-bottom: 2em;
+}
+
+.h5p-dialogcards .h5p-description > p {
+  margin: 0;
 }
 
 .h5p-dialogcards {
@@ -61,7 +77,7 @@
 
 .h5p-dialogcards .h5p-image-wrapper > .h5p-image {
   text-align: center;
-  max-height: 24em;
+  max-height: 100%;
   max-width: 100%;
   vertical-align: bottom;
   position: absolute;
@@ -89,17 +105,13 @@
 .h5p-dialogcards .h5p-audio-wrapper {
   display: inline-block;
   margin-right: 0.5em;
-  vertical-align: text-top;
+  vertical-align: baseline;
+  font-size: 1.5em;
+  margin-bottom: 0.3em;
 }
 
 .h5p-dialogcards .h5p-audio-wrapper.hide {
   display: none;
-}
-
-.h5p-dialogcards .h5p-audio-minimal-button {
-  border: none;
-  background: #1a73d9;
-  font-weight: normal;
 }
 
 .h5p-dialogcards .h5p-card-text-inner {
@@ -203,4 +215,25 @@
 
 .h5p-dialogcards .h5p-disabled {
   display: none;
+}
+
+/* Audio button styling */
+/*TODO: Make Audio use JoubelUI button */
+.h5p-dialogcards .h5p-audio-minimal-button {
+  border: none;
+  background: #1a73d9;
+  font-weight: normal;
+}
+
+.h5p-dialogcards .h5p-audio-minimal-button:focus,
+.h5p-dialogcards .h5p-audio-minimal-button:hover {
+  background: #1356a3;
+}
+
+.h5p-joubelui-button:active {
+  background: #104888;
+
+  -webkit-box-shadow: inset 0 4px 0 #0e407a;
+  -moz-box-shadow: inset 0 4px 0 #0e407a;
+  box-shadow: inset 0 4px 0 #0e407a;
 }
