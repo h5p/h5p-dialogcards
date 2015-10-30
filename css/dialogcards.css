@@ -9,6 +9,7 @@
 
 .h5p-dialogcards .h5p-title {
   padding: 0.375em 0 0.375em;
+  font-size: 1.125em;
 }
 
 .h5p-dialogcards .h5p-description {
@@ -27,7 +28,7 @@
   margin: auto;
   overflow: hidden;
   line-height: 2em;
-  padding: 1em;
+  padding: 0 1em 1em;
   max-width: 32em;
   position: relative;
 }
@@ -58,21 +59,19 @@
   text-align: center;
   max-width: 32em;
   height: 100%;
-  background: #ddd;
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
 }
 
 .h5p-dialogcards .h5p-card-content {
-  padding: 1em;
 }
 
 .h5p-dialogcards .h5p-card-footer {
-  padding: 0 1em 1em;
 }
 
 .h5p-dialogcards .h5p-image-wrapper {
   position: relative;
+  background: #eee;
 }
 
 .h5p-dialogcards .h5p-image-wrapper > .h5p-image {
@@ -93,21 +92,20 @@
 .h5p-dialogcards .h5p-card-text-wrapper {
   position: relative;
   overflow: hidden;
-  height: 6em;
+  height: 12em;
   text-align: center;
-}
-
-.h5p-dialogcards .h5p-card-text-wrapper.show {
-  background: white;
+  background: #eee;
   box-shadow: 0 0.1em 0 #bcbcbc;
 }
 
 .h5p-dialogcards .h5p-audio-wrapper {
-  display: inline-block;
-  margin-right: 0.5em;
+  display: block;
+  margin: 0 auto;
   vertical-align: baseline;
   font-size: 1.5em;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 .h5p-dialogcards .h5p-audio-wrapper.hide {
@@ -115,17 +113,30 @@
 }
 
 .h5p-dialogcards .h5p-card-text-inner {
-  display: inline-block;
+  position: relative;
+  height: calc(100% - 3em);
+  padding: 1em 1.5em;
+  box-sizing: border-box;
+}
+
+.h5p-dialogcards .h5p-card-text-inner-content {
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: calc(100% - 4em);
+  width: 100%;
+  padding: 0 1em;
+  box-sizing: border-box;
 }
 
 .h5p-dialogcards .h5p-card-text {
   display: inline-block;
+  margin: 0.5em 0;
+}
+
+.h5p-dialogcards .h5p-card-text.hide {
+  display: none;
 }
 
 .h5p-dialogcards .h5p-collapse {
@@ -203,7 +214,7 @@
 
 .h5p-dialogcards .joubel-tip-container {
   position: absolute;
-  right: 0;
+  right: 0.5em;
   top: 0;
 }
 

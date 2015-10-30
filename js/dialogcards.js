@@ -250,9 +250,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.createCardContent(card, setCardSizeCallback)
       .appendTo($cardHolder);
 
-    self.createCardFooter()
-      .appendTo($cardHolder);
-
     return $cardWrapper;
 
   };
@@ -281,17 +278,24 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'class': 'h5p-card-text-inner'
     }).appendTo($cardTextWrapper);
 
-    self.createCardAudio(card)
-      .appendTo($cardTextInner);
-
-    $('<div>', {
-      'class': 'h5p-card-text',
-      'html': card.text
+    var $cardTextInnerContent = $('<div>', {
+      'class': 'h5p-card-text-inner-content'
     }).appendTo($cardTextInner);
 
-    if (card.audio || card.text) {
-      $cardTextWrapper.addClass('show');
+    self.createCardAudio(card)
+      .appendTo($cardTextInnerContent);
+
+    var $cardText = $('<div>', {
+      'class': 'h5p-card-text',
+      'html': card.text
+    }).appendTo($cardTextInnerContent);
+
+    if (!card.text || !card.text.length) {
+      $cardText.addClass('hide');
     }
+
+    self.createCardFooter()
+      .appendTo($cardTextWrapper);
 
     return $cardContent;
   };
@@ -419,8 +423,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
       // Add next card.
       var $loadCard = self.$current.next('.h5p-cardwrap');
-      if (!$loadCard.length && self.$current.index() + 2 < self.params.dialogs.length) {
-        self.createCard(self.params.dialogs[self.$current.index() + 2])
+      if (!$loadCard.length && self.$current.index() + 1 < self.params.dialogs.length) {
+        self.createCard(self.params.dialogs[self.$current.index() + 1])
           .appendTo(self.$cardwrapperSet);
         self.resize();
       }
@@ -483,7 +487,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param text
    */
   C.prototype.changeText = function ($card, text) {
-    $card.find('.h5p-card-text').html(text);
+    var $cardText = $card.find('.h5p-card-text');
+    $cardText.html(text);
+    $cardText.toggleClass('hide', (!text || !text.length));
   };
 
   /**
@@ -506,8 +512,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    */
   C.prototype.removeAudio = function ($card) {
     var self = this;
-    console.log("card ? ", $card);
-    console.log("cardwrap");
     self.stopAudio($card.closest('.h5p-cardwrap').index());
     $card.find('.h5p-audio-inner')
       .addClass('hide');
@@ -551,15 +555,15 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   C.prototype.resize = function () {
     var self = this;
     var maxHeight = 0;
+    self.updateImageSize();
 
     //Find max required height for all cards
     self.$cardwrapperSet.children().each( function () {
-      self.updateImageSize();
       var wrapperHeight = $(this).css('height', 'initial').outerHeight();
       $(this).css('height', 'inherit');
       maxHeight = wrapperHeight > maxHeight ? wrapperHeight : maxHeight;
 
-      //Check height with endcomment
+      //Check height with end comment
       if ((!$(this).next('.h5p-cardwrap').length) && (!$(this).find('.h5p-endcomment')[0])) {
         $(this).find('.h5p-turn').addClass('h5p-disabled');
         $(this).find('.h5p-cardholder').append('<div class="h5p-endcomment">' + self.params.endComment + '</div>');
