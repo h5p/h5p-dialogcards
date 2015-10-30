@@ -127,7 +127,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     for (j = 0; j < self.$images.length; j++) {
       var $image = self.$images[j];
 
-      if ($image === undefined) {
+      if ($image === undefined || !$image.is('img')) {
         continue;
       }
       foundImage = true;
@@ -321,12 +321,12 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     if (card.image !== undefined) {
       $image = $('<img class="h5p-image" src="' + H5P.getPath(card.image.path, self.id) + '"/>').load(loadCallback);
-      self.$images.push($image);
     }
     else {
       $image = $('<div class="h5p-image"></div>');
       loadCallback();
     }
+    self.$images.push($image);
     $image.appendTo($imageWrapper);
 
     return $imageWrapper;

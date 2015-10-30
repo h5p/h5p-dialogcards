@@ -65,9 +65,9 @@
   max-width: 100%;
   vertical-align: bottom;
   position: absolute;
-  top: 50%;
+  bottom: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
 }
 
 .h5p-dialogcards .h5p-audio-inner.hide {
