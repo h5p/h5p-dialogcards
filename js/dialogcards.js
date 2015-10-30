@@ -420,7 +420,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    */
   C.prototype.turnCard = function ($card) {
     var self = this;
-    var $c = $card.find('.h5p-card');
+    var $c = $card.find('.h5p-card-content');
     var $ch = $card.find('.h5p-cardholder').addClass('h5p-collapse');
 
     // Removes tip, since it destroys the animation:
@@ -429,6 +429,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     setTimeout(function () {
       $ch.removeClass('h5p-collapse');
       self.removeAudio($ch);
+      self.changeText($c, self.params.dialogs[$card.index()].answer);
 
       // Add backside tip
       // Had to wait a little, if not Chrome will displace tip icon
@@ -442,6 +443,16 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     }, 200);
 
     $card.find('.h5p-turn').addClass('h5p-disabled');
+  };
+
+  /**
+   * Change text of card, used when turning cards.
+   *
+   * @param $card
+   * @param text
+   */
+  C.prototype.changeText = function ($card, text) {
+    $card.find('.h5p-card-text').html(text);
   };
 
   /**
@@ -476,8 +487,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     $cards.each(function (index) {
       var $card = $(this).removeClass('h5p-previous');
+      self.changeText($card, self.params.dialogs[$card.index()].text);
 
-      self.addTipToCard($card.find('.h5p-card'), 'front', index);
+      self.addTipToCard($card.find('.h5p-card-content'), 'front', index);
     });
     self.$inner.find('.h5p-turn').removeClass('h5p-disabled');
     self.$inner.find('.h5p-endcomment').remove();
