@@ -53,7 +53,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       '<div class="h5p-description">' + self.params.description + '</div>'
       ));
 
-    self.$cardwrapperSet = self.createCards(self.params.dialogs)
+    self.createCards(self.params.dialogs)
       .appendTo(self.$inner);
 
     self.createFooter()
@@ -123,12 +123,14 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     // Find highest card content
     var height = 180;
     var j;
+    var foundImage = false;
     for (j = 0; j < self.$images.length; j++) {
       var $image = self.$images[j];
 
       if ($image === undefined) {
         continue;
       }
+      foundImage = true;
 
       $image.parent().css('height', 'auto');
       var imageHeight = $image.height();
@@ -137,10 +139,12 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       }
     }
 
-    var relativeImageHeight = height / parseFloat(self.$inner.css('font-size'));
-    self.$images.forEach(function ($img) {
-      $img.parent().css('height', relativeImageHeight + 'em');
-    });
+    if (foundImage) {
+      var relativeImageHeight = height / parseFloat(self.$inner.css('font-size'));
+      self.$images.forEach(function ($img) {
+        $img.parent().css('height', relativeImageHeight + 'em');
+      });
+    }
   };
 
   /**
@@ -187,7 +191,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
     var loaded = 0;
 
-    var $cardWrapperSet = $('<div>', {
+    self.$cardwrapperSet = $('<div>', {
       'class': 'h5p-cardwrap-set'
     });
 
@@ -208,10 +212,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         self.$current = $cardWrapper;
       }
 
-      $cardWrapperSet.append($cardWrapper);
+      self.$cardwrapperSet.append($cardWrapper);
     }
 
-    return $cardWrapperSet;
+    return self.$cardwrapperSet;
   };
 
   /**
@@ -317,13 +321,13 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     if (card.image !== undefined) {
       $image = $('<img class="h5p-image" src="' + H5P.getPath(card.image.path, self.id) + '"/>').load(loadCallback);
+      self.$images.push($image);
     }
     else {
       $image = $('<div class="h5p-image"></div>');
       loadCallback();
     }
     $image.appendTo($imageWrapper);
-    self.$images.push($image);
 
     return $imageWrapper;
   };

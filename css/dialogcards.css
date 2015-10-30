@@ -42,7 +42,7 @@
   text-align: center;
   max-width: 32em;
   height: 100%;
-  background: #e0e0e0;
+  background: #ddd;
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
 }
@@ -83,7 +83,7 @@
 
 .h5p-dialogcards .h5p-card-text-wrapper.show {
   background: white;
-  box-shadow: 0 0.1em 0 #ccc;
+  box-shadow: 0 0.1em 0 #bcbcbc;
 }
 
 .h5p-dialogcards .h5p-audio-wrapper {
@@ -108,6 +108,7 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  width: 100%;
 }
 
 .h5p-dialogcards .h5p-card-text {
@@ -131,33 +132,6 @@
 }
 .h5p-dialogcards .h5p-left {
   text-align: left;
-}
-
-.h5p-dialogcards .h5p-button {
-  cursor: pointer;
-  font-size: 1em;
-  padding: 0.125em 0.6875em;
-  border: 0.1875em solid #fff;
-  border-radius: 0.3125em;
-  cursor: pointer;
-  color: #fff;
-  box-shadow: 0 0 0.5em #999;
-  text-decoration: none;
-  text-align: center;
-  margin: auto;
-
-  background: rgb(100,152,254); /* Old browsers */
-  background: -webkit-linear-gradient(top,  rgba(100,152,254,1) 0%,rgba(4,104,206,1) 100%); /* Chrome10+,Safari5.1+ */
-
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.h5p-dialogcards .h5p-button:hover {
-  background: rgb(4,104,206); /* Old browsers */
-  background: -webkit-linear-gradient(top,  rgba(4,104,206,1) 0%,rgba(100,152,254,1) 100%); /* Chrome10+,Safari5.1+ */
 }
 
 .h5p-dialogcards .h5p-progress {
