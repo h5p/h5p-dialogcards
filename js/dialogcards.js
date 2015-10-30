@@ -36,6 +36,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self._current = -1;
     self._turned = [];
     self.$images = [];
+    self.audios = [];
   }
 
   C.prototype = Object.create(H5P.EventDispatcher.prototype);
@@ -121,7 +122,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
 
     // Find highest card content
-    var relativeHeightCap = 20;
+    var relativeHeightCap = 15;
     var height = 180;
     var i;
     var foundImage = false;
@@ -356,6 +357,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    */
   C.prototype.createCardAudio = function (card) {
     var self = this;
+    var audio;
     var $audioWrapper = $('<div>', {
       'class': 'h5p-audio-wrapper'
     });
@@ -364,12 +366,13 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       var audioDefaults = {
         files: card.audio
       };
-      var audio = new Audio(audioDefaults, self.id);
+      audio = new Audio(audioDefaults, self.id);
       audio.attach($audioWrapper);
     }
     else {
       $audioWrapper.addClass('hide');
     }
+    self.audios.push(audio);
 
     return $audioWrapper;
   };
@@ -410,6 +413,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     // Next card not loaded or end of cards
     if ($next.length) {
+      self.stopAudio(self.$current.index());
       self.$current.removeClass('h5p-current').addClass('h5p-previous');
       self.$current = $next.addClass('h5p-current');
 
@@ -433,6 +437,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var $prev = self.$current.prev('.h5p-cardwrap');
 
     if ($prev.length) {
+      self.stopAudio(self.$current.index());
       self.$current.removeClass('h5p-current');
       self.$current = $prev.addClass('h5p-current').removeClass('h5p-previous');
       self.updateNavigation();
@@ -482,11 +487,28 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   };
 
   /**
+   * Stop audio of card with cardindex
+
+   * @param {Number} cardIndex Index of card
+   */
+  C.prototype.stopAudio = function (cardIndex) {
+    var self = this;
+    var audio = self.audios[cardIndex];
+    if (audio && audio.stop) {
+      audio.stop();
+    }
+  };
+
+  /**
    * Hide audio button
    *
    * @param $card
    */
   C.prototype.removeAudio = function ($card) {
+    var self = this;
+    console.log("card ? ", $card);
+    console.log("cardwrap");
+    self.stopAudio($card.closest('.h5p-cardwrap').index());
     $card.find('.h5p-audio-inner')
       .addClass('hide');
   };
@@ -507,6 +529,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
     var $cards = self.$inner.find('.h5p-cardwrap');
 
+    self.stopAudio(self.$current.index());
     self.$current.removeClass('h5p-current');
     self.$current = $cards.filter(':first').addClass('h5p-current');
     self.updateNavigation();
