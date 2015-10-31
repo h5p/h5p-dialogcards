@@ -126,6 +126,7 @@
     "name": "endComment",
     "type": "text",
     "label": "Text when turning the laste card",
+    "maxLength": 50,
     "default": "This was the last card. Press Retry to start over.",
     "common": true
   }
