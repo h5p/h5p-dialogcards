@@ -59,7 +59,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   C.prototype.attach = function ($container) {
     var self = this;
     self.$inner = $container.append($('' +
-      '<div class="h5p-dialogcards-title">' + self.params.title + '</div>' +
+      '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + self.params.title + '</div></div>' +
       '<div class="h5p-dialogcards-description">' + self.params.description + '</div>'
       ));
 
@@ -488,6 +488,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         if (!self.$current.next('.h5p-dialogcards-cardwrap').length) {
           self.addEndComment($card);
           self.$retry.removeClass('h5p-dialogcards-disabled');
+          self.truncateRetryButton();
         }
       }, 200);
     }, 200);
@@ -607,6 +608,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var relativeMaxHeight = maxHeight / parseFloat(self.$cardwrapperSet.css('font-size'));
     self.$cardwrapperSet.css('height', relativeMaxHeight + 'em');
     self.scaleToFitHeight();
+    self.truncateRetryButton();
   };
 
   C.prototype.scaleToFitHeight = function () {
@@ -671,7 +673,32 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         }
       }
     }
+  };
 
+  /**
+   * Truncate retry button if width is small.
+   */
+  C.prototype.truncateRetryButton = function () {
+    var self = this;
+    if (!self.$retry) {
+      return;
+    }
+
+    // Reset button to full size
+    self.$retry.removeClass('truncated');
+    self.$retry.html(self.params.retry);
+
+    // Measure button
+    var maxWidthPercentages = 0.3;
+    var retryWidth = self.$retry.get(0).getBoundingClientRect().width +
+        parseFloat(self.$retry.css('margin-left')) + parseFloat(self.$retry.css('margin-right'));
+    var retryWidthPercentage = retryWidth / self.$retry.parent().get(0).getBoundingClientRect().width;
+
+    // Truncate button
+    if (retryWidthPercentage > maxWidthPercentages) {
+      self.$retry.addClass('truncated');
+      self.$retry.html('');
+    }
   };
 
   C.SCALEINTERVAL = 0.2;

@@ -11,6 +11,9 @@
 
 .h5p-dialogcards .h5p-dialogcards-title {
   padding: 1em 1em 0.375em;
+}
+
+.h5p-dialogcards .h5p-dialogcards-title-inner {
   font-size: 1.125em;
 }
 
@@ -74,6 +77,7 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-footer {
+  padding-bottom: 1em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-image-wrapper {
@@ -88,6 +92,8 @@
   position: absolute;
   bottom: 0;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
 }
 
@@ -98,9 +104,8 @@
 .h5p-dialogcards .h5p-dialogcards-card-text-wrapper {
   position: relative;
   overflow: hidden;
-  height: 12em;
+  height: 12.5em;
   text-align: center;
-  box-shadow: 0 0.1em 0 #bcbcbc;
 }
 
 .h5p-dialogcards .h5p-dialogcards-audio-wrapper {
@@ -119,7 +124,7 @@
 
 .h5p-dialogcards .h5p-dialogcards-card-text-inner {
   position: relative;
-  height: calc(100% - 3em);
+  height: calc(100% - 3.25em);
   padding: 1em 1.5em;
   box-sizing: border-box;
 }
@@ -129,6 +134,7 @@
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   width: 100%;
   padding: 0 1em;
@@ -146,6 +152,7 @@
 
 .h5p-dialogcards .h5p-dialogcards-collapse {
   -webkit-transform: scale(0,1);
+  -ms-transform: scale(0,1);
   transform: scale(0,1);
 }
 
