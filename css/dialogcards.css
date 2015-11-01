@@ -74,10 +74,10 @@
 .h5p-dialogcards .h5p-dialogcards-card-content {
   background: #FFF;
   box-shadow: 0 2px 15px rgba(0,0,0,0.30);
+  padding: 1em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-footer {
-  padding-bottom: 1em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-image-wrapper {
@@ -90,11 +90,11 @@
   max-width: 100%;
   vertical-align: bottom;
   position: absolute;
-  bottom: 0;
+  top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .h5p-dialogcards .h5p-audio-inner.hide {
@@ -104,7 +104,7 @@
 .h5p-dialogcards .h5p-dialogcards-card-text-wrapper {
   position: relative;
   overflow: hidden;
-  height: 12.5em;
+  height: 12em;
   text-align: center;
 }
 
@@ -124,7 +124,7 @@
 
 .h5p-dialogcards .h5p-dialogcards-card-text-inner {
   position: relative;
-  height: calc(100% - 3.25em);
+  height: calc(100% - 2.25em);
   padding: 1em 1.5em;
   box-sizing: border-box;
 }
