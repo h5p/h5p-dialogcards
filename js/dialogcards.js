@@ -626,7 +626,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       var getContentHeight = function () {
         var contentHeight = 0;
         self.$inner.children().each(function () {
-          contentHeight += $(this).get(0).getBoundingClientRect().height;
+          contentHeight += $(this).get(0).getBoundingClientRect().height +
+          parseFloat($(this).css('padding-top')) + parseFloat($(this).css('padding-bottom')) +
+          parseFloat($(this).css('margin-top')) + parseFloat($(this).css('margin-bottom'));
         });
         return contentHeight;
       };
