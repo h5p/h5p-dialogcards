@@ -6,21 +6,21 @@
 
 .h5p-no-frame .h5p-dialogcards .h5p-dialogcards-title,
 .h5p-transparent .h5p-dialogcards .h5p-dialogcards-title {
-  padding: 0.375em 0;
+  padding: 0 0 0.375em 0;
 }
 
 .h5p-dialogcards .h5p-dialogcards-title {
-  padding: 0.375em 1em;
+  padding: 1em 1em 0.375em;
   font-size: 1.125em;
 }
 
 .h5p-no-frame .h5p-dialogcards .h5p-dialogcards-description,
 .h5p-transparent .h5p-dialogcards .h5p-dialogcards-description {
-  margin: 0 0 0.5em;
+  margin: 0 0 1em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-description {
-  margin: 0 1em 0.5em;
+  margin: 0 1em 1em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-description > p {
@@ -40,6 +40,8 @@
   position: absolute;
   left: 100%;
   width: 100%;
+  padding: 0 0.5em;
+  box-sizing: border-box;
   visibility: hidden;
   height: inherit;
 
@@ -67,7 +69,8 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-content {
-  background: #ddd;
+  background: #FFF;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.30);
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-footer {
@@ -179,10 +182,6 @@
   position: absolute;
   display: inline-block;
   margin: 0;
-}
-
-.h5p-dialogcards .h5p-dialogcards-footer-button:before {
-  padding-right: 0;
 }
 
 .h5p-dialogcards .h5p-dialogcards-prev {

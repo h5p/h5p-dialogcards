@@ -113,8 +113,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     }).appendTo($footer);
 
     self.$retry = JoubelUI.createButton({
-      'class': 'h5p-dialogcards-footer-button h5p-dialogcards-retry h5p-dialogcards-disabled truncated',
-      'title': self.params.retry
+      'class': 'h5p-dialogcards-footer-button h5p-dialogcards-retry h5p-dialogcards-disabled',
+      'title': self.params.retry,
+      'html': self.params.retry
     }).click(function () {
       self.trigger('reset');
     }).appendTo($footer);
@@ -615,7 +616,11 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     }
     // Resize font size to fit inside CP
     if (self.$inner.parents('.h5p-course-presentation').length) {
-      var containerHeight = self.$inner.get(0).getBoundingClientRect().height;
+      var $parentContainer = self.$inner.parent();
+      if (self.$inner.parents('.h5p-popup-container').length) {
+        $parentContainer = self.$inner.parents('.h5p-popup-container');
+      }
+      var containerHeight = $parentContainer.get(0).getBoundingClientRect().height;
       var getContentHeight = function () {
         var contentHeight = 0;
         self.$inner.children().each(function () {
