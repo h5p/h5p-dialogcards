@@ -705,10 +705,11 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     var currentTextContainerHeight = $textContainer.get(0).getBoundingClientRect().height;
     var currentTextHeight = $text.get(0).getBoundingClientRect().height;
+    var parentFontSize = parseFloat($textContainer.css('font-size'));
     var fontSize = parseFloat($text.css('font-size'));
 
     if (currentTextHeight > currentTextContainerHeight) {
-      $text.css('font-size', (fontSize - C.SCALEINTERVAL) + 'px');
+      $text.css('font-size', (fontSize - C.SCALEINTERVAL) / parentFontSize + 'em');
       self.resizeTextToFitContainer($textContainer, $text);
     }
     else {
@@ -723,12 +724,12 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         }
 
         // Set relative font size to scale with full screen.
-        $text.css('font-size', fontSize + 'px');
+        $text.css('font-size', fontSize / parentFontSize + 'em');
         currentTextHeight = $text.get(0).getBoundingClientRect().height;
         if (currentTextHeight >= currentTextContainerHeight) {
           increaseFontSize = false;
           fontSize = fontSize- C.SCALEINTERVAL;
-          $text.css('font-size', fontSize + 'px');
+          $text.css('font-size', fontSize / parentFontSize + 'em');
         }
       }
     }
