@@ -180,6 +180,7 @@
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-turn {
   margin: 0;
   font-weight: normal;
+  line-height: 1;
 }
 
 .h5p-dialogcards .h5p-dialogcards-turn:before {
