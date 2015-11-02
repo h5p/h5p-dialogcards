@@ -647,7 +647,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         while (containerHeight < contentHeight) {
           newFontSize -= C.SCALEINTERVAL;
 
-          // Cap at 10px
+          // Cap at min font size
           if (newFontSize < C.MINSCALE) {
             break;
           }
@@ -662,7 +662,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         while (increaseFontSize) {
           newFontSize += C.SCALEINTERVAL;
 
-          // Cap at  16px
+          // Cap max font size
           if (newFontSize > C.MAXSCALE) {
             increaseFontSize = false;
             break;
@@ -685,6 +685,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     }
   };
 
+  /**
+   * Resize the font-size of text areas that tend to overflow when dialog cards
+   * is squeezed into a tiny container.
+   */
   C.prototype.resizeOverflowingText = function () {
     var self = this;
 
@@ -700,6 +704,12 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     }
   };
 
+  /**
+   * Increase or decrease font size so text wil fit inside container.
+   *
+   * @param {jQuery} $textContainer Outer container, must have a set size.
+   * @param {jQuery} $text Inner text container
+   */
   C.prototype.resizeTextToFitContainer = function ($textContainer, $text) {
     var self = this;
 
