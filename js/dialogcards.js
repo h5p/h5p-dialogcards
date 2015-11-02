@@ -298,9 +298,13 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       .appendTo($cardTextInnerContent);
 
     var $cardText = $('<div>', {
-      'class': 'h5p-dialogcards-card-text',
-      'html': card.text
+      'class': 'h5p-dialogcards-card-text'
     }).appendTo($cardTextInnerContent);
+
+    $('<div>', {
+      'class': 'h5p-dialogcards-card-text-area',
+      'html': card.text
+    }).appendTo($cardText);
 
     if (!card.text || !card.text.length) {
       $cardText.addClass('hide');
@@ -421,6 +425,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     }
 
     self.$progress.text(self.params.progressText.replace('@card', self.$current.index() + 1).replace('@total', self.params.dialogs.length));
+    self.resizeOverflowingText();
   };
 
   /**
@@ -489,6 +494,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
           self.addEndComment($card);
           self.$retry.removeClass('h5p-dialogcards-disabled');
           self.truncateRetryButton();
+          self.resizeOverflowingText();
         }
       }, 200);
     }, 200);
@@ -517,7 +523,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param text
    */
   C.prototype.changeText = function ($card, text) {
-    var $cardText = $card.find('.h5p-dialogcards-card-text');
+    var $cardText = $card.find('.h5p-dialogcards-card-text-area');
     $cardText.html(text);
     $cardText.toggleClass('hide', (!text || !text.length));
   };
@@ -670,6 +676,58 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
             relativeFontSize = (newFontSize - C.SCALEINTERVAL) / parentFontSize;
             self.$inner.css('font-size', relativeFontSize + 'em');
           }
+        }
+      }
+    }
+    else { // Resize mobile view
+      self.resizeOverflowingText();
+    }
+  };
+
+  C.prototype.resizeOverflowingText = function () {
+    var self = this;
+
+    // Resize card text if needed
+    var $textContainer = self.$current.find('.h5p-dialogcards-card-text');
+    var $text = $textContainer.children();
+    self.resizeTextToFitContainer($textContainer, $text);
+
+    // Resize end comment if needed
+    var $endComment = self.$current.find('.h5p-dialogcards-endcomment');
+    if ($endComment.length) {
+      self.resizeTextToFitContainer($endComment.parent(), $endComment);
+    }
+  };
+
+  C.prototype.resizeTextToFitContainer = function ($textContainer, $text) {
+    var self = this;
+
+    var currentTextContainerHeight = $textContainer.get(0).getBoundingClientRect().height;
+    var currentTextHeight = $text.get(0).getBoundingClientRect().height;
+    var fontSize = parseFloat($text.css('font-size'));
+
+    if (currentTextHeight > currentTextContainerHeight) {
+      $text.css('font-size', (fontSize - C.SCALEINTERVAL) + 'px');
+      self.resizeTextToFitContainer($textContainer, $text);
+    }
+    else {
+      var increaseFontSize = true;
+      while (increaseFontSize) {
+        fontSize += C.SCALEINTERVAL;
+
+        // Cap at  16px
+        if (fontSize > C.MAXSCALE) {
+          increaseFontSize = false;
+          break;
+        }
+
+        // Set relative font size to scale with full screen.
+        $text.css('font-size', fontSize + 'px');
+        currentTextHeight = $text.get(0).getBoundingClientRect().height;
+        if (currentTextHeight >= currentTextContainerHeight) {
+          increaseFontSize = false;
+          fontSize = fontSize- C.SCALEINTERVAL;
+          $text.css('font-size', fontSize + 'px');
         }
       }
     }

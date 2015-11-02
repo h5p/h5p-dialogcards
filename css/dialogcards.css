@@ -78,6 +78,7 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-footer {
+  height: 2.25em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-image-wrapper {
@@ -144,6 +145,7 @@
 .h5p-dialogcards .h5p-dialogcards-card-text {
   display: inline-block;
   margin: 0.5em 0;
+  height: 4.5em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-text.hide {
