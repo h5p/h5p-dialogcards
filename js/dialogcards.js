@@ -390,7 +390,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       audio.attach($audioWrapper);
 
       // Have to stop else audio will take up a socket pending forever in chrome.
-      audio.audio.preload = 'none';
+      if (audio.audio && audio.audio.preload) {
+        audio.audio.preload = 'none';
+      }
     }
     else {
       $audioWrapper.addClass('hide');
