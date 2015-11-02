@@ -583,6 +583,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.$inner.find('.h5p-dialogcards-turn').removeClass('h5p-dialogcards-disabled');
     self.$inner.find('.h5p-dialogcards-endcomment').remove();
     self.showAllAudio();
+    self.resizeOverflowingText();
   };
 
   /**
