@@ -724,6 +724,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var currentTextHeight = $text.get(0).getBoundingClientRect().height;
     var parentFontSize = parseFloat($textContainer.css('font-size'));
     var fontSize = parseFloat($text.css('font-size'));
+    var mainFontSize = parseFloat(self.$inner.css('font-size'));
 
     // Decrease font size
     if (currentTextHeight > currentTextContainerHeight) {
@@ -736,7 +737,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         fontSize += C.SCALEINTERVAL;
 
         // Cap at  16px
-        if (fontSize > C.MAXSCALE) {
+        if (fontSize > mainFontSize) {
           increaseFontSize = false;
           break;
         }
