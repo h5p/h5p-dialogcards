@@ -618,6 +618,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.$cardwrapperSet.css('height', relativeMaxHeight + 'em');
     self.scaleToFitHeight();
     self.truncateRetryButton();
+    self.resizeOverflowingText();
   };
 
   C.prototype.scaleToFitHeight = function () {
@@ -715,16 +716,21 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   C.prototype.resizeTextToFitContainer = function ($textContainer, $text) {
     var self = this;
 
+    // Reset text size
+    $text.css('font-size', '');
+
+    // Measure container and text height
     var currentTextContainerHeight = $textContainer.get(0).getBoundingClientRect().height;
     var currentTextHeight = $text.get(0).getBoundingClientRect().height;
     var parentFontSize = parseFloat($textContainer.css('font-size'));
     var fontSize = parseFloat($text.css('font-size'));
 
+    // Decrease font size
     if (currentTextHeight > currentTextContainerHeight) {
       $text.css('font-size', (fontSize - C.SCALEINTERVAL) / parentFontSize + 'em');
       self.resizeTextToFitContainer($textContainer, $text);
     }
-    else {
+    else { // Increase font size
       var increaseFontSize = true;
       while (increaseFontSize) {
         fontSize += C.SCALEINTERVAL;
