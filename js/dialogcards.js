@@ -230,6 +230,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         self.$current = $cardWrapper;
       }
 
+      self.addTipToCard($cardWrapper.find('.h5p-dialogcards-card-content'), 'front', i);
+
       self.$cardwrapperSet.append($cardWrapper);
     }
 
@@ -273,10 +275,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'class': 'h5p-dialogcards-card-content'
     });
 
-    // Add tips
-    self.$inner.find('.h5p-dialogcards-card-content').each(function (i) {
-      self.addTipToCard($(this), 'front', i);
-    });
 
     self.createCardImage(card, setCardSizeCallback)
       .appendTo($cardContent);
@@ -445,8 +443,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       // Add next card.
       var $loadCard = self.$current.next('.h5p-dialogcards-cardwrap');
       if (!$loadCard.length && self.$current.index() + 1 < self.params.dialogs.length) {
-        self.createCard(self.params.dialogs[self.$current.index() + 1])
+        var $cardWrapper = self.createCard(self.params.dialogs[self.$current.index() + 1])
           .appendTo(self.$cardwrapperSet);
+        self.addTipToCard($cardWrapper.find('.h5p-dialogcards-card-content'), 'front', self.$current.index() + 1);
         self.resize();
       }
 
