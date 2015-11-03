@@ -728,8 +728,24 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     // Decrease font size
     if (currentTextHeight > currentTextContainerHeight) {
-      $text.css('font-size', (fontSize - C.SCALEINTERVAL) / parentFontSize + 'em');
-      self.resizeTextToFitContainer($textContainer, $text);
+      var decreaseFontSize = true;
+      while (decreaseFontSize) {
+
+        fontSize -= C.SCALEINTERVAL;
+
+        if (fontSize < C.MINSCALE) {
+          decreaseFontSize = false;
+          break;
+        }
+
+        $text.css('font-size', (fontSize / parentFontSize) + 'em');
+
+        currentTextHeight = $text.get(0).getBoundingClientRect().height;
+        if (currentTextHeight <= currentTextContainerHeight) {
+          decreaseFontSize = false;
+        }
+      }
+
     }
     else { // Increase font size
       var increaseFontSize = true;
