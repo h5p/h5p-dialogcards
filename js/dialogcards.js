@@ -23,7 +23,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     // Set default behavior.
     self.params = $.extend({
       title: "Dialogue",
-      description: "Turn the cards to find the equivalent Norwegian word.",
+      description: "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
       next: "Next",
       prev: "Previous",
       retry: "Retry",
@@ -453,6 +453,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       self.updateNavigation();
     }
   };
+
   /**
    * Show previous card.
    */
