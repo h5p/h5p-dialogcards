@@ -1,9 +1,9 @@
 .h5p-dialogcards .h5p-dialogcards-title p:first-child,
-.h5p-dialogcards .h5p-dialogcards-card p:first-child {
+.h5p-dialogcards .h5p-dialogcards-card-text-area p:first-child {
   margin-top: 0;
 }
 .h5p-dialogcards .h5p-dialogcards-title  p:last-child,
-.h5p-dialogcards .h5p-dialogcards-card p:last-child {
+.h5p-dialogcards .h5p-dialogcards-card-text-area p:last-child {
   margin-bottom: 0;
 }
 
