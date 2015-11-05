@@ -58,7 +58,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    */
   C.prototype.attach = function ($container) {
     var self = this;
-    self.$inner = $container.append($('' +
+    self.$inner = $container
+      .addClass('h5p-dialogcards')
+      .append($('' +
       '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + self.params.title + '</div></div>' +
       '<div class="h5p-dialogcards-description">' + self.params.description + '</div>'
       ));
@@ -76,9 +78,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     });
 
     self.on('resize', self.resize);
-
-    $container.addClass('h5p-dialogcards').append(self.$inner);
-    self.resize();
+    self.trigger('resize');
   };
 
   /**
