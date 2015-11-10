@@ -35,20 +35,16 @@
         {
           "name": "text",
           "type": "text",
-          "widget": "html",
           "label": "Text",
           "maxLength": 90,
-          "description": "Hint for the first part of the dialogue",
-          "tags": ["p", "br", "strong", "em"]
+          "description": "Hint for the first part of the dialogue"
         },
         {
           "name": "answer",
           "type": "text",
-          "widget": "html",
           "label": "Answer",
           "maxLength": 90,
-          "description": "Hint for the second part of the dialogue",
-          "tags": ["p", "br", "strong", "em"]
+          "description": "Hint for the second part of the dialogue"
         },
         {
           "name": "image",
@@ -71,20 +67,16 @@
             {
               "name": "front",
               "type": "text",
-              "widget": "html",
               "label": "Tip for text",
               "optional": true,
-              "description": "Tip for the first part of the dialogue",
-              "tags": ["p", "br", "strong", "em"]
+              "description": "Tip for the first part of the dialogue"
             },
             {
               "name": "back",
               "type": "text",
-              "widget": "html",
               "label": "Tip for answer",
               "optional": true,
-              "description": "Tip for the second part of the dialogue",
-              "tags": ["p", "br", "strong", "em"]
+              "description": "Tip for the second part of the dialogue"
             }
           ]
         }
@@ -130,7 +122,7 @@
   {
     "name": "endComment",
     "type": "text",
-    "label": "Text when turning the laste card",
+    "label": "Text when turning the last card",
     "maxLength": 50,
     "default": "This was the last card. Press Retry to start over.",
     "common": true
