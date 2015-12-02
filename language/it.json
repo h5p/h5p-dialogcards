@@ -4,7 +4,7 @@
       "label": "Titolo"
     },
     {
-      "label": "Descrizione attivit�"
+      "label": "Descrizione attività"
     },
     {
       "widgets": [
@@ -24,6 +24,13 @@
           {
             "label": "Risposta",
             "description": "Suggerimento per la seconda parte del dialogo"
+          },
+          {
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+          },
+          {
+            "label": "Audio files"
           },
           {
             "label": "Suggerimenti",
