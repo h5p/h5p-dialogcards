@@ -26,6 +26,13 @@
             "description": "تلميح للجزء الثاني من الحوار"
           },
           {
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+          },
+          {
+            "label": "Audio files"
+          },
+          {
             "label": "نصائح",
             "fields": [
               {

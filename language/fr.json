@@ -26,6 +26,13 @@
             "description": "Allusion pour la seconde partie du dialogue"
           },
           {
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+          },
+          {
+            "label": "Audio files"
+          },
+          {
             "label": "Aide",
             "fields": [
               {

@@ -2,7 +2,9 @@
   {
     "name": "title",
     "type": "text",
-    "label": "Title"
+    "widget": "html",
+    "label": "Title",
+    "tags": ["p", "br", "strong", "em"]
   },
   {
     "name": "description",
@@ -10,12 +12,7 @@
     "widget": "html",
     "label": "Task description",
     "default": "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
-    "tags": [
-      "p",
-      "br",
-      "strong",
-      "em"
-    ]
+    "tags": ["p", "br", "strong", "em"]
   },
   {
     "name": "dialogs",
@@ -39,13 +36,28 @@
           "name": "text",
           "type": "text",
           "label": "Text",
+          "maxLength": 90,
           "description": "Hint for the first part of the dialogue"
         },
         {
           "name": "answer",
           "type": "text",
           "label": "Answer",
+          "maxLength": 90,
           "description": "Hint for the second part of the dialogue"
+        },
+        {
+          "name": "image",
+          "type": "image",
+          "label": "Image",
+          "optional": true,
+          "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+        },
+        {
+          "name": "audio",
+          "type": "audio",
+          "label": "Audio files",
+          "optional": true
         },
         {
           "name": "tips",
@@ -110,7 +122,8 @@
   {
     "name": "endComment",
     "type": "text",
-    "label": "Text when turning the laste card",
+    "label": "Text when turning the last card",
+    "maxLength": 50,
     "default": "This was the last card. Press Retry to start over.",
     "common": true
   }

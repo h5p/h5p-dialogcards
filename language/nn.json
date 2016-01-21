@@ -22,6 +22,13 @@
             "description": "Nøkkelord til neste delen av dialogen"
           },
           {
+            "label": "Bilete",
+            "description": "Valfritt bilete for kortet.(Korta kan bruka berre bilete, berre tekst, eller begge)"
+          },
+          {
+            "label": "Lyd filar"
+          },
+          {
             "label": "Tips",
             "fields": [
               {
