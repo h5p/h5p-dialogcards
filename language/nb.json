@@ -64,10 +64,6 @@
       "label": "Fremgangstekst",
       "description": "Tilgjengelig variabler er @card og @total.",
       "default": "Kort @card av @total"
-    },
-    {
-      "label": "Tekst når det siste kortet snues.",
-      "default": "Dette var det siste kortet. Trykk Prøv igjen for å starte på nytt."
     }
   ]
 }

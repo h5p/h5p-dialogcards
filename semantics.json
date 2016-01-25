@@ -118,13 +118,5 @@
     "description": "Available variables are @card and @total.",
     "default": "Card @card of @total",
     "common": true
-  },
-  {
-    "name": "endComment",
-    "type": "text",
-    "label": "Text when turning the last card",
-    "maxLength": 50,
-    "default": "This was the last card. Press Retry to start over.",
-    "common": true
   }
 ]

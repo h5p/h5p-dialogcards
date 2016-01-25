@@ -63,9 +63,6 @@
     {
       "label": "Texte de progression",
       "description": "Les variables disponibles sont @card and @total."
-    },
-    {
-      "label": "Texte quand on retourne la dernière carte"
     }
   ]
 }
