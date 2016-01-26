@@ -50,9 +50,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   C.prototype = Object.create(H5P.EventDispatcher.prototype);
   C.prototype.constructor = C;
 
-  // Public constants
-  C.HTML_CLASS = 'h5p-dialogcards';
-
   /**
    * Attach h5p inside the given container.
    *
@@ -482,10 +479,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     $c.find('.joubel-tip-container').remove();
 
     // Check if card has been turned before
-    var turned = $c.hasClass(C.HTML_CLASS + '-turned');
+    var turned = $c.hasClass('.h5p-dialogcards-turned');
 
     // Update HTML class for card
-    $c[(turned ? 'remove' : 'add') + 'Class'](C.HTML_CLASS + '-turned');
+    $c.toggleClass('h5p-dialogcards-turned', !turned);
 
     setTimeout(function () {
       $ch.removeClass('h5p-dialogcards-collapse');
