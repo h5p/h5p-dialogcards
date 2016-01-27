@@ -486,8 +486,13 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     setTimeout(function () {
       $ch.removeClass('h5p-dialogcards-collapse');
-      self.removeAudio($ch);
       self.changeText($c, self.params.dialogs[$card.index()][turned ? 'text' : 'answer']);
+      if (turned) {
+        $ch.find('.h5p-audio-inner').removeClass('hide');
+      }
+      else {
+        self.removeAudio($ch);
+      }
 
       // Add backside tip
       // Had to wait a little, if not Chrome will displace tip icon
