@@ -479,7 +479,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     $c.find('.joubel-tip-container').remove();
 
     // Check if card has been turned before
-    var turned = $c.hasClass('.h5p-dialogcards-turned');
+    var turned = $c.hasClass('h5p-dialogcards-turned');
 
     // Update HTML class for card
     $c.toggleClass('h5p-dialogcards-turned', !turned);
