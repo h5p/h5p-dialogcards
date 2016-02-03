@@ -29,7 +29,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       retry: "Retry",
       answer: "Turn",
       progressText: "Card @card of @total",
-      endComment: "This was the last card. Press Try again to start over.",
       dialogs: [
         {
           text: 'Horse',
@@ -411,9 +410,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     }
     else {
       self.$next.addClass('h5p-dialogcards-disabled');
-      if (self.$current.find('.h5p-dialogcards-turn').hasClass('h5p-dialogcards-disabled')) {
-        self.$retry.removeClass('h5p-dialogcards-disabled');
-      }
     }
 
     if (self.$current.prev('.h5p-dialogcards-cardwrap').length) {
@@ -482,39 +478,33 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     // Removes tip, since it destroys the animation:
     $c.find('.joubel-tip-container').remove();
 
+    // Check if card has been turned before
+    var turned = $c.hasClass('h5p-dialogcards-turned');
+
+    // Update HTML class for card
+    $c.toggleClass('h5p-dialogcards-turned', !turned);
+
     setTimeout(function () {
       $ch.removeClass('h5p-dialogcards-collapse');
-      self.removeAudio($ch);
-      self.changeText($c, self.params.dialogs[$card.index()].answer);
+      self.changeText($c, self.params.dialogs[$card.index()][turned ? 'text' : 'answer']);
+      if (turned) {
+        $ch.find('.h5p-audio-inner').removeClass('hide');
+      }
+      else {
+        self.removeAudio($ch);
+      }
 
       // Add backside tip
       // Had to wait a little, if not Chrome will displace tip icon
       setTimeout(function () {
-        self.addTipToCard($c, 'back');
+        self.addTipToCard($c, turned ? 'front' : 'back');
         if (!self.$current.next('.h5p-dialogcards-cardwrap').length) {
-          self.addEndComment($card);
           self.$retry.removeClass('h5p-dialogcards-disabled');
           self.truncateRetryButton();
           self.resizeOverflowingText();
         }
       }, 200);
     }, 200);
-
-    $card.find('.h5p-dialogcards-turn').addClass('h5p-dialogcards-disabled');
-  };
-
-  /**
-   * Add end comment to card
-   *
-   * @param {jQuery} $card
-   */
-  C.prototype.addEndComment = function ($card) {
-    var self = this;
-
-    $('<div>', {
-      'class': 'h5p-dialogcards-endcomment',
-      html: self.params.endComment
-    }).appendTo($card.find('.h5p-dialogcards-card-footer'));
   };
 
   /**
@@ -581,8 +571,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
       self.addTipToCard($card.find('.h5p-dialogcards-card-content'), 'front', index);
     });
-    self.$inner.find('.h5p-dialogcards-turn').removeClass('h5p-dialogcards-disabled');
-    self.$inner.find('.h5p-dialogcards-endcomment').remove();
     self.$retry.addClass('h5p-dialogcards-disabled');
     self.showAllAudio();
     self.resizeOverflowingText();
@@ -601,16 +589,11 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       $(this).css('height', 'inherit');
       maxHeight = wrapperHeight > maxHeight ? wrapperHeight : maxHeight;
 
-      //Check height with end comment
-      if ((!$(this).next('.h5p-dialogcards-cardwrap').length) && (!$(this).find('.h5p-dialogcards-endcomment')[0])) {
-        $(this).find('.h5p-dialogcards-turn').addClass('h5p-dialogcards-disabled');
-        self.addEndComment($(this));
-
+      // Check height
+      if (!$(this).next('.h5p-dialogcards-cardwrap').length) {
         var initialHeight = $(this).find('.h5p-dialogcards-cardholder').css('height', 'initial').outerHeight();
         maxHeight = initialHeight > maxHeight ? initialHeight : maxHeight;
         $(this).find('.h5p-dialogcards-cardholder').css('height', 'inherit');
-        $(this).find('.h5p-dialogcards-turn').removeClass('h5p-dialogcards-disabled');
-        $(this).find('.h5p-dialogcards-endcomment').remove();
       }
     });
 
@@ -699,12 +682,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var $textContainer = self.$current.find('.h5p-dialogcards-card-text');
     var $text = $textContainer.children();
     self.resizeTextToFitContainer($textContainer, $text);
-
-    // Resize end comment if needed
-    var $endComment = self.$current.find('.h5p-dialogcards-endcomment');
-    if ($endComment.length) {
-      self.resizeTextToFitContainer($endComment.parent(), $endComment);
-    }
   };
 
   /**
