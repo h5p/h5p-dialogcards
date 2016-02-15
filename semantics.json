@@ -36,14 +36,12 @@
           "name": "text",
           "type": "text",
           "label": "Text",
-          "maxLength": 90,
           "description": "Hint for the first part of the dialogue"
         },
         {
           "name": "answer",
           "type": "text",
           "label": "Answer",
-          "maxLength": 90,
           "description": "Hint for the second part of the dialogue"
         },
         {
