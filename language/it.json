@@ -63,9 +63,6 @@
     {
       "label": "Testo avanzamento",
       "description": "Le variabili disponibili sono @card e @total."
-    },
-    {
-      "label": "Testo quando si gira l'ultima carta"
     }
   ]
 }
