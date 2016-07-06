@@ -4,7 +4,8 @@
       "label": "Titre"
     },
     {
-      "label": "Consigne"
+      "label": "Consigne",
+      "default": "Par deux, faites des phrases en employant les expressions ci-dessous."
     },
     {
       "widgets": [
@@ -12,36 +13,36 @@
           "label": "Par défaut"
         }
       ],
-      "label": "Dialogues",
+      "label": "Dialogue",
       "entity": "dialogue",
       "field": {
         "label": "Question",
         "fields": [
           {
-            "label": "Texte",
-            "description": "Allusion pour la première partie du dialogue"
+            "label": "Question",
+            "description": "Indice pour la première partie du dialogue"
           },
           {
             "label": "Réponse",
-            "description": "Allusion pour la seconde partie du dialogue"
+            "description": "Indice pour la seconde partie du dialogue"
           },
           {
             "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "description": "Image facultative pour la carte. (Une carte peut contenir une image seule, un texte seul ou les deux combinés)"
           },
           {
-            "label": "Audio files"
+            "label": "Fichier audio"
           },
           {
-            "label": "Aide",
+            "label": "Indices",
             "fields": [
               {
-                "label": "Aide pour le texte",
-                "description": "Aide pour la première partie du dialogue"
+                "label": "Indice pour la question",
+                "description": "Indice pour la première partie du dialogue"
               },
               {
-                "label": "Aide pour la réponse",
-                "description": "Aide pour la seconde partie du dialogue"
+                "label": "Indice pour la réponse",
+                "description": "Indice pour la seconde partie du dialogue"
               }
             ]
           }
@@ -49,20 +50,25 @@
       }
     },
     {
-      "label": "Texte pour le bouton retourner"
+      "label": "Texte pour le bouton \"Retourner\"",
+      "default": "Retourner"
     },
     {
-      "label": "Texte pour le bouton suivant"
+      "label": "Texte pour le bouton \"Suivant\"",
+      "default": "Suivant"
     },
     {
-      "label": "Texte pour le bouton précédent"
+      "label": "Texte pour le bouton \"Précédent\"",
+      "default": "Précédent"
     },
     {
-      "label": "Texte pour le bouton Réessayer"
+      "label": "Texte pour le bouton \"Recommencer\"",
+      "default": "Recommencer"
     },
     {
       "label": "Texte de progression",
-      "description": "Les variables disponibles sont @card and @total."
+      "description": "Les variables disponibles sont @card and @total.",
+      "default": "Carte @card sur @total"
     }
   ]
 }
