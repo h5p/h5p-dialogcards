@@ -481,7 +481,12 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     // Check if card has been turned before
     var turned = $c.hasClass('h5p-dialogcards-turned');
 
-	self.changeImage($c, self.params.dialogs[$card.index()][turned ? 'image' : 'back_image']); //Adding this after changeText() caused image sizing problems
+	//If the checkbox to use the same front image on back also is checked, show the front image only regardless of whether a back image is uploaded or not.
+	//P.S. Adding this snippet after changeText() caused image sizing problems
+	if(self.params.dialogs[$card.index()]['use_same'])
+		self.changeImage($c, self.params.dialogs[$card.index()]['image']);
+	else
+		self.changeImage($c, self.params.dialogs[$card.index()][turned ? 'image' : 'back_image']);
 	
     // Update HTML class for card
     $c.toggleClass('h5p-dialogcards-turned', !turned);
@@ -530,9 +535,14 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    */
   C.prototype.changeImage = function ($card, imgSrc) {
     var $cardImage = $card.find('img.h5p-dialogcards-image');
-	//If only front image is specified, then the same image is used for both front or back.
-	if((imgSrc != undefined))
+	
+	if(imgSrc != undefined)
+	{
+		$cardImage.parent().show(); //Show the <div> around <img> which could be hidden while turning the card in the absence of the back image
 		$cardImage.attr('src',H5P.getPath(imgSrc.path,this.id));
+	}
+	else
+		$cardImage.parent().hide(); //If image is not defined, hide <div> around <img> so that it does not occupy the space..
   };
 
   /**
