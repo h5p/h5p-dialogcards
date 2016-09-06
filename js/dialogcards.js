@@ -481,6 +481,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     // Check if card has been turned before
     var turned = $c.hasClass('h5p-dialogcards-turned');
 
+	self.changeImage($c, self.params.dialogs[$card.index()][turned ? 'image' : 'back_image']); //Adding this after changeText() caused image sizing problems
+	
     // Update HTML class for card
     $c.toggleClass('h5p-dialogcards-turned', !turned);
 
@@ -517,6 +519,20 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var $cardText = $card.find('.h5p-dialogcards-card-text-area');
     $cardText.html(text);
     $cardText.toggleClass('hide', (!text || !text.length));
+  };
+  
+  /**
+   * Change image of card, used when turning cards.
+   * Created by SUPRIYA RAJGOPAL on 6Sep16
+   *
+   * @param $card
+   * @param imgSrc
+   */
+  C.prototype.changeImage = function ($card, imgSrc) {
+    var $cardImage = $card.find('img.h5p-dialogcards-image');
+	//If only front image is specified, then the same image is used for both front or back.
+	if((imgSrc != undefined))
+		$cardImage.attr('src',H5P.getPath(imgSrc.path,this.id));
   };
 
   /**

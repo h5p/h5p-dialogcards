@@ -51,6 +51,13 @@
           "optional": true,
           "description": "Optional image for the card. (The card may use just an image, just a text or both)"
         },
+		{
+          "name": "back_image",
+          "type": "image",
+          "label": "Back Image",
+          "optional": true,
+          "description": "Optional image for the back of card. (If this is empty but card on front is specified, that same card will be used for both front & back but not vice versa.)"
+        },
         {
           "name": "audio",
           "type": "audio",
