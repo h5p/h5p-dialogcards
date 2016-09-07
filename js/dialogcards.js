@@ -306,7 +306,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       $cardText.addClass('hide');
     }
 
-    self.createCardFooter()
+    self.createCardFooter(card) //Pass current card as parameter to decide if Turn button should be created or not for this card
       .appendTo($cardTextWrapper);
 
     return $cardContent;
@@ -315,21 +315,26 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   /**
    * Create card footer
    *
+   * @param {Object} card Card parameters 
    * @returns {*|jQuery|HTMLElement} Card footer element
    */
-  C.prototype.createCardFooter = function () {
+  C.prototype.createCardFooter = function (card) {
     var self = this;
     var $cardFooter = $('<div>', {
       'class': 'h5p-dialogcards-card-footer'
     });
 
-    JoubelUI.createButton({
-      'class': 'h5p-dialogcards-turn',
-      'html': self.params.answer
-    }).click(function () {
-      self.turnCard($(this).parents('.h5p-dialogcards-cardwrap'));
-    }).appendTo($cardFooter);
-
+	//Create Turn button only if either answer or back image exists
+	if(card.answer != "" || card.back_image != undefined)
+	{
+		JoubelUI.createButton({
+		  'class': 'h5p-dialogcards-turn',
+		  'html': self.params.answer
+		}).click(function () {
+		  self.turnCard($(this).parents('.h5p-dialogcards-cardwrap'));
+		}).appendTo($cardFooter);
+	}
+	
     return $cardFooter;
   };
 
@@ -358,6 +363,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       if (loadCallback) {
         loadCallback();
       }
+	  $imageWrapper.hide(); //Do not occupy space if no image exists
     }
     self.$images.push($image);
     $image.appendTo($imageWrapper);
@@ -534,7 +540,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param imgSrc
    */
   C.prototype.changeImage = function ($card, imgSrc) {
-    var $cardImage = $card.find('img.h5p-dialogcards-image');
+    var $cardImage = $card.find('.h5p-dialogcards-image');
 	
 	if(imgSrc != undefined)
 	{
@@ -542,7 +548,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 		$cardImage.attr('src',H5P.getPath(imgSrc.path,this.id));
 	}
 	else
-		$cardImage.parent().hide(); //If image is not defined, hide <div> around <img> so that it does not occupy the space..
+		$cardImage.parent().hide(); //If image is not defined, hide <div> around (div/img).h5p-dialogcards-image so that it does not occupy the space
   };
 
   /**
