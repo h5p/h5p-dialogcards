@@ -416,7 +416,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       self.$next.addClass('h5p-dialogcards-disabled');
     }
 
-    if (self.$current.prev('.h5p-dialogcards-cardwrap').length) {
+    if (self.$current.prev('.h5p-dialogcards-cardwrap').length && !self.params.behaviour.disableBackwardsNavigation) {
       self.$prev.removeClass('h5p-dialogcards-disabled');
     }
     else {

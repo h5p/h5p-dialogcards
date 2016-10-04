@@ -96,11 +96,12 @@
         "optional": true
       },
       {
-        "name": "randomAnswers",
+        "name": "disableBackwardsNavigation",
         "type": "boolean",
-        "label": "Randomize cards",
-        "default": false,
-        "optional": true
+        "label": "Disable backwards navigation",
+        "description": "This option will only allow you to move forward with Dialog Cards",
+        "optional": true,
+        "default": false
       }
     ]
   },
