@@ -94,6 +94,13 @@
         "label": "Enable \"Retry\" button",
         "default": true,
         "optional": true
+      },
+      {
+        "name": "randomAnswers",
+        "type": "boolean",
+        "label": "Randomize cards",
+        "default": false,
+        "optional": true
       }
     ]
   },

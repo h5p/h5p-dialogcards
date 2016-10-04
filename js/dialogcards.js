@@ -38,7 +38,11 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
           text: 'Cow',
           answer: 'Ku'
         }
-      ]
+      ],
+      behaviour: {
+        enableRetry: true,
+        randomAnswers: false
+      }
     }, params);
 
     self._current = -1;
@@ -499,9 +503,11 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       setTimeout(function () {
         self.addTipToCard($c, turned ? 'front' : 'back');
         if (!self.$current.next('.h5p-dialogcards-cardwrap').length) {
-          self.$retry.removeClass('h5p-dialogcards-disabled');
-          self.truncateRetryButton();
-          self.resizeOverflowingText();
+          if (self.params.behaviour.enableRetry) {
+            self.$retry.removeClass('h5p-dialogcards-disabled');
+            self.truncateRetryButton();
+            self.resizeOverflowingText();
+          }
         }
       }, 200);
     }, 200);
