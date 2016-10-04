@@ -583,7 +583,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
     var maxHeight = 0;
     self.updateImageSize();
-    
+
     // Reset card-wrapper-set height
     self.$cardwrapperSet.css('height', 'auto');
 

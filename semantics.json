@@ -82,6 +82,22 @@
     }
   },
   {
+    "name": "behaviour",
+    "type": "group",
+    "label": "Behavioural settings.",
+    "description": "These options will let you control how the task behaves.",
+    "optional": true,
+    "fields": [
+      {
+        "name": "enableRetry",
+        "type": "boolean",
+        "label": "Enable \"Retry\" button",
+        "default": true,
+        "optional": true
+      }
+    ]
+  },
+  {
     "label": "Text for the turn button",
     "name": "answer",
     "type": "text",
