@@ -82,6 +82,30 @@
     }
   },
   {
+    "name": "behaviour",
+    "type": "group",
+    "label": "Behavioural settings.",
+    "description": "These options will let you control how the task behaves.",
+    "optional": true,
+    "fields": [
+      {
+        "name": "enableRetry",
+        "type": "boolean",
+        "label": "Enable \"Retry\" button",
+        "default": true,
+        "optional": true
+      },
+      {
+        "name": "disableBackwardsNavigation",
+        "type": "boolean",
+        "label": "Disable backwards navigation",
+        "description": "This option will only allow you to move forward with Dialog Cards",
+        "optional": true,
+        "default": false
+      }
+    ]
+  },
+  {
     "label": "Text for the turn button",
     "name": "answer",
     "type": "text",
