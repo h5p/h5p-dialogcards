@@ -37,12 +37,16 @@
         {
           "name": "text",
           "type": "text",
+          "widget": "html",
+          "tags": ["p", "br", "strong", "em"],
           "label": "Text",
           "description": "Hint for the first part of the dialogue"
         },
         {
           "name": "answer",
           "type": "text",
+          "widget": "html",
+          "tags": ["p", "br", "strong", "em"],
           "label": "Answer",
           "description": "Hint for the second part of the dialogue"
         },
