@@ -7,6 +7,13 @@
   margin-bottom: 0;
 }
 
+.h5p-dialogcards .h5p-dialogcards-title p,
+.h5p-dialogcards .h5p-dialogcards-card-text-area p {
+  font-size: inherit;
+  line-height: inherit;
+  margin: inherit;
+}
+
 .h5p-dialogcards {
   overflow: hidden;
   position: relative;
