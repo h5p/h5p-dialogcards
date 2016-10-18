@@ -41,7 +41,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       ],
       behaviour: {
         enableRetry: true,
-        randomAnswers: false
+        randomAnswers: false,
+        scaleTextNotCard: false
       }
     }, params);
 
@@ -67,6 +68,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + self.params.title + '</div></div>' +
       '<div class="h5p-dialogcards-description">' + self.params.description + '</div>'
       ));
+
+    if (self.params.behaviour.scaleTextNotCard) {
+      $container.addClass('h5p-text-scaling');
+    }
 
     self.initCards(self.params.dialogs)
       .appendTo(self.$inner);
@@ -611,7 +616,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.scaleToFitHeight();
     self.truncateRetryButton();
     self.resizeOverflowingText();
-    self.determineCardSizes();
+    if (!self.params.behaviour.scaleTextNotCard) {
+      self.determineCardSizes();
+    }
   };
 
   /**
@@ -738,6 +745,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    */
   C.prototype.resizeOverflowingText = function () {
     var self = this;
+
+    if (!self.params.behaviour.scaleTextNotCard) {
+      return; // No text scaling today
+    }
 
     // Resize card text if needed
     var $textContainer = self.$current.find('.h5p-dialogcards-card-text');

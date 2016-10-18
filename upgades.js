@@ -52,6 +52,11 @@ H5PUpgrades['H5P.Dialogcards'] = (function ($) {
           parameters.dialogs.forEach(convert(['text', 'answer'], toHtml));
         }
 
+        // The old default was to scale the text and not the card
+        if (parameters.behaviour) {
+          parameters.behaviour.scaleTextNotCard = true;
+        }
+
         // Complete
         finished(null, parameters);
       }
