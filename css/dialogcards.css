@@ -113,7 +113,7 @@
 .h5p-dialogcards .h5p-dialogcards-card-text-wrapper {
   position: relative;
   overflow: hidden;
-  height: 12em;
+  min-height: 12em;
   text-align: center;
 }
 
@@ -135,7 +135,6 @@
   position: relative;
   height: calc(100% - 2.25em);
   padding: 1em 1.5em;
-  box-sizing: border-box;
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-text-inner-content {

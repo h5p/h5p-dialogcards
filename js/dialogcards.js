@@ -611,6 +611,58 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.scaleToFitHeight();
     self.truncateRetryButton();
     self.resizeOverflowingText();
+    self.determineCardSizes();
+  };
+
+  /**
+   * Resizes each card to fit its text
+   */
+  C.prototype.determineCardSizes = function () {
+    var self = this;
+
+    if (self.cardSizeDetermined === undefined) {
+      // Keep track of which cards we've already determined size for
+      self.cardSizeDetermined = [];
+    }
+
+    // Go through each card
+    self.$cardwrapperSet.children(':visible').each(function (i) {
+      if (self.cardSizeDetermined.indexOf(i) !== -1) {
+        return; // Already determined, no need to determine again.
+      }
+      self.cardSizeDetermined.push(i);
+
+      var $content = $('.h5p-dialogcards-card-content', this);
+      var $text = $('.h5p-dialogcards-card-text-inner-content', $content);
+
+      // Grab size with text
+      var textHeight = $text[0].getBoundingClientRect().height;
+
+      // Change to answer
+      self.changeText($content, self.params.dialogs[i].answer);
+
+      // Grab size with answer
+      var answerHeight = $text[0].getBoundingClientRect().height;
+
+      // Use highest
+      var useHeight = (textHeight > answerHeight ? textHeight : answerHeight);
+
+      // Min. limit
+      var minHeight = parseFloat($text.parent().parent().css('minHeight'));
+      if (useHeight < minHeight) {
+        useHeight =  minHeight;
+      }
+
+      // Convert to em
+      var fontSize = parseFloat($content.css('fontSize'));
+      useHeight /= fontSize;
+
+      // Set height
+      $text.parent().css('height', useHeight + 'em');
+
+      // Change back to text
+      self.changeText($content, self.params.dialogs[i].text);
+    });
   };
 
   C.prototype.scaleToFitHeight = function () {
