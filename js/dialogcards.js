@@ -674,9 +674,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
   C.prototype.scaleToFitHeight = function () {
     var self = this;
-    if (!self.$cardwrapperSet || !self.$cardwrapperSet.is(':visible')) {
+    if (!self.$cardwrapperSet || !self.$cardwrapperSet.is(':visible') || !self.params.behaviour.scaleTextNotCard) {
       return;
     }
+
     // Resize font size to fit inside CP
     if (self.$inner.parents('.h5p-course-presentation').length) {
       var $parentContainer = self.$inner.parent();
