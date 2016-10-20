@@ -594,6 +594,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
     var maxHeight = 0;
     self.updateImageSize();
+    if (!self.params.behaviour.scaleTextNotCard) {
+      self.determineCardSizes();
+    }
 
     // Reset card-wrapper-set height
     self.$cardwrapperSet.css('height', 'auto');
@@ -616,9 +619,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.scaleToFitHeight();
     self.truncateRetryButton();
     self.resizeOverflowingText();
-    if (!self.params.behaviour.scaleTextNotCard) {
-      self.determineCardSizes();
-    }
   };
 
   /**
