@@ -1,7 +1,7 @@
 [
-	{
+  {
 		"name": "title",
-		"type": "text",
+	  "type": "text",
 		"widget": "html",
 		"label": "Title",
 		"optional": true,
