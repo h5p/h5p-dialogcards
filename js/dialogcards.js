@@ -369,7 +369,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       if (loadCallback) {
         loadCallback();
       }
-	  	$imageWrapper.hide(); //Do not occupy space if no image exists
+      $imageWrapper.hide(); //Do not occupy space if no image exists
     }
     self.$images.push($image);
     $image.appendTo($imageWrapper);
@@ -544,16 +544,15 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    */
   C.prototype.changeImage = function ($card, imgSrc) {
     var $cardImage = $card.find('.h5p-dialogcards-image');
-	
-		if(imgSrc != undefined)
-		{
-			$cardImage.parent().show(); //Show the <div> around <img> which could be hidden while turning the card in the absence of the back image
-			$cardImage.attr('src',H5P.getPath(imgSrc.path,this.id));
-		}
-		else {
-			$cardImage.parent().hide(); //If image is not defined, hide <div> around (div/img).h5p-dialogcards-image so that it does not occupy the space
-		}
-	};
+    if(imgSrc != undefined)
+    {
+       $cardImage.parent().show(); //Show the <div> around <img> which could be hidden while turning the card in the absence of the back image
+       $cardImage.attr('src',H5P.getPath(imgSrc.path,this.id));
+    }
+    else {
+      $cardImage.parent().hide(); //If image is not defined, hide <div> around (div/img).h5p-dialogcards-image so that it does not occupy the space
+    }
+  };
 
   /**
    * Stop audio of card with cardindex
