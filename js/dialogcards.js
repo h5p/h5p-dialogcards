@@ -492,36 +492,36 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     // Check if card has been turned before
     var turned = $c.hasClass('h5p-dialogcards-turned');
 
-	  //Show the front image only if a back image is not uploaded.
-	  //P.S. Adding this snippet after changeText() caused image sizing problems
-	  if (self.params.dialogs[$card.index()].backImage.length) {
-		  self.changeImage($c, self.params.dialogs[$card.index()][turned ? 'image' : 'backImage']);
-	  }
+    //Show the front image only if a back image is not uploaded.
+    //P.S. Adding this snippet after changeText() caused image sizing problems
+    if (self.params.dialogs[$card.index()].backImage.length) {
+      self.changeImage($c, self.params.dialogs[$card.index()][turned ? 'image' : 'backImage']);
+    }
 		
-	  // Update HTML class for card
-	  $c.toggleClass('h5p-dialogcards-turned', !turned);
-		setTimeout(function () {
-		  $ch.removeClass('h5p-dialogcards-collapse');
-		  self.changeText($c, self.params.dialogs[$card.index()][turned ? 'text' : 'answer']);
-			if (turned) {
-				$ch.find('.h5p-audio-inner').removeClass('hide');
-			}
-			else {
-				self.removeAudio($ch);
-			}
-			// Add backside tip
-			// Had to wait a little, if not Chrome will displace tip icon
-			setTimeout(function () {
-				self.addTipToCard($c, turned ? 'front' : 'back');
-				if (!self.$current.next('.h5p-dialogcards-cardwrap').length) {
-					if (self.params.behaviour.enableRetry) {
-						self.$retry.removeClass('h5p-dialogcards-disabled');
-		        self.truncateRetryButton();
-		        self.resizeOverflowingText();
-		      }
-				}
-			}, 200);
-		}, 200);
+    // Update HTML class for card
+    $c.toggleClass('h5p-dialogcards-turned', !turned);
+    setTimeout(function () {
+      $ch.removeClass('h5p-dialogcards-collapse');
+      self.changeText($c, self.params.dialogs[$card.index()][turned ? 'text' : 'answer']);
+      if (turned) {
+        $ch.find('.h5p-audio-inner').removeClass('hide');
+      }
+      else {
+        self.removeAudio($ch);
+      }
+      // Add backside tip
+      // Had to wait a little, if not Chrome will displace tip icon
+      setTimeout(function () {
+	self.addTipToCard($c, turned ? 'front' : 'back');
+	if (!self.$current.next('.h5p-dialogcards-cardwrap').length) {
+	  if (self.params.behaviour.enableRetry) {
+	    self.$retry.removeClass('h5p-dialogcards-disabled');
+	    self.truncateRetryButton();
+	    self.resizeOverflowingText();
+	  }
+        }
+      }, 200);
+    }, 200);
   };
 
   /**
