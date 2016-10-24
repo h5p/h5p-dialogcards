@@ -126,7 +126,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'class': 'h5p-dialogcards-progress'
     }).appendTo($footer);
 
-    return $footer
+    return $footer;
   };
 
   /**
@@ -222,9 +222,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       }
     };
 
-
     for (var i = 0; i < cards.length; i++) {
-
       // Load cards progressively
       if (i >= initLoad) {
         break;
@@ -283,7 +281,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'class': 'h5p-dialogcards-card-content'
     });
 
-
     self.createCardImage(card, setCardSizeCallback)
       .appendTo($cardContent);
 
@@ -324,20 +321,25 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   /**
    * Create card footer
    *
+   * @param {Object} card Card parameters
    * @returns {*|jQuery|HTMLElement} Card footer element
    */
-  C.prototype.createCardFooter = function () {
+  C.prototype.createCardFooter = function (card) {
     var self = this;
     var $cardFooter = $('<div>', {
       'class': 'h5p-dialogcards-card-footer'
     });
 
-    JoubelUI.createButton({
-      'class': 'h5p-dialogcards-turn',
-      'html': self.params.answer
-    }).click(function () {
-      self.turnCard($(this).parents('.h5p-dialogcards-cardwrap'));
-    }).appendTo($cardFooter);
+	//Create Turn button only if either answer or back image exists
+	if(card.answer != "" || card.backImage != undefined)
+	{
+		JoubelUI.createButton({
+			'class': 'h5p-dialogcards-turn',
+			'html': self.params.answer
+		}).click(function () {
+			self.turnCard($(this).parents('.h5p-dialogcards-cardwrap'));
+		}).appendTo($cardFooter);
+	}
 
     return $cardFooter;
   };
@@ -367,6 +369,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       if (loadCallback) {
         loadCallback();
       }
+	  $imageWrapper.hide(); //Do not occupy space if no image exists
     }
     self.$images.push($image);
     $image.appendTo($imageWrapper);
@@ -387,7 +390,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'class': 'h5p-dialogcards-audio-wrapper'
     });
     if (card.audio !== undefined) {
-
       var audioDefaults = {
         files: card.audio
       };
@@ -490,32 +492,36 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     // Check if card has been turned before
     var turned = $c.hasClass('h5p-dialogcards-turned');
 
-    // Update HTML class for card
-    $c.toggleClass('h5p-dialogcards-turned', !turned);
-
-    setTimeout(function () {
-      $ch.removeClass('h5p-dialogcards-collapse');
-      self.changeText($c, self.params.dialogs[$card.index()][turned ? 'text' : 'answer']);
-      if (turned) {
-        $ch.find('.h5p-audio-inner').removeClass('hide');
-      }
-      else {
-        self.removeAudio($ch);
-      }
-
-      // Add backside tip
-      // Had to wait a little, if not Chrome will displace tip icon
-      setTimeout(function () {
-        self.addTipToCard($c, turned ? 'front' : 'back');
-        if (!self.$current.next('.h5p-dialogcards-cardwrap').length) {
-          if (self.params.behaviour.enableRetry) {
-            self.$retry.removeClass('h5p-dialogcards-disabled');
-            self.truncateRetryButton();
-            self.resizeOverflowingText();
-          }
-        }
-      }, 200);
-    }, 200);
+	  //Show the front image only if a back image is not uploaded.
+	  //P.S. Adding this snippet after changeText() caused image sizing problems
+	  if (self.params.dialogs[$card.index()].backImage.length) {
+		  self.changeImage($c, self.params.dialogs[$card.index()][turned ? 'image' : 'backImage']);
+	  }
+		
+	  // Update HTML class for card
+	  $c.toggleClass('h5p-dialogcards-turned', !turned);
+		setTimeout(function () {
+		  $ch.removeClass('h5p-dialogcards-collapse');
+		  self.changeText($c, self.params.dialogs[$card.index()][turned ? 'text' : 'answer']);
+			if (turned) {
+				$ch.find('.h5p-audio-inner').removeClass('hide');
+			}
+			else {
+				self.removeAudio($ch);
+			}
+			// Add backside tip
+			// Had to wait a little, if not Chrome will displace tip icon
+			setTimeout(function () {
+				self.addTipToCard($c, turned ? 'front' : 'back');
+				if (!self.$current.next('.h5p-dialogcards-cardwrap').length) {
+					if (self.params.behaviour.enableRetry) {
+						self.$retry.removeClass('h5p-dialogcards-disabled');
+		        self.truncateRetryButton();
+		        self.resizeOverflowingText();
+		      }
+				}
+			}, 200);
+		}, 200);
   };
 
   /**
@@ -529,6 +535,25 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     $cardText.html(text);
     $cardText.toggleClass('hide', (!text || !text.length));
   };
+  
+  /**
+   * Change image of card, used when turning cards.
+   *
+   * @param $card
+   * @param imgSrc
+   */
+  C.prototype.changeImage = function ($card, imgSrc) {
+    var $cardImage = $card.find('.h5p-dialogcards-image');
+	
+		if(imgSrc != undefined)
+		{
+			$cardImage.parent().show(); //Show the <div> around <img> which could be hidden while turning the card in the absence of the back image
+			$cardImage.attr('src',H5P.getPath(imgSrc.path,this.id));
+		}
+		else {
+			$cardImage.parent().hide(); //If image is not defined, hide <div> around (div/img).h5p-dialogcards-image so that it does not occupy the space
+		}
+	};
 
   /**
    * Stop audio of card with cardindex
