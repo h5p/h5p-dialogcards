@@ -330,16 +330,16 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'class': 'h5p-dialogcards-card-footer'
     });
 
-	//Create Turn button only if either answer or back image exists
-	if(card.answer != "" || card.backImage != undefined)
-	{
-		JoubelUI.createButton({
-			'class': 'h5p-dialogcards-turn',
-			'html': self.params.answer
-		}).click(function () {
-			self.turnCard($(this).parents('.h5p-dialogcards-cardwrap'));
-		}).appendTo($cardFooter);
-	}
+		//Create Turn button only if either answer or back image exists
+		if(card.answer != "" || card.backImage != undefined)
+		{
+			JoubelUI.createButton({
+				'class': 'h5p-dialogcards-turn',
+				'html': self.params.answer
+			}).click(function () {
+				self.turnCard($(this).parents('.h5p-dialogcards-cardwrap'));
+			}).appendTo($cardFooter);
+		}
 
     return $cardFooter;
   };
@@ -369,7 +369,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       if (loadCallback) {
         loadCallback();
       }
-	  $imageWrapper.hide(); //Do not occupy space if no image exists
+	  	$imageWrapper.hide(); //Do not occupy space if no image exists
     }
     self.$images.push($image);
     $image.appendTo($imageWrapper);
