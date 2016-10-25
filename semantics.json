@@ -4,6 +4,7 @@
     "type": "text",
     "widget": "html",
     "label": "Title",
+    "optional": true,
     "tags": ["p", "br", "strong", "em"]
   },
   {
@@ -12,6 +13,7 @@
     "widget": "html",
     "label": "Task description",
     "default": "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
+    "optional": true,
     "tags": ["p", "br", "strong", "em"]
   },
   {
@@ -35,12 +37,16 @@
         {
           "name": "text",
           "type": "text",
+          "widget": "html",
+          "tags": ["p", "br", "strong", "em"],
           "label": "Text",
           "description": "Hint for the first part of the dialogue"
         },
         {
           "name": "answer",
           "type": "text",
+          "widget": "html",
+          "tags": ["p", "br", "strong", "em"],
           "label": "Answer",
           "description": "Hint for the second part of the dialogue"
         },
@@ -80,6 +86,37 @@
         }
       ]
     }
+  },
+  {
+    "name": "behaviour",
+    "type": "group",
+    "label": "Behavioural settings.",
+    "description": "These options will let you control how the task behaves.",
+    "optional": true,
+    "fields": [
+      {
+        "name": "enableRetry",
+        "type": "boolean",
+        "label": "Enable \"Retry\" button",
+        "default": true,
+        "optional": true
+      },
+      {
+        "name": "disableBackwardsNavigation",
+        "type": "boolean",
+        "label": "Disable backwards navigation",
+        "description": "This option will only allow you to move forward with Dialog Cards",
+        "optional": true,
+        "default": false
+      },
+      {
+        "name": "scaleTextNotCard",
+        "type": "boolean",
+        "label": "Scale the text to fit inside the card",
+        "description": "Unchecking this option will make the card adapt its size to the size of the text",
+        "default": false
+      }
+    ]
   },
   {
     "label": "Text for the turn button",

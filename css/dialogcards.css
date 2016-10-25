@@ -7,6 +7,13 @@
   margin-bottom: 0;
 }
 
+.h5p-dialogcards .h5p-dialogcards-title p,
+.h5p-dialogcards .h5p-dialogcards-card-text-area p {
+  font-size: inherit;
+  line-height: inherit;
+  margin: inherit;
+}
+
 .h5p-dialogcards {
   overflow: hidden;
   position: relative;
@@ -113,8 +120,12 @@
 .h5p-dialogcards .h5p-dialogcards-card-text-wrapper {
   position: relative;
   overflow: hidden;
-  height: 12em;
+  min-height: 12em;
   text-align: center;
+}
+
+.h5p-dialogcards.h5p-text-scaling .h5p-dialogcards-card-text-wrapper {
+  height: 12em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-audio-wrapper {
@@ -135,6 +146,9 @@
   position: relative;
   height: calc(100% - 2.25em);
   padding: 1em 1.5em;
+}
+
+.h5p-dialogcards.h5p-text-scaling .h5p-dialogcards-card-text-inner {
   box-sizing: border-box;
 }
 
@@ -283,6 +297,6 @@
   box-shadow: inset 0 4px 0 #0e407a;
 }
 
-.h5p-course-presentation .h5p-element .h5p-dialogcards-outer-element .h5p-element-inner.h5p-dialogcards {
+.h5p-course-presentation .h5p-element .h5p-dialogcards-outer-element .h5p-element-inner.h5p-dialogcards.h5p-text-scaling {
   overflow-y: hidden;
 }
