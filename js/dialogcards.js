@@ -38,7 +38,12 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
           text: 'Cow',
           answer: 'Ku'
         }
-      ]
+      ],
+      behaviour: {
+        enableRetry: true,
+        randomAnswers: false,
+        scaleTextNotCard: false
+      }
     }, params);
 
     self._current = -1;
@@ -63,6 +68,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + self.params.title + '</div></div>' +
       '<div class="h5p-dialogcards-description">' + self.params.description + '</div>'
       ));
+
+    if (self.params.behaviour.scaleTextNotCard) {
+      $container.addClass('h5p-text-scaling');
+    }
 
     self.initCards(self.params.dialogs)
       .appendTo(self.$inner);
@@ -412,7 +421,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       self.$next.addClass('h5p-dialogcards-disabled');
     }
 
-    if (self.$current.prev('.h5p-dialogcards-cardwrap').length) {
+    if (self.$current.prev('.h5p-dialogcards-cardwrap').length && !self.params.behaviour.disableBackwardsNavigation) {
       self.$prev.removeClass('h5p-dialogcards-disabled');
     }
     else {
@@ -499,9 +508,11 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       setTimeout(function () {
         self.addTipToCard($c, turned ? 'front' : 'back');
         if (!self.$current.next('.h5p-dialogcards-cardwrap').length) {
-          self.$retry.removeClass('h5p-dialogcards-disabled');
-          self.truncateRetryButton();
-          self.resizeOverflowingText();
+          if (self.params.behaviour.enableRetry) {
+            self.$retry.removeClass('h5p-dialogcards-disabled');
+            self.truncateRetryButton();
+            self.resizeOverflowingText();
+          }
         }
       }, 200);
     }, 200);
@@ -583,7 +594,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
     var maxHeight = 0;
     self.updateImageSize();
-    
+    if (!self.params.behaviour.scaleTextNotCard) {
+      self.determineCardSizes();
+    }
+
     // Reset card-wrapper-set height
     self.$cardwrapperSet.css('height', 'auto');
 
@@ -607,11 +621,63 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.resizeOverflowingText();
   };
 
+  /**
+   * Resizes each card to fit its text
+   */
+  C.prototype.determineCardSizes = function () {
+    var self = this;
+
+    if (self.cardSizeDetermined === undefined) {
+      // Keep track of which cards we've already determined size for
+      self.cardSizeDetermined = [];
+    }
+
+    // Go through each card
+    self.$cardwrapperSet.children(':visible').each(function (i) {
+      if (self.cardSizeDetermined.indexOf(i) !== -1) {
+        return; // Already determined, no need to determine again.
+      }
+      self.cardSizeDetermined.push(i);
+
+      var $content = $('.h5p-dialogcards-card-content', this);
+      var $text = $('.h5p-dialogcards-card-text-inner-content', $content);
+
+      // Grab size with text
+      var textHeight = $text[0].getBoundingClientRect().height;
+
+      // Change to answer
+      self.changeText($content, self.params.dialogs[i].answer);
+
+      // Grab size with answer
+      var answerHeight = $text[0].getBoundingClientRect().height;
+
+      // Use highest
+      var useHeight = (textHeight > answerHeight ? textHeight : answerHeight);
+
+      // Min. limit
+      var minHeight = parseFloat($text.parent().parent().css('minHeight'));
+      if (useHeight < minHeight) {
+        useHeight =  minHeight;
+      }
+
+      // Convert to em
+      var fontSize = parseFloat($content.css('fontSize'));
+      useHeight /= fontSize;
+
+      // Set height
+      $text.parent().css('height', useHeight + 'em');
+
+      // Change back to text
+      self.changeText($content, self.params.dialogs[i].text);
+    });
+  };
+
   C.prototype.scaleToFitHeight = function () {
     var self = this;
-    if (!self.$cardwrapperSet || !self.$cardwrapperSet.is(':visible')) {
+    if (!self.$cardwrapperSet || !self.$cardwrapperSet.is(':visible') || !self.params.behaviour.scaleTextNotCard) {
       return;
     }
+
     // Resize font size to fit inside CP
     if (self.$inner.parents('.h5p-course-presentation').length) {
       var $parentContainer = self.$inner.parent();
@@ -680,6 +746,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    */
   C.prototype.resizeOverflowingText = function () {
     var self = this;
+
+    if (!self.params.behaviour.scaleTextNotCard) {
+      return; // No text scaling today
+    }
 
     // Resize card text if needed
     var $textContainer = self.$current.find('.h5p-dialogcards-card-text');
