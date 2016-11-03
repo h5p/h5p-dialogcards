@@ -21,8 +21,8 @@
     "type": "list",
     "widgets": [
       {
-        "name": "VerticalTabs",
-        "label": "Default"
+	"name": "VerticalTabs",
+	"label": "Default"
       }
     ],
     "label": "Dialogs",
@@ -34,56 +34,63 @@
       "type": "group",
       "label": "Question",
       "fields": [
-        {
-          "name": "text",
-          "type": "text",
-          "widget": "html",
-          "tags": ["p", "br", "strong", "em"],
-          "label": "Text",
-          "description": "Hint for the first part of the dialogue"
-        },
-        {
-          "name": "answer",
-          "type": "text",
-          "widget": "html",
-          "tags": ["p", "br", "strong", "em"],
-          "label": "Answer",
-          "description": "Hint for the second part of the dialogue"
-        },
-        {
-          "name": "image",
-          "type": "image",
-          "label": "Image",
-          "optional": true,
-          "description": "Optional image for the card. (The card may use just an image, just a text or both)"
-        },
-        {
-          "name": "audio",
-          "type": "audio",
-          "label": "Audio files",
-          "optional": true
-        },
-        {
-          "name": "tips",
-          "type": "group",
-          "label": "Tips",
-          "fields": [
-            {
-              "name": "front",
-              "type": "text",
-              "label": "Tip for text",
-              "optional": true,
-              "description": "Tip for the first part of the dialogue"
-            },
-            {
-              "name": "back",
-              "type": "text",
-              "label": "Tip for answer",
-              "optional": true,
-              "description": "Tip for the second part of the dialogue"
-            }
-          ]
-        }
+	{
+	  "name": "text",
+	  "type": "text",
+	  "widget": "html",
+	  "tags": ["p", "br", "strong", "em"],
+	  "label": "Text",
+	  "description": "Hint for the first part of the dialogue"
+	},
+	{
+	  "name": "answer",
+	  "type": "text",
+	  "widget": "html",
+	  "tags": ["p", "br", "strong", "em"],
+	  "label": "Answer",
+	  "description": "Hint for the second part of the dialogue"
+	},
+	{
+	  "name": "image",
+	  "type": "image",
+	  "label": "Image",
+	  "optional": true,
+	  "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+	},
+	{
+	  "name": "backImage",
+	  "type": "image",
+	  "label": "Back Image",
+	  "optional": true,
+	  "description": "Optional image for the back of card. (If this is empty but card on front is specified, that same card will be used for both front & back but not vice versa.)"
+	},
+	{
+	  "name": "audio",
+	  "type": "audio",
+	  "label": "Audio files",
+	  "optional": true
+	},
+	{
+	  "name": "tips",
+	  "type": "group",
+	  "label": "Tips",
+	  "fields": [
+	    {
+	      "name": "front",
+	      "type": "text",
+	      "label": "Tip for text",
+	      "optional": true,
+	      "description": "Tip for the first part of the dialogue"
+	    },
+	    {
+	      "name": "back",
+	      "type": "text",
+	      "label": "Tip for answer",
+	      "optional": true,
+	      "description": "Tip for the second part of the dialogue"
+	    }
+	  ]
+	}
       ]
     }
   },
@@ -95,26 +102,26 @@
     "optional": true,
     "fields": [
       {
-        "name": "enableRetry",
-        "type": "boolean",
-        "label": "Enable \"Retry\" button",
-        "default": true,
-        "optional": true
+	"name": "enableRetry",
+	"type": "boolean",
+	"label": "Enable \"Retry\" button",
+	"default": true,
+	"optional": true
       },
       {
-        "name": "disableBackwardsNavigation",
-        "type": "boolean",
-        "label": "Disable backwards navigation",
-        "description": "This option will only allow you to move forward with Dialog Cards",
-        "optional": true,
-        "default": false
+	"name": "disableBackwardsNavigation",
+	"type": "boolean",
+	"label": "Disable backwards navigation",
+	"description": "This option will only allow you to move forward with Dialog Cards",
+	"optional": true,
+	"default": false
       },
       {
-        "name": "scaleTextNotCard",
-        "type": "boolean",
-        "label": "Scale the text to fit inside the card",
-        "description": "Unchecking this option will make the card adapt its size to the size of the text",
-        "default": false
+	"name": "scaleTextNotCard",
+	"type": "boolean",
+	"label": "Scale the text to fit inside the card",
+	"description": "Unchecking this option will make the card adapt its size to the size of the text",
+	"default": false
       }
     ]
   },
