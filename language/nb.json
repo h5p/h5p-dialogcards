@@ -45,6 +45,23 @@
       }
     },
     {
+      "label": "Innstillinger for oppgave-oppførsel",
+      "description": "Disse instillingene lar deg bestemme hvordan oppgavetypen skal oppføre seg.",
+      "fields": [
+        {
+          "label": "Aktiver \"Prøv igjen\"-knapp"
+        },
+        {
+          "label": "Slå av tilbakenavigering",
+          "description": "Dette valget betyr at man bare kan navigere fremover"
+        },
+        {
+          "label": "Skaler teksten til å få pplass i kortet",
+          "description": "Når man slår av denne vil kortets størrelse endre seg iforhold til mengde tekst"
+        }
+      ]
+    },
+    {
       "label": "Tekst til \"Snu\" knappen",
       "default": "Snu"
     },
