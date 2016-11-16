@@ -4,14 +4,10 @@
       "label": "العنوان"
     },
     {
-      "label": "وصف النشاط"
+      "label": "وصف النشاط",
+      "default": "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut."
     },
     {
-      "widgets": [
-        {
-          "label": "افتراضي"
-        }
-      ],
       "label": "الحوارات",
       "entity": "الحوار",
       "field": {
@@ -48,21 +44,43 @@
         ]
       }
     },
-    {
-      "label": "نص زر التدوير"
+     {
+      "label": "Behavioural settings",
+      "description": "These options will let you control how the task behaves.",
+      "fields": [
+        {
+          "label": "Enable \"Retry\" button"
+        },
+        {
+          "label": "Disable backwards navigation",
+          "description": "This option will only allow you to move forward with Dialog Cards"
+        },
+        {
+          "label": "Scale the text to fit inside the card",
+          "description": "Unchecking this option will make the card adapt its size to the size of the text"
+        }
+      ]
     },
     {
-      "label": "نص الزر التالي"
+      "label": "نص زر التدوير",
+      "default": "Turn"
     },
     {
-      "label": "نص الزر السابق"
+      "label": "نص الزر التالي",
+      "default": "Next"
     },
     {
-      "label": "النص الزر إعادة المحاولة"
+      "label": "نص الزر السابق",
+      "default": "Previous"
+    },
+    {
+      "label": "النص الزر إعادة المحاولة",
+      "default": "Retry"
     },
     {
       "label": "نص التقدم",
-      "description": "المتغيرات المتاحة هي البطاقة والمجموع"
+      "description": "المتغيرات المتاحة هي البطاقة والمجموع",
+      "default": "Card @card of @total"
     }
   ]
 }
