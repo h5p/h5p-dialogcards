@@ -579,8 +579,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     $cards.each(function (index) {
       var $card = $(this).removeClass('h5p-dialogcards-previous');
       self.changeText($card, self.params.dialogs[$card.index()].text);
-
-      self.addTipToCard($card.find('.h5p-dialogcards-card-content'), 'front', index);
+      var $cardContent = $card.find('.h5p-dialogcards-card-content');
+      $cardContent.removeClass('h5p-dialogcards-turned');
+      self.addTipToCard($cardContent, 'front', index);
     });
     self.$retry.addClass('h5p-dialogcards-disabled');
     self.showAllAudio();
