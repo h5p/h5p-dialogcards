@@ -45,19 +45,19 @@
       }
     },
      {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the task behaves.",
+      "label": "Options générales",
+      "description": "Ces options vous permettent de paramétrer le déroulement de l'exercice.",
       "fields": [
         {
-          "label": "Enable \"Retry\" button"
+          "label": "Activer le bouton \"Recommencer\""
         },
         {
-          "label": "Disable backwards navigation",
-          "description": "This option will only allow you to move forward with Dialog Cards"
+          "label": "Désactiver la possibilité de naviguer en arrière",
+          "description": "Cette option ne permettra plus que la navigation en avant au sein des Dialog Cards"
         },
         {
-          "label": "Scale the text to fit inside the card",
-          "description": "Unchecking this option will make the card adapt its size to the size of the text"
+          "label": "Mettre à l'échelle le texte afin de s'adapter au sein de la carte",
+          "description": "Si cette option est décochée la taille de la carte sera adaptée au texte placé à l'intérieur"
         }
       ]
     },
@@ -79,7 +79,7 @@
     },
     {
       "label": "Texte de progression",
-      "description": "Les variables disponibles sont @card and @total.",
+      "description": "Les variables disponibles sont @card et @total.",
       "default": "Carte @card sur @total"
     }
   ]
