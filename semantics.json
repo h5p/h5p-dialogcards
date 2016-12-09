@@ -33,6 +33,7 @@
       "name": "question",
       "type": "group",
       "label": "Question",
+      "importance": "high",
       "fields": [
         {
           "name": "text",
@@ -67,6 +68,7 @@
           "name": "tips",
           "type": "group",
           "label": "Tips",
+          "importance": "low",
           "fields": [
             {
               "name": "front",
