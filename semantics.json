@@ -4,6 +4,7 @@
     "type": "text",
     "widget": "html",
     "label": "Title",
+    "importance": "high",
     "optional": true,
     "tags": ["p", "br", "strong", "em"]
   },
@@ -12,6 +13,7 @@
     "type": "text",
     "widget": "html",
     "label": "Task description",
+    "importance": "medium",
     "default": "",
     "optional": true,
     "tags": ["p", "br", "strong", "em"]
@@ -19,6 +21,7 @@
   {
     "name": "dialogs",
     "type": "list",
+    "importance": "high", 
     "widgets": [
       {
         "name": "VerticalTabs",
@@ -26,6 +29,7 @@
       }
     ],
     "label": "Dialogs",
+    "importance": "high", 
     "entity": "dialog",
     "min": 1,
     "defaultNum": 1,
@@ -41,6 +45,7 @@
           "widget": "html",
           "tags": ["p", "br", "strong", "em"],
           "label": "Text",
+          "importance": "high", 
           "description": "Hint for the first part of the dialogue"
         },
         {
@@ -49,12 +54,14 @@
           "widget": "html",
           "tags": ["p", "br", "strong", "em"],
           "label": "Answer",
+          "importance": "high", 
           "description": "Hint for the second part of the dialogue"
         },
         {
           "name": "image",
           "type": "image",
           "label": "Image",
+          "importance": "high",
           "optional": true,
           "description": "Optional image for the card. (The card may use just an image, just a text or both)"
         },
@@ -62,6 +69,7 @@
           "name": "audio",
           "type": "audio",
           "label": "Audio files",
+          "importance": "low", 
           "optional": true
         },
         {
@@ -74,6 +82,7 @@
               "name": "front",
               "type": "text",
               "label": "Tip for text",
+              "importance": "low",
               "optional": true,
               "description": "Tip for the first part of the dialogue"
             },
@@ -81,6 +90,7 @@
               "name": "back",
               "type": "text",
               "label": "Tip for answer",
+              "importance": "low",
               "optional": true,
               "description": "Tip for the second part of the dialogue"
             }
@@ -93,6 +103,7 @@
     "name": "behaviour",
     "type": "group",
     "label": "Behavioural settings.",
+    "importance": "low",
     "description": "These options will let you control how the task behaves.",
     "optional": true,
     "fields": [
@@ -100,6 +111,7 @@
         "name": "enableRetry",
         "type": "boolean",
         "label": "Enable \"Retry\" button",
+        "importance": "low",
         "default": true,
         "optional": true
       },
@@ -107,6 +119,7 @@
         "name": "disableBackwardsNavigation",
         "type": "boolean",
         "label": "Disable backwards navigation",
+        "importance": "low",
         "description": "This option will only allow you to move forward with Dialog Cards",
         "optional": true,
         "default": false
@@ -115,6 +128,7 @@
         "name": "scaleTextNotCard",
         "type": "boolean",
         "label": "Scale the text to fit inside the card",
+        "importance": "low",
         "description": "Unchecking this option will make the card adapt its size to the size of the text",
         "default": false
       }
@@ -122,6 +136,7 @@
   },
   {
     "label": "Text for the turn button",
+    "importance": "low",
     "name": "answer",
     "type": "text",
     "default": "Turn",
@@ -129,6 +144,7 @@
   },
   {
     "label": "Text for the next button",
+    "importance": "low",
     "type": "text",
     "name": "next",
     "default": "Next",
@@ -138,6 +154,7 @@
     "name": "prev",
     "type": "text",
     "label": "Text for the previous button",
+    "importance": "low",
     "default": "Previous",
     "common": true
   },
@@ -145,6 +162,7 @@
     "name": "retry",
     "type": "text",
     "label": "Text for the retry button",
+    "importance": "low",
     "default": "Retry",
     "common": true
   },
@@ -152,6 +170,7 @@
     "name": "progressText",
     "type": "text",
     "label": "Progress text",
+    "importance": "low",
     "description": "Available variables are @card and @total.",
     "default": "Card @card of @total",
     "common": true
