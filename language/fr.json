@@ -9,6 +9,11 @@
     },
     {
       "label": "Dialogue",
+      "widgets": [
+        {
+          "label": "Défaut"
+        }
+      ],
       "entity": "dialogue",
       "field": {
         "label": "Question",
