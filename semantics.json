@@ -6,7 +6,12 @@
     "label": "Title",
     "importance": "high",
     "optional": true,
-    "tags": ["p", "br", "strong", "em"]
+    "tags": [
+      "p",
+      "br",
+      "strong",
+      "em"
+    ]
   },
   {
     "name": "description",
@@ -16,12 +21,17 @@
     "importance": "medium",
     "default": "",
     "optional": true,
-    "tags": ["p", "br", "strong", "em"]
+    "tags": [
+      "p",
+      "br",
+      "strong",
+      "em"
+    ]
   },
   {
     "name": "dialogs",
     "type": "list",
-    "importance": "high", 
+    "importance": "high",
     "widgets": [
       {
         "name": "VerticalTabs",
@@ -29,7 +39,6 @@
       }
     ],
     "label": "Dialogs",
-    "importance": "high", 
     "entity": "dialog",
     "min": 1,
     "defaultNum": 1,
@@ -43,18 +52,28 @@
           "name": "text",
           "type": "text",
           "widget": "html",
-          "tags": ["p", "br", "strong", "em"],
+          "tags": [
+            "p",
+            "br",
+            "strong",
+            "em"
+          ],
           "label": "Text",
-          "importance": "high", 
+          "importance": "high",
           "description": "Hint for the first part of the dialogue"
         },
         {
           "name": "answer",
           "type": "text",
           "widget": "html",
-          "tags": ["p", "br", "strong", "em"],
+          "tags": [
+            "p",
+            "br",
+            "strong",
+            "em"
+          ],
           "label": "Answer",
-          "importance": "high", 
+          "importance": "high",
           "description": "Hint for the second part of the dialogue"
         },
         {
@@ -69,7 +88,7 @@
           "name": "audio",
           "type": "audio",
           "label": "Audio files",
-          "importance": "low", 
+          "importance": "low",
           "optional": true
         },
         {
