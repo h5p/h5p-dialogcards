@@ -300,3 +300,8 @@
 .h5p-course-presentation .h5p-element .h5p-dialogcards-outer-element .h5p-element-inner.h5p-dialogcards.h5p-text-scaling {
   overflow-y: hidden;
 }
+
+.h5p-dialogcards .joubel-icon-tip-normal {
+  font-size: 1.3em;
+  line-height: 1.3em;
+}
