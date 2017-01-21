@@ -64,8 +64,8 @@
           "description": "Wenn diese Option abgewählt wird, passt sich die Größe der Karte der Textgröße an."
         },
         {
-          "label": "Shuffle the Cards",
-          "description": "Check this option if you want the cards to be shuffled."
+          "label": "Karten zufällig anordnen",
+          "description": "Wähle diese Option, wenn du die Karten mischen möchtest."
         }
       ]
     },
