@@ -41,8 +41,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       ],
       behaviour: {
         enableRetry: true,
-        randomAnswers: false,
-        scaleTextNotCard: false
+        //randomAnswers: false, // This param is not used!
+        scaleTextNotCard: false,
+        shuffleCards: false
       }
     }, params);
 
@@ -210,6 +211,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
     var loaded = 0;
     var initLoad = 2;
+
+    if (self.params.behaviour.shuffleCards) {
+      cards = shuffle(cards);
+    }
 
     self.$cardwrapperSet = $('<div>', {
       'class': 'h5p-dialogcards-cardwrap-set'
@@ -846,6 +851,22 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       self.$retry.html('');
     }
   };
+
+  function shuffle(array) {
+
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    // While there remain elements to shuffle
+    while (0 !== currentIndex) {
+      // Pick a remaining element
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+  }
 
   C.SCALEINTERVAL = 0.2;
   C.MAXSCALE = 16;
