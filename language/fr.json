@@ -58,6 +58,10 @@
         {
           "label": "Mettre à l'échelle le texte afin de s'adapter au sein de la carte",
           "description": "Si cette option est décochée la taille de la carte sera adaptée au texte placé à l'intérieur"
+        },
+        {
+          "label": "Shuffle the Cards",
+          "description": "Check this option if you want the cards to be shuffled."
         }
       ]
     },
