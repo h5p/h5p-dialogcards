@@ -150,6 +150,14 @@
         "importance": "low",
         "description": "Unchecking this option will make the card adapt its size to the size of the text",
         "default": false
+      },
+      {
+        "name": "shuffleCards",
+        "type": "boolean",
+        "label": "Shuffle the Cards",
+        "importance": "low",
+        "description": "Check this option if you want the cards to be shuffled.",
+         "default": false
       }
     ]
   },
