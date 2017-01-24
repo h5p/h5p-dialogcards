@@ -58,10 +58,6 @@
         {
           "label": "Skaler teksten til å få pplass i kortet",
           "description": "Når man slår av denne vil kortets størrelse endre seg iforhold til mengde tekst"
-        },
-        {
-          "label": "Shuffle the Cards",
-          "description": "Check this option if you want the cards to be shuffled."
         }
       ]
     },
