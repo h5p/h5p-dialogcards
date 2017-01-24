@@ -152,11 +152,11 @@
         "default": false
       },
       {
-        "name": "shuffleCards",
+        "name": "randomCards",
         "type": "boolean",
-        "label": "Shuffle the Cards",
+        "label": "Randomize cards",
         "importance": "low",
-        "description": "Check this option if you want the cards to be shuffled.",
+        "description": "Enable to randomize the order of cards on display.",
          "default": false
       }
     ]
