@@ -57,6 +57,10 @@
         {
           "label": "Scale the text to fit inside the card",
           "description": "Unchecking this option will make the card adapt its size to the size of the text"
+        },
+        {
+         	"label": "Randomize cards",
+        	"description": "Enable to randomize the order of cards on display."
         }
       ]
     },
