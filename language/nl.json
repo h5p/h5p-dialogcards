@@ -59,8 +59,8 @@
           "description": "Door dit uit te vinken zullen de afmetingen van de kaart zich aanpassen aan de grootte van de tekst"
         },
         {
-         	"label": "Randomize cards",
-        	"description": "Enable to randomize the order of cards on display."
+          "label": "Randomize cards",
+          "description": "Enable to randomize the order of cards on display."
         }
       ]
     },
