@@ -41,7 +41,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       ],
       behaviour: {
         enableRetry: true,
-        //randomAnswers: false, // This param is not used!
         scaleTextNotCard: false,
         randomCards: false
       }
@@ -52,17 +51,13 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.$images = [];
     self.audios = [];
 
-    var currentCard = 0;
-    var cardOrder; //Stores order of cards (if randomized) to allow resuming of card set
+    // Var cardOrder stores order of cards (if randomized) to allow resuming of card set.
+    // Var progress stores current card index.
 
-    contentData = contentData || {};
-    this.contentData = contentData;
-
-    // Bring card set up to date when resuming
-    if (contentData.previousState) {
-      if (contentData.previousState.progress) {
-        this.progress = contentData.previousState.progress;
-      }
+    this.contentData = contentData || {};
+    // Bring card set up to date when resuming.
+    if (this.contentData.previousState) {
+      this.progress = this.contentData.previousState.progress;
       this.cardOrder = contentData.previousState.order;
     }
 
@@ -88,6 +83,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     if (self.params.behaviour.scaleTextNotCard) {
       $container.addClass('h5p-text-scaling');
     }
+
     self.initCards(self.params.dialogs)
       .appendTo(self.$inner);
 
@@ -224,14 +220,15 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   C.prototype.initCards = function (cards) {
     var self = this;
     var loaded = 0;
-    var initLoad = 2;
-    var okForRandomize = false;
+    // When resuming we need to load ALL the cards.
+    var initLoad = this.progress !== undefined ? cards.length : 2;
 
-    if (jQuery.isEmptyObject( this.contentData.previousState ) || this.contentData.previousState == 'undefined') {
+    // If keepstate only randomize first instanciation.
+    var okForRandomize = false;
+    if (this.contentData.previousState === undefined || this.contentData.previousState.order === undefined) {
       okForRandomize = true;
     }
 
-    // Randomize cards only on instantiation
     if (self.params.behaviour.randomCards && okForRandomize) {
       var cardOrdering = cards.map(function(cards, index) { return [cards, index] });
       // Shuffle the multidimensional array
@@ -286,22 +283,28 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       }
     };
 
-
     for (var i = 0; i < cards.length; i++) {
 
       // Load cards progressively
-      // Removed because incompatible with the "keep state" feature.
       if (i >= initLoad) {
-        //break;
+        break;
       }
 
       var $cardWrapper = self.createCard(cards[i], setCardSizeCallback);
 
       // Set current card index
-      if (this.progress != 'undefined' && i == this.progress || i === 0) {
+      // If there is a saved state, then set current card index to saved position (progress)
+      // otherwise set it to zero.
+      if ((this.progress == undefined && i === 0) || (this.progress !== undefined && i == this.progress)) {
         $cardWrapper.addClass('h5p-dialogcards-current');
         self.$current = $cardWrapper;
       }
+      // Only way I found to avoid jitter when resuming
+
+      if (this.progress !== undefined && i < this.progress) {
+        $cardWrapper.addClass('h5p-dialogcards-previous');
+      }
+
       self.addTipToCard($cardWrapper.find('.h5p-dialogcards-card-content'), 'front', i);
 
       self.$cardwrapperSet.append($cardWrapper);
