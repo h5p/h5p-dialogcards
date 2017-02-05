@@ -153,11 +153,25 @@
       },
       {
         "name": "randomCards",
-        "type": "boolean",
-        "label": "Randomize cards",
+        "type": "select",
+        "label": "Cards Order",
         "importance": "low",
-        "description": "Enable to randomize the order of cards on display.",
-         "default": false
+        "description": "Select the order of cards when displayed to the user.",
+        "default": "normal",
+        "options": [
+          {
+            "value": "normal",
+            "label": "Normal order"
+          },
+          {
+            "value": "random",
+            "label": "Random order"
+          },
+          {
+            "value": "user",
+            "label": "User's choice"
+          }
+        ]
       }
     ]
   },
@@ -194,12 +208,62 @@
     "common": true
   },
   {
+    "name": "reset",
+    "type": "text",
+    "label": "Text for the 'Reset' button",
+    "importance": "low",
+    "default": "Reset",
+    "common": true
+  },
+  {
     "name": "progressText",
     "type": "text",
     "label": "Progress text",
     "importance": "low",
     "description": "Available variables are @card and @total.",
     "default": "Card @card of @total",
+    "common": true
+  },
+  {
+    "name": "randomizeCardsQuestion",
+    "type": "text",
+    "label": "Display the cards in random order?",
+    "importance": "low",
+    "description": "Ask the user if they want to display the cards in random order.",
+    "default": "Display the cards in random order?",
+    "common": true
+  },
+  {
+    "name": "yes",
+    "type": "text",
+    "label": "Yes",
+    "importance": "low",
+    "default": "Yes",
+    "common": true
+  },
+  {
+    "name": "no",
+    "type": "text",
+    "label": "No",
+    "importance": "low",
+    "default": "No",
+    "common": true
+  },
+  {
+    "name": "nbCardsQuestion",
+    "type": "text",
+    "label": "Number of Cards",
+    "importance": "low",
+    "description": "If the cards are displayed in random order, ask the user how many cards they want.",
+    "default": "How many cards do you want?",
+    "common": true
+  },
+  {
+    "name": "allCards",
+    "type": "text",
+    "label": "All Cards",
+    "importance": "low",
+    "default": "all the cards",
     "common": true
   }
 ]

@@ -223,7 +223,7 @@
 
 .h5p-dialogcards .h5p-dialogcards-prev:before {
   font-family: 'H5PFontAwesome4';
-  content: "\f053";
+  content: "\f053"; // fa-chevron-left
   margin-right: 0.2em;
 }
 
@@ -232,17 +232,26 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-retry {
+  left: 4em;
+}
+
+.h5p-dialogcards .h5p-dialogcards-reset {
   right: 1em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-retry:before {
   font-family: 'H5PFontAwesome4';
-  content: "\f01e";
+  content: "\f04a"; // fa-backward
+}
+
+.h5p-dialogcards .h5p-dialogcards-reset:before {
+  font-family: 'H5PFontAwesome4';
+  content: "\f0e2"; // fa-undo
 }
 
 .h5p-dialogcards .h5p-dialogcards-next:after {
   font-family: 'H5PFontAwesome4';
-  content: "\f054";
+  content: "\f054"; //  fa-chevron-right
   margin-left: 0.2em;
 }
 
