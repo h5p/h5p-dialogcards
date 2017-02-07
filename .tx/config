@@ -1,0 +1,9 @@
+[main]
+host = https://www.transifex.com
+
+[h5p-dialogcards.enjson]
+file_filter = language/<lang>.json
+source_file = language/en.json
+source_lang = en
+type = KEYVALUEJSON
+

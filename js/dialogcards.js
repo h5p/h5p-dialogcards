@@ -41,8 +41,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       ],
       behaviour: {
         enableRetry: true,
-        randomAnswers: false,
-        scaleTextNotCard: false
+        //randomAnswers: false, // This param is not used!
+        scaleTextNotCard: false,
+        randomCards: false
       }
     }, params);
 
@@ -210,6 +211,11 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
     var loaded = 0;
     var initLoad = 2;
+
+    // Randomize cards order
+    if (self.params.behaviour.randomCards) {
+      cards = H5P.shuffleArray(cards);
+    }
 
     self.$cardwrapperSet = $('<div>', {
       'class': 'h5p-dialogcards-cardwrap-set'
