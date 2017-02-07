@@ -208,14 +208,6 @@
     "common": true
   },
   {
-    "name": "reset",
-    "type": "text",
-    "label": "Text for the 'Reset' button",
-    "importance": "low",
-    "default": "Reset",
-    "common": true
-  },
-  {
     "name": "progressText",
     "type": "text",
     "label": "Progress text",

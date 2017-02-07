@@ -223,7 +223,7 @@
 
 .h5p-dialogcards .h5p-dialogcards-prev:before {
   font-family: 'H5PFontAwesome4';
-  content: "\f053"; // fa-chevron-left
+  content: "\f053";
   margin-right: 0.2em;
 }
 
@@ -232,27 +232,23 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-retry {
-  left: 4em;
-}
-
-.h5p-dialogcards .h5p-dialogcards-reset {
   right: 1em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-retry:before {
   font-family: 'H5PFontAwesome4';
-  content: "\f04a"; // fa-backward
-}
-
-.h5p-dialogcards .h5p-dialogcards-reset:before {
-  font-family: 'H5PFontAwesome4';
-  content: "\f0e2"; // fa-undo
+  content: "\f01e";
 }
 
 .h5p-dialogcards .h5p-dialogcards-next:after {
   font-family: 'H5PFontAwesome4';
-  content: "\f054"; //  fa-chevron-right
+  content: "\f054";
   margin-left: 0.2em;
+}
+
+.h5p-dialogcards .h5p-dialogcards-gotit:before {
+  font-family: 'H5PFontAwesome4';
+  content: "\f00c"; // fa-check
 }
 
 .h5p-dialogcards .joubel-tip-container {
@@ -308,4 +304,10 @@
 
 .h5p-course-presentation .h5p-element .h5p-dialogcards-outer-element .h5p-element-inner.h5p-dialogcards.h5p-text-scaling {
   overflow-y: hidden;
+}
+
+.h5p-dialogcards .h5p-feedback {
+  margin-top: 1em;
+  font-size: 1.25em;
+  margin-bottom: 1em;
 }
