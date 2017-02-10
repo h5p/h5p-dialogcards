@@ -150,6 +150,14 @@
         "importance": "low",
         "description": "Unchecking this option will make the card adapt its size to the size of the text",
         "default": false
+      },
+      {
+        "name": "randomCards",
+        "type": "boolean",
+        "label": "Randomize cards",
+        "importance": "low",
+        "description": "Enable to randomize the order of cards on display.",
+         "default": false
       }
     ]
   },
