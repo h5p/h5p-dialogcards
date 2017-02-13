@@ -340,7 +340,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     JoubelUI.createButton({
       'class': 'h5p-dialogcards-turn',
-      'html': self.params.answer
+      'html': '<span>'+self.params.answer+'</span>'
     }).click(function () {
       self.turnCard($(this).parents('.h5p-dialogcards-cardwrap'));
     }).appendTo($cardFooter);
