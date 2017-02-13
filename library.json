@@ -2,8 +2,8 @@
   "title": "Dialog Cards",
   "description": "Makes it possible to create learning tasks for your site visitors.",
   "majorVersion": 1,
-  "minorVersion": 4,
-  "patchVersion": 3,
+  "minorVersion": 5,
+  "patchVersion": 1,
   "runnable": 1,
   "author": "Joubel AS",
   "license": "MIT",
@@ -39,7 +39,7 @@
     {
       "machineName": "H5PEditor.VerticalTabs",
       "majorVersion": 1,
-      "minorVersion": 2
+      "minorVersion": 3
     }
   ]
 }

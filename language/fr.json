@@ -9,11 +9,6 @@
     },
     {
       "label": "Dialogue",
-      "widgets": [
-        {
-          "label": "Défaut"
-        }
-      ],
       "entity": "dialogue",
       "field": {
         "label": "Question",
@@ -63,6 +58,10 @@
         {
           "label": "Mettre à l'échelle le texte afin de s'adapter au sein de la carte",
           "description": "Si cette option est décochée la taille de la carte sera adaptée au texte placé à l'intérieur"
+        },
+        {
+         	"label": "Randomize cards",
+        	"description": "Enable to randomize the order of cards on display."
         }
       ]
     },

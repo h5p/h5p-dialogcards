@@ -1,25 +1,24 @@
 {
   "semantics": [
     {
-      "label": "Titolo"
+      "label": "Title"
     },
     {
-      "label": "Descrizione attività",
-      "default": "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut."
+      "label": "Task description"
     },
     {
-      "label": "Dialoghi",
-      "entity": "dialogo",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "Domanda",
+        "label": "Question",
         "fields": [
           {
-            "label": "Testo",
-            "description": "Suggerimento per la prima parte del dialogo"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue"
           },
           {
-            "label": "Risposta",
-            "description": "Suggerimento per la seconda parte del dialogo"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue"
           },
           {
             "label": "Image",
@@ -29,23 +28,23 @@
             "label": "Audio files"
           },
           {
-            "label": "Suggerimenti",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Suggerimento per il testo",
-                "description": "Suggerimento per la prima parte del dialogo"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Suggerimento per la risposta",
-                "description": "Suggerimento per la seconda parte del dialogo"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
         ]
       }
     },
-     {
-      "label": "Behavioural settings",
+    {
+      "label": "Behavioural settings.",
       "description": "These options will let you control how the task behaves.",
       "fields": [
         {
@@ -66,24 +65,24 @@
       ]
     },
     {
-      "label": "Testo per il pulsante Gira",
+      "label": "Text for the turn button",
       "default": "Turn"
     },
     {
-      "label": "Testo per il pulsante Prossimo",
+      "label": "Text for the next button",
       "default": "Next"
     },
     {
-      "label": "Testo per il pulsante Precedente",
+      "label": "Text for the previous button",
       "default": "Previous"
     },
     {
-      "label": "Testo per il pulsante Indietro",
+      "label": "Text for the retry button",
       "default": "Retry"
     },
     {
-      "label": "Testo avanzamento",
-      "description": "Le variabili disponibili sono @card e @total.",
+      "label": "Progress text",
+      "description": "Available variables are @card and @total.",
       "default": "Card @card of @total"
     }
   ]

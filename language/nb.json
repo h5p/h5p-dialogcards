@@ -58,6 +58,10 @@
         {
           "label": "Skaler teksten til å få pplass i kortet",
           "description": "Når man slår av denne vil kortets størrelse endre seg iforhold til mengde tekst"
+        },
+        {
+         	"label": "Randomize cards",
+        	"description": "Enable to randomize the order of cards on display."
         }
       ]
     },
