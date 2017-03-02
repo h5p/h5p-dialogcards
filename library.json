@@ -5,7 +5,7 @@
   "minorVersion": 5,
   "patchVersion": 1,
   "runnable": 1,
-  "author": "Joubel AS",
+  "author": "Joubel",
   "license": "MIT",
   "machineName": "H5P.Dialogcards",
   "preloadedCss": [
