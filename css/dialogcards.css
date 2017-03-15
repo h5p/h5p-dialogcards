@@ -289,14 +289,6 @@
   background: #1356a3;
 }
 
-.h5p-joubelui-button:active {
-  background: #104888;
-
-  -webkit-box-shadow: inset 0 4px 0 #0e407a;
-  -moz-box-shadow: inset 0 4px 0 #0e407a;
-  box-shadow: inset 0 4px 0 #0e407a;
-}
-
 .h5p-course-presentation .h5p-element .h5p-dialogcards-outer-element .h5p-element-inner.h5p-dialogcards.h5p-text-scaling {
   overflow-y: hidden;
 }
