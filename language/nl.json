@@ -1,0 +1,89 @@
+{
+  "semantics": [
+    {
+      "label": "Titel"
+    },
+    {
+      "label": "Beschrijving taak"
+    },
+    {
+      "label": "Dialogen",
+      "entity": "dialog",
+      "field": {
+        "label": "Vraag",
+        "fields": [
+          {
+            "label": "Tekst",
+            "description": "Hint voor het eerste deel van het dialoog"
+          },
+          {
+            "label": "Antwoord",
+            "description": "Hint voor het tweede deel van het dialoog"
+          },
+          {
+            "label": "Afbeelding",
+            "description": "Optionele afbeelding voor de kaart. (De kaart mag alleen een afbeelding gebruiken, alleen een tekst of allebei)"
+          },
+          {
+            "label": "Audio bestanden"
+          },
+          {
+            "label": "Tips",
+            "fields": [
+              {
+                "label": "Tip voor de tekst",
+                "description": "Tip voor het eerste deel van het dialoog"
+              },
+              {
+                "label": "Tip for answer",
+                "description": "Tip voor het tweede deel van het dialoog"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "Gedragsinstellingen",
+      "description": "Met deze opties kun je instellen hoe de taak zich gedraagt.",
+      "fields": [
+        {
+          "label": "\"Opnieuw proberen\" knop inschakelen"
+        },
+        {
+          "label": "Achteruit navigeren uitschakelen",
+          "description": "Deze optie zorgt ervoor dat je alleen maar vooruit kunt bladeren met Dialoogkaarten"
+        },
+        {
+          "label": "De tekst passend maken in de kaart",
+          "description": "Door dit uit te vinken zullen de afmetingen van de kaart zich aanpassen aan de grootte van de tekst"
+        },
+        {
+          "label": "Kaarten in willekeurige volgorde",
+          "description": "Schakel in om de kaarten in willekeurige volgorde te tonen."
+        }
+      ]
+    },
+    {
+      "label": "Tekst knop Omdraaien",
+      "default": "Omdraaien"
+    },
+    {
+      "label": "Tekst voor de knop Volgende",
+      "default": "Volgende"
+    },
+    {
+      "label": "Tekst voor de knop Vorige",
+      "default": "Vorige"
+    },
+    {
+      "label": "Tekst voor de knop Opnieuw",
+      "default": "Opnieuw"
+    },
+    {
+      "label": "Tekst bij voortgang",
+      "description": "Beschikbare variabelen zijn @card en @total.",
+      "default": "Kaart @card van @total"
+    }
+  ]
+}

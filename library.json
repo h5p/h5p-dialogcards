@@ -3,9 +3,9 @@
   "description": "Makes it possible to create learning tasks for your site visitors.",
   "majorVersion": 1,
   "minorVersion": 5,
-  "patchVersion": 0,
+  "patchVersion": 2,
   "runnable": 1,
-  "author": "Joubel AS",
+  "author": "Joubel",
   "license": "MIT",
   "machineName": "H5P.Dialogcards",
   "preloadedCss": [
@@ -33,6 +33,11 @@
       "machineName": "H5P.Audio",
       "majorVersion": 1,
       "minorVersion": 2
+    },
+    {
+      "machineName": "H5P.FontIcons",
+      "majorVersion": 1,
+      "minorVersion": 0
     }
   ],
   "editorDependencies": [

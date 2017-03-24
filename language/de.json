@@ -48,7 +48,7 @@
       "description": "Diese Optionen legen fest, wie sich die Aufgabe verhält.",
       "fields": [
         {
-          "label": "\\\"Wiederholen\\\"-Button anzeigen"
+          "label": "\"Wiederholen\"-Button anzeigen"
         },
         {
           "label": "Rückwärts-Navigation ausstellen",
@@ -57,23 +57,27 @@
         {
           "label": "Die Textgröße skalieren, um in die Karte zu passen",
           "description": "Wenn diese Option abgewählt wird, passt sich die Größe der Karte der Textgröße an."
+        },
+        {
+          "label": "Karten mischen",
+          "description": "Anwählen, um die Karten zufällig anzuordnen."
         }
       ]
     },
     {
-      "label": "Text für den \\\"Umdrehen\\\"-Button",
+      "label": "Text für den \"Umdrehen\"-Button",
       "default": "Umdrehen"
     },
     {
-      "label": "Text für den \\\"Weiter\\\"-Button",
+      "label": "Text für den \"Weiter\"-Button",
       "default": "Weiter"
     },
     {
-      "label": "Text für den \\\"Zurück\\\"-Button",
+      "label": "Text für den \"Zurück\"-Button",
       "default": "Zurück"
     },
     {
-      "label": "Text für den \\\"Wiederholen\\\"-Button",
+      "label": "Text für den \"Wiederholen\"-Button",
       "default": "Wiederholen"
     },
     {
