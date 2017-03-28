@@ -118,8 +118,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
 
     // Remove potential user interaction elements from DOM.
-    var $el = '.h5p-dialogcards-number';
-    $( $el ).remove();
+    $( '.h5p-dialogcards-number', self.$inner ).remove();
 
     if (self.params.behaviour.scaleTextNotCard) {
       self.$inner.addClass('h5p-text-scaling');
@@ -685,8 +684,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   C.prototype.randomizeOrder = function (cardsOrder) {
     var self = this;
     self.randomCards = cardsOrder;
-    var el = '.h5p-dialogcards-order';
-    $( el ).remove();
+    $( '.h5p-dialogcards-order', self.$inner ).remove();
     if (cardsOrder === 'random') {
       self.createNumberCards()
         .appendTo(self.$inner);
@@ -1096,6 +1094,12 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
   C.prototype.finishedScreen = function () {
     var self = this;
+    self.taskFinished = true;
+    self.progress = -1;
+    self.triggerXAPIScored(1, 1, 'completed');
+
+    // Remove all these elements.
+    $('.h5p-dialogcards-cardwrap-set, .h5p-dialogcards-footer', self.$inner).remove();
 
     // Display task finished feedback message.
     $feedback = $('<div class="h5p-dialogcards-feedback">' + self.params.finished + '</div>').appendTo(self.$inner);
@@ -1119,7 +1123,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
     self.triggerXAPI('interacted');
     var index = $card.index();
-    this.taskFinished = false;
+
     // Mark current card with a 'gotitdone' class.
     self.$current.addClass('h5p-dialogcards-gotitdone');
 
@@ -1133,33 +1137,19 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     } else if ($prevCard.length) { // No next card left - go to previous.
         self.prevCard();
     } else { // No cards left: task is finished.
-      self.progress = -1;
-
-      // Removes all these elements.
-      $('.h5p-dialogcards-cardwrap-set, .h5p-dialogcards-footer', self.$inner).remove();
-
-      // Display task finished feedback message.
-      self.finishedScreen();
-
-      // Display reset (retry) button.
-      self.$inner.find('.h5p-dialogcards-reset').removeClass('h5p-dialogcards-disabled');
-      self.taskFinished = true;
-      self.triggerXAPIScored(1, 1, 'completed');
+        self.finishedScreen();
+        return;
     }
 
     // Now remove the current 'gotitdone' card from the cards and cardOrder arrays.
       self.dialogs.splice(index, 1);
-      // TODO if exists !
       self.cardOrder.splice(index, 1);
 
-    if (!self.taskFinished) {
-      // Remove the 'gotitdone' card from DOM
-      var el = '.h5p-dialogcards-gotitdone';
-      $( el ).remove();
+    // Remove the 'gotitdone' card from DOM
+      $( '.h5p-dialogcards-gotitdone', self.$inner).remove();
 
       // Update navigation
       self.updateNavigation();
-    }
 
   };
 
