@@ -363,9 +363,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       }
 
       // Retrieve cards objects from the first index
-      var randomcards = [];
+      var randomCards = [];
       for (var i = 0; i < self.nbCards; i++) {
-        randomcards[i] = cardOrdering[i][0];
+        randomCards[i] = cardOrdering[i][0];
       }
 
       // Retrieve the new shuffled order from the second index
@@ -375,7 +375,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       }
       this.cardOrder = newOrder;
 
-      cards = randomcards;
+      cards = randomCards;
     }
 
     // Use a previous order if it exists.
