@@ -70,6 +70,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     if (this.contentData.previousState) {
       this.progress = this.contentData.previousState.progress;
       this.cardOrder = contentData.previousState.order;
+      this.taskFinished = (contentData.previousState.taskFinished !== undefined ? contentData.previousState.taskFinished : false);
     }
   }
 
@@ -77,11 +78,12 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   C.prototype.constructor = C;
 
   /**
-   * Attach h5p inside the given container.
+   * Attach the first part of the h5p inside the given container (title and description).
    *
    * @param {jQuery} $container
    */
   C.prototype.attach = function ($container) {
+    this.triggerXAPI('attempted');
     var self = this;
     self.$inner = $container
       .addClass('h5p-dialogcards')
@@ -89,6 +91,12 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + self.params.title + '</div></div>' +
       '<div class="h5p-dialogcards-description">' + self.params.description + '</div>'
       ));
+
+      // If we are resuming task from a previously finished task, ask user it they want to Retry.
+      if (this.taskFinished) {
+        self.finishedScreen();
+        return;
+      }
       var existsCardOrder = true;
       if ($.isEmptyObject(this.cardOrder)) {
         existsCardOrder = false;
@@ -101,7 +109,12 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       }
   };
 
-  C.prototype.attachContinue = function ($container) {
+    /**
+   * Attach the rest of the h5p inside the given container.
+   *
+   * @param {jQuery} $container
+   */
+   C.prototype.attachContinue = function ($container) {
     var self = this;
 
     // Remove potential user interaction elements from DOM.
@@ -118,12 +131,14 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.createFooter()
       .appendTo(self.$inner);
 
-    $feedback = $('<div class="h5p-dialogcards h5p-feedback h5p-dialogcards-disabled">' + self.params.finished + '</div>').appendTo(self.$inner);
-
     self.updateNavigation();
 
     self.on('retry', function () {
       self.retry();
+    });
+
+    self.on('resetTask', function () {
+      self.resetTask();
     });
 
     self.on('resize', self.resize);
@@ -164,10 +179,16 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     return $order;
   };
 
+
+  /**
+   * Create numberCards option request
+   *
+   * @returns {*|jQuery|HTMLElement} numberCards element
+   */
   C.prototype.createNumberCards = function () {
     var self = this;
 
-    var $nbAllCards = self.params.dialogs.length;
+    var numCards = self.params.dialogs.length;
 
     var $numberCards = $('<div>', {
       'class': 'h5p-dialogcards-number',
@@ -175,7 +196,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'html': self.params.nbCardsQuestion + "<br /><br />"
     });
 
-    for (var i = 5; i < $nbAllCards; i+= 5) {
+    /**
+     * Allow user to select a number of cards to play with, by displaying selectable buttons in increments of 5.
+    **/
+    for (var i = 5; i < numCards; i+= 5) {
       self.$Button = JoubelUI.createButton({
           'class': 'h5p-dialogcards-number-button',
           'title': i,
@@ -189,10 +213,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
       self.$Button = JoubelUI.createButton({
         'class': 'h5p-dialogcards-number-button',
-        'title': $nbAllCards,
-        'html': self.params.allCards + " (" + $nbAllCards + ")"
+        'title': numCards,
+        'html': self.params.allCards + " (" + numCards + ")"
         }).click(function () {
-          self.nbCards = $nbAllCards;
+          self.nbCards = numCards;
           self.attachContinue();
         }).appendTo($numberCards);
 
@@ -241,7 +265,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   };
 
   /**
-   * Called when all cards has been loaded.
+   * Called when all cards have been loaded.
    */
   C.prototype.updateImageSize = function () {
     var self = this;
@@ -323,13 +347,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     if ($.isEmptyObject(this.cardOrder)) {
       existsCardOrder = false;
     }
-    // When resuming we need to load ALL the cards.
-    /*var initLoad = this.progress !== undefined ? cards.length : 2;
-    if (self.nbCards < cards.length) {
-      initLoad = self.nbCards;
-    }
-    */
-    // With the gotit feature enabled, we need to load ALL cards!
     var initLoad = self.nbCards;
 
     // If keepstate only randomize first instanciation.
@@ -341,7 +358,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     if ( (self.randomCards == 'normal' || self.randomCards == 'random') && !existsCardOrder) {
       var cardOrdering = cards.map(function(cards, index) { return [cards, index] });
       // Shuffle the multidimensional array IF 'random' only.
-      if (self.randomCards == 'random') {
+      if (self.randomCards === 'random') {
         cardOrdering = H5P.shuffleArray(cardOrdering);
       }
 
@@ -380,7 +397,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.getCurrentState = function () {
       return {
         progress: self.$current.index(),
-        order: this.cardOrder,
+        order: self.cardOrder,
+        taskFinished: self.taskFinished
       };
     };
 
@@ -389,8 +407,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     });
 
     var setCardSizeCallback = function () {
-    // Removed because useless when gotit feature enabled.
-      return;
       loaded++;
       if (loaded === initLoad) {
         self.resize();
@@ -401,19 +417,16 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     for (var i = 0; i < cards.length; i++) {
 
       // Load cards progressively
-      // Removed because useless when gotit feature enabled. We must load ALL cards at once.
-      /*
-      if (i >= initLoad) {
-        break;
-      }
-      */
+      // This feature has been removed because when the "gotit" feature is enabled we must load ALL cards at once.
 
       var $cardWrapper = self.createCard(cards[i], setCardSizeCallback);
 
       // Set current card index
       // If there is a saved state, then set current card index to saved position (progress)
       // otherwise set it to zero.
-      if ((this.progress == undefined && i === 0) || (this.progress !== undefined && i == this.progress)) {
+
+      if (((this.progress == undefined || this.progress == -1) && i === 0) || (this.progress !== undefined && i == this.progress)) {
+
         $cardWrapper.addClass('h5p-dialogcards-current');
         self.$current = $cardWrapper;
       }
@@ -669,12 +682,12 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   /**
    * User selected cards order option (normal/random).
    */
-  C.prototype.randomizeOrder = function (randomizeYesNo) {
+  C.prototype.randomizeOrder = function (cardsOrder) {
     var self = this;
-    self.randomCards = randomizeYesNo;
-    var $el = '.h5p-dialogcards-order';
-    $( $el ).remove();
-    if (randomizeYesNo == 'random') {
+    self.randomCards = cardsOrder;
+    var el = '.h5p-dialogcards-order';
+    $( el ).remove();
+    if (cardsOrder === 'random') {
       self.createNumberCards()
         .appendTo(self.$inner);
     } else {
@@ -683,13 +696,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
   };
 
-  C.prototype.numberCards = function (nbcards) {
-    var self = this;
-    self.attachContinue();
-  };
-
   /**
-   * JR When navigating forward or backward, reset card to front view if has previously been turned
+   * When navigating forward or backward, reset card to front view if has previously been turned
    * so that user can see the Question side, not the Answer side of the card.
    */
 
@@ -798,7 +806,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   };
 
   /**
-   * Reset the task so that the user can do it again.
+   * Reset the task so that the user can re-start from first card.
    */
   C.prototype.retry = function () {
     var self = this;
@@ -1083,55 +1091,132 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   };
 
   /**
+   * Task is finished.
+   */
+
+  C.prototype.finishedScreen = function () {
+    var self = this;
+
+    // Display task finished feedback message.
+    $feedback = $('<div class="h5p-dialogcards-feedback">' + self.params.finished + '</div>').appendTo(self.$inner);
+
+    // Display reset button to enable user to do the task again.
+    self.$resetTaskButton = JoubelUI.createButton({
+      'class': 'h5p-dialogcards-reset',
+      'title': self.params.retry,
+      'html': self.params.retry
+    }).click(function () {
+      self.resetTask();
+    }).appendTo(self.$inner);
+  }
+
+
+  /**
    * Remove card from DOM and from cards stack after user has checked the "gotit" button.
    */
 
   C.prototype.gotIt = function ($card) {
     var self = this;
+    self.triggerXAPI('interacted');
     var index = $card.index();
-    var taskFinished = false;
+    this.taskFinished = false;
     // Mark current card with a 'gotitdone' class.
     self.$current.addClass('h5p-dialogcards-gotitdone');
 
     // Move to next card if exists.
-    var $next = self.$current.next('.h5p-dialogcards-cardwrap');
-    var $prev = self.$current.prev('.h5p-dialogcards-cardwrap');
+    var $nextCard = self.$current.next('.h5p-dialogcards-cardwrap');
+    var $prevCard = self.$current.prev('.h5p-dialogcards-cardwrap');
 
-    if ($next.length) {
+    if ($nextCard.length) {
         var i = 1;
         self.nextCard(i);
-    } else if ($prev.length) { // No next card left - go to previous.
+    } else if ($prevCard.length) { // No next card left - go to previous.
         self.prevCard();
     } else { // No cards left: task is finished.
-      // Reset all parameters.
-      self.contentData.previousState = {};
-      self.dialogs = self.params.dialogs;
-      self.cardOrder = {};
-      self.randomCards = self.params.behaviour.randomCards;
-      self.progress = 0;
+      self.progress = -1;
 
-      // Removes all elements.
-      $('.h5p-dialogcards-cardwrap-set, .h5p-dialogcards-description, .h5p-dialogcards-footer', self.$inner).remove();
+      // Removes all these elements.
+      $('.h5p-dialogcards-cardwrap-set, .h5p-dialogcards-footer', self.$inner).remove();
 
       // Display task finished feedback message.
-      self.$inner.find('.h5p-feedback').removeClass('h5p-dialogcards-disabled');
+      self.finishedScreen();
 
-      taskFinished = true;
+      // Display reset (retry) button.
+      self.$inner.find('.h5p-dialogcards-reset').removeClass('h5p-dialogcards-disabled');
+      self.taskFinished = true;
+      self.triggerXAPIScored(1, 1, 'completed');
     }
 
-    if (!taskFinished) {
-      // Remove the 'gotitdone' card from DOM
-      var $el = '.h5p-dialogcards-gotitdone';
-      $( $el ).remove();
-
-      // Now remove the 'gotitdone' card from the cards and cardOrder arrays.
+    // Now remove the current 'gotitdone' card from the cards and cardOrder arrays.
       self.dialogs.splice(index, 1);
+      // TODO if exists !
       self.cardOrder.splice(index, 1);
+
+    if (!self.taskFinished) {
+      // Remove the 'gotitdone' card from DOM
+      var el = '.h5p-dialogcards-gotitdone';
+      $( el ).remove();
+
       // Update navigation
       self.updateNavigation();
     }
 
   };
+
+    /**
+   * Resets the task.
+   * Used in contracts.
+   * @public
+   */
+
+  C.prototype.resetTask = function () {
+    self = this;
+
+    // Removes all these elements to start afresh.
+    $('.h5p-dialogcards-cardwrap-set, .h5p-dialogcards-footer, .h5p-dialogcards-feedback, .h5p-dialogcards-reset, .h5p-dialogcards-order', self.$inner).remove();
+
+    // Reset various parameters.
+    self.taskFinished = false;
+    self.dialogs = self.params.dialogs;
+    self.nbCards = self.params.dialogs.length;
+    self.cardOrder = -1;
+    self.randomCards = self.params.behaviour.randomCards;
+    self.cardSizeDetermined = [];
+
+    if (self.params.behaviour.randomCards == 'user') {
+      self.createOrder().appendTo(self.$inner);
+    } else {
+      self.attachContinue();
+    }
+
+  };
+
+    /**
+   * Does nothing but necessary for the Course Presentation content.
+   * Used in contracts.
+   * @public
+   */
+
+  C.prototype.showSolutions = function () {
+    return;
+  };
+
+    /**
+   * Get maximum score.
+   *
+   * @returns {Number} Max points
+   */
+  C.prototype.getMaxScore = function () {
+    return 1;
+  };
+
+  /**
+   * @returns {Number} Points. Give 1 point for task finished, i.e. all cards removed from stack!
+   */
+  C.prototype.getScore = function () {
+    return this.taskFinished;
+  };
+
 
   C.SCALEINTERVAL = 0.2;
   C.MAXSCALE = 16;

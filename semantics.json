@@ -257,5 +257,21 @@
     "importance": "low",
     "default": "all the cards",
     "common": true
+  },
+  {
+    "name": "gotit",
+    "type": "text",
+    "label": "Text for the Correct Guess button",
+    "importance": "low",
+    "default": "OK",
+    "common": true
+  },
+  {
+    "name": "finished",
+    "type": "text",
+    "label": "End of game feedback text",
+    "importance": "low",
+    "default": "You have finished. Congratulations!",
+    "common": true
   }
 ]
