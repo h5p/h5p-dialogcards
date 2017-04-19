@@ -248,7 +248,7 @@
 
 .h5p-dialogcards .h5p-dialogcards-gotit:before {
   font-family: 'H5PFontAwesome4';
-  content: "\f00c"; // fa-check
+  content: "\f00c";
 }
 
 .h5p-dialogcards .joubel-tip-container {
@@ -311,4 +311,12 @@
   margin-top: 1em;
   font-size: 1.25em;
   margin-bottom: 1em;
+}
+
+.h5p-dialogcards .h5p-dialogcards-order {
+  height: 200px;
+}
+
+.h5p-dialogcards .h5p-dialogcards-order-button {
+  margin-left: 10px;
 }

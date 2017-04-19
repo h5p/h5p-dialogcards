@@ -242,7 +242,7 @@
     "common": true
   },
   {
-    "name": "nbCardsQuestion",
+    "name": "numCardsQuestion",
     "type": "text",
     "label": "Number of Cards",
     "importance": "low",

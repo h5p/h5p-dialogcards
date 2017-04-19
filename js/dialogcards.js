@@ -31,7 +31,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       randomizeCardsQuestion: "Display the cards in random order?",
       no: "No",
       yes: "Yes",
-      nbCardsQuestion: "How many cards do you want?",
+      numCardsQuestion: "How many cards do you want?",
       allCards: "all",
       gotit: "OK",
       finished: "You have finished. Congratulations!",
@@ -154,9 +154,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
     var $order = $('<div>', {
       'class': 'h5p-dialogcards-order',
-      'style': 'height:200px;',
-      'html': self.params.randomizeCardsQuestion + "&nbsp;&nbsp;",
-      'style': 'height:200px;'
+      'html': self.params.randomizeCardsQuestion
     });
 
     self.$normalOrder = JoubelUI.createButton({
@@ -192,14 +190,14 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var $numberCards = $('<div>', {
       'class': 'h5p-dialogcards-number',
       'style': 'height:200px;',
-      'html': self.params.nbCardsQuestion + "<br /><br />"
+      'html': self.params.numCardsQuestion + "<br /><br />"
     });
 
     /**
      * Allow user to select a number of cards to play with, by displaying selectable buttons in increments of 5.
     **/
     for (var i = 5; i < numCards; i+= 5) {
-      self.$Button = JoubelUI.createButton({
+      self.$button = JoubelUI.createButton({
           'class': 'h5p-dialogcards-number-button',
           'title': i,
           'html': i,
@@ -210,7 +208,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
           }).appendTo($numberCards);
       };
 
-      self.$Button = JoubelUI.createButton({
+      self.$button = JoubelUI.createButton({
         'class': 'h5p-dialogcards-number-button',
         'title': numCards,
         'html': self.params.allCards + " (" + numCards + ")"
