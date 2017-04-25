@@ -521,6 +521,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
           }
         }
       }, 200);
+
+      self.resizeOverflowingText();
     }, 200);
   };
 
