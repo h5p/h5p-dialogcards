@@ -211,7 +211,7 @@
   content: "\f021";
 }
 
-.h5p-dialogcards .h5p-dialogcards-footer-button {
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-footer-button {
   position: absolute;
   display: inline-block;
   margin: 0;
@@ -259,7 +259,7 @@
   max-width: 32em;
 }
 
-.h5p-dialogcards .h5p-dialogcards-disabled {
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-disabled {
   display: none;
 }
 
