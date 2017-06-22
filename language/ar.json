@@ -44,7 +44,7 @@
         ]
       }
     },
-     {
+    {
       "label": "Behavioural settings",
       "description": "These options will let you control how the task behaves.",
       "fields": [
@@ -60,8 +60,8 @@
           "description": "Unchecking this option will make the card adapt its size to the size of the text"
         },
         {
-         	"label": "Randomize cards",
-        	"description": "Enable to randomize the order of cards on display."
+          "label": "Randomize cards",
+          "description": "Enable to randomize the order of cards on display."
         }
       ]
     },

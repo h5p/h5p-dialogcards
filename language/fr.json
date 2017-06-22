@@ -44,7 +44,7 @@
         ]
       }
     },
-     {
+    {
       "label": "Options générales",
       "description": "Ces options vous permettent de paramétrer le déroulement de l'exercice.",
       "fields": [
@@ -60,8 +60,8 @@
           "description": "Si cette option est décochée la taille de la carte sera adaptée au texte placé à l'intérieur"
         },
         {
-         	"label": "Randomize cards",
-        	"description": "Enable to randomize the order of cards on display."
+          "label": "Randomize cards",
+          "description": "Enable to randomize the order of cards on display."
         }
       ]
     },
