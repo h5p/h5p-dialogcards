@@ -1,43 +1,48 @@
 {
-  "semantics": [
+  "semantics":[
     {
-      "label": "Titre"
+      "label":"Titre"
     },
     {
-      "label": "Consigne",
-      "default": "Par deux, faites des phrases en employant les expressions ci-dessous."
+      "label":"Consigne",
+      "default":""
     },
     {
-      "label": "Dialogue",
-      "entity": "dialogue",
-      "field": {
-        "label": "Question",
-        "fields": [
+      "widgets":[
+        {
+          "label":"Default"
+        }
+      ],
+      "label":"Dialogue",
+      "entity":"dialogue",
+      "field":{
+        "label":"Question",
+        "fields":[
           {
-            "label": "Question",
-            "description": "Indice pour la première partie du dialogue"
+            "label":"Question",
+            "description":"Indice pour la première partie du dialogue"
           },
           {
-            "label": "Réponse",
-            "description": "Indice pour la seconde partie du dialogue"
+            "label":"Réponse",
+            "description":"Indice pour la seconde partie du dialogue"
           },
           {
-            "label": "Image",
-            "description": "Image facultative pour la carte. (Une carte peut contenir une image seule, un texte seul ou les deux combinés)"
+            "label":"Image",
+            "description":"Image facultative pour la carte. (Une carte peut contenir une image seule, un texte seul ou les deux combinés)"
           },
           {
-            "label": "Fichier audio"
+            "label":"Fichier audio"
           },
           {
-            "label": "Indices",
-            "fields": [
+            "label":"Indices",
+            "fields":[
               {
-                "label": "Indice pour la question",
-                "description": "Indice pour la première partie du dialogue"
+                "label":"Indice pour la question",
+                "description":"Indice pour la première partie du dialogue"
               },
               {
-                "label": "Indice pour la réponse",
-                "description": "Indice pour la seconde partie du dialogue"
+                "label":"Indice pour la réponse",
+                "description":"Indice pour la seconde partie du dialogue"
               }
             ]
           }
@@ -45,46 +50,46 @@
       }
     },
     {
-      "label": "Options générales",
-      "description": "Ces options vous permettent de paramétrer le déroulement de l'exercice.",
-      "fields": [
+      "label":"Options générales",
+      "description":"Ces options vous permettent de paramétrer le déroulement de l'exercice.",
+      "fields":[
         {
-          "label": "Activer le bouton \"Recommencer\""
+          "label":"Activer le bouton \"Recommencer\""
         },
         {
-          "label": "Désactiver la possibilité de naviguer en arrière",
-          "description": "Cette option ne permettra plus que la navigation en avant au sein des Dialog Cards"
+          "label":"Désactiver la possibilité de naviguer en arrière",
+          "description":"Cette option ne permettra plus que la navigation en avant au sein des Dialog Cards"
         },
         {
-          "label": "Mettre à l'échelle le texte afin de s'adapter au sein de la carte",
-          "description": "Si cette option est décochée la taille de la carte sera adaptée au texte placé à l'intérieur"
+          "label":"Mettre à l'échelle le texte afin de s'adapter au sein de la carte",
+          "description":"Si cette option est décochée la taille de la carte sera adaptée au texte placé à l'intérieur"
         },
         {
-          "label": "Randomize cards",
-          "description": "Enable to randomize the order of cards on display."
+          "label":"Randomize cards",
+          "description":"Enable to randomize the order of cards on display."
         }
       ]
     },
     {
-      "label": "Texte pour le bouton \"Retourner\"",
-      "default": "Retourner"
+      "label":"Texte pour le bouton \"Retourner\"",
+      "default":"Retourner"
     },
     {
-      "label": "Texte pour le bouton \"Suivant\"",
-      "default": "Suivant"
+      "label":"Texte pour le bouton \"Suivant\"",
+      "default":"Suivant"
     },
     {
-      "label": "Texte pour le bouton \"Précédent\"",
-      "default": "Précédent"
+      "label":"Texte pour le bouton \"Précédent\"",
+      "default":"Précédent"
     },
     {
-      "label": "Texte pour le bouton \"Recommencer\"",
-      "default": "Recommencer"
+      "label":"Texte pour le bouton \"Recommencer\"",
+      "default":"Recommencer"
     },
     {
-      "label": "Texte de progression",
-      "description": "Les variables disponibles sont @card et @total.",
-      "default": "Carte @card sur @total"
+      "label":"Texte de progression",
+      "description":"Les variables disponibles sont @card et @total.",
+      "default":"Carte @card sur @total"
     }
   ]
 }
