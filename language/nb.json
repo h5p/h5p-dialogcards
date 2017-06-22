@@ -1,43 +1,48 @@
 {
-  "semantics": [
+  "semantics":[
     {
-      "label": "Tittel"
+      "label":"Tittel"
     },
     {
-      "label": "Oppgavetekst",
-      "default": "Sitt i par og lag setninger hvor du inkluderer uttrykka under.<br/>Eksempel: Jeg skulle ha sagt ja, IMIDLERTID holdt jeg munn."
+      "label":"Oppgavetekst",
+      "default":""
     },
     {
-      "label": "Dialogkort",
-      "entity": "dialogkort",
-      "field": {
-        "label": "Dialogkort",
-        "fields": [
+      "widgets":[
+        {
+          "label":"Default"
+        }
+      ],
+      "label":"Dialogkort",
+      "entity":"dialogkort",
+      "field":{
+        "label":"Dialogkort",
+        "fields":[
           {
-            "label": "Tekst",
-            "description": "Nøkkelord til første del av dialogen"
+            "label":"Tekst",
+            "description":"Nøkkelord til første del av dialogen"
           },
           {
-            "label": "Svar",
-            "description": "Nøkkelord til neste del av dialogen"
+            "label":"Svar",
+            "description":"Nøkkelord til neste del av dialogen"
           },
           {
-            "label": "Bilde",
-            "description": "Valgfritt bilde for kortet.(Kortet kan bruke kun bilde, kun tekst, eller begge)"
+            "label":"Bilde",
+            "description":"Valgfritt bilde for kortet.(Kortet kan bruke kun bilde, kun tekst, eller begge)"
           },
           {
-            "label": "Lydfiler"
+            "label":"Lydfiler"
           },
           {
-            "label": "Tips",
-            "fields": [
+            "label":"Tips",
+            "fields":[
               {
-                "label": "Tips til tekst",
-                "description": "Tips til første del av dialogen"
+                "label":"Tips til tekst",
+                "description":"Tips til første del av dialogen"
               },
               {
-                "label": "Tips til svar",
-                "description": "Tips til neste del av dialogen"
+                "label":"Tips til svar",
+                "description":"Tips til neste del av dialogen"
               }
             ]
           }
@@ -45,46 +50,46 @@
       }
     },
     {
-      "label": "Innstillinger for oppgave-oppførsel",
-      "description": "Disse instillingene lar deg bestemme hvordan oppgavetypen skal oppføre seg.",
-      "fields": [
+      "label":"Innstillinger for oppgave-oppførsel",
+      "description":"Disse instillingene lar deg bestemme hvordan oppgavetypen skal oppføre seg.",
+      "fields":[
         {
-          "label": "Aktiver \"Prøv igjen\"-knapp"
+          "label":"Aktiver \"Prøv igjen\"-knapp"
         },
         {
-          "label": "Slå av tilbakenavigering",
-          "description": "Dette valget betyr at man bare kan navigere fremover"
+          "label":"Slå av tilbakenavigering",
+          "description":"Dette valget betyr at man bare kan navigere fremover"
         },
         {
-          "label": "Skaler teksten til å få pplass i kortet",
-          "description": "Når man slår av denne vil kortets størrelse endre seg iforhold til mengde tekst"
+          "label":"Skaler teksten til å få pplass i kortet",
+          "description":"Når man slår av denne vil kortets størrelse endre seg iforhold til mengde tekst"
         },
         {
-          "label": "Randomize cards",
-          "description": "Enable to randomize the order of cards on display."
+          "label":"Randomize cards",
+          "description":"Enable to randomize the order of cards on display."
         }
       ]
     },
     {
-      "label": "Tekst til \"Snu\" knappen",
-      "default": "Snu"
+      "label":"Tekst til \"Snu\" knappen",
+      "default":"Snu"
     },
     {
-      "label": "Tekst til \"Neste\" knappen",
-      "default": "Neste"
+      "label":"Tekst til \"Neste\" knappen",
+      "default":"Neste"
     },
     {
-      "label": "Tekst til \"Forrige\" knappen",
-      "default": "Forrige"
+      "label":"Tekst til \"Forrige\" knappen",
+      "default":"Forrige"
     },
     {
-      "label": "Tekst til \"Omstart\" knappen",
-      "default": "Prøv igjen"
+      "label":"Tekst til \"Omstart\" knappen",
+      "default":"Prøv igjen"
     },
     {
-      "label": "Fremgangstekst",
-      "description": "Tilgjengelig variabler er @card og @total.",
-      "default": "Kort @card av @total"
+      "label":"Fremgangstekst",
+      "description":"Tilgjengelig variabler er @card og @total.",
+      "default":"Kort @card av @total"
     }
   ]
 }
