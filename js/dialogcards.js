@@ -239,7 +239,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         break;
       }
 
-      var $cardWrapper = self.createCard(cards[i], setCardSizeCallback);
+      var $cardWrapper = self.createCard(cards[i], i, setCardSizeCallback);
 
       // Set current card
       if (i === 0) {
@@ -259,10 +259,11 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * Create a single card card
    *
    * @param {Object} card Card parameters
+   * @param {number} cardNumber Card number in order of appearance
    * @param {Function} [setCardSizeCallback] Set card size callback
    * @returns {*|jQuery|HTMLElement} Card wrapper
    */
-  C.prototype.createCard = function (card, setCardSizeCallback) {
+  C.prototype.createCard = function (card, cardNumber, setCardSizeCallback) {
     var self = this;
     var $cardWrapper = $('<div>', {
       'class': 'h5p-dialogcards-cardwrap'
@@ -272,7 +273,18 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'class': 'h5p-dialogcards-cardholder'
     }).appendTo($cardWrapper);
 
-    self.createCardContent(card, setCardSizeCallback)
+    // Progress for assistive technologies
+    console.log("card number", cardNumber);
+    var progressText = self.params.progressText
+      .replace('@card', (cardNumber + 1).toString())
+      .replace('@total', (self.params.dialogs.length).toString());
+
+    $('<div>', {
+      'class': 'h5p-dialogcards-at-progress',
+      'text': progressText
+    }).appendTo($cardHolder);
+
+    self.createCardContent(card, cardNumber, setCardSizeCallback)
       .appendTo($cardHolder);
 
     return $cardWrapper;
@@ -283,10 +295,11 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * Create content for a card
    *
    * @param {Object} card Card parameters
+   * @param {number} cardNumber Card number in order of appearance
    * @param {Function} [setCardSizeCallback] Set card size callback
    * @returns {*|jQuery|HTMLElement} Card content wrapper
    */
-  C.prototype.createCardContent = function (card, setCardSizeCallback) {
+  C.prototype.createCardContent = function (card, cardNumber, setCardSizeCallback) {
     var self = this;
     var $cardContent = $('<div>', {
       'class': 'h5p-dialogcards-card-content'
@@ -459,7 +472,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       // Add next card.
       var $loadCard = self.$current.next('.h5p-dialogcards-cardwrap');
       if (!$loadCard.length && self.$current.index() + 1 < self.params.dialogs.length) {
-        var $cardWrapper = self.createCard(self.params.dialogs[self.$current.index() + 1])
+        var $cardWrapper = self.createCard(self.params.dialogs[self.$current.index() + 1], self.$current.index() + 1)
           .appendTo(self.$cardwrapperSet);
         self.addTipToCard($cardWrapper.find('.h5p-dialogcards-card-content'), 'front', self.$current.index() + 1);
         self.resize();
