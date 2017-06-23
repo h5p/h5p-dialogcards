@@ -97,8 +97,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    */
   C.prototype.createFooter = function () {
     var self = this;
-    var $footer = $('<div>', {
-      'class': 'h5p-dialogcards-footer'
+    var $footer = $('<nav>', {
+      'class': 'h5p-dialogcards-footer',
+      'role': 'navigation'
     });
 
     self.$prev = JoubelUI.createButton({
@@ -124,7 +125,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     }).appendTo($footer);
 
     self.$progress = $('<div>', {
-      'class': 'h5p-dialogcards-progress'
+      'class': 'h5p-dialogcards-progress',
+      'aria-live': 'assertive'
     }).appendTo($footer);
 
     return $footer
@@ -196,7 +198,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     if (tips !== undefined && tips[side] !== undefined) {
       var tip = tips[side].trim();
       if (tip.length) {
-        $card.find('.h5p-dialogcards-card-text-wrapper').append(JoubelUI.createTip(tip));
+        $card.find('.h5p-dialogcards-card-text-wrapper .h5p-dialogcards-card-text-inner')
+          .after(JoubelUI.createTip(tip));
       }
     }
   };
@@ -314,6 +317,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     $('<div>', {
       'class': 'h5p-dialogcards-card-text-area',
+      'tabindex': '-1',
       'html': card.text
     }).appendTo($cardText);
 
@@ -450,6 +454,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       self.stopAudio(self.$current.index());
       self.$current.removeClass('h5p-dialogcards-current').addClass('h5p-dialogcards-previous');
       self.$current = $next.addClass('h5p-dialogcards-current');
+      self.setCardFocus(self.$current);
 
       // Add next card.
       var $loadCard = self.$current.next('.h5p-dialogcards-cardwrap');
@@ -476,6 +481,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       self.stopAudio(self.$current.index());
       self.$current.removeClass('h5p-dialogcards-current');
       self.$current = $prev.addClass('h5p-dialogcards-current').removeClass('h5p-dialogcards-previous');
+      self.setCardFocus(self.$current);
       self.updateNavigation();
     }
   };
@@ -523,6 +529,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       }, 200);
 
       self.resizeOverflowingText();
+
+      // Focus text
+      $card.find('.h5p-dialogcards-card-text-area').focus();
     }, 200);
   };
 
@@ -594,6 +603,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.$retry.addClass('h5p-dialogcards-disabled');
     self.showAllAudio();
     self.resizeOverflowingText();
+    self.setCardFocus(self.$current);
   };
 
   /**
@@ -827,6 +837,18 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         }
       }
     }
+  };
+
+  /**
+   * Set focus to a given card
+   *
+   * @param {jQuery} $card Card that should get focus
+   */
+  C.prototype.setCardFocus = function ($card) {
+    // Wait for transition, then set focus
+    $card.one('transitionend', function () {
+      $card.find('.h5p-dialogcards-card-text-area').focus();
+    });
   };
 
   /**
