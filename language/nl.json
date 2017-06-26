@@ -31,18 +31,21 @@
             "description":"Optionele afbeelding voor de kaart. (De kaart mag alleen een afbeelding gebruiken, alleen een tekst of allebei)"
           },
           {
-            "label":"Audio bestanden"
+            "label":"Alternative text for the image"
+          },
+          {
+            "label":"Audio files"
           },
           {
             "label":"Tips",
             "fields":[
               {
-                "label":"Tip voor de tekst",
-                "description":"Tip voor het eerste deel van het dialoog"
+                "label":"Tip for text",
+                "description":"Tip for the first part of the dialogue"
               },
               {
                 "label":"Tip for answer",
-                "description":"Tip voor het tweede deel van het dialoog"
+                "description":"Tip for the second part of the dialogue"
               }
             ]
           }
@@ -90,6 +93,16 @@
       "label":"Tekst bij voortgang",
       "description":"Beschikbare variabelen zijn @card en @total.",
       "default":"Kaart @card van @total"
+    },
+    {
+      "label":"Label for card text",
+      "description":"Used for accessibility by assistive technologies",
+      "default":"Card front"
+    },
+    {
+      "label":"Label for card back",
+      "description":"Used for accessibility by assistive technologies",
+      "default":"Card back"
     }
   ]
 }
