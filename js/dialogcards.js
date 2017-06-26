@@ -29,6 +29,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       retry: "Retry",
       answer: "Turn",
       progressText: "Card @card of @total",
+      cardFrontLabel: "Card front",
+      cardBackLabel: "Card back",
       dialogs: [
         {
           text: 'Horse',
@@ -76,6 +78,13 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     self.initCards(self.params.dialogs)
       .appendTo(self.$inner);
+
+    self.$cardSideAnnouncer = $('<div>', {
+      html: self.params.cardFrontLabel,
+      'class': 'h5p-dialogcards-card-side-announcer',
+      'aria-live': 'polite',
+      'aria-hidden': 'true'
+    }).appendTo(self.$inner);
 
     self.createFooter()
       .appendTo(self.$inner);
@@ -384,6 +393,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       if (loadCallback) {
         $image.load(loadCallback);
       }
+
+      if (card.imageAltText) {
+        $image.attr('alt', card.imageAltText);
+      }
     }
     else {
       $image = $('<div class="h5p-dialogcards-image"></div>');
@@ -514,6 +527,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     // Check if card has been turned before
     var turned = $c.hasClass('h5p-dialogcards-turned');
+    self.$cardSideAnnouncer.html(turned ? self.params.cardFrontLabel : self.params.cardBackLabel);
 
     // Update HTML class for card
     $c.toggleClass('h5p-dialogcards-turned', !turned);

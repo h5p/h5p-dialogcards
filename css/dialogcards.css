@@ -298,6 +298,8 @@
   overflow-y: hidden;
 }
 
+/* Accessibility announcers, hidden from view */
+.h5p-dialogcards-card-side-announcer,
 .h5p-dialogcards-at-progress {
   position: absolute;
   height: 0;

@@ -26,6 +26,9 @@
             "description": "Image facultative pour la carte. (Une carte peut contenir une image seule, un texte seul ou les deux combinés)"
           },
           {
+            "label": "Alternative text for the image"
+          },
+          {
             "label": "Fichier audio"
           },
           {
@@ -85,6 +88,16 @@
       "label": "Texte de progression",
       "description": "Les variables disponibles sont @card et @total.",
       "default": "Carte @card sur @total"
+    },
+    {
+      "label": "Label for card text",
+      "description": "Used for accessibility by assistive technologies",
+      "default": "Card front"
+    },
+    {
+      "label": "Label for card back",
+      "description": "Used for accessibility by assistive technologies",
+      "default": "Card back"
     }
   ]
 }
