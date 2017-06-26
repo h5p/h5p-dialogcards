@@ -14,6 +14,10 @@
   margin: inherit;
 }
 
+.h5p-dialogcards-card-text-area {
+  outline: 0;
+}
+
 .h5p-dialogcards {
   overflow: hidden;
   position: relative;
@@ -292,4 +296,11 @@
 
 .h5p-course-presentation .h5p-element .h5p-dialogcards-outer-element .h5p-element-inner.h5p-dialogcards.h5p-text-scaling {
   overflow-y: hidden;
+}
+
+.h5p-dialogcards-at-progress {
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: hidden;
 }
