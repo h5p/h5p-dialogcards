@@ -31,18 +31,21 @@
             "description":"Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
+            "label":"Alternative text for the image"
+          },
+          {
             "label":"Audio files"
           },
           {
-            "label":"Suggerimenti",
+            "label":"Tips",
             "fields":[
               {
-                "label":"Suggerimento per il testo",
-                "description":"Suggerimento per la prima parte del dialogo"
+                "label":"Tip for text",
+                "description":"Tip for the first part of the dialogue"
               },
               {
-                "label":"Suggerimento per la risposta",
-                "description":"Suggerimento per la seconda parte del dialogo"
+                "label":"Tip for answer",
+                "description":"Tip for the second part of the dialogue"
               }
             ]
           }
@@ -90,6 +93,16 @@
       "label":"Testo avanzamento",
       "description":"Le variabili disponibili sono @card e @total.",
       "default":"Card @card of @total"
+    },
+    {
+      "label":"Label for card text",
+      "description":"Used for accessibility by assistive technologies",
+      "default":"Card front"
+    },
+    {
+      "label":"Label for card back",
+      "description":"Used for accessibility by assistive technologies",
+      "default":"Card back"
     }
   ]
 }
