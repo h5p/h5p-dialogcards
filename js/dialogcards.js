@@ -283,7 +283,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     }).appendTo($cardWrapper);
 
     // Progress for assistive technologies
-    console.log("card number", cardNumber);
     var progressText = self.params.progressText
       .replace('@card', (cardNumber + 1).toString())
       .replace('@total', (self.params.dialogs.length).toString());
