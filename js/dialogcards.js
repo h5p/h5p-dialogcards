@@ -138,7 +138,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'aria-live': 'assertive'
     }).appendTo($footer);
 
-    return $footer
+    return $footer;
   };
 
   /**
