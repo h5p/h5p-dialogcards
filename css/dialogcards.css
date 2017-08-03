@@ -14,6 +14,10 @@
   margin: inherit;
 }
 
+.h5p-dialogcards-card-text-area {
+  outline: 0;
+}
+
 .h5p-dialogcards {
   overflow: hidden;
   position: relative;
@@ -211,7 +215,7 @@
   content: "\f021";
 }
 
-.h5p-dialogcards .h5p-dialogcards-footer-button {
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-footer-button {
   position: absolute;
   display: inline-block;
   margin: 0;
@@ -249,7 +253,8 @@
 .h5p-dialogcards .joubel-tip-container {
   position: absolute;
   right: 0.5em;
-  top: 0;
+  top: 0.1em;
+  font-size: 1.2em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-cardwrap-set {
@@ -258,7 +263,7 @@
   max-width: 32em;
 }
 
-.h5p-dialogcards .h5p-dialogcards-disabled {
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-disabled {
   display: none;
 }
 
@@ -289,14 +294,15 @@
   background: #1356a3;
 }
 
-.h5p-joubelui-button:active {
-  background: #104888;
-
-  -webkit-box-shadow: inset 0 4px 0 #0e407a;
-  -moz-box-shadow: inset 0 4px 0 #0e407a;
-  box-shadow: inset 0 4px 0 #0e407a;
-}
-
 .h5p-course-presentation .h5p-element .h5p-dialogcards-outer-element .h5p-element-inner.h5p-dialogcards.h5p-text-scaling {
   overflow-y: hidden;
+}
+
+/* Accessibility announcers, hidden from view */
+.h5p-dialogcards-card-side-announcer,
+.h5p-dialogcards-at-progress {
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: hidden;
 }

@@ -85,6 +85,13 @@
           "description": "Optional image for the card. (The card may use just an image, just a text or both)"
         },
         {
+          "name": "imageAltText",
+          "type": "text",
+          "label": "Alternative text for the image",
+          "importance": "high",
+          "optional": true
+        },
+        {
           "name": "audio",
           "type": "audio",
           "label": "Audio files",
@@ -200,6 +207,24 @@
     "importance": "low",
     "description": "Available variables are @card and @total.",
     "default": "Card @card of @total",
+    "common": true
+  },
+  {
+    "name": "cardFrontLabel",
+    "type": "text",
+    "label": "Label for card text",
+    "importance": "low",
+    "description": "Used for accessibility by assistive technologies",
+    "default": "Card front",
+    "common": true
+  },
+  {
+    "name": "cardBackLabel",
+    "type": "text",
+    "label": "Label for card back",
+    "importance": "low",
+    "description": "Used for accessibility by assistive technologies",
+    "default": "Card back",
     "common": true
   }
 ]

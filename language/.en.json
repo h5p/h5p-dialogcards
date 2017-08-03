@@ -4,9 +4,15 @@
       "label": "Title"
     },
     {
-      "label": "Task description"
+      "label": "Task description",
+      "default": ""
     },
     {
+      "widgets": [
+        {
+          "label": "Default"
+        }
+      ],
       "label": "Dialogs",
       "entity": "dialog",
       "field": {
@@ -23,6 +29,9 @@
           {
             "label": "Image",
             "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+          },
+          {
+            "label": "Alternative text for the image"
           },
           {
             "label": "Audio files"
@@ -59,8 +68,8 @@
           "description": "Unchecking this option will make the card adapt its size to the size of the text"
         },
         {
-         	"label": "Randomize cards",
-        	"description": "Enable to randomize the order of cards on display."
+          "label": "Randomize cards",
+          "description": "Enable to randomize the order of cards on display."
         }
       ]
     },
@@ -84,6 +93,16 @@
       "label": "Progress text",
       "description": "Available variables are @card and @total.",
       "default": "Card @card of @total"
+    },
+    {
+      "label": "Label for card text",
+      "description": "Used for accessibility by assistive technologies",
+      "default": "Card front"
+    },
+    {
+      "label": "Label for card back",
+      "description": "Used for accessibility by assistive technologies",
+      "default": "Card back"
     }
   ]
 }

@@ -26,6 +26,9 @@
             "description": "Valfritt bilete for kortet.(Korta kan bruka berre bilete, berre tekst, eller begge)"
           },
           {
+            "label": "Alternative text for the image"
+          },
+          {
             "label": "Lydfilar"
           },
           {
@@ -60,8 +63,8 @@
           "description": "Når man slår av denne vil kortets størrelse endre seg iforhold til mengde tekst"
         },
         {
-         	"label": "Randomize cards",
-        	"description": "Enable to randomize the order of cards on display."
+          "label": "Randomize cards",
+          "description": "Enable to randomize the order of cards on display."
         }
       ]
     },
@@ -85,6 +88,16 @@
       "label": "Fremgangstekst",
       "description": "Tilgjengelege variablar er @card og @total.",
       "default": "Kort @card av @total"
+    },
+    {
+      "label": "Label for card text",
+      "description": "Used for accessibility by assistive technologies",
+      "default": "Card front"
+    },
+    {
+      "label": "Label for card back",
+      "description": "Used for accessibility by assistive technologies",
+      "default": "Card back"
     }
   ]
 }
