@@ -53,7 +53,7 @@
       }
     },
     {
-      "label":"Behavioural settings",
+      "label":"Impostazioni di esecuzione.",
       "description":"Queste opzioni ti consentono di controllare l'esecuzione del compito.",
       "fields":[
         {
@@ -68,41 +68,41 @@
           "description":"Deselezionare questa opzione farà adattare la dimensione della scheda a quella del testo"
         },
         {
-          "label":"Randomize cards",
-          "description":"Enable to randomize the order of cards on display."
+          "label":"Mescola le schede",
+          "description":"Abilita per rendere casuale l'ordine delle schede visualizzate."
         }
       ]
     },
     {
       "label":"Testo per il pulsante Gira",
-      "default":"Turn"
+      "default":"Gira"
     },
     {
       "label":"Testo per il pulsante Prossimo",
-      "default":"Next"
+      "default":"Successivo"
     },
     {
       "label":"Testo per il pulsante Precedente",
-      "default":"Previous"
+      "default":"Precedente"
     },
     {
-      "label":"Testo per il pulsante Indietro",
-      "default":"Retry"
+      "label":"Testo per il pulsante Riprova",
+      "default":"Riprova"
     },
     {
-      "label":"Testo avanzamento",
+      "label":"Testo di avanzamento",
       "description":"Le variabili disponibili sono @card e @total.",
-      "default":"Card @card of @total"
+      "default":"Scheda @card di @total"
     },
     {
-      "label":"Label for card text",
-      "description":"Used for accessibility by assistive technologies",
-      "default":"Card front"
+      "label":"Etichetta per il testo della scheda",
+      "description":"Utilizzato per l'accessibilità mediante tecnologie assistive",
+      "default":"Parte anteriore della scheda"
     },
     {
-      "label":"Label for card back",
-      "description":"Used for accessibility by assistive technologies",
-      "default":"Card back"
+      "label":"Etichetta per il retro della scheda",
+      "description":"Utilizzato per l'accessibilità mediante tecnologie assistive",
+      "default":"Retro della scheda"
     }
   ]
 }
