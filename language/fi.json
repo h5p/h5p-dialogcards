@@ -1,51 +1,51 @@
 {
   "semantics":[
     {
-      "label":"Title"
+      "label":"Otsikko"
     },
     {
-      "label":"Task description",
+      "label":"Tehtävän kuvaus",
       "default":""
     },
     {
       "widgets":[
         {
-          "label":"Default"
+          "label":"Oletus"
         }
       ],
-      "label":"Dialogs",
-      "entity":"dialog",
+      "label":"Kysymys\/vastaus -kortit",
+      "entity":"kortti",
       "field":{
-        "label":"Question",
+        "label":"Kysymys",
         "fields":[
           {
-            "label":"Text",
-            "description":"Hint for the first part of the dialogue"
+            "label":"Kysymys",
+            "description":"Tekstisisältö kortin etupuolelle"
           },
           {
-            "label":"Answer",
-            "description":"Hint for the second part of the dialogue"
+            "label":"Vastaus",
+            "description":"Tekstisisältö kortin kääntöpuolelle"
           },
           {
-            "label":"Image",
-            "description":"Optional image for the card. (The card may use just an image, just a text or both)"
+            "label":"Kuva",
+            "description":"Valinnainen kuva kortille. Kortti voi olla vain kuva, tekstiä tai molemmat."
           },
           {
-            "label":"Alternative text for the image"
+            "label":"Vaihtoehtoinen teksti kuvalle"
           },
           {
-            "label":"Audio files"
+            "label":"Äänitiedostot"
           },
           {
-            "label":"Tips",
+            "label":"Vinkit",
             "fields":[
               {
-                "label":"Tip for text",
-                "description":"Tip for the first part of the dialogue"
+                "label":"Vinkki kysymykselle",
+                "description":"Vinkki kortin etupuolelle"
               },
               {
-                "label":"Tip for answer",
-                "description":"Tip for the second part of the dialogue"
+                "label":"Vinkki vastaukselle",
+                "description":"Vinkki kortin kääntöpuolelle"
               }
             ]
           }
@@ -53,56 +53,56 @@
       }
     },
     {
-      "label":"Behavioural settings.",
-      "description":"These options will let you control how the task behaves.",
+      "label":"Yleisasetukset",
+      "description":"",
       "fields":[
         {
-          "label":"Enable \"Retry\" button"
+          "label":"Salli \"Yritä uudelleen\" painike"
         },
         {
-          "label":"Disable backwards navigation",
-          "description":"This option will only allow you to move forward with Dialog Cards"
+          "label":"Estä taaksepäin meneminen",
+          "description":"Tällä valinnalla vain eteenpäin meneminen on mahdollista dialogikorteissa."
         },
         {
-          "label":"Scale the text to fit inside the card",
-          "description":"Unchecking this option will make the card adapt its size to the size of the text"
+          "label":"Sovita teksti kortin sisustaan.",
+          "description":"Kun tämä valinta on pois päältä, niin kortti sovittaa kokonsa tekstin kokoon."
         },
         {
-          "label":"Randomize cards",
-          "description":"Enable to randomize the order of cards on display."
+          "label":"Arvo kortit",
+          "description":"Tällä valinnalla voit satunnaistaa korttien esiintymisjärjestyksen."
         }
       ]
     },
     {
-      "label":"Text for the turn button",
-      "default":"Turn"
+      "label":"Painikkeen Käännä teksti",
+      "default":"Käännä"
     },
     {
-      "label":"Text for the next button",
-      "default":"Next"
+      "label":"Painikkeen Seuraava teksti",
+      "default":"Seuraava"
     },
     {
-      "label":"Text for the previous button",
-      "default":"Previous"
+      "label":"Painikkeen Edellinen teksti",
+      "default":"Edellinen"
     },
     {
-      "label":"Text for the retry button",
-      "default":"Retry"
+      "label":"Painikkeen Yritä uudelleen teksti",
+      "default":"Yritä uudelleen"
     },
     {
-      "label":"Progress text",
-      "description":"Available variables are @card and @total.",
-      "default":"Card @card of @total"
+      "label":"Edistymisteksti",
+      "description":"Saatavilla olevat muuttujat ovat @card ja @total.",
+      "default":"Kortti @card \/ @total"
     },
     {
-      "label":"Label for card text",
-      "description":"Used for accessibility by assistive technologies",
-      "default":"Card front"
+      "label":"Kortin etupuolen kuvaus",
+      "description":"Käytetään esteettömyyssovelluksissa",
+      "default":"Kortin etupuoli"
     },
     {
-      "label":"Label for card back",
-      "description":"Used for accessibility by assistive technologies",
-      "default":"Card back"
+      "label":"Kortin kääntöpuolen kuvaus",
+      "description":"Käytetään esteettömyyssovelluksissa",
+      "default":"Kortin kääntöpuoli"
     }
   ]
 }
