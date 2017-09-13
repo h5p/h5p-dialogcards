@@ -1,10 +1,10 @@
 {
   "semantics":[
     {
-      "label":"Title"
+      "label":"Otsikko"
     },
     {
-      "label":"Task description",
+      "label":"Tehtävän kuvaus",
       "default":""
     },
     {
@@ -13,39 +13,74 @@
           "label":"Default"
         }
       ],
-      "label":"Dialogs",
-      "entity":"dialog",
+      "label":"Kortit",
+      "entity":"Kortti",
       "field":{
         "label":"Question",
         "fields":[
           {
-            "label":"Text",
-            "description":"Hint for the first part of the dialogue"
+            "label":"Kysymys",
+            "description":"Ensimmäisen osan vihje"
           },
           {
-            "label":"Answer",
-            "description":"Hint for the second part of the dialogue"
+            "label":"Vastaus",
+            "description":"Toisen osan vihje"
           },
           {
-            "label":"Image",
-            "description":"Optional image for the card. (The card may use just an image, just a text or both)"
+            "label":"Kuva",
+            "description":"Vaihtoehtoinen kuva kortille. (Korttina voidaan käyttää pelkkää kuvaa, tekstiä tai molempia)"
           },
           {
-            "label":"Alternative text for the image"
+            "label":"Vaihtoehtoinen teksti"
           },
           {
-            "label":"Audio files"
+            "label":"Audiotiedostot"
           },
           {
-            "label":"Tips",
+            "label":"Vihjeet",
             "fields":[
               {
-                "label":"Tip for text",
-                "description":"Tip for the first part of the dialogue"
+                "label":"Vihjeet ksymykselle",
+                "description":"Ensimmäisen osan vihje"
               },
               {
-                "label":"Tip for answer",
-                "description":"Tip for the second part of the dialogue"
+                "label":"Vihjeet vastaukselle",
+                "description":"Toisen osan vihje"      
+                "field":{
+        "label":"Question",
+        "fields":[
+          {
+            "label":"Kysymys",
+            "description":"Ensimmäisen osan vihje"
+          },
+          {
+            "label":"Vastaus",
+            "description":"Toisen osan vihje"
+          },
+          {
+            "label":"Kuva",
+            "description":"Vaihtoehtoinen kuva kortille. (Korttina voidaan käyttää pelkkää kuvaa, tekstiä tai molempia)"
+          },
+          {
+            "label":"Vaihtoehtoinen teksti"
+          },
+          {
+            "label":"Audiotiedostot"
+          },
+          {
+            "label":"Vihjeet",
+            "fields":[
+              {
+                "label":"Vihjeet ksymykselle",
+                "description":"Ensimmäisen osan vihje"
+              },
+              {
+                "label":"Vihjeet vastaukselle",
+                "description":"Toisen osan vihje"
+
+
+
+
               }
             ]
           }
