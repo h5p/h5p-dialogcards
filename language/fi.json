@@ -88,46 +88,46 @@
       }
     },
     {
-      "label":"Behavioural settings.",
-      "description":"These options will let you control how the task behaves.",
+      "label":"Toiminnallisuus asetukset.",
+      "description":"Asetuksilla määritellään korttien ominaisuuksia.",
       "fields":[
         {
-          "label":"Enable \"Retry\" button"
+          "label":"Näytä \"Yritä uudelleen\" -painike"
         },
         {
-          "label":"Disable backwards navigation",
-          "description":"This option will only allow you to move forward with Dialog Cards"
+          "label":"Estä paluu",
+          "description":"Asetus estää palaamisen edelliseen korttiin."
         },
         {
-          "label":"Scale the text to fit inside the card",
-          "description":"Unchecking this option will make the card adapt its size to the size of the text"
+          "label":"Mahduta teksti korttiin",
+          "description":"Ilman valintaa kortin koko määräytyy tekstin mukaan"
         },
         {
-          "label":"Randomize cards",
-          "description":"Enable to randomize the order of cards on display."
+          "label":"Sekoita kortit",
+          "description":"Mahdollistaa korttien näyttämisen satunnaisessa järjestyksessä."
         }
       ]
     },
     {
-      "label":"Text for the turn button",
-      "default":"Turn"
+      "label":"Teksti Käännä-painikkeelle",
+      "default":"Käännä"
     },
     {
-      "label":"Text for the next button",
-      "default":"Next"
+      "label":"Teksti Seuraava-painikkeelle",
+      "default":"Seuraava"
     },
     {
-      "label":"Text for the previous button",
-      "default":"Previous"
+      "label":"Teksti Edelinen-painikkeelle",
+      "default":"Edellinen"
     },
     {
-      "label":"Text for the retry button",
-      "default":"Retry"
+      "label":"Teksti Yritä uudelleen -painikkeelle",
+      "default":"Yritä uudelleen"
     },
     {
-      "label":"Progress text",
-      "description":"Available variables are @card and @total.",
-      "default":"Card @card of @total"
+      "label":"Tehtävän eteneminen",
+      "description":"Käytettävät muuttujat @card ja @total.",
+      "default":"Kortti @card / @total"
     },
     {
       "label":"Label for card text",
