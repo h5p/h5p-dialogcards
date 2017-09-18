@@ -1,10 +1,10 @@
 {
   "semantics":[
     {
-      "label":"Title"
+      "label":"Titel"
     },
     {
-      "label":"Task description",
+      "label":"Opgavebeskrivelse",
       "default":""
     },
     {
@@ -13,39 +13,39 @@
           "label":"Default"
         }
       ],
-      "label":"Dialogs",
+      "label":"Dialog",
       "entity":"dialog",
       "field":{
-        "label":"Question",
+        "label":"Spørgsmål",
         "fields":[
           {
-            "label":"Text",
-            "description":"Hint for the first part of the dialogue"
+            "label":"Tekst",
+            "description":"Hint til første del af dialogen"
           },
           {
-            "label":"Answer",
-            "description":"Hint for the second part of the dialogue"
+            "label":"Svar",
+            "description":"Hint til anden del af dialogen"
           },
           {
-            "label":"Image",
-            "description":"Optional image for the card. (The card may use just an image, just a text or both)"
+            "label":"Billede",
+            "description":"Valgfrit billede til kortet. (Kortet kan indeholde enten billede eller tekst, eller begge dele)."
           },
           {
-            "label":"Alternative text for the image"
+            "label":"Alternativ tekst til billedet"
           },
           {
-            "label":"Audio files"
+            "label":"Lydfiler"
           },
           {
             "label":"Tips",
             "fields":[
               {
-                "label":"Tip for text",
-                "description":"Tip for the first part of the dialogue"
+                "label":"Tip til tekst",
+                "description":"Tip til første del af dialogen"
               },
               {
-                "label":"Tip for answer",
-                "description":"Tip for the second part of the dialogue"
+                "label":"Tip for svar",
+                "description":"Tip til anden del af dialogen."
               }
             ]
           }
@@ -53,56 +53,56 @@
       }
     },
     {
-      "label":"Behavioural settings.",
-      "description":"These options will let you control how the task behaves.",
+      "label":"Indstillinger.",
+      "description":"Disse indstillinger vil kontrollere hvordan opgaven fremstår.",
       "fields":[
         {
-          "label":"Enable \"Retry\" button"
+          "label":"Aktiver \"prøv igen\" knap."
         },
         {
-          "label":"Disable backwards navigation",
-          "description":"This option will only allow you to move forward with Dialog Cards"
+          "label":"Slå bagglæns navigation fra",
+          "description":"Disse indstillinger vil kun gøre det muligt at gå fremad med dialogkortene"
         },
         {
-          "label":"Scale the text to fit inside the card",
-          "description":"Unchecking this option will make the card adapt its size to the size of the text"
+          "label":"Tilpas teksten så den passer inden for kortet",
+          "description":"Vælges denne indstilling ikke vil kortet tilpasse sig størrelsen på teksten."
         },
         {
-          "label":"Randomize cards",
-          "description":"Enable to randomize the order of cards on display."
+          "label":"Bland kort",
+          "description":"Aktivér for at få en tilfældig rækkefølge i visningen af kortene."
         }
       ]
     },
     {
-      "label":"Text for the turn button",
-      "default":"Turn"
+      "label":"Tekst på 'vend' knap",
+      "default":"Vend"
     },
     {
-      "label":"Text for the next button",
-      "default":"Next"
+      "label":"Tekst på 'næste' knap",
+      "default":"Næste"
     },
     {
-      "label":"Text for the previous button",
-      "default":"Previous"
+      "label":"Tekst på 'forrige' knap.",
+      "default":"Forrige"
     },
     {
-      "label":"Text for the retry button",
-      "default":"Retry"
+      "label":"Tekst på 'prøv igen' knap",
+      "default":"Prøv igen"
     },
     {
-      "label":"Progress text",
-      "description":"Available variables are @card and @total.",
-      "default":"Card @card of @total"
+      "label":"Proces tekst",
+      "description":"Antal kort variationer @card og @total.",
+      "default":"Kort @card af @total"
     },
     {
-      "label":"Label for card text",
-      "description":"Used for accessibility by assistive technologies",
-      "default":"Card front"
+      "label":"Label til tekst på kort",
+      "description":"Vist for tilgængelighed ved støtte med teknologier.",
+      "default":"Forside kort"
     },
     {
-      "label":"Label for card back",
-      "description":"Used for accessibility by assistive technologies",
-      "default":"Card back"
+      "label":"Label til kort bagside",
+      "description":"Vist for tilgængelighed ved støtte med teknologier",
+      "default":"Bagside kort"
     }
   ]
 }
