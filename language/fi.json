@@ -1,5 +1,5 @@
 {
-  "semantics":[
+  "semantics": [
     {
       "label":"Otsikko"
     },
@@ -8,7 +8,7 @@
       "default":""
     },
     {
-      "widgets":[
+      "widgets": [
         {
           "label":"Oletus"
         }
@@ -60,15 +60,15 @@
           "label":"Salli \"Yritä uudelleen\" painike"
         },
         {
-          "label":"Estä taaksepäin meneminen",
-          "description":"Tällä valinnalla vain eteenpäin meneminen on mahdollista dialogikorteissa."
+          "label":"Estä paluu",
+          "description":"Asetus estää palaamisen edelliseen korttiin."
         },
         {
-          "label":"Sovita teksti kortin sisustaan.",
-          "description":"Kun tämä valinta on pois päältä, niin kortti sovittaa kokonsa tekstin kokoon."
+          "label":"Mahduta teksti korttiin.",
+          "description":"Ilman valintaa kortin koko määräytyy tekstin mukaan"
         },
         {
-          "label":"Arvo kortit",
+          "label":"Sekoita kortit",
           "description":"Tällä valinnalla voit satunnaistaa korttien esiintymisjärjestyksen."
         }
       ]
@@ -103,6 +103,10 @@
       "label":"Kortin kääntöpuolen kuvaus",
       "description":"Käytetään esteettömyyssovelluksissa",
       "default":"Kortin kääntöpuoli"
+    },
+    {
+      "label": "Näytä vinkki",
+      "default": "Näytä vinkki"
     }
   ]
 }
