@@ -164,7 +164,7 @@
         "label": "Randomize cards",
         "importance": "low",
         "description": "Enable to randomize the order of cards on display.",
-         "default": false
+        "default": false
       }
     ]
   },
