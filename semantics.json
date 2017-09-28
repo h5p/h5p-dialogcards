@@ -226,5 +226,13 @@
     "description": "Used for accessibility by assistive technologies",
     "default": "Card back",
     "common": true
+  },
+  {
+    "name": "tipButtonLabel",
+    "type": "text",
+    "label": "Label for the show tip button",
+    "importance": "low",
+    "default": "Show tip",
+    "common": true
   }
 ]

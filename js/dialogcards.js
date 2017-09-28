@@ -31,6 +31,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       progressText: "Card @card of @total",
       cardFrontLabel: "Card front",
       cardBackLabel: "Card back",
+      tipButtonLabel: 'Show tip',
       dialogs: [
         {
           text: 'Horse',
@@ -208,7 +209,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       var tip = tips[side].trim();
       if (tip.length) {
         $card.find('.h5p-dialogcards-card-text-wrapper .h5p-dialogcards-card-text-inner')
-          .after(JoubelUI.createTip(tip));
+          .after(JoubelUI.createTip(tip, {
+            tipLabel: self.params.tipButtonLabel
+          }));
       }
     }
   };
