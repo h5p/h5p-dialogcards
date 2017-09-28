@@ -427,8 +427,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     if (card.audio !== undefined) {
 
       var audioDefaults = {
-        files: card.audio
+        files: card.audio,
+        audioNotSupported: self.params.audioNotSupported 
       };
+
       audio = new Audio(audioDefaults, self.id);
       audio.attach($audioWrapper);
 
