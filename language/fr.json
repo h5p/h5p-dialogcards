@@ -1,51 +1,51 @@
 {
-  "semantics":[
+  "semantics": [
     {
-      "label":"Titre"
+      "label": "Titre"
     },
     {
-      "label":"Consigne",
-      "default":""
+      "label": "Consigne",
+      "default": ""
     },
     {
-      "widgets":[
+      "widgets": [
         {
-          "label":"Default"
+          "label": "Default"
         }
       ],
-      "label":"Dialogue",
-      "entity":"dialogue",
-      "field":{
-        "label":"Question",
-        "fields":[
+      "label": "Dialogue",
+      "entity": "dialogue",
+      "field": {
+        "label": "Question",
+        "fields": [
           {
-            "label":"Question",
-            "description":"Indice pour la première partie du dialogue"
+            "label": "Question",
+            "description": "Indice pour la première partie du dialogue"
           },
           {
-            "label":"Réponse",
-            "description":"Indice pour la seconde partie du dialogue"
+            "label": "Réponse",
+            "description": "Indice pour la seconde partie du dialogue"
           },
           {
-            "label":"Image",
-            "description":"Image facultative pour la carte. (Une carte peut contenir une image seule, un texte seul ou les deux combinés)"
+            "label": "Image",
+            "description": "Image facultative pour la carte. (Une carte peut contenir une image seule, un texte seul ou les deux combinés)"
           },
           {
-            "label":"Alternative text for the image"
+            "label": "Alternative text for the image"
           },
           {
-            "label":"Audio files"
+            "label": "Audio files"
           },
           {
-            "label":"Tips",
-            "fields":[
+            "label": "Tips",
+            "fields": [
               {
-                "label":"Tip for text",
-                "description":"Tip for the first part of the dialogue"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label":"Tip for answer",
-                "description":"Tip for the second part of the dialogue"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -53,56 +53,64 @@
       }
     },
     {
-      "label":"Options générales",
-      "description":"Ces options vous permettent de paramétrer le déroulement de l'exercice.",
-      "fields":[
+      "label": "Options générales",
+      "description": "Ces options vous permettent de paramétrer le déroulement de l'exercice.",
+      "fields": [
         {
-          "label":"Activer le bouton \"Recommencer\""
+          "label": "Activer le bouton \"Recommencer\""
         },
         {
-          "label":"Désactiver la possibilité de naviguer en arrière",
-          "description":"Cette option ne permettra plus que la navigation en avant au sein des Dialog Cards"
+          "label": "Désactiver la possibilité de naviguer en arrière",
+          "description": "Cette option ne permettra plus que la navigation en avant au sein des Dialog Cards"
         },
         {
-          "label":"Mettre à l'échelle le texte afin de s'adapter au sein de la carte",
-          "description":"Si cette option est décochée la taille de la carte sera adaptée au texte placé à l'intérieur"
+          "label": "Mettre à l'échelle le texte afin de s'adapter au sein de la carte",
+          "description": "Si cette option est décochée la taille de la carte sera adaptée au texte placé à l'intérieur"
         },
         {
-          "label":"Randomize cards",
-          "description":"Enable to randomize the order of cards on display."
+          "label": "Randomize cards",
+          "description": "Enable to randomize the order of cards on display."
         }
       ]
     },
     {
-      "label":"Texte pour le bouton \"Retourner\"",
-      "default":"Retourner"
+      "label": "Texte pour le bouton \"Retourner\"",
+      "default": "Retourner"
     },
     {
-      "label":"Texte pour le bouton \"Suivant\"",
-      "default":"Suivant"
+      "label": "Texte pour le bouton \"Suivant\"",
+      "default": "Suivant"
     },
     {
-      "label":"Texte pour le bouton \"Précédent\"",
-      "default":"Précédent"
+      "label": "Texte pour le bouton \"Précédent\"",
+      "default": "Précédent"
     },
     {
-      "label":"Texte pour le bouton \"Recommencer\"",
-      "default":"Recommencer"
+      "label": "Texte pour le bouton \"Recommencer\"",
+      "default": "Recommencer"
     },
     {
-      "label":"Texte de progression",
-      "description":"Les variables disponibles sont @card et @total.",
-      "default":"Carte @card sur @total"
+      "label": "Texte de progression",
+      "description": "Les variables disponibles sont @card et @total.",
+      "default": "Carte @card sur @total"
     },
     {
-      "label":"Label for card text",
-      "description":"Used for accessibility by assistive technologies",
-      "default":"Card front"
+      "label": "Label for card text",
+      "description": "Used for accessibility by assistive technologies",
+      "default": "Card front"
     },
     {
-      "label":"Label for card back",
-      "description":"Used for accessibility by assistive technologies",
-      "default":"Card back"
+      "label": "Label for card back",
+      "description": "Used for accessibility by assistive technologies",
+      "default": "Card back"
+    },
+    {
+      "label": "Label for the show tip button",
+      "default": "Show tip"
+    },
+    {
+      "label": "Audio not supported message",
+      "default": "Your browser does not support this audio"
     }
   ]
 }
