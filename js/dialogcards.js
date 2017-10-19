@@ -32,6 +32,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       cardFrontLabel: "Card front",
       cardBackLabel: "Card back",
       tipButtonLabel: 'Show tip',
+      audioNotSupported: 'Your browser does not support this audio',
       dialogs: [
         {
           text: 'Horse',
@@ -428,7 +429,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
       var audioDefaults = {
         files: card.audio,
-        audioNotSupported: self.params.audioNotSupported 
+        audioNotSupported: self.params.audioNotSupported
       };
 
       audio = new Audio(audioDefaults, self.id);
