@@ -103,6 +103,14 @@
       "label": "Label for card back",
       "description": "Used for accessibility by assistive technologies",
       "default": "Card back"
+    },
+    {
+      "label": "Label for the show tip button",
+      "default": "Show tip"
+    },
+    {
+      "label": "Audio not supported message",
+      "default": "Your browser does not support this audio"
     }
   ]
 }

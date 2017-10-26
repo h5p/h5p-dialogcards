@@ -1,51 +1,51 @@
 {
-  "semantics":[
+  "semantics": [
     {
-      "label":"Titel"
+      "label": "Titel"
     },
     {
-      "label":"Beschrijving taak",
-      "default":""
+      "label": "Beschrijving taak",
+      "default": ""
     },
     {
-      "widgets":[
+      "widgets": [
         {
-          "label":"Default"
+          "label": "Default"
         }
       ],
-      "label":"Dialogen",
-      "entity":"dialog",
-      "field":{
-        "label":"Vraag",
-        "fields":[
+      "label": "Dialogen",
+      "entity": "dialog",
+      "field": {
+        "label": "Vraag",
+        "fields": [
           {
-            "label":"Tekst",
-            "description":"Hint voor het eerste deel van het dialoog"
+            "label": "Tekst",
+            "description": "Hint voor het eerste deel van het dialoog"
           },
           {
-            "label":"Antwoord",
-            "description":"Hint voor het tweede deel van het dialoog"
+            "label": "Antwoord",
+            "description": "Hint voor het tweede deel van het dialoog"
           },
           {
-            "label":"Afbeelding",
-            "description":"Optionele afbeelding voor de kaart. (De kaart mag alleen een afbeelding gebruiken, alleen een tekst of allebei)"
+            "label": "Afbeelding",
+            "description": "Optionele afbeelding voor de kaart. (De kaart mag alleen een afbeelding gebruiken, alleen een tekst of allebei)"
           },
           {
-            "label":"Alternative text for the image"
+            "label": "Alternative text for the image"
           },
           {
-            "label":"Audio files"
+            "label": "Audio files"
           },
           {
-            "label":"Tips",
-            "fields":[
+            "label": "Tips",
+            "fields": [
               {
-                "label":"Tip for text",
-                "description":"Tip for the first part of the dialogue"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label":"Tip for answer",
-                "description":"Tip for the second part of the dialogue"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -53,56 +53,64 @@
       }
     },
     {
-      "label":"Gedragsinstellingen",
-      "description":"Met deze opties kun je instellen hoe de taak zich gedraagt.",
-      "fields":[
+      "label": "Gedragsinstellingen",
+      "description": "Met deze opties kun je instellen hoe de taak zich gedraagt.",
+      "fields": [
         {
-          "label":"\"Opnieuw proberen\" knop inschakelen"
+          "label": "\"Opnieuw proberen\" knop inschakelen"
         },
         {
-          "label":"Achteruit navigeren uitschakelen",
-          "description":"Deze optie zorgt ervoor dat je alleen maar vooruit kunt bladeren met Dialoogkaarten"
+          "label": "Achteruit navigeren uitschakelen",
+          "description": "Deze optie zorgt ervoor dat je alleen maar vooruit kunt bladeren met Dialoogkaarten"
         },
         {
-          "label":"De tekst passend maken in de kaart",
-          "description":"Door dit uit te vinken zullen de afmetingen van de kaart zich aanpassen aan de grootte van de tekst"
+          "label": "De tekst passend maken in de kaart",
+          "description": "Door dit uit te vinken zullen de afmetingen van de kaart zich aanpassen aan de grootte van de tekst"
         },
         {
-          "label":"Kaarten in willekeurige volgorde",
-          "description":"Schakel in om de kaarten in willekeurige volgorde te tonen."
+          "label": "Kaarten in willekeurige volgorde",
+          "description": "Schakel in om de kaarten in willekeurige volgorde te tonen."
         }
       ]
     },
     {
-      "label":"Tekst knop Omdraaien",
-      "default":"Omdraaien"
+      "label": "Tekst knop Omdraaien",
+      "default": "Omdraaien"
     },
     {
-      "label":"Tekst voor de knop Volgende",
-      "default":"Volgende"
+      "label": "Tekst voor de knop Volgende",
+      "default": "Volgende"
     },
     {
-      "label":"Tekst voor de knop Vorige",
-      "default":"Vorige"
+      "label": "Tekst voor de knop Vorige",
+      "default": "Vorige"
     },
     {
-      "label":"Tekst voor de knop Opnieuw",
-      "default":"Opnieuw"
+      "label": "Tekst voor de knop Opnieuw",
+      "default": "Opnieuw"
     },
     {
-      "label":"Tekst bij voortgang",
-      "description":"Beschikbare variabelen zijn @card en @total.",
-      "default":"Kaart @card van @total"
+      "label": "Tekst bij voortgang",
+      "description": "Beschikbare variabelen zijn @card en @total.",
+      "default": "Kaart @card van @total"
     },
     {
-      "label":"Label for card text",
-      "description":"Used for accessibility by assistive technologies",
-      "default":"Card front"
+      "label": "Label for card text",
+      "description": "Used for accessibility by assistive technologies",
+      "default": "Card front"
     },
     {
-      "label":"Label for card back",
-      "description":"Used for accessibility by assistive technologies",
-      "default":"Card back"
+      "label": "Label for card back",
+      "description": "Used for accessibility by assistive technologies",
+      "default": "Card back"
+    },
+    {
+      "label": "Label for the show tip button",
+      "default": "Show tip"
+    },
+    {
+      "label": "Audio not supported message",
+      "default": "Your browser does not support this audio"
     }
   ]
 }

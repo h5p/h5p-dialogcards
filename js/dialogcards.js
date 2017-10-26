@@ -31,6 +31,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       progressText: "Card @card of @total",
       cardFrontLabel: "Card front",
       cardBackLabel: "Card back",
+      tipButtonLabel: 'Show tip',
+      audioNotSupported: 'Your browser does not support this audio',
       dialogs: [
         {
           text: 'Horse',
@@ -208,7 +210,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       var tip = tips[side].trim();
       if (tip.length) {
         $card.find('.h5p-dialogcards-card-text-wrapper .h5p-dialogcards-card-text-inner')
-          .after(JoubelUI.createTip(tip));
+          .after(JoubelUI.createTip(tip, {
+            tipLabel: self.params.tipButtonLabel
+          }));
       }
     }
   };
@@ -424,8 +428,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     if (card.audio !== undefined) {
 
       var audioDefaults = {
-        files: card.audio
+        files: card.audio,
+        audioNotSupported: self.params.audioNotSupported
       };
+
       audio = new Audio(audioDefaults, self.id);
       audio.attach($audioWrapper);
 
