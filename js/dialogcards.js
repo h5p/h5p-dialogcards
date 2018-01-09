@@ -5,6 +5,7 @@ var H5P = H5P || {};
  *
  * @param {jQuery} $
  */
+
 H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
   /**
@@ -54,7 +55,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         enableRetry: true,
         //randomAnswers: false, // This param is not used!
         scaleTextNotCard: false,
-        randomCards: 'normal'
+        randomCards: 'normal',
+        maxScore: 1
       }
     }, params);
 
@@ -88,7 +90,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param {jQuery} $container
    */
   C.prototype.attach = function ($container) {
-    this.triggerXAPI('attempted');
     var self = this;
     self.$inner = $container
       .addClass('h5p-dialogcards')
@@ -1151,14 +1152,30 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   C.prototype.finishedScreen = function () {
     var self = this;
     self.taskFinished = true;
+    self.answered = true;
     self.progress = -1;
-    self.triggerXAPIScored(1, 1, 'completed');
+    maxScore = self.params.behaviour.maxScore;
+    self.triggerXAPIScored(maxScore, maxScore, 'completed');
+    self.triggerXAPI('answered');
 
     // Remove all these elements.
     $('.h5p-dialogcards-cardwrap-set, .h5p-dialogcards-footer', self.$inner).remove();
 
     // Display task finished feedback message.
-    $feedback = $('<div class="h5p-dialogcards-feedback">' + self.params.finished + '</div>').appendTo(self.$inner);
+
+    var $feedback = $('<div>', {
+        'class': 'h5p-question-feedback-container'
+      }).appendTo(self.$inner);
+
+      // Feedback text
+      $('<div>', {
+        'class': 'h5p-dialogcards-feedback',
+        'html': self.params.finished
+      }).appendTo($feedback);
+
+        scoreBar = JoubelUI.createScoreBar(maxScore);
+        scoreBar.setScore(maxScore);
+      scoreBar.appendTo($feedback);
 
     // Display reset button to enable user to do the task again.
     self.$resetTaskButton = JoubelUI.createButton({
@@ -1217,9 +1234,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
   C.prototype.resetTask = function () {
     self = this;
-
+    self.answered = false;
     // Removes all these elements to start afresh.
-    $('.h5p-dialogcards-cardwrap-set, .h5p-dialogcards-footer, .h5p-dialogcards-feedback, .h5p-dialogcards-reset, .h5p-dialogcards-order', self.$inner).remove();
+    $('.h5p-dialogcards-cardwrap-set, .h5p-dialogcards-footer, .h5p-question-feedback-container, .h5p-dialogcards-reset, .h5p-dialogcards-order', self.$inner).remove();
 
     // Reset various parameters.
     self.taskFinished = false;
@@ -1253,16 +1270,24 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @returns {Number} Max points
    */
   C.prototype.getMaxScore = function () {
-    return 1;
+    return this.params.behaviour.maxScore;
   };
 
   /**
-   * @returns {Number} Points. Give 1 point for task finished, i.e. all cards removed from stack!
+   * @returns {Number} Points.
    */
   C.prototype.getScore = function () {
-    return this.taskFinished;
+    if (this.taskFinished) {
+      return this.params.behaviour.maxScore;
+    } else {
+      return 0;
+    }
   };
 
+  // Used when a dialog cards activity is included in a Course Presentation content.
+  C.prototype.getAnswerGiven = function () {
+    return this.answered;
+};
 
   C.SCALEINTERVAL = 0.2;
   C.MAXSCALE = 16;

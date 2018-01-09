@@ -179,7 +179,17 @@
             "label": "User's choice"
           }
         ]
-      }
+      },
+      {
+        "name": "maxScore",
+        "type": "number",
+        "label": "Maximum Score",
+        "importance": "low",
+        "description": "Score to give the user upon finishing this activity.",
+        "min": 0,
+        "max": 100,
+        "default": 1,
+        "optional": true       }
     ]
   },
   {
