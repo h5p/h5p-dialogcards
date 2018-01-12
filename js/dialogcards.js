@@ -5,7 +5,6 @@ var H5P = H5P || {};
  *
  * @param {jQuery} $
  */
-
 H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
   /**
@@ -98,24 +97,24 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       '<div class="h5p-dialogcards-description">' + self.params.description + '</div>'
       ));
 
-      // If we are resuming task from a previously finished task, ask user it they want to Retry.
-      if (this.taskFinished) {
-        self.finishedScreen();
-        return;
-      }
-      var existsCardOrder = true;
-      if ($.isEmptyObject(this.cardOrder)) {
-        existsCardOrder = false;
-      }
-      // Create cardOrder and cardNumber buttons only on first instanciation for logged in user.
-      if (self.params.behaviour.randomCards == 'user' && !existsCardOrder) {
-        self.createOrder().appendTo(self.$inner);
-      } else {
-        self.attachContinue();
-      }
+    // If we are resuming task from a previously finished task, ask user it they want to Retry.
+    if (this.taskFinished) {
+      self.finishedScreen();
+      return;
+    }
+    var existsCardOrder = true;
+    if ($.isEmptyObject(this.cardOrder)) {
+      existsCardOrder = false;
+    }
+    // Create cardOrder and cardNumber buttons only on first instanciation for logged in user.
+    if (self.params.behaviour.randomCards == 'user' && !existsCardOrder) {
+      self.createOrder().appendTo(self.$inner);
+    } else {
+      self.attachContinue();
+    }
   };
 
-    /**
+  /**
    * Attach the rest of the h5p inside the given container.
    *
    * @param {jQuery} $container
@@ -206,17 +205,15 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'html': self.params.numCardsQuestion + "<br /><br />"
     });
 
-    /**
-     * Allow user to select a number of cards to play with, by displaying selectable buttons in increments of 5.
-    **/
+    // Allow user to select a number of cards to play with, by displaying selectable buttons in increments of 5.
     for (var i = 5; i < numCards; i+= 5) {
       self.$button = JoubelUI.createButton({
           'class': 'h5p-dialogcards-number-button',
           'title': i,
           'html': i,
-          'id': i
+          'id': 'dc-number-' + i
         }).click(function () {
-            self.nbCards = this.id;
+            self.nbCards = this.title;
             self.attachContinue();
           }).appendTo($numberCards);
       };
@@ -569,7 +566,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'class': 'h5p-dialogcards-gotit truncated h5p-dialogcards-disabled',
       'title': self.params.gotit
     }).click(function () {
-          self.gotIt($(this).parents('.h5p-dialogcards-cardwrap'));
+      self.gotIt($(this).parents('.h5p-dialogcards-cardwrap'));
     }).appendTo($cardFooter);
 
     return $cardFooter;
@@ -693,7 +690,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         self.addTipToCard($cardWrapper.find('.h5p-dialogcards-card-content'), 'front', self.$current.index() + 1);
         self.resize();
       }
-      self.turnCardToFront ();
+      self.turnCardToFront();
       // Update navigation
       self.updateNavigation();
     }
@@ -736,17 +733,16 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * When navigating forward or backward, reset card to front view if has previously been turned
    * so that user can see the Question side, not the Answer side of the card.
    */
-
   C.prototype.turnCardToFront = function () {
     var self = this;
     var $c = self.$current.find('.h5p-dialogcards-card-content');
     var turned = $c.hasClass('h5p-dialogcards-turned');
-        if (turned) {
-            self.turnCard(self.$current);
-            var $cg = self.$current.find('.h5p-dialogcards-gotit');
-            $cg.addClass('h5p-dialogcards-disabled');
-        }
+    if (turned) {
+      self.turnCard(self.$current);
+      var $cg = self.$current.find('.h5p-dialogcards-gotit');
+      $cg.addClass('h5p-dialogcards-disabled');
     }
+  }
 
   /**
    * Show the opposite site of the card.
@@ -1164,18 +1160,18 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     // Display task finished feedback message.
 
     var $feedback = $('<div>', {
-        'class': 'h5p-question-feedback-container'
-      }).appendTo(self.$inner);
+      'class': 'h5p-question-feedback-container'
+    }).appendTo(self.$inner);
 
-      // Feedback text
-      $('<div>', {
-        'class': 'h5p-dialogcards-feedback',
-        'html': self.params.finished
-      }).appendTo($feedback);
+    // Feedback text
+    $('<div>', {
+      'class': 'h5p-dialogcards-feedback',
+      'html': self.params.finished
+    }).appendTo($feedback);
 
-        scoreBar = JoubelUI.createScoreBar(maxScore);
-        scoreBar.setScore(maxScore);
-      scoreBar.appendTo($feedback);
+    scoreBar = JoubelUI.createScoreBar(maxScore);
+    scoreBar.setScore(maxScore);
+    scoreBar.appendTo($feedback);
 
     // Display reset button to enable user to do the task again.
     self.$resetTaskButton = JoubelUI.createButton({
@@ -1229,7 +1225,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     /**
    * Resets the task.
    * Used in contracts.
-   * @public
    */
 
   C.prototype.resetTask = function () {

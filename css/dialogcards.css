@@ -323,7 +323,7 @@
   background: #1356a3;
 }
 
-.h5p-joubelui-button:active {
+.h5p-dialogcards .h5p-joubelui-button:active {
   background: #104888;
 
   -webkit-box-shadow: inset 0 4px 0 #0e407a;
