@@ -432,11 +432,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       // Load cards progressively
       // This feature has been removed because when the "gotit" feature is enabled we must load ALL cards at once.
 
-
       // Set current card index
       // If there is a saved state, then set current card index to saved position (progress)
       // otherwise set it to zero.
-      var $cardWrapper = self.createCard(cards[i], setCardSizeCallback);
+      var $cardWrapper = self.createCard(cards[i], i, setCardSizeCallback);
       if (((this.progress == undefined || this.progress == -1) && i === 0) || (this.progress !== undefined && i == this.progress)) {
 
         $cardWrapper.addClass('h5p-dialogcards-current');
@@ -675,21 +674,13 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
     var $next = self.$current.next('.h5p-dialogcards-cardwrap');
 
-    // Next card not loaded or end of cards
+    // End of cards reached.
     if ($next.length) {
       self.stopAudio(self.$current.index());
       self.$current.removeClass('h5p-dialogcards-current').addClass('h5p-dialogcards-previous');
       self.$current = $next.addClass('h5p-dialogcards-current');
       self.setCardFocus(self.$current);
-
-      // Add next card.
-      var $loadCard = self.$current.next('.h5p-dialogcards-cardwrap');
-      if (!$loadCard.length && self.$current.index() + 1 < self.dialogs.length) {
-        var $cardWrapper = self.createCard(self.dialogs[self.$current.index() + 1])
-          .appendTo(self.$cardwrapperSet);
-        self.addTipToCard($cardWrapper.find('.h5p-dialogcards-card-content'), 'front', self.$current.index() + 1);
-        self.resize();
-      }
+      // Add next card no longer needed when ALL cards are loaded at once.
       self.turnCardToFront();
       // Update navigation
       self.updateNavigation();
@@ -708,7 +699,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       self.$current.removeClass('h5p-dialogcards-current');
       self.$current = $prev.addClass('h5p-dialogcards-current').removeClass('h5p-dialogcards-previous');
       self.setCardFocus(self.$current);
-      self.turnCardToFront ();
+      self.turnCardToFront();
       self.updateNavigation();
     }
   };
