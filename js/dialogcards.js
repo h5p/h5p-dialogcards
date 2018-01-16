@@ -55,7 +55,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         //randomAnswers: false, // This param is not used!
         scaleTextNotCard: false,
         randomCards: 'normal',
-        maxScore: 1
+        maxScore: 1,
+        turnCardsToFront: false
       }
     }, params);
 
@@ -726,6 +727,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    */
   C.prototype.turnCardToFront = function () {
     var self = this;
+    if (!self.params.behaviour.turnCardsToFront) {
+      return;
+    }
     var $c = self.$current.find('.h5p-dialogcards-card-content');
     var turned = $c.hasClass('h5p-dialogcards-turned');
     if (turned) {

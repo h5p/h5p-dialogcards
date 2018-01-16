@@ -151,6 +151,15 @@
         "default": false
       },
       {
+        "name": "turnCardsToFront",
+        "type": "boolean",
+        "label": "Always turn cards to front",
+        "importance": "low",
+        "description": "Checking this option will force the cards to turn to their front side when navigating",
+        "optional": true,
+        "default": false
+      },
+      {
         "name": "scaleTextNotCard",
         "type": "boolean",
         "label": "Scale the text to fit inside the card",
@@ -189,7 +198,7 @@
         "min": 0,
         "max": 100,
         "default": 1,
-        "optional": true       }
+        "optional": true}
     ]
   },
   {
