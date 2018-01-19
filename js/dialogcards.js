@@ -98,9 +98,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       '<div class="h5p-dialogcards-description">' + self.params.description + '</div>'
       ));
 
-    // If we are resuming task from a previously finished task, ask user it they want to Retry.
+    // If we are resuming task from a previously finished task, Reset the task.
     if (this.taskFinished) {
-      self.finishedScreen();
+      self.resetTask();
       return;
     }
     var existsCardOrder = true;
@@ -361,7 +361,13 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     if ($.isEmptyObject(this.cardOrder)) {
       existsCardOrder = false;
     }
-    var initLoad = self.nbCards;
+
+    var initLoad = 2
+
+    // If keepstate then load all cards until last card previously reached by user.
+    if (this.progress > 0) {
+      initLoad += this.progress;
+    }
 
     // If keepstate only randomize first instanciation.
     var okForRandomize = false;
@@ -431,7 +437,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     for (var i = 0; i < cards.length; i++) {
 
       // Load cards progressively
-      // This feature has been removed because when the "gotit" feature is enabled we must load ALL cards at once.
+      if (i >= initLoad) {
+        break;
+      }
 
       // Set current card index
       // If there is a saved state, then set current card index to saved position (progress)
@@ -675,13 +683,23 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
     var $next = self.$current.next('.h5p-dialogcards-cardwrap');
 
-    // End of cards reached.
+    // Next card not loaded or end of cards.
     if ($next.length) {
       self.stopAudio(self.$current.index());
       self.$current.removeClass('h5p-dialogcards-current').addClass('h5p-dialogcards-previous');
       self.$current = $next.addClass('h5p-dialogcards-current');
       self.setCardFocus(self.$current);
-      // Add next card no longer needed when ALL cards are loaded at once.
+
+      // Add next card.
+      var $loadCard = self.$current.next('.h5p-dialogcards-cardwrap');
+
+      if (!$loadCard.length && self.$current.index() + 1 < self.dialogs.length) {
+        var $cardWrapper = self.createCard(self.dialogs[self.$current.index() + 1], self.$current.index() + 1)
+          .appendTo(self.$cardwrapperSet);
+        self.addTipToCard($cardWrapper.find('.h5p-dialogcards-card-content'), 'front', self.$current.index() + 1);
+        self.resize();
+      }
+
       self.turnCardToFront();
       // Update navigation
       self.updateNavigation();
@@ -1206,14 +1224,16 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     }
 
     // Now remove the current 'gotitdone' card from the cards and cardOrder arrays.
-      self.dialogs.splice(index, 1);
-      self.cardOrder.splice(index, 1);
-
+    self.dialogs.splice(index, 1);
+    self.cardOrder.splice(index, 1);
+    if (!self.params.behaviour.scaleTextNotCard) {
+      self.cardSizeDetermined.splice(index + 2, 1);
+    }
     // Remove the 'gotitdone' card from DOM
-      $( '.h5p-dialogcards-gotitdone', self.$inner).remove();
+    $( '.h5p-dialogcards-gotitdone', self.$inner).remove();
 
-      // Update navigation
-      self.updateNavigation();
+    // Update navigation
+    self.updateNavigation();
 
   };
 
