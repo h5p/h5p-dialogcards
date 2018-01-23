@@ -190,12 +190,20 @@
         ]
       },
       {
+        "name": "enableGotIt",
+        "type": "boolean",
+        "label": "Enable the Got It feature",
+        "importance": "low",
+        "description": "Check this option to enable the user to confirm that they correctly guessed the contents of the back of the cards",
+        "default": false
+      },
+      {
         "name": "maxScore",
         "type": "number",
         "label": "Maximum Score",
         "importance": "low",
         "description": "Score to give the user upon finishing this activity.",
-        "min": 0,
+        "min": 1,
         "max": 100,
         "default": 1,
         "optional": true}
@@ -323,7 +331,7 @@
     "type": "text",
     "label": "Text for the Correct Guess button",
     "importance": "low",
-    "default": "OK",
+    "default": "Got It",
     "common": true
   },
   {

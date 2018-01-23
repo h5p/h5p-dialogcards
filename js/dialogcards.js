@@ -33,7 +33,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       yes: "Yes",
       numCardsQuestion: "How many cards do you want?",
       allCards: "all",
-      gotit: "OK",
+      gotit: "Got It",
       finished: "You have finished. Congratulations!",
       progressText: "Card @card of @total",
       cardFrontLabel: "Card front",
@@ -56,7 +56,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         scaleTextNotCard: false,
         randomCards: 'normal',
         maxScore: 1,
-        turnCardsToFront: false
+        turnCardsToFront: false,
+        enableGotIt: false
       }
     }, params);
 
@@ -570,13 +571,14 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       self.turnCard($(this).parents('.h5p-dialogcards-cardwrap'));
     }).appendTo($cardFooter);
 
-    JoubelUI.createButton({
-      'class': 'h5p-dialogcards-gotit truncated h5p-dialogcards-disabled',
-      'title': self.params.gotit
-    }).click(function () {
-      self.gotIt($(this).parents('.h5p-dialogcards-cardwrap'));
-    }).appendTo($cardFooter);
-
+    if (self.params.behaviour.enableGotIt) {
+      JoubelUI.createButton({
+        'class': 'h5p-dialogcards-gotit truncated h5p-dialogcards-disabled',
+        'title': self.params.gotit
+      }).click(function () {
+        self.gotIt($(this).parents('.h5p-dialogcards-cardwrap'));
+      }).appendTo($cardFooter);
+    }
     return $cardFooter;
   };
 
@@ -752,8 +754,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var turned = $c.hasClass('h5p-dialogcards-turned');
     if (turned) {
       self.turnCard(self.$current);
-      var $cg = self.$current.find('.h5p-dialogcards-gotit');
-      $cg.addClass('h5p-dialogcards-disabled');
+      if (self.params.behaviour.enableGotIt) {
+        var $cg = self.$current.find('.h5p-dialogcards-gotit');
+        $cg.addClass('h5p-dialogcards-disabled');
+      }
     }
   }
 
@@ -766,7 +770,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var self = this;
     var $c = $card.find('.h5p-dialogcards-card-content');
     var $ch = $card.find('.h5p-dialogcards-cardholder').addClass('h5p-dialogcards-collapse');
-    var $cg = $card.find('.h5p-dialogcards-gotit');
+    if (self.params.behaviour.enableGotIt) {
+      var $cg = $card.find('.h5p-dialogcards-gotit');
+    }
 
     // Removes tip, since it destroys the animation:
     $c.find('.joubel-tip-container').remove();
@@ -783,11 +789,15 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       self.changeText($c, self.dialogs[$card.index()][turned ? 'text' : 'answer']);
       if (turned) {
         $ch.find('.h5p-audio-inner').removeClass('hide');
-        $cg.addClass('h5p-dialogcards-disabled');
+        if (self.params.behaviour.enableGotIt) {
+          $cg.addClass('h5p-dialogcards-disabled');
+        }
       }
       else {
         self.removeAudio($ch);
-        $cg.removeClass('h5p-dialogcards-disabled');
+        if (self.params.behaviour.enableGotIt) {
+          $cg.removeClass('h5p-dialogcards-disabled');
+        }
       }
 
       // Add backside tip
@@ -874,8 +884,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       var $cardContent = $card.find('.h5p-dialogcards-card-content');
       $cardContent.removeClass('h5p-dialogcards-turned');
       self.addTipToCard($cardContent, 'front', index);
-      var $cg = $card.find('.h5p-dialogcards-gotit');
-      $cg.addClass('h5p-dialogcards-disabled');
+      if (self.params.behaviour.enableGotIt) {
+        var $cg = $card.find('.h5p-dialogcards-gotit');
+        $cg.addClass('h5p-dialogcards-disabled');
+      }
     });
     self.$retry.addClass('h5p-dialogcards-disabled');
     self.showAllAudio();
@@ -1163,9 +1175,11 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.taskFinished = true;
     self.answered = true;
     self.progress = -1;
-    maxScore = self.params.behaviour.maxScore;
-    self.triggerXAPIScored(maxScore, maxScore, 'completed');
-    self.triggerXAPI('answered');
+    if (self.params.behaviour.enableGotIt) {
+      maxScore = self.params.behaviour.maxScore;
+      self.triggerXAPIScored(maxScore, maxScore, 'completed');
+      self.triggerXAPI('answered');
+    }
 
     // Remove all these elements.
     $('.h5p-dialogcards-cardwrap-set, .h5p-dialogcards-footer', self.$inner).remove();
@@ -1186,14 +1200,16 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     scoreBar.setScore(maxScore);
     scoreBar.appendTo($feedback);
 
-    // Display reset button to enable user to do the task again.
-    self.$resetTaskButton = JoubelUI.createButton({
-      'class': 'h5p-dialogcards-reset',
-      'title': self.params.retry,
-      'html': self.params.retry
-    }).click(function () {
-      self.resetTask();
-    }).appendTo(self.$inner);
+    // Display reset button to enable user to do the task again IF Retry option enabled.
+    if (self.params.behaviour.enableRetry) {
+      self.$resetTaskButton = JoubelUI.createButton({
+        'class': 'h5p-dialogcards-reset',
+        'title': self.params.retry,
+        'html': self.params.retry
+      }).click(function () {
+        self.resetTask();
+      }).appendTo(self.$inner);
+    }
   }
 
 
@@ -1225,7 +1241,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     // Now remove the current 'gotitdone' card from the cards and cardOrder arrays.
     self.dialogs.splice(index, 1);
-    self.cardOrder.splice(index, 1);
+    if (!$.isEmptyObject(this.cardOrder)) {
+      self.cardOrder.splice(index, 1);
+    }
     if (!self.params.behaviour.scaleTextNotCard) {
       self.cardSizeDetermined.splice(index + 2, 1);
     }
@@ -1280,24 +1298,30 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @returns {Number} Max points
    */
   C.prototype.getMaxScore = function () {
-    return this.params.behaviour.maxScore;
+    if (this.params.behaviour.enableGotIt) {
+      return this.params.behaviour.maxScore;
+    } else {
+        return 0;
+    }
   };
 
   /**
    * @returns {Number} Points.
    */
   C.prototype.getScore = function () {
-    if (this.taskFinished) {
-      return this.params.behaviour.maxScore;
-    } else {
-      return 0;
-    }
+      if (this.params.behaviour.enableGotIt && this.taskFinished) {
+        return this.params.behaviour.maxScore;
+      } else {
+        return 0;
+      }
   };
 
   // Used when a dialog cards activity is included in a Course Presentation content.
   C.prototype.getAnswerGiven = function () {
-    return this.answered;
-};
+    if (this.params.behaviour.enableGotIt) {
+      return this.answered;
+    }
+  };
 
   C.SCALEINTERVAL = 0.2;
   C.MAXSCALE = 16;
