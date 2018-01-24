@@ -2,8 +2,8 @@
   "title": "Dialog Cards",
   "description": "Makes it possible to create learning tasks for your site visitors.",
   "majorVersion": 1,
-  "minorVersion": 6,
-  "patchVersion": 4,
+  "minorVersion": 7,
+  "patchVersion": 0,
   "runnable": 1,
   "author": "Joubel",
   "license": "MIT",
@@ -36,6 +36,11 @@
       "machineName": "H5P.Audio",
       "majorVersion": 1,
       "minorVersion": 2
+    },
+    {
+      "machineName": "H5P.FontIcons",
+      "majorVersion": 1,
+      "minorVersion": 0
     }
   ],
   "editorDependencies": [
