@@ -21,7 +21,7 @@ H5PUpgrades['H5P.Dialogcards'] = (function ($) {
 
         // Complete
         finished(null, parameters);
-      }
+      },
       7: function (parameters, finished) {
         // Convert randomCards from boolean to string option
         if (parameters && parameters.behaviour && parameters.behaviour.randomCards !== undefined) {
