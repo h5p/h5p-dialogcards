@@ -20,9 +20,13 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     self.contentId = self.id = id;
 
+    // Var cardOrder stores order of cards to allow resuming of card set.
+    // Var progress stores current card index.
+    this.contentData = contentData || {};
+
     // Set default behavior.
     self.params = $.extend({
-      title: "Dialogue",
+      title: self.getTitle(),
       description: "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
       next: "Next",
       prev: "Previous",
@@ -71,9 +75,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.nbCards = self.params.dialogs.length;
     self.randomCards = self.params.behaviour.randomCards;
 
-    // Var cardOrder stores order of cards to allow resuming of card set.
-    // Var progress stores current card index.
-    this.contentData = contentData || {};
     // Bring card set up to date when resuming.
     if (this.contentData.previousState) {
       this.progress = this.contentData.previousState.progress;
@@ -95,7 +96,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     self.$inner = $container
       .addClass('h5p-dialogcards')
       .append($('' +
-      '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + self.params.title + '</div></div>' +
+      ((self.params.behaviour.showTitle) ? '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + self.params.title + '</div></div>' : '') +
       '<div class="h5p-dialogcards-description">' + self.params.description + '</div>'
       ));
 
@@ -1321,6 +1322,15 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     if (this.params.behaviour.enableGotIt) {
       return this.answered;
     }
+  };
+
+  /**
+   * Get the content type title.
+   *
+   * @return {string} title.
+   */
+  C.prototype.getTitle = function () {
+    return (this.contentData && this.contentData.metadata && this.contentData.metadata.title) ? this.contentData.metadata.title : 'Dialogue';
   };
 
   C.SCALEINTERVAL = 0.2;

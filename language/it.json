@@ -1,9 +1,6 @@
 {
   "semantics": [
     {
-      "label": "Titolo"
-    },
-    {
       "label": "Descrizione attività",
       "default": ""
     },
@@ -70,6 +67,33 @@
         {
           "label": "Randomize cards",
           "description": "Enable to randomize the order of cards on display."
+        },
+        {
+          "label": "Cards Order",
+          "description": "Select the order of cards when displayed to the user.",
+          "options": [
+            {
+              "label": "Normal order"
+            },
+            {
+              "label": "Random order"
+            },
+            {
+              "label": "User's choice"
+            }
+          ]
+        },
+        {
+          "label": "Enable the Got It feature",
+          "description": "Check this option to enable the user to confirm that they correctly guessed the contents of the back of the cards"
+        },
+        {
+          "label": "Maximum Score",
+          "description": "Score to give the user upon finishing this activity."
+        },
+        {
+          "label": "Show title",
+          "description": "Show the title above the images"
         }
       ]
     },
@@ -111,6 +135,36 @@
     {
       "label": "Audio not supported message",
       "default": "Your browser does not support this audio"
+    },
+    {
+      "label": "Display the cards in random order?",
+      "description": "Ask the user if they want to display the cards in random order.",
+      "default": "Display the cards in random order?"
+    },
+    {
+      "label": "Yes",
+      "default": "Yes"
+    },
+    {
+      "label": "No",
+      "default": "No"
+    },
+    {
+      "label": "Number of Cards",
+      "description": "If the cards are displayed in random order, ask the user how many cards they want.",
+      "default": "How many cards do you want?"
+    },
+    {
+      "label": "All Cards",
+      "default": "all the cards"
+    },
+    {
+      "label": "Text for the Correct Guess button",
+      "default": "Got It"
+    },
+    {
+      "label": "End of game feedback text",
+      "default": "You have finished. Congratulations!"
     }
   ]
 }

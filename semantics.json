@@ -1,19 +1,5 @@
 [
   {
-    "name": "title",
-    "type": "text",
-    "widget": "html",
-    "label": "Title",
-    "importance": "high",
-    "optional": true,
-    "tags": [
-      "p",
-      "br",
-      "strong",
-      "em"
-    ]
-  },
-  {
     "name": "description",
     "type": "text",
     "widget": "html",
@@ -206,7 +192,16 @@
         "min": 1,
         "max": 100,
         "default": 1,
-        "optional": true}
+        "optional": true
+      },
+      {
+        "name": "showTitle",
+        "importance": "low",
+        "type": "boolean",
+        "label": "Show title",
+        "description": "Show the title above the images",
+        "default": false
+      }
     ]
   },
   {
