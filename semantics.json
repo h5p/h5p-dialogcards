@@ -199,7 +199,7 @@
         "importance": "low",
         "type": "boolean",
         "label": "Show title",
-        "description": "Show the title above the images",
+        "description": "Show the title above the content",
         "default": false
       }
     ]
