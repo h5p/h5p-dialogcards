@@ -10,7 +10,7 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Par défaut"
         }
       ],
       "label": "Dialogue",
@@ -20,32 +20,32 @@
         "fields": [
           {
             "label": "Question",
-            "description": "Indice pour la première partie du dialogue"
+            "description": "Texte pour la face avant de la carte"
           },
           {
             "label": "Réponse",
-            "description": "Indice pour la seconde partie du dialogue"
+            "description": "Texte pour le dos de la carte"
           },
           {
             "label": "Image",
             "description": "Image facultative pour la carte. (Une carte peut contenir une image seule, un texte seul ou les deux combinés)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Texte alternatif pour l'image"
           },
           {
-            "label": "Audio files"
+            "label": "Fichiers audio"
           },
           {
-            "label": "Tips",
+            "label": "Indices",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Indice pour la face avant",
+                "description": "Indice pour la face avant de la carte"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Indice pour le dos",
+                "description": "Indice pour le dos de la carte"
               }
             ]
           }
@@ -61,15 +61,15 @@
         },
         {
           "label": "Désactiver la possibilité de naviguer en arrière",
-          "description": "Cette option ne permettra plus que la navigation en avant au sein des Dialog Cards"
+          "description": "Cette option ne permettra plus que la navigation en avant au sein des cartes"
         },
         {
-          "label": "Mettre à l'échelle le texte afin de s'adapter au sein de la carte",
-          "description": "Si cette option est décochée la taille de la carte sera adaptée au texte placé à l'intérieur"
+          "label": "Mettre à l'échelle le texte afin de s'adapter à la taille de la carte",
+          "description": "Si cette option est décochée, la taille de la carte sera adaptée au texte placé à l'intérieur"
         },
         {
-          "label": "Randomize cards",
-          "description": "Enable to randomize the order of cards on display."
+          "label": "Mélanger les cartes",
+          "description": "Cocher pour mélanger l'ordre des cartes à l'affichage."
         }
       ]
     },
@@ -95,22 +95,22 @@
       "default": "Carte @card sur @total"
     },
     {
-      "label": "Label for card text",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card front"
+      "label": "Etiquette pour le devant de la carte",
+      "description": "Est utilisée par les technologies d'assistance pour plus d'accessibilité",
+      "default": "Le devant de la carte"
     },
     {
-      "label": "Label for card back",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card back"
+      "label": "Etiquette pour le dos de la carte",
+      "description": "Est utilisée par les technologies d'assistance pour plus d'accessibilité",
+      "default": "Le dos de la carte"
     },
     {
-      "label": "Label for the show tip button",
-      "default": "Show tip"
+      "label": "Etiquette pour montrer le bouton Indice",
+      "default": "Montrer l'indice"
     },
     {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
+      "label": "Message L'audio n'est pas supporté",
+      "default": "Votre navigateur ne supporte pas ce fichier audio"
     }
   ]
 }
