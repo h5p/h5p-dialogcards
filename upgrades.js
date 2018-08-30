@@ -46,9 +46,6 @@ H5PUpgrades['H5P.Dialogcards'] = (function ($) {
           title: title
         };
 
-        // Remove old parameter
-        delete parameters.title;
-
         finished(null, parameters, extrasOut);
       }
     }
