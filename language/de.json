@@ -1,6 +1,9 @@
 {
   "semantics": [
     {
+      "label": "Heading"
+    },
+    {
       "label": "Beschreibung der Aufgabe",
       "default": ""
     },
@@ -90,10 +93,6 @@
         {
           "label": "Maximum Score",
           "description": "Score to give the user upon finishing this activity."
-        },
-        {
-          "label": "Show title",
-          "description": "Show the title above the content"
         }
       ]
     },

@@ -1,5 +1,3 @@
-var H5P = H5P || {};
-
 /**
  * Dialogcards module
  *
@@ -26,7 +24,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     // Set default behavior.
     self.params = $.extend({
-      title: (this.contentData && this.contentData.metadata && this.contentData.metadata.title) ? this.contentData.metadata.title : 'Dialogue',
       description: "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
       next: "Next",
       prev: "Previous",
@@ -93,10 +90,11 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    */
   C.prototype.attach = function ($container) {
     var self = this;
+    var title = $('<div>' + self.params.title + '</div>').text().trim();
+
     self.$inner = $container
       .addClass('h5p-dialogcards')
-      .append($('' +
-      ((self.params.behaviour.showTitle) ? '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + self.params.title + '</div></div>' : '') +
+      .append($((title ? '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + self.params.title + '</div></div>' : '') +
       '<div class="h5p-dialogcards-description">' + self.params.description + '</div>'
       ));
 
