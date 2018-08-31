@@ -70,29 +70,6 @@
         {
           "label": "Aleatorizar cartões",
           "description": "Habilite para aleatorizar a ordem em que os cartões são exibidos."
-        },
-        {
-          "label": "Ordem dos cartões",
-          "description": "Selecione a ordem que os cartões serão exibidos ao usuário.",
-          "options": [
-            {
-              "label": "Ordem normal"
-            },
-            {
-              "label": "Ordem aleatória"
-            },
-            {
-              "label": "À escolha do usuário"
-            }
-          ]
-        },
-        {
-          "label": "Habilitar a função \"Acertei\"",
-          "description": "Marque esta opção para habilitar que o usuário confirme que ele conseguiu acertar corretamente o conteúdo do verso do cartão"
-        },
-        {
-          "label": "Pontuação máxima",
-          "description": "Pontuação a ser concedida ao usuário quando finalizar esta atividade."
         }
       ]
     },
@@ -134,36 +111,6 @@
     {
       "label": "Mensagem de áudio não suportado",
       "default": "Seu navegador não suporta este áudio"
-    },
-    {
-      "label": "Exibir os cartões em ordem aleatória?",
-      "description": "Pergunta ao usuário se ele deseja que os cartões sejam exibidos em ordem aleatória.",
-      "default": "Exibir os cartões em ordem aleatória?"
-    },
-    {
-      "label": "Sim",
-      "default": "Sim"
-    },
-    {
-      "label": "Não",
-      "default": "Não"
-    },
-    {
-      "label": "Número de cartões",
-      "description": "Se os cartões serão exibidos de forma aleatória, pergunta ao usuário quantos cartões ele deseja exibir.",
-      "default": "Quantos cartões deseja exibir?"
-    },
-    {
-      "label": "Todos os cartões",
-      "default": "Todos os cartões"
-    },
-    {
-      "label": "texto para o botão de palpite correto",
-      "default": "Acertei"
-    },
-    {
-      "label": "Texto de feedback de fim de jogo",
-      "default": "Você terminou. Parabéns!"
     }
   ]
 }
