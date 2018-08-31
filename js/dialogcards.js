@@ -24,6 +24,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     // Set default behavior.
     self.params = $.extend({
+      title: '',
       description: "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
       next: "Next",
       prev: "Previous",
@@ -917,7 +918,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @return {string} title.
    */
   C.prototype.getTitle = function () {
-    return H5P.createTitle((this.contentData && this.contentData.metadata && this.contentData.metadata.title) ? this.contentData.metadata.title : 'Dialogue');
+    return H5P.createTitle((this.contentData && this.contentData.metadata && this.contentData.metadata.title) ? this.contentData.metadata.title : 'Dialog Cards');
   };
   C.SCALEINTERVAL = 0.2;
   C.MAXSCALE = 16;
