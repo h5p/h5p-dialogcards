@@ -21,23 +21,8 @@ H5PUpgrades['H5P.Dialogcards'] = (function ($) {
 
         // Complete
         finished(null, parameters);
-<<<<<<< HEAD
-      },
-      7: function (parameters, finished) {
-        // Convert randomCards from boolean to string option
-        if (parameters && parameters.behaviour && parameters.behaviour.randomCards !== undefined) {
-          parameters.behaviour.randomCards = (parameters.behaviour.randomCards ? 'random' : 'normal');
-        }
-
-        // Complete
-        finished(null, parameters);
-      },
-      8: function (parameters, finished, extras) {
+      7: function (parameters, finished, extras) {
         var extrasOut = extras || {};
-        // Set new show title parameter
-        if (parameters.title) {
-          parameters.behaviour.showTitle = true;
-        }
         // Copy html-free title to new metadata structure if present
         var title = parameters.title || ((extras && extras.metadata) ? extras.metadata.title : undefined);
         if (title) {
@@ -48,8 +33,6 @@ H5PUpgrades['H5P.Dialogcards'] = (function ($) {
         };
 
         finished(null, parameters, extrasOut);
-=======
->>>>>>> parent of 374a3d7... Merge branch 'rezeau-december_2017'
       }
     }
   };
