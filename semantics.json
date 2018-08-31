@@ -206,17 +206,7 @@
         "min": 1,
         "max": 100,
         "default": 1,
-        "optional": true,
-        "widget": "showWhen",
-        "showWhen": {
-          "rules": [
-            {
-              "field": "enableGotIt",
-              "equals": true
-            }
-          ]
-        }
-      }
+        "optional": true}
     ]
   },
   {
