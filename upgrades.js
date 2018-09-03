@@ -1,6 +1,6 @@
 var H5PUpgrades = H5PUpgrades || {};
 
-H5PUpgrades['H5P.Dialogcards'] = (function ($) {
+H5PUpgrades['H5P.Dialogcards'] = (function () {
   return {
     1: {
       /**
@@ -21,6 +21,8 @@ H5PUpgrades['H5P.Dialogcards'] = (function ($) {
 
         // Complete
         finished(null, parameters);
+      },
+
       7: function (parameters, finished, extras) {
         var extrasOut = extras || {};
         // Copy html-free title to new metadata structure if present
@@ -36,4 +38,4 @@ H5PUpgrades['H5P.Dialogcards'] = (function ($) {
       }
     }
   };
-})(H5P.jQuery);
+})();
