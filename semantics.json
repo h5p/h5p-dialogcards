@@ -3,7 +3,7 @@
     "name": "title",
     "type": "text",
     "widget": "html",
-    "label": "Title",
+    "label": "Heading",
     "importance": "high",
     "optional": true,
     "tags": [
@@ -151,15 +151,6 @@
         "default": false
       },
       {
-        "name": "turnCardsToFront",
-        "type": "boolean",
-        "label": "Always turn cards to front",
-        "importance": "low",
-        "description": "Checking this option will force the cards to turn to their front side when navigating",
-        "optional": true,
-        "default": false
-      },
-      {
         "name": "scaleTextNotCard",
         "type": "boolean",
         "label": "Scale the text to fit inside the card",
@@ -169,53 +160,11 @@
       },
       {
         "name": "randomCards",
-        "type": "select",
-        "label": "Cards Order",
-        "importance": "low",
-        "description": "Select the order of cards when displayed to the user.",
-        "default": "normal",
-        "options": [
-          {
-            "value": "normal",
-            "label": "Normal order"
-          },
-          {
-            "value": "random",
-            "label": "Random order"
-          },
-          {
-            "value": "user",
-            "label": "User's choice"
-          }
-        ]
-      },
-      {
-        "name": "enableGotIt",
         "type": "boolean",
-        "label": "Enable the Got It feature",
+        "label": "Randomize cards",
         "importance": "low",
-        "description": "Check this option to enable the user to confirm that they correctly guessed the contents of the back of the cards",
+        "description": "Enable to randomize the order of cards on display.",
         "default": false
-      },
-      {
-        "name": "maxScore",
-        "type": "number",
-        "label": "Maximum Score",
-        "importance": "low",
-        "description": "Score to give the user upon finishing this activity.",
-        "min": 1,
-        "max": 100,
-        "default": 1,
-        "optional": true,
-        "widget": "showWhen",
-        "showWhen": {
-          "rules": [
-            {
-              "field": "enableGotIt",
-              "equals": true
-            }
-          ]
-        }
       }
     ]
   },
@@ -293,63 +242,5 @@
     "importance": "low",
     "common": true,
     "default": "Your browser does not support this audio"
-  },
-  {
-    "name": "randomizeCardsQuestion",
-    "type": "text",
-    "label": "Display the cards in random order?",
-    "importance": "low",
-    "description": "Ask the user if they want to display the cards in random order.",
-    "default": "Display the cards in random order?",
-    "common": true
-  },
-  {
-    "name": "yes",
-    "type": "text",
-    "label": "Yes",
-    "importance": "low",
-    "default": "Yes",
-    "common": true
-  },
-  {
-    "name": "no",
-    "type": "text",
-    "label": "No",
-    "importance": "low",
-    "default": "No",
-    "common": true
-  },
-  {
-    "name": "numCardsQuestion",
-    "type": "text",
-    "label": "Number of Cards",
-    "importance": "low",
-    "description": "If the cards are displayed in random order, ask the user how many cards they want.",
-    "default": "How many cards do you want?",
-    "common": true
-  },
-  {
-    "name": "allCards",
-    "type": "text",
-    "label": "All Cards",
-    "importance": "low",
-    "default": "all the cards",
-    "common": true
-  },
-  {
-    "name": "gotit",
-    "type": "text",
-    "label": "Text for the Correct Guess button",
-    "importance": "low",
-    "default": "Got It",
-    "common": true
-  },
-  {
-    "name": "finished",
-    "type": "text",
-    "label": "End of game feedback text",
-    "importance": "low",
-    "default": "You have finished. Congratulations!",
-    "common": true
   }
 ]
