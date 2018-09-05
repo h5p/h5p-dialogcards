@@ -10,9 +10,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    *
    * @param {Object} params Behavior settings
    * @param {Number} id Content identification
+   * @param {Object} contentData
    * @returns {C} self
    */
-  function C(params, id) {
+  function C(params, id, contentData) {
     var self = this;
     H5P.EventDispatcher.call(this);
 
