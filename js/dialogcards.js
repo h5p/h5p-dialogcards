@@ -148,7 +148,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   };
 
   /**
-   * Called when all cards has been loaded.
+   * Called when all cards have been loaded.
    */
   C.prototype.updateImageSize = function () {
     var self = this;
@@ -191,7 +191,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param {String} [side=front] Which side of the card
    * @param {Number} [index] Index of card
    */
-  C.prototype.addTipToCard = function($card, side, index) {
+  C.prototype.addTipToCard = function ($card, side, index) {
     var self = this;
 
     // Make sure we have a side
@@ -585,7 +585,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
   /**
    * Stop audio of card with cardindex
-
+   *
    * @param {Number} cardIndex Index of card
    */
   C.prototype.stopAudio = function (cardIndex) {
