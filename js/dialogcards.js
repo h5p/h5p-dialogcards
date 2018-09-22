@@ -206,7 +206,6 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     }
 
     // Make sure we have an index
-
     if (index === undefined) {
       index = self.$current.index();
     }
@@ -254,9 +253,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       }
     };
 
-
     for (var i = 0; i < cards.length; i++) {
-
       // Load cards progressively
       if (i >= initLoad) {
         break;
