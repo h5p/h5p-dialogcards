@@ -27,11 +27,8 @@
             "description": "Hinweis für den zweiten Teil des Dialogs"
           },
           {
-            "label": "Bild",
-            "description": "Optionales Bild für die Karte. (Die Karte kann ein Bild benutzen, Text oder beides.)"
-          },
-          {
-            "label": "Alternative text for the image"
+            "label": "Medien",
+            "description": "Optionale Medien für die Karte. (Die Karte kann ein Bild oder Video benutzen, nur Text oder beides.)"
           },
           {
             "label": "Audio files"

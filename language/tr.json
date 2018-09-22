@@ -27,11 +27,8 @@
             "description": "Diyaloğun ikinci bölümü için ipucu"
           },
           {
-            "label": "Görsel",
-            "description": "Kart için isteğe bağlı görsel. (Kart sadece bir görsel, sadece bir metin ya da ikisini birden içerebilir.)"
-          },
-          {
-            "label": "Görsel için alternatif metin"
+            "label": "Media",
+            "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
           },
           {
             "label": "Ses dosyaları"

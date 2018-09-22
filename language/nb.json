@@ -27,11 +27,8 @@
             "description": "Nøkkelord til neste del av dialogen"
           },
           {
-            "label": "Bilde",
-            "description": "Valgfritt bilde for kortet.(Kortet kan bruke kun bilde, kun tekst, eller begge)"
-          },
-          {
-            "label": "Alternative text for the image"
+            "label": "Medier",
+            "description": "Valgfrie medier for kortet. (Kortet kan bruke kun bilde eller video, kun tekst, eller begge)"
           },
           {
             "label": "Audio files"

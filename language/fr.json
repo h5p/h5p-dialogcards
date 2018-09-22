@@ -27,11 +27,8 @@
             "description": "Texte pour le dos de la carte"
           },
           {
-            "label": "Image",
-            "description": "Image facultative pour la carte. (Une carte peut contenir une image seule, un texte seul ou les deux combinés)"
-          },
-          {
-            "label": "Texte alternatif pour l'image"
+            "label": "Médias",
+            "description": "Médias facultatives pour la carte. (Une carte peut contenir une image seule ou une vidéo seule, un texte seul ou les deux combinés)"
           },
           {
             "label": "Fichiers audio"

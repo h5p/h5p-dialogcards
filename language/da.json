@@ -27,11 +27,8 @@
             "description": "Hint til anden del af dialogen"
           },
           {
-            "label": "Billede",
-            "description": "Valgfrit billede til kortet. (Kortet kan indeholde enten billede eller tekst, eller begge dele)."
-          },
-          {
-            "label": "Alternativ tekst til billedet"
+            "label": "Medier",
+            "description": "Valgfrie medier til kortet. (Kortet kan indeholde enten billede eller video, kun tekst, eller begge dele)"
           },
           {
             "label": "Lydfiler"

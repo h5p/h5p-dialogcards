@@ -56,8 +56,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     self._current = -1;
     self._turned = [];
-    self.$images = [];
+    self.$medias = [];
     self.audios = [];
+    self.videos = [];
   }
 
   C.prototype = Object.create(H5P.EventDispatcher.prototype);
@@ -150,36 +151,41 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   /**
    * Called when all cards have been loaded.
    */
-  C.prototype.updateImageSize = function () {
+  C.prototype.updateMediaSize = function () {
     var self = this;
 
     // Find highest card content
     var relativeHeightCap = 15;
     var height = 0;
-    var i;
-    var foundImage = false;
-    for (i = 0; i < self.params.dialogs.length; i++) {
+    var mediaHeight = 0;
+    for (var i = 0; i < self.params.dialogs.length; i++) {
       var card = self.params.dialogs[i];
       var $card = self.$current.find('.h5p-dialogcards-card-content');
 
-      if (card.image === undefined) {
+      if (card.media === undefined || card.media.library === undefined) {
         continue;
       }
-      foundImage = true;
-      var imageHeight = card.image.height / card.image.width * $card.get(0).getBoundingClientRect().width;
 
-      if (imageHeight > height) {
-        height = imageHeight;
+      if (card.media.library.indexOf('H5P.Image ') === 0) {
+        mediaHeight = card.media.params.file.height / card.media.params.file.width * $card.get(0).getBoundingClientRect().width;
+      }
+      else if (card.media.library.indexOf('H5P.Video ') === 0) {
+        mediaHeight = $card.find('.h5p-dialogcards-video').height() || 0;
+      }
+
+      if (mediaHeight > height) {
+        height = mediaHeight;
       }
     }
 
-    if (foundImage) {
-      var relativeImageHeight = height / parseFloat(self.$inner.css('font-size'));
-      if (relativeImageHeight > relativeHeightCap) {
-        relativeImageHeight = relativeHeightCap;
+    if (height > 0) {
+      var relativeMediaHeight = height / parseFloat(self.$inner.css('font-size'));
+      if (relativeMediaHeight > relativeHeightCap) {
+        relativeMediaHeight = relativeHeightCap;
       }
-      self.$images.forEach(function ($img) {
-        $img.parent().css('height', relativeImageHeight + 'em');
+
+      self.$medias.forEach(function ($media) {
+        $media.parent().css('height', relativeMediaHeight + 'em');
       });
     }
   };
@@ -321,8 +327,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'class': 'h5p-dialogcards-card-content'
     });
 
-
-    self.createCardImage(card, setCardSizeCallback)
+    self.createCardMedia(card, setCardSizeCallback)
       .appendTo($cardContent);
 
     var $cardTextWrapper = $('<div>', {
@@ -382,39 +387,81 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   };
 
   /**
-   * Create card image
+   * Create card Media
    *
    * @param {Object} card Card parameters
-   * @param {Function} [loadCallback] Function to call when loading image
-   * @returns {*|jQuery|HTMLElement} Card image wrapper
+   * @param {Function} [loadCallback] Function to call when loading media
+   * @returns {*|jQuery|HTMLElement} Card media wrapper
    */
-  C.prototype.createCardImage = function (card, loadCallback) {
+  C.prototype.createCardMedia = function (card, loadCallback) {
     var self = this;
-    var $image;
-    var $imageWrapper = $('<div>', {
-      'class': 'h5p-dialogcards-image-wrapper'
+    var $media;
+    var $mediaWrapper = $('<div>', {
+      'class': 'h5p-dialogcards-media-wrapper'
     });
+    let video;
 
-    if (card.image !== undefined) {
-      $image = $('<img class="h5p-dialogcards-image" src="' + H5P.getPath(card.image.path, self.id) + '"/>');
-      if (loadCallback) {
-        $image.load(loadCallback);
+    if (card.media !== undefined && card.media.library !== undefined) {
+      var type = card.media.library.split(' ')[0];
+      if (type === 'H5P.Image') {
+        if (card.media.params.file) {
+          $media = $('<img class="h5p-dialogcards-image" src="' + H5P.getPath(card.media.params.file.path, self.id) + '"/>');
+          if (loadCallback) {
+            $media.load(loadCallback);
+          }
+          if (card.media.params.alt) {
+            $media.attr('alt', card.media.params.alt);
+          }
+          if (card.media.params.title) {
+            $media.attr('title', card.media.params.title);
+          }
+        }
       }
+      else if (type === 'H5P.Video') {
+        // Include video as H5P Question does
+        if (card.media.params.sources) {
+          $media = $('<div/>', {'class': 'h5p-dialogcards-video'});
 
-      if (card.imageAltText) {
-        $image.attr('alt', card.imageAltText);
+          // Never fit to wrapper
+          if (!card.media.params.visuals) {
+            card.media.params.visuals = {};
+          }
+          card.media.params.visuals.fit = false;
+          video = H5P.newRunnable(card.media, self.contentId, $media, true);
+
+          let fromVideo = false; // Hack to avoid never ending loop
+          video.on('resize', function () {
+            // YouTube videos are scaled by fixing width, not height. Prevent too large height.
+            $media.css('max-width', $media.width() / $media.height() * $media.parent().height() + 'px');
+
+            fromVideo = true;
+            self.trigger('resize');
+            fromVideo = false;
+          });
+
+          self.on('resize', function () {
+            if (!fromVideo) {
+              video.trigger('resize');
+            }
+          });
+
+          if (loadCallback) {
+            loadCallback();
+          }
+        }
       }
     }
     else {
-      $image = $('<div class="h5p-dialogcards-image"></div>');
+      $media = $('<div class="h5p-dialogcards-image"></div>');
       if (loadCallback) {
         loadCallback();
       }
     }
-    self.$images.push($image);
-    $image.appendTo($imageWrapper);
+    self.$medias.push($media);
+    self.videos.push(video);
+    $media.appendTo($mediaWrapper);
 
-    return $imageWrapper;
+    return $mediaWrapper;
   };
 
   /**
@@ -475,6 +522,8 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     self.$progress.text(self.params.progressText.replace('@card', self.$current.index() + 1).replace('@total', self.params.dialogs.length));
     self.resizeOverflowingText();
+
+    self.trigger('resize');
   };
 
   /**
@@ -487,6 +536,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     // Next card not loaded or end of cards
     if ($next.length) {
       self.stopAudio(self.$current.index());
+      self.stopVideo(self.$current.index());
       self.$current.removeClass('h5p-dialogcards-current').addClass('h5p-dialogcards-previous');
       self.$current = $next.addClass('h5p-dialogcards-current');
       self.setCardFocus(self.$current);
@@ -514,6 +564,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
     if ($prev.length) {
       self.stopAudio(self.$current.index());
+      self.stopVideo(self.$current.index());
       self.$current.removeClass('h5p-dialogcards-current');
       self.$current = $prev.addClass('h5p-dialogcards-current').removeClass('h5p-dialogcards-previous');
       self.setCardFocus(self.$current);
@@ -528,6 +579,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    */
   C.prototype.turnCard = function ($card) {
     var self = this;
+    self.stopVideo($card.index());
     var $c = $card.find('.h5p-dialogcards-card-content');
     var $ch = $card.find('.h5p-dialogcards-cardholder').addClass('h5p-dialogcards-collapse');
 
@@ -597,6 +649,39 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   };
 
   /**
+   * Stop video of card with cardindex
+   *
+   * @param {Number} cardIndex Index of card
+   * @param {boolean} [reset] If true, seek to 0
+   */
+  C.prototype.stopVideo = function (cardIndex, reset) {
+    const self = this;
+    const video = self.videos[cardIndex];
+
+    if (video === undefined) {
+      return;
+    }
+
+    // Calling pause on unstarted YouTube video would start it
+    if (video.pause && video.getDuration && video.getDuration() > 0) {
+      video.pause();
+    }
+    if (reset === true && video.seek) {
+      video.seek(0);
+    }
+  };
+
+  /**
+   * Stop videos and reset to 0:00.
+   */
+  C.prototype.resetVideos = function () {
+    const self = this;
+    for (let i = 0; i < self.videos.length; i++) {
+      self.stopVideo(i, true);
+    }
+  };
+
+  /**
    * Hide audio button
    *
    * @param $card
@@ -625,6 +710,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     var $cards = self.$inner.find('.h5p-dialogcards-cardwrap');
 
     self.stopAudio(self.$current.index());
+    self.resetVideos();
     self.$current.removeClass('h5p-dialogcards-current');
     self.$current = $cards.filter(':first').addClass('h5p-dialogcards-current');
     self.updateNavigation();
@@ -648,7 +734,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   C.prototype.resize = function () {
     var self = this;
     var maxHeight = 0;
-    self.updateImageSize();
+    self.updateMediaSize();
     if (!self.params.behaviour.scaleTextNotCard) {
       self.determineCardSizes();
     }

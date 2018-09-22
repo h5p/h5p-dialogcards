@@ -27,11 +27,8 @@
             "description": "Texto da segunda parte do diálogo"
           },
           {
-            "label": "Imagem",
-            "description": "Imagem opcional para o cartão. (O cartão pode conter apenas uma imagem, apenas um texto, ou ambos)"
-          },
-          {
-            "label": "Texto alternativo para a imagem"
+            "label": "Mídias",
+            "description": "Mídias opcionais para o cartão. (O cartão pode conter apenas uma imagem ou um vídeo, apenas um texto, ou ambos)"
           },
           {
             "label": "Arquivos de áudio"
