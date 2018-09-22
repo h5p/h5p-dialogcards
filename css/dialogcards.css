@@ -18,9 +18,20 @@
   outline: 0;
 }
 
+.h5p-dialogcards .h5p-dialogcards-card-text-area.hide {
+  display: none;
+}
+
 .h5p-dialogcards {
   overflow: hidden;
   position: relative;
+}
+
+.h5p-dialogcards .h5p-dialogcards-warning {
+  width: auto;
+  margin: 16px;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .h5p-no-frame .h5p-dialogcards .h5p-dialogcards-title,

@@ -59,6 +59,7 @@
             "em"
           ],
           "label": "Text",
+          "optional": true,
           "importance": "high",
           "description": "Hint for the first part of the dialogue"
         },
@@ -73,6 +74,7 @@
             "em"
           ],
           "label": "Answer",
+          "optional": true,
           "importance": "high",
           "description": "Hint for the second part of the dialogue"
         },

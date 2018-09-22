@@ -54,6 +54,11 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       }
     }, params);
 
+    // Filter out empty cards
+    self.params.dialogs = self.params.dialogs.filter(function (dialog) {
+      return dialog.media || (dialog.text && dialog.text.trim !== '') || (dialog.answer && dialog.answer.trim() !== '');
+    });
+
     self._current = -1;
     self._turned = [];
     self.$medias = [];
@@ -71,6 +76,16 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    */
   C.prototype.attach = function ($container) {
     var self = this;
+
+    // No cards
+    if (self.params.dialogs.length === 0) {
+      $container
+        .addClass('h5p-dialogcards')
+        .append('<div class="h5p-dialogcards h5p-dialogcards-warning">I really need at least one card with content :-)</div>');
+      this.trigger('resize');
+      return;
+    }
+
     var title = $('<div>' + self.params.title + '</div>').text().trim();
 
     self.$inner = $container
@@ -352,7 +367,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       'html': card.text
     }).appendTo($cardText);
 
-    if (!card.text || !card.text.length) {
+    if ((!card.text || !card.text.length) && (!card.answer || !card.answer.length)) {
       $cardText.addClass('hide');
     }
 
