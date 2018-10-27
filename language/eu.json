@@ -1,0 +1,116 @@
+{
+  "semantics": [
+    {
+      "label": "Titulua"
+    },
+    {
+      "label": "Zereginaren deskribapena",
+      "default": ""
+    },
+    {
+      "widgets": [
+        {
+          "label": "Lehenetsia"
+        }
+      ],
+      "label": "Elkarrizketak",
+      "entity": "elkarrizketa",
+      "field": {
+        "label": "Ariketa",
+        "fields": [
+          {
+            "label": "Testua",
+            "description": "Elkarrizketaren lehenengo zatirako laguntza"
+          },
+          {
+            "label": "Erantzuna",
+            "description": "Elkarrizketaren bigarren zatirako laguntza"
+          },
+          {
+            "label": "Irudia",
+            "description": "Aukerazko irudia txartelerako. (Txartelak izan dezake irudi bat, testu bat edo biak)"
+          },
+          {
+            "label": "Irudiaren ordezko testua"
+          },
+          {
+            "label": "Audio fitxategiak"
+          },
+          {
+            "label": "Argibideak",
+            "fields": [
+              {
+                "label": "Testurako aholkua",
+                "description": "Elkarrizketaren lehenengo zatirako argibidea"
+              },
+              {
+                "label": "Erantzuteko argibidea",
+                "description": "Elkarrizketaren bigarren parterako argibidea"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "Portaera ezarpenak.",
+      "description": "Aukera hauen bidez kontrolatu ahal izango duzu zereginaren portaera.",
+      "fields": [
+        {
+          "label": "Aktibatu \"Saiatu berriro\" botoia"
+        },
+        {
+          "label": "Desgaitu atzeranzko nabigazioa",
+          "description": "Aukera hau aktibatuta soilik aurreruntz mugitu ahal izango da elkarrizketa-txarteletan"
+        },
+        {
+          "label": "Eskalatu testua txartelera doitzeko",
+          "description": "Aukera hau desmarkatuta txartela egokituko da testuaren tamainara"
+        },
+        {
+          "label": "Ausazko txartelak",
+          "description": "Gaitu pantailako txartelen ordena ausazkoa izatea."
+        }
+      ]
+    },
+    {
+      "label": "Buelta emateko botoiaren testua",
+      "default": "Eman buelta"
+    },
+    {
+      "label": "Hurrengoa botoiaren testua",
+      "default": "Hurrengoa"
+    },
+    {
+      "label": "Aurrekoa botoiaren testua",
+      "default": "Aurrekoa"
+    },
+    {
+      "label": "Saiatu berriro botoiaren testua",
+      "default": "Saiatu berriro"
+    },
+    {
+      "label": "Aurrerapena testua",
+      "description": "Erabiltzen dituen aldagaiak dira @card eta @total.",
+      "default": "@total -tik @card . txartela"
+    },
+    {
+      "label": "Txartelaren testuaren etiketa",
+      "description": "Laguntza teknologiko bidezko erabilerraztasunerako erabiltzen da",
+      "default": "Txartelaren aurreko aldea"
+    },
+    {
+      "label": "Txartelaren atzeko aldeko etiketa",
+      "description": "Laguntza teknologiko bidezko erabilerraztasunerako erabiltzen da",
+      "default": "Txartelaren atzeko aldea"
+    },
+    {
+      "label": "Erakutsi argibidea botoiaren etiketa",
+      "default": "Erakutsi argibidea"
+    },
+    {
+      "label": "Audioa ez da onartzen mezua",
+      "default": "Zure nabigatzaileak ez du onartzen audio hau"
+    }
+  ]
+}
