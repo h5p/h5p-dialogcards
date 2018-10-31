@@ -22,7 +22,7 @@
   ],
   "preloadedJs": [
     {
-      "path": "js/dialogcards.js"
+      "path": "dist/h5p-dialogcards.js"
     }
   ],
   "preloadedDependencies": [
