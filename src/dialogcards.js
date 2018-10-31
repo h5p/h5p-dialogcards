@@ -11,9 +11,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param {Object} params Behavior settings
    * @param {Number} id Content identification
    * @param {Object} contentData
-   * @returns {C} self
+   * @returns {DialogCards} self
    */
-  function C(params, id, contentData) {
+  function DialogCards(params, id, contentData) {
     H5P.EventDispatcher.call(this);
 
     this.contentId = this.id = id;
@@ -59,15 +59,15 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     this.audios = [];
   }
 
-  C.prototype = Object.create(H5P.EventDispatcher.prototype);
-  C.prototype.constructor = C;
+  DialogCards.prototype = Object.create(H5P.EventDispatcher.prototype);
+  DialogCards.prototype.constructor = DialogCards;
 
   /**
    * Attach h5p inside the given container.
    *
    * @param {jQuery} $container
    */
-  C.prototype.attach = function ($container) {
+  DialogCards.prototype.attach = function ($container) {
     const title = $('<div>' + this.params.title + '</div>').text().trim();
 
     this.$inner = $container
@@ -108,7 +108,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    *
    * @returns {*|jQuery|HTMLElement} Footer element
    */
-  C.prototype.createFooter = function () {
+  DialogCards.prototype.createFooter = function () {
     const $footer = $('<nav>', {
       'class': 'h5p-dialogcards-footer',
       'role': 'navigation'
@@ -147,7 +147,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   /**
    * Called when all cards has been loaded.
    */
-  C.prototype.updateImageSize = function () {
+  DialogCards.prototype.updateImageSize = function () {
     // Find highest card content
     let relativeHeightCap = 15;
     let height = 0;
@@ -186,7 +186,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param {String} [side=front] Which side of the card
    * @param {Number} [index] Index of card
    */
-  C.prototype.addTipToCard = function ($card, side, index) {
+  DialogCards.prototype.addTipToCard = function ($card, side, index) {
     // Make sure we have a side
     if (side !== 'back') {
       side = 'front';
@@ -220,7 +220,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param {Array} cards Card parameters
    * @returns {*|jQuery|HTMLElement} Card wrapper set
    */
-  C.prototype.initCards = function (cards) {
+  DialogCards.prototype.initCards = function (cards) {
     let loaded = 0;
     const initLoad = 2;
 
@@ -270,7 +270,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param {Function} [setCardSizeCallback] Set card size callback
    * @returns {*|jQuery|HTMLElement} Card wrapper
    */
-  C.prototype.createCard = function (card, cardNumber, setCardSizeCallback) {
+  DialogCards.prototype.createCard = function (card, cardNumber, setCardSizeCallback) {
     const $cardWrapper = $('<div>', {
       'class': 'h5p-dialogcards-cardwrap'
     });
@@ -304,7 +304,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param {Function} [setCardSizeCallback] Set card size callback
    * @returns {*|jQuery|HTMLElement} Card content wrapper
    */
-  C.prototype.createCardContent = function (card, cardNumber, setCardSizeCallback) {
+  DialogCards.prototype.createCardContent = function (card, cardNumber, setCardSizeCallback) {
     const $cardContent = $('<div>', {
       'class': 'h5p-dialogcards-card-content'
     });
@@ -353,7 +353,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    *
    * @returns {*|jQuery|HTMLElement} Card footer element
    */
-  C.prototype.createCardFooter = function () {
+  DialogCards.prototype.createCardFooter = function () {
     const $cardFooter = $('<div>', {
       'class': 'h5p-dialogcards-card-footer'
     });
@@ -375,7 +375,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param {Function} [loadCallback] Function to call when loading image
    * @returns {*|jQuery|HTMLElement} Card image wrapper
    */
-  C.prototype.createCardImage = function (card, loadCallback) {
+  DialogCards.prototype.createCardImage = function (card, loadCallback) {
     let $image;
     const $imageWrapper = $('<div>', {
       'class': 'h5p-dialogcards-image-wrapper'
@@ -409,7 +409,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param {Object} card Card parameters
    * @returns {*|jQuery|HTMLElement} Card audio element
    */
-  C.prototype.createCardAudio = function (card) {
+  DialogCards.prototype.createCardAudio = function (card) {
     let audio;
     const $audioWrapper = $('<div>', {
       'class': 'h5p-dialogcards-audio-wrapper'
@@ -440,7 +440,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   /**
    * Update navigation text and show or hide buttons.
    */
-  C.prototype.updateNavigation = function () {
+  DialogCards.prototype.updateNavigation = function () {
     if (this.$current.next('.h5p-dialogcards-cardwrap').length) {
       this.$next.removeClass('h5p-dialogcards-disabled');
       this.$retry.addClass('h5p-dialogcards-disabled');
@@ -463,7 +463,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   /**
    * Show next card.
    */
-  C.prototype.nextCard = function () {
+  DialogCards.prototype.nextCard = function () {
     const $next = this.$current.next('.h5p-dialogcards-cardwrap');
 
     // Next card not loaded or end of cards
@@ -490,7 +490,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   /**
    * Show previous card.
    */
-  C.prototype.prevCard = function () {
+  DialogCards.prototype.prevCard = function () {
     const $prev = this.$current.prev('.h5p-dialogcards-cardwrap');
 
     if ($prev.length) {
@@ -507,7 +507,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    *
    * @param {jQuery} $card
    */
-  C.prototype.turnCard = function ($card) {
+  DialogCards.prototype.turnCard = function ($card) {
     const $c = $card.find('.h5p-dialogcards-card-content');
     const $ch = $card.find('.h5p-dialogcards-cardholder').addClass('h5p-dialogcards-collapse');
 
@@ -557,7 +557,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param $card
    * @param text
    */
-  C.prototype.changeText = function ($card, text) {
+  DialogCards.prototype.changeText = function ($card, text) {
     const $cardText = $card.find('.h5p-dialogcards-card-text-area');
     $cardText.html(text);
     $cardText.toggleClass('hide', (!text || !text.length));
@@ -568,7 +568,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
 
    * @param {Number} cardIndex Index of card
    */
-  C.prototype.stopAudio = function (cardIndex) {
+  DialogCards.prototype.stopAudio = function (cardIndex) {
     const audio = this.audios[cardIndex];
     if (audio && audio.stop) {
       audio.stop();
@@ -580,7 +580,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    *
    * @param $card
    */
-  C.prototype.removeAudio = function ($card) {
+  DialogCards.prototype.removeAudio = function ($card) {
     this.stopAudio($card.closest('.h5p-dialogcards-cardwrap').index());
     $card.find('.h5p-audio-inner')
       .addClass('hide');
@@ -589,7 +589,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   /**
    * Show all audio buttons
    */
-  C.prototype.showAllAudio = function () {
+  DialogCards.prototype.showAllAudio = function () {
     this.$cardwrapperSet.find('.h5p-audio-inner')
       .removeClass('hide');
   };
@@ -597,7 +597,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   /**
    * Reset the task so that the user can do it again.
    */
-  C.prototype.reset = function () {
+  DialogCards.prototype.reset = function () {
     const self = this;
     const $cards = this.$inner.find('.h5p-dialogcards-cardwrap');
 
@@ -623,7 +623,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   /**
    * Update the dimensions of the task when resizing the task.
    */
-  C.prototype.resize = function () {
+  DialogCards.prototype.resize = function () {
     let maxHeight = 0;
     this.updateImageSize();
     if (!this.params.behaviour.scaleTextNotCard) {
@@ -656,7 +656,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   /**
    * Resizes each card to fit its text
    */
-  C.prototype.determineCardSizes = function () {
+  DialogCards.prototype.determineCardSizes = function () {
     const self = this;
 
     if (this.cardSizeDetermined === undefined) {
@@ -705,7 +705,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     });
   };
 
-  C.prototype.scaleToFitHeight = function () {
+  DialogCards.prototype.scaleToFitHeight = function () {
     if (!this.$cardwrapperSet || !this.$cardwrapperSet.is(':visible') || !this.params.behaviour.scaleTextNotCard) {
       return;
     }
@@ -733,10 +733,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       // Decrease font size
       if (containerHeight < contentHeight) {
         while (containerHeight < contentHeight) {
-          newFontSize -= C.SCALEINTERVAL;
+          newFontSize -= DialogCards.SCALEINTERVAL;
 
           // Cap at min font size
-          if (newFontSize < C.MINSCALE) {
+          if (newFontSize < DialogCards.MINSCALE) {
             break;
           }
 
@@ -748,10 +748,10 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       else { // Increase font size
         let increaseFontSize = true;
         while (increaseFontSize) {
-          newFontSize += C.SCALEINTERVAL;
+          newFontSize += DialogCards.SCALEINTERVAL;
 
           // Cap max font size
-          if (newFontSize > C.MAXSCALE) {
+          if (newFontSize > DialogCards.MAXSCALE) {
             increaseFontSize = false;
             break;
           }
@@ -762,7 +762,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
           contentHeight = getContentHeight();
           if (containerHeight <= contentHeight) {
             increaseFontSize = false;
-            relativeFontSize = (newFontSize - C.SCALEINTERVAL) / parentFontSize;
+            relativeFontSize = (newFontSize - DialogCards.SCALEINTERVAL) / parentFontSize;
             this.$inner.css('font-size', relativeFontSize + 'em');
           }
         }
@@ -777,7 +777,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * Resize the font-size of text areas that tend to overflow when dialog cards
    * is squeezed into a tiny container.
    */
-  C.prototype.resizeOverflowingText = function () {
+  DialogCards.prototype.resizeOverflowingText = function () {
     if (!this.params.behaviour.scaleTextNotCard) {
       return; // No text scaling today
     }
@@ -794,7 +794,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    * @param {jQuery} $textContainer Outer container, must have a set size.
    * @param {jQuery} $text Inner text container
    */
-  C.prototype.resizeTextToFitContainer = function ($textContainer, $text) {
+  DialogCards.prototype.resizeTextToFitContainer = function ($textContainer, $text) {
     // Reset text size
     $text.css('font-size', '');
 
@@ -810,9 +810,9 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
       let decreaseFontSize = true;
       while (decreaseFontSize) {
 
-        fontSize -= C.SCALEINTERVAL;
+        fontSize -= DialogCards.SCALEINTERVAL;
 
-        if (fontSize < C.MINSCALE) {
+        if (fontSize < DialogCards.MINSCALE) {
           decreaseFontSize = false;
           break;
         }
@@ -829,7 +829,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
     else { // Increase font size
       let increaseFontSize = true;
       while (increaseFontSize) {
-        fontSize += C.SCALEINTERVAL;
+        fontSize += DialogCards.SCALEINTERVAL;
 
         // Cap at  16px
         if (fontSize > mainFontSize) {
@@ -842,7 +842,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
         currentTextHeight = $text.get(0).getBoundingClientRect().height;
         if (currentTextHeight >= currentTextContainerHeight) {
           increaseFontSize = false;
-          fontSize = fontSize- C.SCALEINTERVAL;
+          fontSize = fontSize- DialogCards.SCALEINTERVAL;
           $text.css('font-size', fontSize / parentFontSize + 'em');
         }
       }
@@ -854,7 +854,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    *
    * @param {jQuery} $card Card that should get focus
    */
-  C.prototype.setCardFocus = function ($card) {
+  DialogCards.prototype.setCardFocus = function ($card) {
     // Wait for transition, then set focus
     $card.one('transitionend', function () {
       $card.find('.h5p-dialogcards-card-text-area').focus();
@@ -864,7 +864,7 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
   /**
    * Truncate retry button if width is small.
    */
-  C.prototype.truncateRetryButton = function () {
+  DialogCards.prototype.truncateRetryButton = function () {
     if (!this.$retry) {
       return;
     }
@@ -891,12 +891,12 @@ H5P.Dialogcards = (function ($, Audio, JoubelUI) {
    *
    * @return {string} title.
    */
-  C.prototype.getTitle = function () {
+  DialogCards.prototype.getTitle = function () {
     return H5P.createTitle((this.contentData && this.contentData.metadata && this.contentData.metadata.title) ? this.contentData.metadata.title : 'Dialog Cards');
   };
-  C.SCALEINTERVAL = 0.2;
-  C.MAXSCALE = 16;
-  C.MINSCALE = 4;
+  DialogCards.SCALEINTERVAL = 0.2;
+  DialogCards.MAXSCALE = 16;
+  DialogCards.MINSCALE = 4;
 
-  return C;
+  return DialogCards;
 })(H5P.jQuery, H5P.Audio, H5P.JoubelUI);

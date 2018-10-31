@@ -17,7 +17,7 @@
   ],
   "preloadedCss": [
     {
-      "path": "css/dialogcards.css"
+      "path": "dist/h5p-dialogcards.css"
     }
   ],
   "preloadedJs": [
