@@ -14,6 +14,64 @@
     ]
   },
   {
+    "name": "mode",
+    "type": "select",
+    "label": "Mode",
+    "description": "Mode of presenting the dialog cards",
+    "importance": "medium",
+    "options": [
+      {
+        "value": "normal",
+        "label": "Normal"
+      },
+      {
+        "value": "repetition",
+        "label": "Repetition"
+      }
+    ],
+    "default": "normal",
+    "state": "new"
+  },
+  {
+    "name": "maxProficiency",
+    "type": "number",
+    "label": "Maximum proficiency level",
+    "importance": "low",
+    "default": 5,
+    "min": 3,
+    "max": 7,
+    "optional": true,
+    "widget": "showWhen",
+    "showWhen": {
+      "rules": [
+        {
+          "field": "mode",
+          "equals": "repetition"
+        }
+      ]
+    },
+    "state": "new"
+  },
+  {
+    "name": "quickProgression",
+    "type": "boolean",
+    "label": "Allow quick progression",
+    "description": "If activated, learners can decide to indicate that they know a card without turning it",
+    "importance": "low",
+    "default": true,
+    "optional": true,
+    "widget": "showWhen",
+    "showWhen": {
+      "rules": [
+        {
+          "field": "mode",
+          "equals": "repetition"
+        }
+      ]
+    },
+    "state": "new"
+  },
+  {
     "name": "description",
     "type": "text",
     "widget": "html",
@@ -199,6 +257,108 @@
     "importance": "low",
     "default": "Retry",
     "common": true
+  },
+  {
+    "name": "correctAnswer",
+    "type": "text",
+    "label": "Text for the \"correct answer\" button",
+    "importance": "low",
+    "default": "I got it right!",
+    "common": true,
+    "state": "new"
+  },
+  {
+    "name": "incorrectAnswer",
+    "type": "text",
+    "label": "Text for the \"incorrect answer\" button",
+    "importance": "low",
+    "default": "I got it wrong.",
+    "common": true,
+    "state": "new"
+  },
+  {
+    "name": "round",
+    "type": "text",
+    "label": "Text for \"Round\" message below cards and on the summary screen",
+    "description": "@round will be replaced by the number of the current round",
+    "importance": "low",
+    "default": "Round @round",
+    "common": true,
+    "state": "new"
+  },
+  {
+    "name": "cardsLeft",
+    "type": "text",
+    "label": "Text for \"Cards left\" message",
+    "description": "@number will be replaced by the number of cards left in this round",
+    "importance": "low",
+    "default": "Cards left: @number",
+    "common": true,
+    "state": "new"
+  },
+  {
+    "name": "nextRound",
+    "type": "text",
+    "label": "Text for the \"next round\" button",
+    "description": "@round will be replaced by the round number",
+    "importance": "low",
+    "default": "Proceed to round @round",
+    "common": true,
+    "state": "new"
+  },
+  {
+    "name": "showSummary",
+    "type": "text",
+    "label": "Text for the \"show summary\" button",
+    "importance": "low",
+    "default": "Show summary",
+    "common": true,
+    "state": "new"
+  },
+  {
+    "name": "summary",
+    "type": "text",
+    "label": "Title text for the summary page",
+    "importance": "low",
+    "default": "Summary",
+    "common": true,
+    "state": "new"
+  },
+  {
+    "name": "summaryCardsRight",
+    "type": "text",
+    "label": "Text for \"Cards you got right:\"",
+    "importance": "low",
+    "default": "Cards you got right:",
+    "common": true,
+    "state": "new"
+  },
+  {
+    "name": "summaryCardsWrong",
+    "type": "text",
+    "label": "Text for \"Cards you got wrong:\"",
+    "importance": "low",
+    "default": "Cards you got wrong:",
+    "common": true,
+    "state": "new"
+  },
+  {
+    "name": "summaryCardsUnseen",
+    "type": "text",
+    "label": "Text for \"Unseen cards:\"",
+    "importance": "low",
+    "default": "Unseen cards:",
+    "common": true,
+    "state": "new"
+  },
+  {
+    "name": "summaryCompletedRounds",
+    "type": "text",
+    "label": "Text for \"Completed rounds:\"",
+    "importance": "low",
+    "default": "Completed rounds:",
+    "common": true,
+    "state": "new"
   },
   {
     "name": "progressText",
