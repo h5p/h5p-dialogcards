@@ -25,11 +25,11 @@
 
 .h5p-no-frame .h5p-dialogcards .h5p-dialogcards-title,
 .h5p-transparent .h5p-dialogcards .h5p-dialogcards-title {
-  padding: 0 0 0.375em 0;
+  margin: 0 0 0.375em 0;
 }
 
 .h5p-dialogcards .h5p-dialogcards-title {
-  padding: 1em 1em 0.375em;
+  margin: 1em 1em 0.375em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-title-inner {
@@ -50,10 +50,9 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-footer {
-  margin: auto;
+  margin: 1em auto;
   overflow: hidden;
   line-height: 2.35em;
-  padding: 1em;
   max-width: 32em;
   position: relative;
 }
