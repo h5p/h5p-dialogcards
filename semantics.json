@@ -29,8 +29,7 @@
         "label": "Repetition"
       }
     ],
-    "default": "normal",
-    "state": "new"
+    "default": "normal"
   },
   {
     "name": "maxProficiency",
@@ -49,8 +48,7 @@
           "equals": "repetition"
         }
       ]
-    },
-    "state": "new"
+    }
   },
   {
     "name": "quickProgression",
@@ -68,8 +66,7 @@
           "equals": "repetition"
         }
       ]
-    },
-    "state": "new"
+    }
   },
   {
     "name": "description",
@@ -264,8 +261,7 @@
     "label": "Text for the \"correct answer\" button",
     "importance": "low",
     "default": "I got it right!",
-    "common": true,
-    "state": "new"
+    "common": true
   },
   {
     "name": "incorrectAnswer",
@@ -273,8 +269,7 @@
     "label": "Text for the \"incorrect answer\" button",
     "importance": "low",
     "default": "I got it wrong.",
-    "common": true,
-    "state": "new"
+    "common": true
   },
   {
     "name": "round",
@@ -283,8 +278,7 @@
     "description": "@round will be replaced by the number of the current round",
     "importance": "low",
     "default": "Round @round",
-    "common": true,
-    "state": "new"
+    "common": true
   },
   {
     "name": "cardsLeft",
@@ -293,8 +287,7 @@
     "description": "@number will be replaced by the number of cards left in this round",
     "importance": "low",
     "default": "Cards left: @number",
-    "common": true,
-    "state": "new"
+    "common": true
   },
   {
     "name": "nextRound",
@@ -303,8 +296,7 @@
     "description": "@round will be replaced by the round number",
     "importance": "low",
     "default": "Proceed to round @round",
-    "common": true,
-    "state": "new"
+    "common": true
   },
   {
     "name": "showSummary",
@@ -312,8 +304,7 @@
     "label": "Text for the \"show summary\" button",
     "importance": "low",
     "default": "Show summary",
-    "common": true,
-    "state": "new"
+    "common": true
   },
   {
     "name": "summary",
@@ -321,8 +312,7 @@
     "label": "Title text for the summary page",
     "importance": "low",
     "default": "Summary",
-    "common": true,
-    "state": "new"
+    "common": true
   },
   {
     "name": "summaryCardsRight",
@@ -330,8 +320,7 @@
     "label": "Text for \"Cards you got right:\"",
     "importance": "low",
     "default": "Cards you got right:",
-    "common": true,
-    "state": "new"
+    "common": true
   },
   {
     "name": "summaryCardsWrong",
@@ -339,8 +328,7 @@
     "label": "Text for \"Cards you got wrong:\"",
     "importance": "low",
     "default": "Cards you got wrong:",
-    "common": true,
-    "state": "new"
+    "common": true
   },
   {
     "name": "summaryCardsUnseen",
@@ -348,8 +336,7 @@
     "label": "Text for \"Unseen cards:\"",
     "importance": "low",
     "default": "Unseen cards:",
-    "common": true,
-    "state": "new"
+    "common": true
   },
   {
     "name": "summaryCompletedRounds",
@@ -357,8 +344,7 @@
     "label": "Text for \"Completed rounds:\"",
     "importance": "low",
     "default": "Completed rounds:",
-    "common": true,
-    "state": "new"
+    "common": true
   },
   {
     "name": "progressText",

@@ -4,6 +4,25 @@
       "label": "標語"
     },
     {
+      "label": "Mode",
+      "description": "Mode of presenting the dialog cards",
+      "options": [
+        {
+          "label": "Normal"
+        },
+        {
+          "label": "Repetition"
+        }
+      ]
+    },
+    {
+      "label": "Maximum proficiency level"
+    },
+    {
+      "label": "Allow quick progression",
+      "description": "If activated, learners can decide to indicate that they know a card without turning it"
+    },
+    {
       "label": "描述",
       "default": ""
     },
@@ -88,6 +107,53 @@
     {
       "label": "重新開始按鈕文字",
       "default": "重新開始"
+    },
+    {
+      "label": "Text for the \"correct answer\" button",
+      "default": "I got it right!"
+    },
+    {
+      "label": "Text for the \"incorrect answer\" button",
+      "default": "I got it wrong."
+    },
+    {
+      "label": "Text for \"Round\" message below cards and on the summary screen",
+      "description": "@round will be replaced by the number of the current round",
+      "default": "Round @round"
+    },
+    {
+      "label": "Text for \"Cards left\" message",
+      "description": "@number will be replaced by the number of cards left in this round",
+      "default": "Cards left: @number"
+    },
+    {
+      "label": "Text for the \"next round\" button",
+      "description": "@round will be replaced by the round number",
+      "default": "Proceed to round @round"
+    },
+    {
+      "label": "Text for the \"show summary\" button",
+      "default": "Show summary"
+    },
+    {
+      "label": "Title text for the summary page",
+      "default": "Summary"
+    },
+    {
+      "label": "Text for \"Cards you got right:\"",
+      "default": "Cards you got right:"
+    },
+    {
+      "label": "Text for \"Cards you got wrong:\"",
+      "default": "Cards you got wrong:"
+    },
+    {
+      "label": "Text for \"Unseen cards:\"",
+      "default": "Unseen cards:"
+    },
+    {
+      "label": "Text for \"Completed rounds:\"",
+      "default": "Completed rounds:"
     },
     {
       "label": "進度訊息文字",
