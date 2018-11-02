@@ -156,9 +156,9 @@
       "default": "Completed rounds:"
     },
     {
-      "label": "Texte de progression",
-      "description": "Les variables disponibles sont @card et @total.",
-      "default": "Carte @card sur @total"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
+      "default": "Well done! You managed to get all @cards cards correct @max times in a row!"
     },
     {
       "label": "Etiquette pour le devant de la carte",
@@ -172,11 +172,16 @@
     },
     {
       "label": "Etiquette pour montrer le bouton Indice",
+      "description": "Used for accessibility by assistive technologies",
       "default": "Montrer l'indice"
     },
     {
       "label": "Message L'audio n'est pas supporté",
       "default": "Votre navigateur ne supporte pas ce fichier audio"
+    },
+    {
+      "label": "Audio not supported message",
+      "default": "Your browser does not support this audio"
     }
   ]
 }

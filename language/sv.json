@@ -156,9 +156,9 @@
       "default": "Completed rounds:"
     },
     {
-      "label": "Progress text",
-      "description": "Available variables are @card and @total.",
-      "default": "Card @card of @total"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
+      "default": "Well done! You managed to get all @cards cards correct @max times in a row!"
     },
     {
       "label": "Label for card text",
@@ -172,7 +172,12 @@
     },
     {
       "label": "Label for the show tip button",
+      "description": "Used for accessibility by assistive technologies",
       "default": "Show tip"
+    },
+    {
+      "label": "Audio not supported message",
+      "default": "Your browser does not support this audio"
     },
     {
       "label": "Audio not supported message",

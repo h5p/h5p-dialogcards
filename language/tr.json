@@ -156,9 +156,9 @@
       "default": "Completed rounds:"
     },
     {
-      "label": "İlerleme metni",
-      "description": "Olası değişkenler @card ve @total.",
-      "default": "Kart @card / @total"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
+      "default": "Well done! You managed to get all @cards cards correct @max times in a row!"
     },
     {
       "label": "Kart metni etiketi ",
@@ -172,11 +172,16 @@
     },
     {
       "label": "İpucu düğmesinin etiketi",
+      "description": "Used for accessibility by assistive technologies",
       "default": "İpucunu göster"
     },
     {
       "label": "Ses desteklenmiyor mesajı",
       "default": "İnternet tarayıcınız bu sesi desteklemiyor"
+    },
+    {
+      "label": "Audio not supported message",
+      "default": "Your browser does not support this audio"
     }
   ]
 }

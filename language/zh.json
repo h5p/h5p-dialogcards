@@ -156,9 +156,9 @@
       "default": "Completed rounds:"
     },
     {
-      "label": "進度訊息文字",
-      "description": "可用的變數為 @card 與 @total。",
-      "default": "目前在第 @card 張，共 @total 張。"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
+      "default": "Well done! You managed to get all @cards cards correct @max times in a row!"
     },
     {
       "label": "卡片正面文本",
@@ -172,11 +172,16 @@
     },
     {
       "label": "顯示提示或註解按鈕",
+      "description": "Used for accessibility by assistive technologies",
       "default": "提示或註解"
     },
     {
       "label": "音訊無法支援說明文字",
       "default": "目前使用的瀏覽器不支援播放這個音訊。"
+    },
+    {
+      "label": "Audio not supported message",
+      "default": "Your browser does not support this audio"
     }
   ]
 }

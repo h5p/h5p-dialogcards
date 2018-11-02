@@ -347,6 +347,15 @@
     "common": true
   },
   {
+    "name": "summaryAllDone",
+    "type": "text",
+    "label": "Message when all cards have been learned proficiently",
+    "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
+    "importance": "low",
+    "default": "Well done! You managed to get all @cards cards correct @max times in a row!",
+    "common": true
+  },
+  {
     "name": "progressText",
     "type": "text",
     "label": "Progress text",
