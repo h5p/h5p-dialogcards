@@ -264,6 +264,7 @@ class Dialogcards extends H5P.EventDispatcher {
       this.$progress.text(this.params.progressText.replace('@card', this.currentCardId + 1).replace('@total', this.cardIds.length));
 
       this.cards[this.currentCardId].resizeOverflowingText();
+      this.trigger('resize');
     };
 
     /**
