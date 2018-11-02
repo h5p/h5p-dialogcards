@@ -162,23 +162,23 @@ class Card {
       'class': 'h5p-dialogcards-card-footer'
     });
 
-    let classQuickProgression = '';
+    let classesRepetition = 'h5p-dialogcards-button-hidden';
     let attributeTabindex = '-1';
 
-    if (this.params.mode === 'repetition' && this.params.quickProgression) {
-      classQuickProgression = 'h5p-dialogcards-quickProgression';
-      attributeTabindex = '0';
+    if (this.params.mode === 'repetition') {
+      if (this.params.quickProgression) {
+        classesRepetition = 'h5p-dialogcards-quickProgression';
+        attributeTabindex = '0';
+      }
     }
 
-    if (this.params.mode === 'repetition') {
-      H5P.JoubelUI.createButton({
-        'class': 'h5p-dialogcards-answer-button',
-        'html': this.params.incorrectAnswer
-      }).addClass('incorrect')
-        .addClass(classQuickProgression)
-        .attr('tabindex', attributeTabindex)
-        .appendTo($cardFooter);
-    }
+    H5P.JoubelUI.createButton({
+      'class': 'h5p-dialogcards-answer-button',
+      'html': this.params.incorrectAnswer
+    }).addClass('incorrect')
+      .addClass(classesRepetition)
+      .attr('tabindex', attributeTabindex)
+      .appendTo($cardFooter);
 
     H5P.JoubelUI.createButton({
       'class': 'h5p-dialogcards-turn',
@@ -187,15 +187,13 @@ class Card {
       this.turnCard();
     }).appendTo($cardFooter);
 
-    if (this.params.mode === 'repetition') {
-      H5P.JoubelUI.createButton({
-        'class': 'h5p-dialogcards-answer-button',
-        'html': this.params.correctAnswer
-      }).addClass('correct')
-        .addClass(classQuickProgression)
-        .attr('tabindex', attributeTabindex)
-        .appendTo($cardFooter);
-    }
+    H5P.JoubelUI.createButton({
+      'class': 'h5p-dialogcards-answer-button',
+      'html': this.params.correctAnswer
+    }).addClass('correct')
+      .addClass(classesRepetition)
+      .attr('tabindex', attributeTabindex)
+      .appendTo($cardFooter);
 
     return $cardFooter;
   }
@@ -233,6 +231,7 @@ class Card {
         const attributeTabindex = turned ? '-1' : '0';
         $answerButtons
           .toggleClass('h5p-dialogcards-quickProgression', !turned)
+          .toggleClass('h5p-dialogcards-button-hidden', turned)
           .attr('tabindex', attributeTabindex);
       }
 

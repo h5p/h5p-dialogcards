@@ -256,6 +256,10 @@
   cursor: inherit;
 }
 
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.h5p-dialogcards-button-hidden {
+  visibility: hidden;
+}
+
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button:active {
   background-color: #ffffff;
   box-shadow: none;
