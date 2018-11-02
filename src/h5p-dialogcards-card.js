@@ -162,12 +162,40 @@ class Card {
       'class': 'h5p-dialogcards-card-footer'
     });
 
+    let classQuickProgression = '';
+    let attributeTabindex = '-1';
+
+    if (this.params.mode === 'repetition' && this.params.quickProgression) {
+      classQuickProgression = 'h5p-dialogcards-quickProgression';
+      attributeTabindex = '0';
+    }
+
+    if (this.params.mode === 'repetition') {
+      H5P.JoubelUI.createButton({
+        'class': 'h5p-dialogcards-answer-button',
+        'html': this.params.incorrectAnswer
+      }).addClass('incorrect')
+        .addClass(classQuickProgression)
+        .attr('tabindex', attributeTabindex)
+        .appendTo($cardFooter);
+    }
+
     H5P.JoubelUI.createButton({
       'class': 'h5p-dialogcards-turn',
       'html': this.params.answer
     }).click(() => {
       this.turnCard();
     }).appendTo($cardFooter);
+
+    if (this.params.mode === 'repetition') {
+      H5P.JoubelUI.createButton({
+        'class': 'h5p-dialogcards-answer-button',
+        'html': this.params.correctAnswer
+      }).addClass('correct')
+        .addClass(classQuickProgression)
+        .attr('tabindex', attributeTabindex)
+        .appendTo($cardFooter);
+    }
 
     return $cardFooter;
   }
@@ -197,6 +225,15 @@ class Card {
       }
       else {
         this.removeAudio($ch);
+      }
+
+      // Toggle state for knowledge confirmation buttons
+      if (this.params.mode === 'repetition' && !this.params.quickProgression) {
+        const $answerButtons = $card.find('.h5p-dialogcards-answer-button');
+        const attributeTabindex = turned ? '-1' : '0';
+        $answerButtons
+          .toggleClass('h5p-dialogcards-quickProgression', !turned)
+          .attr('tabindex', attributeTabindex);
       }
 
       // Add backside tip
