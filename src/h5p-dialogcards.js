@@ -61,6 +61,7 @@ class Dialogcards extends H5P.EventDispatcher {
     this.cards = [];
 
     this.currentCardId = 0;
+    this.round = 1;
 
     /**
      * Attach h5p inside the given container.
@@ -119,32 +120,44 @@ class Dialogcards extends H5P.EventDispatcher {
         'role': 'navigation'
       });
 
-      this.$prev = JoubelUI.createButton({
-        'class': 'h5p-dialogcards-footer-button h5p-dialogcards-prev truncated',
-        'title': this.params.prev
-      }).click(() => {
-        this.prevCard();
-      }).appendTo($footer);
+      if (this.params.mode === 'normal') {
+        this.$prev = JoubelUI.createButton({
+          'class': 'h5p-dialogcards-footer-button h5p-dialogcards-prev truncated',
+          'title': this.params.prev
+        }).click(() => {
+          this.prevCard();
+        }).appendTo($footer);
 
-      this.$next = JoubelUI.createButton({
-        'class': 'h5p-dialogcards-footer-button h5p-dialogcards-next truncated',
-        'title': this.params.next
-      }).click(() => {
-        this.nextCard();
-      }).appendTo($footer);
+        this.$next = JoubelUI.createButton({
+          'class': 'h5p-dialogcards-footer-button h5p-dialogcards-next truncated',
+          'title': this.params.next
+        }).click(() => {
+          this.nextCard();
+        }).appendTo($footer);
 
-      this.$retry = JoubelUI.createButton({
-        'class': 'h5p-dialogcards-footer-button h5p-dialogcards-retry h5p-dialogcards-disabled',
-        'title': this.params.retry,
-        'html': this.params.retry
-      }).click(() => {
-        this.trigger('reset');
-      }).appendTo($footer);
+        this.$retry = JoubelUI.createButton({
+          'class': 'h5p-dialogcards-footer-button h5p-dialogcards-retry h5p-dialogcards-disabled',
+          'title': this.params.retry,
+          'html': this.params.retry
+        }).click(() => {
+          this.trigger('reset');
+        }).appendTo($footer);
 
-      this.$progress = $('<div>', {
-        'class': 'h5p-dialogcards-progress',
-        'aria-live': 'assertive'
-      }).appendTo($footer);
+        this.$progress = $('<div>', {
+          'class': 'h5p-dialogcards-progress',
+          'aria-live': 'assertive'
+        }).appendTo($footer);
+      }
+      else {
+        this.$round = $('<div>', {
+          'class': 'h5p-dialogcards-round'
+        }).appendTo($footer);
+
+        this.$progress = $('<div>', {
+          'class': 'h5p-dialogcards-cards-left',
+          'aria-live': 'assertive'
+        }).appendTo($footer);
+      }
 
       return $footer;
     };
@@ -245,25 +258,33 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.updateNavigation = () => {
       // Final card
-      if (this.currentCardId < this.cardIds.length - 1) {
-        this.$next.removeClass('h5p-dialogcards-disabled');
-        this.$retry.addClass('h5p-dialogcards-disabled');
+
+      if (this.params.mode === 'normal') {
+        if (this.currentCardId < this.cardIds.length - 1) {
+          this.$next.removeClass('h5p-dialogcards-disabled');
+          this.$retry.addClass('h5p-dialogcards-disabled');
+        }
+        else {
+          this.$next.addClass('h5p-dialogcards-disabled');
+        }
+
+        // First card
+        if (this.currentCardId > 0 && !this.params.behaviour.disableBackwardsNavigation) {
+          this.$prev.removeClass('h5p-dialogcards-disabled');
+        }
+        else {
+          this.$prev.addClass('h5p-dialogcards-disabled');
+        }
+
+        this.$progress.text(this.params.progressText.replace('@card', this.currentCardId + 1).replace('@total', this.cardIds.length));
+
+        this.cards[this.currentCardId].resizeOverflowingText();
       }
       else {
-        this.$next.addClass('h5p-dialogcards-disabled');
+        this.$round.text(this.params.round.replace('@round', this.round));
+        this.$progress.text(this.params.cardsLeft.replace('@number', this.cardIds.length - this.currentCardId));
       }
 
-      // First card
-      if (this.currentCardId > 0 && !this.params.behaviour.disableBackwardsNavigation) {
-        this.$prev.removeClass('h5p-dialogcards-disabled');
-      }
-      else {
-        this.$prev.addClass('h5p-dialogcards-disabled');
-      }
-
-      this.$progress.text(this.params.progressText.replace('@card', this.currentCardId + 1).replace('@total', this.cardIds.length));
-
-      this.cards[this.currentCardId].resizeOverflowingText();
       this.trigger('resize');
     };
 
