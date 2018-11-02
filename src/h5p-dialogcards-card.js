@@ -10,15 +10,13 @@ class Card {
    * @param {object} [callbacks] Callbacks.
    * @param {function} [callbacks.onCardSize] Call when card needs resize.
    * @param {function} [callbacks.onCardTurned] Call when card was turned.
-   * @param {object} [options] Options.
    */
-  constructor(card, params, id, contentId, callbacks={}, options={}) {
+  constructor(card, params, id, contentId, callbacks={}) {
     this.card = card;
     this.params = params || {};
     this.id = id;
     this.contentId = contentId;
     this.callbacks = callbacks;
-    this.options = options;
 
     this.$cardWrapper = $('<div>', {'class': 'h5p-dialogcards-cardwrap'});
 
@@ -216,12 +214,19 @@ class Card {
     return $cardFooter;
   }
 
+  /**
+   * Show summary button on last card.
+   *
+   * @param {function} callback Callback called on button click.
+   */
   showSummaryButton(callback) {
+    // Hide answer buttons
     this.getDOM()
       .find('.h5p-dialogcards-answer-button')
       .addClass('h5p-dialogcards-button-hidden')
       .attr('tabindex', '-1');
 
+    // Swap turn button with show summary button
     this.buttonTurn
       .addClass('h5p-dialogcards-button-gone');
 
@@ -286,8 +291,8 @@ class Card {
   /**
    * Change text of card, used when turning cards.
    *
-   * @param $card
-   * @param text
+   * @param {jQuery} $card Card to change text on.
+   * @param {string} text Text to set.
    */
   changeText($card, text) {
     const $cardText = $card.find('.h5p-dialogcards-card-text-area');

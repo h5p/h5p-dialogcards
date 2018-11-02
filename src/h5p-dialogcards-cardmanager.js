@@ -4,6 +4,12 @@ import CardPile from './h5p-dialogcards-cardpile';
 class CardManager {
   /**
    * @constructor
+   *
+   * TODO: Not all params are needed. Could be limited to the ones necessary.
+   *
+   * @param {object} params Parameters from content type.
+   * @param {number} contentId Id of content.
+   * @param {object} callbacks Callbacks to parent.
    */
   constructor(params, contentId, callbacks) {
     this.params = params;
@@ -36,7 +42,7 @@ class CardManager {
   }
 
   /**
-   * Create piles depending on mode.
+   * Create card piles depending on mode.
    */
   createPiles() {
     this.cardPiles = [];
@@ -85,6 +91,7 @@ class CardManager {
       this.cardPiles[newPileId].add(result.cardId, 'bottom');
     });
 
+    // TODO: Might better be kept in parent.
     this.round++;
   }
 
@@ -160,11 +167,20 @@ class CardManager {
     return found;
   }
 
+  /**
+   * Reset Card Manager.
+   */
   reset() {
+    // TODO: Might better be kept in parent.
     this.round = 1;
     this.createPiles();
   }
 
+  /**
+   * Retrieve card from pool. Will be loaded on call.
+   *
+   * @param {number} id Id of card to be retrieved.
+   */
   getCard(id) {
     return this.cardPool.getCard(id);
   }

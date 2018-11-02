@@ -4,13 +4,16 @@ const $ = H5P.jQuery;
 const JoubelUI = H5P.JoubelUI;
 
 class Dialogcards extends H5P.EventDispatcher {
-
   /**
    * Initialize module.
    *
-   * @param {Object} params Behavior settings
-   * @param {Number} id Content identification
-   * @param {Object} contentData
+   * TODO: Check resize/placement issues when cards vary in content/text length
+   *
+   * @constructor
+   *
+   * @param {Object} params Parameters.
+   * @param {Number} id Content id.
+   * @param {Object} contentData Content data, e.g. for saveContentState
    * @returns {DialogCards} self
    */
   constructor(params, id, contentData) {
@@ -53,6 +56,7 @@ class Dialogcards extends H5P.EventDispatcher {
       }
     }, params);
 
+    // TODO: Check which variables are not needed anymore
     this._current = -1;
     this._turned = [];
     this.$images = [];
@@ -67,7 +71,7 @@ class Dialogcards extends H5P.EventDispatcher {
     /**
      * Attach h5p inside the given container.
      *
-     * @param {jQuery} $container
+     * @param {jQuery} $container Container.
      */
     this.attach = ($container) => {
       this.cardManager = new CardManager(this.params, this.id, {
@@ -199,7 +203,7 @@ class Dialogcards extends H5P.EventDispatcher {
     /**
      * Creates all cards and appends them to card wrapper.
      *
-     * @param {Array} cards Card parameters
+     * @param {object[]} cards Card parameters
      * @returns {*|jQuery|HTMLElement} Card wrapper set
      */
     this.initCards = (cards) => {
@@ -261,9 +265,8 @@ class Dialogcards extends H5P.EventDispatcher {
      * Update navigation text and show or hide buttons.
      */
     this.updateNavigation = () => {
-      // Final card
-
       if (this.params.mode === 'normal') {
+        // Final card
         if (this.currentCardId < this.cardIds.length - 1) {
           this.$next.removeClass('h5p-dialogcards-disabled');
           this.$retry.addClass('h5p-dialogcards-disabled');
@@ -303,7 +306,7 @@ class Dialogcards extends H5P.EventDispatcher {
     /**
      * Show next card.
      *
-     * @param {object} [result] Result of repetition mode.
+     * @param {object} [result] Optional result of repetition mode.
      */
     this.nextCard = (result) => {
       this.results.push(result);
@@ -370,16 +373,21 @@ class Dialogcards extends H5P.EventDispatcher {
 
     /**
      * Reset the task so that the user can do it again.
+     *
+     * TODO: Needs to be changed when HFP-2342 is done.
      */
     this.reset = () => {
       const self = this;
 
       this.cards[this.currentCardId].stopAudio(this.$current.index());
+
+      // Show first card
       this.cards[this.currentCardId].getDOM().removeClass('h5p-dialogcards-current');
       this.currentCardId = 0;
       this.cards[this.currentCardId].getDOM().addClass('h5p-dialogcards-current');
       this.updateNavigation();
 
+      // Turn all cards to front
       this.cards.forEach((card, index) => {
         const $card = card.getDOM();
         $card.removeClass('h5p-dialogcards-previous');
@@ -481,6 +489,9 @@ class Dialogcards extends H5P.EventDispatcher {
       });
     };
 
+    /**
+     * Scales the card contents.
+     */
     this.scaleToFitHeight = () => {
       if (!this.$cardwrapperSet || !this.$cardwrapperSet.is(':visible') || !this.params.behaviour.scaleTextNotCard) {
         return;

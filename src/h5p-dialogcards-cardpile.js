@@ -43,7 +43,7 @@ class CardPile {
    * Add cards to the pile.
    *
    * @param {number|object[]} ids Id or array of card ids to be added.
-   * @param {string} [position='top'] Position to add cards to (top|bottom), can be amended.
+   * @param {number|string} [position='top'] Position to add cards to (top|bottom), can be amended.
    */
   add(ids, position='top') {
     if (typeof ids === 'number') {
@@ -82,7 +82,7 @@ class CardPile {
    * Pull consecutive cards from the pile.
    *
    * @param {number} [amount=1] Amount of cards to be pulled.
-   * @param {number|string} [position=0] Position to take cards from. Default top
+   * @param {number|string} [position='top'] Position to take cards from. Default top.
    */
   pull(amount=1, position='top') {
     amount = Math.max(1, Math.min(amount, this.cards.length));

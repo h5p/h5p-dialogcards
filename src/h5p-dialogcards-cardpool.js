@@ -6,7 +6,9 @@ class CardPool {
    *
    * TODO: Check what params are actually necessary
    *
-   * @param {object} cards Card parameters.
+   * @param {object} params Parameters from content type.
+   * @param {number} contentId Id of content.
+   * @param {object} callbacks Callbacks to main component.
    */
   constructor(params, contentId, callbacks) {
     this.params = params;
@@ -50,7 +52,7 @@ class CardPool {
   }
 
   /**
-   * Load a card.
+   * Load a card if not loaded yet.
    *
    * @param {number} id Id of card to load.
    */
