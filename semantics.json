@@ -3,7 +3,7 @@
     "name": "title",
     "type": "text",
     "widget": "html",
-    "label": "Title",
+    "label": "Heading",
     "importance": "high",
     "optional": true,
     "tags": [

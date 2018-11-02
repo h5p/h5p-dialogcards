@@ -1,7 +1,7 @@
 {
   "semantics": [
     {
-      "label": "Titel"
+      "label": "Heading"
     },
     {
       "label": "Beschrijving taak",
@@ -10,11 +10,11 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Standaard"
         }
       ],
       "label": "Dialogen",
-      "entity": "dialog",
+      "entity": "dialoog",
       "field": {
         "label": "Vraag",
         "fields": [
@@ -31,21 +31,21 @@
             "description": "Optionele afbeelding voor de kaart. (De kaart mag alleen een afbeelding gebruiken, alleen een tekst of allebei)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Alternatieve tekst voor een afbeelding"
           },
           {
-            "label": "Audio files"
+            "label": "Audio bestanden"
           },
           {
             "label": "Tips",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Tip voor de tekst",
+                "description": "Tip voor het eerste gedeelte van de dialoog"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Tip voor het antwoord",
+                "description": "Tip voor het tweede gedeelte van de dialoog"
               }
             ]
           }
@@ -95,22 +95,22 @@
       "default": "Kaart @card van @total"
     },
     {
-      "label": "Label for card text",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card front"
+      "label": "Label voor de kaarttekst",
+      "description": "Dit wordt gebruikt voor de toegankelijkheid door ondersteunende technologieën",
+      "default": "Voorkant kaart"
     },
     {
-      "label": "Label for card back",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card back"
+      "label": "Label voor de achterkant van de kaart",
+      "description": "Dit wordt gebruikt voor de toegankelijkheid door ondersteunende technologieën",
+      "default": "Achterkant kaart"
     },
     {
-      "label": "Label for the show tip button",
-      "default": "Show tip"
+      "label": "Label voor de toon tip knop",
+      "default": "Toon tip"
     },
     {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
+      "label": "Statusbericht dat de audio niet wordt ondersteund",
+      "default": "Je browser ondersteunt de audio niet"
     }
   ]
 }

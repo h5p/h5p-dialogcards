@@ -1,6 +1,6 @@
 var H5PUpgrades = H5PUpgrades || {};
 
-H5PUpgrades['H5P.Dialogcards'] = (function ($) {
+H5PUpgrades['H5P.Dialogcards'] = (function () {
   return {
     1: {
       /**
@@ -21,7 +21,21 @@ H5PUpgrades['H5P.Dialogcards'] = (function ($) {
 
         // Complete
         finished(null, parameters);
+      },
+
+      7: function (parameters, finished, extras) {
+        var extrasOut = extras || {};
+        // Copy html-free title to new metadata structure if present
+        var title = parameters.title || ((extras && extras.metadata) ? extras.metadata.title : undefined);
+        if (title) {
+          title = title.replace(/<[^>]*>?/g, '');
+        }
+        extrasOut.metadata = {
+          title: title
+        };
+
+        finished(null, parameters, extrasOut);
       }
     }
   };
-})(H5P.jQuery);
+})();
