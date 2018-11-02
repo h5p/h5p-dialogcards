@@ -303,7 +303,7 @@
     "type": "text",
     "label": "Text for the \"show summary\" button",
     "importance": "low",
-    "default": "Show summary",
+    "default": "Next",
     "common": true
   },
   {

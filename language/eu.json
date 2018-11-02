@@ -133,7 +133,7 @@
     },
     {
       "label": "Text for the \"show summary\" button",
-      "default": "Show summary"
+      "default": "Next"
     },
     {
       "label": "Title text for the summary page",
