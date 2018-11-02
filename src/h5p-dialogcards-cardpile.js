@@ -21,14 +21,20 @@ class CardPile {
   /**
    * Peek at card in pile.
    *
-   * @param {number} position Position to peek at.
+   * @param {number|string} position Position to peek at.
    * @param {number} [amount=1] Number of cards to peek at.
    */
   peek(position, amount=1) {
-    if (position < 0 || position > this.cards.length -1) {
-      return;
+    amount = Math.max(0, amount);
+    if (position === 'top') {
+      position = 0;
     }
-    amount = Math.min(1, amount);
+    if (position === 'bottom') {
+      position = this.cards.length - amount;
+    }
+    if (position < 0 || position > this.cards.length -1) {
+      return [];
+    }
 
     return this.cards.slice(position, position + amount);
   }
@@ -79,7 +85,7 @@ class CardPile {
    * @param {number|string} [position=0] Position to take cards from. Default top
    */
   pull(amount=1, position='top') {
-    amount = Math.min(1, Math.max(amount, this.cards.length));
+    amount = Math.max(1, Math.min(amount, this.cards.length));
 
     if (position === 'top') {
       position = 0;
@@ -87,7 +93,7 @@ class CardPile {
     if (position === 'bottom') {
       position = -amount;
     }
-    position = Math.min(0, Math.max(position, this.cards.length-1));
+    position = Math.max(0, Math.min(position, this.cards.length-1));
 
     return this.cards.splice(position, amount);
   }
