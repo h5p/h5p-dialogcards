@@ -32,7 +32,10 @@ class CardPool {
       return;
     }
 
-    this.loadCard(id);
+    // Replace id with card object if necessary.
+    if (typeof this.cards[id] === 'number') {
+      this.loadCard(id);
+    }
 
     return this.cards[id];
   }
