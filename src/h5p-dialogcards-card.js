@@ -166,6 +166,7 @@ class Card {
     let attributeTabindex = '-1';
 
     if (this.params.mode === 'repetition') {
+      classesRepetition = '';
       if (this.params.quickProgression) {
         classesRepetition = 'h5p-dialogcards-quickProgression';
         attributeTabindex = '0';
@@ -231,7 +232,6 @@ class Card {
         const attributeTabindex = turned ? '-1' : '0';
         $answerButtons
           .toggleClass('h5p-dialogcards-quickProgression', !turned)
-          .toggleClass('h5p-dialogcards-button-hidden', turned)
           .attr('tabindex', attributeTabindex);
       }
 
