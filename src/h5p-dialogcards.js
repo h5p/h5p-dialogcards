@@ -250,8 +250,10 @@ class Dialogcards extends H5P.EventDispatcher {
 
       // retry button
       if (this.params.behaviour.enableRetry && this.currentCardId + 1 === this.cardIds.length) {
-        this.$retry.removeClass('h5p-dialogcards-disabled');
-        this.truncateRetryButton();
+        if (this.$retry) {
+          this.$retry.removeClass('h5p-dialogcards-disabled');
+          this.truncateRetryButton();
+        }
       }
     };
 
