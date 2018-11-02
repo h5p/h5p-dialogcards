@@ -254,6 +254,7 @@
   text-decoration: none solid rgb(179, 179, 179);
   line-height: 1;
   cursor: inherit;
+  font-size: 0.9em;
 }
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.h5p-dialogcards-button-hidden {
