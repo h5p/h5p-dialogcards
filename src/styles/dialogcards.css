@@ -258,6 +258,17 @@
   content: "\f021";
 }
 
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-show-summary {
+  margin: 0;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.h5p-dialogcards .h5p-dialogcards-show-summary:before {
+  font-family: 'H5PFontAwesome4';
+  content: "\f021";
+}
+
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button {
   margin: 0;
   width: 172px;
@@ -273,7 +284,12 @@
   font-size: 0.9em;
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.h5p-dialogcards-button-hidden {
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-button-hidden {
+  visibility: hidden;
+}
+
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-button-gone {
+  display: none;
   visibility: hidden;
 }
 
@@ -282,7 +298,7 @@
   box-shadow: none;
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.h5p-dialogcards-quickProgression {
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.h5p-dialogcards-quick-progression {
   cursor: pointer;
 }
 
@@ -291,13 +307,13 @@
   content: "\f021";
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.correct.h5p-dialogcards-quickProgression {
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.correct.h5p-dialogcards-quick-progression {
   border: 2px solid #1f824c;
   color: #1f824c;
   text-decoration: none solid rgb(31, 130, 76);
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.correct.h5p-dialogcards-quickProgression:hover {
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.correct.h5p-dialogcards-quick-progression:hover {
   color: #fff;
   background-color: #1f824c;
 }
@@ -307,13 +323,13 @@
   content: "\f021";
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.incorrect.h5p-dialogcards-quickProgression {
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.incorrect.h5p-dialogcards-quick-progression {
   border: 2px solid #d95354;
   color: #d95354;
   text-decoration: none solid rgb(217, 83, 84);
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.incorrect.h5p-dialogcards-quickProgression:hover {
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.incorrect.h5p-dialogcards-quick-progression:hover {
   color: #fff;
   background-color: #d95354;
 }

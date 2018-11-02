@@ -10,13 +10,15 @@ class Card {
    * @param {object} [callbacks] Callbacks.
    * @param {function} [callbacks.onCardSize] Call when card needs resize.
    * @param {function} [callbacks.onCardTurned] Call when card was turned.
+   * @param {object} [options] Options.
    */
-  constructor(card, params, id, contentId, callbacks={}) {
+  constructor(card, params, id, contentId, callbacks={}, options={}) {
     this.card = card;
     this.params = params || {};
     this.id = id;
     this.contentId = contentId;
     this.callbacks = callbacks;
+    this.options = options;
 
     this.$cardWrapper = $('<div>', {'class': 'h5p-dialogcards-cardwrap'});
 
@@ -168,7 +170,7 @@ class Card {
     if (this.params.mode === 'repetition') {
       classesRepetition = '';
       if (this.params.quickProgression) {
-        classesRepetition = 'h5p-dialogcards-quickProgression';
+        classesRepetition = 'h5p-dialogcards-quick-progression';
         attributeTabindex = '0';
       }
     }
@@ -176,27 +178,56 @@ class Card {
     H5P.JoubelUI.createButton({
       'class': 'h5p-dialogcards-answer-button',
       'html': this.params.incorrectAnswer
+    }).click((event) => {
+      if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
+        return;
+      }
+      this.callbacks.onNextCard({cardId: this.id, result: false});
     }).addClass('incorrect')
       .addClass(classesRepetition)
       .attr('tabindex', attributeTabindex)
       .appendTo($cardFooter);
 
-    H5P.JoubelUI.createButton({
+    this.buttonTurn = H5P.JoubelUI.createButton({
       'class': 'h5p-dialogcards-turn',
       'html': this.params.answer
     }).click(() => {
       this.turnCard();
     }).appendTo($cardFooter);
 
+    this.buttonShowSummary = H5P.JoubelUI.createButton({
+      'class': 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone',
+      'html': this.params.showSummary
+    }).appendTo($cardFooter);
+
     H5P.JoubelUI.createButton({
       'class': 'h5p-dialogcards-answer-button',
       'html': this.params.correctAnswer
+    }).click((event) => {
+      if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
+        return;
+      }
+      this.callbacks.onNextCard({cardId: this.id, result: true});
     }).addClass('correct')
       .addClass(classesRepetition)
       .attr('tabindex', attributeTabindex)
       .appendTo($cardFooter);
 
     return $cardFooter;
+  }
+
+  showSummaryButton(callback) {
+    this.getDOM()
+      .find('.h5p-dialogcards-answer-button')
+      .addClass('h5p-dialogcards-button-hidden')
+      .attr('tabindex', '-1');
+
+    this.buttonTurn
+      .addClass('h5p-dialogcards-button-gone');
+
+    this.buttonShowSummary
+      .click(() => callback())
+      .removeClass('h5p-dialogcards-button-gone');
   }
 
   /**
@@ -231,7 +262,7 @@ class Card {
         const $answerButtons = $card.find('.h5p-dialogcards-answer-button');
         const attributeTabindex = turned ? '-1' : '0';
         $answerButtons
-          .toggleClass('h5p-dialogcards-quickProgression', !turned)
+          .toggleClass('h5p-dialogcards-quick-progression', !turned)
           .attr('tabindex', attributeTabindex);
       }
 

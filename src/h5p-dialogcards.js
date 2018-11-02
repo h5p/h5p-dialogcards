@@ -62,6 +62,7 @@ class Dialogcards extends H5P.EventDispatcher {
 
     this.currentCardId = 0;
     this.round = 1;
+    this.results = [];
 
     /**
      * Attach h5p inside the given container.
@@ -70,7 +71,8 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.attach = ($container) => {
       this.cardManager = new CardManager(this.params, this.id, {
-        onCardTurned: this.handleCardTurned
+        onCardTurned: this.handleCardTurned,
+        onNextCard: this.nextCard
       });
       this.cardIds = this.cardManager.createSelection();
 
@@ -289,10 +291,27 @@ class Dialogcards extends H5P.EventDispatcher {
     };
 
     /**
-     * Show next card.
+     * Show summary screen.
      */
-    this.nextCard = () => {
+    this.showSummaryScreen = () => {
+      // TODO: HFP-2342 Implementation of summary screen
+      console.log(this.results);
+    };
+
+    /**
+     * Show next card.
+     *
+     * @param {object} [result] Result of repetition mode.
+     */
+    this.nextCard = (result) => {
+      this.results.push(result);
+
+      // On final card
       if (this.currentCardId + 1 === this.cardIds.length) {
+        if (this.params.mode === 'repetition') {
+          this.$progress.text(this.params.cardsLeft.replace('@number', 0));
+          this.cards[this.currentCardId].showSummaryButton(this.showSummaryScreen);
+        }
         return;
       }
 
@@ -317,7 +336,6 @@ class Dialogcards extends H5P.EventDispatcher {
       }
 
       this.updateNavigation();
-
     };
 
     /**
