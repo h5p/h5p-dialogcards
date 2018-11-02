@@ -138,6 +138,15 @@ class CardPile {
   contains(id) {
     return this.cards.indexOf(id) !== -1;
   }
+
+  /**
+   * Get amount of cards on pile.
+   *
+   * @return {number} Amount of cards on pile.
+   */
+  length() {
+    return this.cards.length;
+  }
 }
 
 export default CardPile;
