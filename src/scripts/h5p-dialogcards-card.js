@@ -265,10 +265,13 @@ class Card {
       // Toggle state for knowledge confirmation buttons
       if (this.params.mode === 'repetition' && !this.params.quickProgression) {
         const $answerButtons = $card.find('.h5p-dialogcards-answer-button');
-        const attributeTabindex = turned ? '-1' : '0';
-        $answerButtons
-          .toggleClass('h5p-dialogcards-quick-progression', !turned)
-          .attr('tabindex', attributeTabindex);
+
+        // Don't revoke quick progression after card was turned.
+        if ($answerButtons.hasClass('h5p-dialogcards-quick-progression') === false) {
+          $answerButtons
+            .addClass('h5p-dialogcards-quick-progression')
+            .attr('tabindex', 0);
+        }
       }
 
       // Add backside tip

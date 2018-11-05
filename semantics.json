@@ -56,7 +56,7 @@
     "label": "Allow quick progression",
     "description": "If activated, learners can decide to indicate that they know a card without turning it",
     "importance": "low",
-    "default": true,
+    "default": false,
     "optional": true,
     "widget": "showWhen",
     "showWhen": {
