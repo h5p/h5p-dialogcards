@@ -152,13 +152,17 @@
       "default": "Unseen cards:"
     },
     {
+      "label": "Text for \"Overall Score\"",
+      "default": "Overall Score"
+    },
+    {
       "label": "Text for \"Completed rounds:\"",
       "default": "Completed rounds:"
     },
     {
       "label": "Message when all cards have been learned proficiently",
       "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You managed to get all @cards cards correct @max times in a row!"
+      "default": "Well done! You got all @cards cards correct @max times in a row each!"
     },
     {
       "label": "卡片正面文本",
