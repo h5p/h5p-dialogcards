@@ -448,8 +448,6 @@ class Dialogcards extends H5P.EventDispatcher {
      * TODO: Needs to be changed when HFP-2342 is done.
      */
     this.reset = () => {
-      const self = this;
-
       this.cards[this.currentCardId].stopAudio(this.$current.index());
 
       // Show first card
@@ -462,7 +460,7 @@ class Dialogcards extends H5P.EventDispatcher {
       this.cards.forEach((card, index) => {
         const $card = card.getDOM();
         $card.removeClass('h5p-dialogcards-previous');
-        card.changeText($card, self.params.dialogs[$card.index()].text);
+        card.changeText(card.getText());
         const $cardContent = $card.find('.h5p-dialogcards-card-content');
         $cardContent.removeClass('h5p-dialogcards-turned');
         card.addTipToCard($cardContent, 'front', index);
@@ -535,7 +533,8 @@ class Dialogcards extends H5P.EventDispatcher {
         const textHeight = $text[0].getBoundingClientRect().height;
 
         // Change to answer
-        self.cards[self.currentCardId].changeText($content, self.params.dialogs[i].answer);
+        const currentCard = self.cards[i];
+        currentCard.changeText(currentCard.getAnswer());
 
         // Grab size with answer
         const answerHeight = $text[0].getBoundingClientRect().height;
@@ -557,7 +556,7 @@ class Dialogcards extends H5P.EventDispatcher {
         $text.parent().css('height', useHeight + 'em');
 
         // Change back to text
-        self.cards[self.currentCardId].changeText($content, self.params.dialogs[i].text);
+        currentCard.changeText(currentCard.getText());
       });
     };
 

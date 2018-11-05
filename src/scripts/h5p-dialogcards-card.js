@@ -254,7 +254,8 @@ class Card {
 
     setTimeout(() => {
       $ch.removeClass('h5p-dialogcards-collapse');
-      this.changeText($c, this.params.dialogs[$card.index()][turned ? 'text' : 'answer']);
+      this.changeText(turned ? this.getText() : this.getAnswer());
+
       if (turned) {
         $ch.find('.h5p-audio-inner').removeClass('hide');
       }
@@ -294,11 +295,10 @@ class Card {
   /**
    * Change text of card, used when turning cards.
    *
-   * @param {jQuery} $card Card to change text on.
    * @param {string} text Text to set.
    */
-  changeText($card, text) {
-    const $cardText = $card.find('.h5p-dialogcards-card-text-area');
+  changeText(text) {
+    const $cardText = this.getDOM().find('.h5p-dialogcards-card-text-area');
     $cardText.html(text);
     $cardText.toggleClass('hide', (!text || !text.length));
   }
@@ -405,7 +405,7 @@ class Card {
     $card.find('.joubel-tip-container').remove();
 
     // Add new tip if set and has length after trim
-    const tips = this.params.dialogs[index].tips;
+    const tips = this.card.tips;
     if (tips !== undefined && tips[side] !== undefined) {
       const tip = tips[side].trim();
       if (tip.length) {
@@ -453,6 +453,24 @@ class Card {
    */
   getDOM() {
     return this.$cardWrapper;
+  }
+
+  /**
+   * Get card's text.
+   *
+   * @return {string} Card's text.
+   */
+  getText() {
+    return this.card.text;
+  }
+
+  /**
+   * Get card's answer.
+   *
+   * @return {string} Card's answer.
+   */
+  getAnswer() {
+    return this.card.answer;
   }
 
   /**
