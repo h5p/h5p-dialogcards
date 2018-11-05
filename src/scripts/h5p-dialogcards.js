@@ -1,4 +1,4 @@
-import CardManager from './h5p-dialogcards-cardmanager';
+import CardManager from './h5p-dialogcards-card-manager';
 
 const $ = H5P.jQuery;
 const JoubelUI = H5P.JoubelUI;

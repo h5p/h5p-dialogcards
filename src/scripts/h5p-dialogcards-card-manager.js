@@ -1,5 +1,5 @@
-import CardPool from './h5p-dialogcards-cardpool';
-import CardPile from './h5p-dialogcards-cardpile';
+import CardPool from './h5p-dialogcards-card-pool';
+import CardPile from './h5p-dialogcards-card-pile';
 
 class CardManager {
   /**
