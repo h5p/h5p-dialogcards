@@ -502,6 +502,18 @@
   padding-left: 0.5em;
 }
 
+.h5p-dialogcards-summary-screen .h5p-dialogcards-summary-table-row-symbol.h5p-dialogcards-check:before {
+  font-family: 'H5PFontAwesome4';
+  content: "\f00c";
+  color: #1f824c;
+}
+
+.h5p-dialogcards-summary-screen .h5p-dialogcards-summary-table-row-symbol.h5p-dialogcards-times:before {
+  font-family: 'H5PFontAwesome4';
+  content: "\f00d";
+  color: #d95354;
+}
+
 .h5p-dialogcards-summary-screen .h5p-dialogcards-summary-table-row-score {
   height: 1.6em;
   border-bottom-style: solid;

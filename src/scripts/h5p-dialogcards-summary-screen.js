@@ -17,15 +17,15 @@ class SummaryScreen {
     this.fields['round'] = containerRound.getElementsByClassName('h5p-dialogcards-summary-subheader')[0];
 
     this.fields['h5p-dialogcards-round-cards-right'] = this.addTableRow(
-      containerRound, {category: this.params.summaryCardsRight, symbol: '+'});
+      containerRound, {category: this.params.summaryCardsRight, symbol: 'h5p-dialogcards-check'});
     this.fields['h5p-dialogcards-round-cards-wrong'] = this.addTableRow(
-      containerRound, {category: this.params.summaryCardsWrong, symbol: '-'});
+      containerRound, {category: this.params.summaryCardsWrong, symbol: 'h5p-dialogcards-times'});
     this.fields['h5p-dialogcards-round-cards-unseen'] = this.addTableRow(
       containerRound, {category: this.params.summaryCardsUnseen});
 
     const containerOverall = this.createContainerDOM(params.summaryOverallScore);
     this.fields['h5p-dialogcards-overall-cards-right'] = this.addTableRow(
-      containerOverall, {category: this.params.summaryCardsRight, symbol: '+'});
+      containerOverall, {category: this.params.summaryCardsRight, symbol: 'h5p-dialogcards-check'});
     this.fields['h5p-dialogcards-overall-completed-rounds'] = this.addTableRow(
       containerOverall, {category: this.params.summaryCompletedRounds, symbol: ''});
 
@@ -114,7 +114,9 @@ class SummaryScreen {
 
     const symbol = document.createElement('td');
     symbol.classList.add('h5p-dialogcards-summary-table-row-symbol');
-    symbol.innerHTML = cols.symbol || '';
+    if (cols.symbol !== undefined && cols.symbol !== '') {
+      symbol.classList.add(cols.symbol);
+    }
     row.appendChild(symbol);
 
     const score = document.createElement('td');
