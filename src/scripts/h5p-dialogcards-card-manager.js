@@ -75,6 +75,7 @@ class CardManager {
    * @param {object[]} results Results.
    * @param {number} results.cardId Card that result is reported for.
    * @param {boolean} results.result Result for that card.
+   * @return {number[]} Card pile sizes.
    */
   updatePiles(results) {
     results.forEach(result => {
@@ -91,8 +92,7 @@ class CardManager {
       this.cardPiles[newPileId].add(result.cardId, 'bottom');
     });
 
-    // TODO: Might better be kept in parent.
-    this.round++;
+    return this.cardPiles.map(pile => pile.length());
   }
 
   /**
@@ -171,8 +171,6 @@ class CardManager {
    * Reset Card Manager.
    */
   reset() {
-    // TODO: Might better be kept in parent.
-    this.round = 1;
     this.createPiles();
   }
 

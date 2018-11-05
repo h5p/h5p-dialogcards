@@ -1,4 +1,5 @@
 import CardManager from './h5p-dialogcards-card-manager';
+import SummaryScreen from './h5p-dialogcards-summary-screen';
 
 const $ = H5P.jQuery;
 const JoubelUI = H5P.JoubelUI;
@@ -79,11 +80,13 @@ class Dialogcards extends H5P.EventDispatcher {
         onNextCard: this.nextCard
       });
       this.cardIds = this.cardManager.createSelection();
+      this.cardPoolSize = this.cardIds.length;
 
       const title = $('<div>' + this.params.title + '</div>').text().trim();
 
-      this.$inner = $container
-        .addClass('h5p-dialogcards')
+      this.$inner = $container.addClass('h5p-dialogcards');
+
+      this.$mainContent = $('<div>')
         .append($((title ? '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + this.params.title + '</div></div>' : '') +
         '<div class="h5p-dialogcards-description">' + this.params.description + '</div>'
         ));
@@ -92,20 +95,23 @@ class Dialogcards extends H5P.EventDispatcher {
         $container.addClass('h5p-text-scaling');
       }
 
-      this.initCards(this.params.dialogs)
-        .appendTo(this.$inner);
+      this.initCards(this.params.dialogs).appendTo(this.$mainContent);
 
       this.$cardSideAnnouncer = $('<div>', {
         html: this.params.cardFrontLabel,
         'class': 'h5p-dialogcards-card-side-announcer',
         'aria-live': 'polite',
         'aria-hidden': 'true'
-      }).appendTo(this.$inner);
+      }).appendTo(this.$mainContent);
 
-      this.createFooter()
-        .appendTo(this.$inner);
+      this.createFooter().appendTo(this.$mainContent);
+
+      this.$mainContent.appendTo($container);
 
       this.updateNavigation();
+
+      this.summaryScreen = new SummaryScreen(this.params, {nextRound: this.nextRound, retry: this.reset});
+      this.$inner.append(this.summaryScreen.getDOM());
 
       this.on('reset', function () {
         this.reset();
@@ -298,9 +304,69 @@ class Dialogcards extends H5P.EventDispatcher {
     /**
      * Show summary screen.
      */
-    this.showSummaryScreen = () => {
-      // TODO: HFP-2342 Implementation of summary screen
-      console.log(this.results);
+    this.showSummary = () => {
+      // Update piles and retrieve the new pile sizes
+      const newPileSizes = this.cardManager.updatePiles(this.results);
+
+      const right = this.results.filter(result => result.result === true).length;
+      const wrong = this.results.length - right;
+      const unseen = this.cardPoolSize - right - wrong;
+      const rightOverall = newPileSizes.slice(-1)[0];
+      const done = rightOverall === this.cardPoolSize;
+
+      const summary = {
+        round: this.round,
+        results: [
+          {
+            field: 'h5p-dialogcards-round-cards-right',
+            score: {value: right, max: wrong + right}
+          },
+          {
+            field: 'h5p-dialogcards-round-cards-wrong',
+            score: {value: wrong, max: wrong + right}
+          },
+          {
+            field: 'h5p-dialogcards-round-cards-unseen',
+            score: {value: unseen}
+          },
+          {
+            field: 'h5p-dialogcards-overall-cards-right',
+            score: {value: rightOverall, max: this.cardPoolSize}
+          },
+          {
+            field: 'h5p-dialogcards-overall-completed-rounds',
+            score: {value: this.round}
+          }
+        ]
+      };
+
+      if (done) {
+        summary.done = true;
+        summary.message = this.params.summaryAllDone
+          .replace('@cards', this.cardPoolSize)
+          .replace('@max', this.params.maxProficiency - 1);
+      }
+
+      this.summaryScreen.update(summary);
+
+      this.hideMainContent();
+      this.summaryScreen.show();
+
+      this.trigger('resize');
+    };
+
+    /**
+     * Show main content.
+     */
+    this.showMainContent = () => {
+      this.$mainContent.removeClass('h5p-dialogcards-gone');
+    };
+
+    /**
+     * Hide main content.
+     */
+    this.hideMainContent = () => {
+      this.$mainContent.addClass('h5p-dialogcards-gone');
     };
 
     /**
@@ -315,7 +381,7 @@ class Dialogcards extends H5P.EventDispatcher {
       if (this.currentCardId + 1 === this.cardIds.length) {
         if (this.params.mode === 'repetition') {
           this.$progress.text(this.params.cardsLeft.replace('@number', 0));
-          this.cards[this.currentCardId].showSummaryButton(this.showSummaryScreen);
+          this.cards[this.currentCardId].showSummaryButton(this.showSummary);
         }
         return;
       }
@@ -371,6 +437,11 @@ class Dialogcards extends H5P.EventDispatcher {
         .removeClass('hide');
     };
 
+    this.nextRound = () => {
+      console.log('nextRound');
+      this.round++;
+    };
+
     /**
      * Reset the task so that the user can do it again.
      *
@@ -399,6 +470,7 @@ class Dialogcards extends H5P.EventDispatcher {
 
       this.$retry.addClass('h5p-dialogcards-disabled');
       this.showAllAudio();
+
       this.cards[this.currentCardId].resizeOverflowingText();
       this.cards[this.currentCardId].setCardFocus(this.$current);
     };
