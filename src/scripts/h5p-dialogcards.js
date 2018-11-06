@@ -505,16 +505,17 @@ class Dialogcards extends H5P.EventDispatcher {
       this.results = [];
       this.cards[this.currentCardId].stopAudio(this.$current.index());
 
-      // Show first card
-      this.cards[this.currentCardId].getDOM().removeClass('h5p-dialogcards-current');
-      this.currentCardId = 0;
-      this.cards[this.currentCardId].getDOM().addClass('h5p-dialogcards-current');
-      this.updateNavigation();
-
       // Turn all cards to front
       this.cards.forEach(card => {
         card.reset();
       });
+
+      // Show first card
+      this.currentCardId = 0;
+      if (this.params.mode === 'normal') {
+        this.cards[this.currentCardId].getDOM().addClass('h5p-dialogcards-current');
+      }
+      this.updateNavigation();
 
       if (this.$retry) {
         this.$retry.addClass('h5p-dialogcards-disabled');

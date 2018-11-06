@@ -251,6 +251,10 @@ class Card {
    * Hide summary button and show answer buttons again.
    */
   hideSummaryButton() {
+    if (this.params.mode === 'normal') {
+      return;
+    }
+
     this.getDOM()
       .find('.h5p-dialogcards-answer-button')
       .removeClass('h5p-dialogcards-button-hidden')
