@@ -271,7 +271,6 @@
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button {
   margin: 0;
-  /* width: 172px; */
   border: 2px solid #ffffff;
   border-radius: 67px;
   background-color: #ffffff;
@@ -488,19 +487,18 @@
   width: 100%;
 }
 
-.h5p-dialogcards-summary-screen .h5p-dialogcards-summary-table-row-category {
-  width: 100%;
+.h5p-dialogcards-summary-screen .h5p-dialogcards-summary-table td {
   height: 1.6em;
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-bottom-color: rgba(0, 0, 0, 0.15);
+  border-bottom-color: #d9d9d9;
+}
+
+.h5p-dialogcards-summary-screen .h5p-dialogcards-summary-table-row-category {
+  width: 100%;
 }
 
 .h5p-dialogcards-summary-screen .h5p-dialogcards-summary-table-row-symbol {
-  height: 1.6em;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: rgba(0, 0, 0, 0.15);
   padding-left: 0.5em;
 }
 
@@ -517,10 +515,6 @@
 }
 
 .h5p-dialogcards-summary-screen .h5p-dialogcards-summary-table-row-score {
-  height: 1.6em;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: rgba(0, 0, 0, 0.15);
   padding-left: 0.5em;
   text-align: right;
   font-weight: bold;
