@@ -104,14 +104,15 @@ class Dialogcards extends H5P.EventDispatcher {
         'aria-hidden': 'true'
       }).appendTo(this.$mainContent);
 
-      this.createFooter().appendTo(this.$mainContent);
+      this.summaryScreen = new SummaryScreen(this.params, {nextRound: this.nextRound, retry: this.reset});
+      this.$cardwrapperSet.prepend(this.summaryScreen.getDOM());
+
+      this.$footer = this.createFooter();
+      this.$footer.appendTo(this.$mainContent);
 
       this.$mainContent.appendTo($container);
 
       this.updateNavigation();
-
-      this.summaryScreen = new SummaryScreen(this.params, {nextRound: this.nextRound, retry: this.reset});
-      this.$inner.append(this.summaryScreen.getDOM());
 
       this.on('reset', function () {
         this.reset();
@@ -348,9 +349,9 @@ class Dialogcards extends H5P.EventDispatcher {
       }
 
       this.summaryScreen.update(summary);
-
-      this.hideMainContent();
       this.summaryScreen.show();
+
+      this.hideCards();
 
       this.trigger('resize');
     };
@@ -358,15 +359,19 @@ class Dialogcards extends H5P.EventDispatcher {
     /**
      * Show main content.
      */
-    this.showMainContent = () => {
-      this.$mainContent.removeClass('h5p-dialogcards-gone');
+    this.showCards = () => {
+      this.$cardwrapperSet.find('h5p-dialogcards-cardwrap').removeClass('h5p-dialogcards-gone');
+      this.$footer.removeClass('h5p-dialogcards-gone');
+      this.cardsShown = true;
     };
 
     /**
      * Hide main content.
      */
-    this.hideMainContent = () => {
-      this.$mainContent.addClass('h5p-dialogcards-gone');
+    this.hideCards = () => {
+      this.$cardwrapperSet.find('h5p-dialogcards-cardwrap').addClass('h5p-dialogcards-gone');
+      this.$footer.addClass('h5p-dialogcards-gone');
+      this.cardsShown = false;
     };
 
     /**
@@ -479,7 +484,7 @@ class Dialogcards extends H5P.EventDispatcher {
     this.resize = () => {
       let maxHeight = 0;
       this.updateImageSize();
-      if (!this.params.behaviour.scaleTextNotCard) {
+      if (!this.params.behaviour.scaleTextNotCard && this.cardsShown !== false) {
         this.determineCardSizes();
       }
 
