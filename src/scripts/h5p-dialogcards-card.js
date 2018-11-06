@@ -23,14 +23,8 @@ class Card {
     const $cardHolder = $('<div>', {'class': 'h5p-dialogcards-cardholder'})
       .appendTo(this.$cardWrapper);
 
-    // Progress for assistive technologies
-    const progressText = params.progressText
-      .replace('@card', (id + 1).toString())
-      .replace('@total', (params.dialogs.length).toString());
-
-    $('<div>', {
-      'class': 'h5p-dialogcards-at-progress',
-      'text': progressText
+    this.$progressText = $('<div>', {
+      'class': 'h5p-dialogcards-at-progress'
     }).appendTo($cardHolder);
 
     this.createCardContent(card)
@@ -173,45 +167,63 @@ class Card {
       }
     }
 
-    H5P.JoubelUI.createButton({
+    this.$buttonIncorrect = H5P.JoubelUI.createButton({
       'class': 'h5p-dialogcards-answer-button',
       'html': this.params.incorrectAnswer
-    }).click((event) => {
-      if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
-        return;
-      }
-      this.callbacks.onNextCard({cardId: this.id, result: false});
     }).addClass('incorrect')
       .addClass(classesRepetition)
       .attr('tabindex', attributeTabindex)
       .appendTo($cardFooter);
 
-    this.buttonTurn = H5P.JoubelUI.createButton({
+    this.$buttonTurn = H5P.JoubelUI.createButton({
       'class': 'h5p-dialogcards-turn',
       'html': this.params.answer
-    }).click(() => {
-      this.turnCard();
     }).appendTo($cardFooter);
 
-    this.buttonShowSummary = H5P.JoubelUI.createButton({
+    this.$buttonShowSummary = H5P.JoubelUI.createButton({
       'class': 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone',
       'html': this.params.showSummary
     }).appendTo($cardFooter);
 
-    H5P.JoubelUI.createButton({
+    this.$buttonCorrect = H5P.JoubelUI.createButton({
       'class': 'h5p-dialogcards-answer-button',
       'html': this.params.correctAnswer
-    }).click((event) => {
-      if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
-        return;
-      }
-      this.callbacks.onNextCard({cardId: this.id, result: true});
     }).addClass('correct')
       .addClass(classesRepetition)
       .attr('tabindex', attributeTabindex)
       .appendTo($cardFooter);
 
     return $cardFooter;
+  }
+
+  /**
+   * Create button listeners.
+   * Will be lost when the element is removed from DOM.
+   */
+  createButtonListeners() {
+    this.$buttonIncorrect
+      .unbind('click')
+      .click(event => {
+        if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
+          return;
+        }
+        this.callbacks.onNextCard({cardId: this.id, result: false});
+      });
+
+    this.$buttonTurn
+      .unbind('click')
+      .click(() => {
+        this.turnCard();
+      });
+
+    this.$buttonCorrect
+      .unbind('click')
+      .click(event => {
+        if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
+          return;
+        }
+        this.callbacks.onNextCard({cardId: this.id, result: true});
+      });
   }
 
   /**
@@ -227,12 +239,29 @@ class Card {
       .attr('tabindex', '-1');
 
     // Swap turn button with show summary button
-    this.buttonTurn
+    this.$buttonTurn
       .addClass('h5p-dialogcards-button-gone');
 
-    this.buttonShowSummary
+    this.$buttonShowSummary
       .click(() => callback())
       .removeClass('h5p-dialogcards-button-gone');
+  }
+
+  /**
+   * Hide summary button and show answer buttons again.
+   */
+  hideSummaryButton() {
+    this.getDOM()
+      .find('.h5p-dialogcards-answer-button')
+      .removeClass('h5p-dialogcards-button-hidden')
+      .attr('tabindex', '0');
+
+    // Swap turn button with show summary button
+    this.$buttonTurn
+      .removeClass('h5p-dialogcards-button-gone');
+
+    this.$buttonShowSummary
+      .addClass('h5p-dialogcards-button-gone');
   }
 
   /**
@@ -301,6 +330,19 @@ class Card {
     const $cardText = this.getDOM().find('.h5p-dialogcards-card-text-area');
     $cardText.html(text);
     $cardText.toggleClass('hide', (!text || !text.length));
+  }
+
+  /**
+   * Set progress for assistive technologies.
+   * @param {number} position Position.
+   * @param {number} max Maximum position.
+   */
+  setProgressText(position, total) {
+    const progressText = this.params.progressText
+      .replace('@card', (position).toString())
+      .replace('@total', (total).toString());
+
+    this.$progressText.html(progressText);
   }
 
   /**
@@ -498,6 +540,27 @@ class Card {
    */
   getAudio() {
     return this.$audioWrapper;
+  }
+
+  /**
+   * Reset card.
+   */
+  reset() {
+    const $card = this.getDOM();
+
+    $card.removeClass('h5p-dialogcards-previous');
+    $card.removeClass('h5p-dialogcards-current');
+
+    this.changeText(this.getText());
+
+    const $cardContent = $card.find('.h5p-dialogcards-card-content');
+    $cardContent.removeClass('h5p-dialogcards-turned');
+    this.addTipToCard($cardContent, 'front', this.id);
+
+    if (!this.params.quickProgression) {
+      $card.find('.h5p-dialogcards-answer-button').removeClass('h5p-dialogcards-quick-progression');
+    }
+    this.hideSummaryButton();
   }
 }
 

@@ -142,7 +142,8 @@ class SummaryScreen {
    */
   update({done = false, round = undefined, message = undefined, results = []} = {}) {
     if (done === true) {
-      this.fields['button'].removeClass('h5p-dialogcards-button-next-round').addClass('h5p-dialogcards-button-restart');
+      this.fields['button'].classList.remove('h5p-dialogcards-button-next-round');
+      this.fields['button'].classList.add('h5p-dialogcards-button-restart');
       this.fields['button'].innerHTML = this.params.retry;
       this.fields['button'].title = this.params.retry;
       this.currentCallback = this.callbacks.retry;
@@ -154,14 +155,15 @@ class SummaryScreen {
       this.fields['button'].title = this.params.nextRound;
       this.currentCallback = this.callbacks.nextRound;
     }
+    H5P.jQuery(this.fields['button']).unbind('click').click(this.currentCallback);
 
-    if (round !== undefined) {
+    if (!done && round !== undefined) {
       this.fields['round'].innerHTML = this.params.round.replace('@round', round);
       this.fields['button'].innerHTML = this.params.nextRound.replace('@round', round + 1);
       this.fields['button'].title = this.params.nextRound.replace('@round', round + 1);
     }
 
-    if (message !== undefined && message !== '') {
+    if (done && message !== undefined && message !== '') {
       this.fields['message'].classList.remove('h5p-dialogcards-gone');
       this.fields['message'].innerHTML = message;
     }

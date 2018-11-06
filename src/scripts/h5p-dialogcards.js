@@ -8,8 +8,6 @@ class Dialogcards extends H5P.EventDispatcher {
   /**
    * Initialize module.
    *
-   * TODO: Check resize/placement issues when cards vary in content/text length
-   *
    * @constructor
    *
    * @param {Object} params Parameters.
@@ -51,7 +49,6 @@ class Dialogcards extends H5P.EventDispatcher {
       ],
       behaviour: {
         enableRetry: true,
-        //randomAnswers: false, // This param is not used!
         scaleTextNotCard: false,
         randomCards: false
       }
@@ -66,7 +63,7 @@ class Dialogcards extends H5P.EventDispatcher {
     this.cards = [];
 
     this.currentCardId = 0;
-    this.round = 1;
+    this.round = 0; // 0 indicates that DOM needs to be set up
     this.results = [];
 
     /**
@@ -75,51 +72,74 @@ class Dialogcards extends H5P.EventDispatcher {
      * @param {jQuery} $container Container.
      */
     this.attach = ($container) => {
-      this.cardManager = new CardManager(this.params, this.id, {
-        onCardTurned: this.handleCardTurned,
-        onNextCard: this.nextCard
-      });
-      this.cardIds = this.cardManager.createSelection();
-      this.cardPoolSize = this.cardIds.length;
-
-      const title = $('<div>' + this.params.title + '</div>').text().trim();
-
       this.$inner = $container.addClass('h5p-dialogcards');
-
-      this.$mainContent = $('<div>')
-        .append($((title ? '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + this.params.title + '</div></div>' : '') +
-        '<div class="h5p-dialogcards-description">' + this.params.description + '</div>'
-        ));
-
       if (this.params.behaviour.scaleTextNotCard) {
         $container.addClass('h5p-text-scaling');
       }
 
-      this.initCards(this.params.dialogs).appendTo(this.$mainContent);
-
-      this.$cardSideAnnouncer = $('<div>', {
-        html: this.params.cardFrontLabel,
-        'class': 'h5p-dialogcards-card-side-announcer',
-        'aria-live': 'polite',
-        'aria-hidden': 'true'
-      }).appendTo(this.$mainContent);
-
-      this.summaryScreen = new SummaryScreen(this.params, {nextRound: this.nextRound, retry: this.reset});
-      this.$cardwrapperSet.prepend(this.summaryScreen.getDOM());
-
-      this.$footer = this.createFooter();
-      this.$footer.appendTo(this.$mainContent);
-
-      this.$mainContent.appendTo($container);
-
-      this.updateNavigation();
-
-      this.on('reset', function () {
-        this.reset();
+      this.cardManager = new CardManager(this.params, this.id, {
+        onCardTurned: this.handleCardTurned,
+        onNextCard: this.nextCard
       });
 
-      this.on('resize', this.resize);
+      this.createDOM(this.round === 0);
+
+      this.updateNavigation();
       this.trigger('resize');
+    };
+
+    /**
+     * Create DOM.
+     * @param {boolean} firstCall Is first call?
+     */
+    this.createDOM = (firstCall) => {
+      this.cardIds = this.cardManager.createSelection();
+      this.cardPoolSize = this.cardPoolSize || this.cardIds.length;
+
+      if (firstCall === true) {
+        const title = $('<div>' + this.params.title + '</div>').text().trim();
+        this.$header = $((title ? '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + this.params.title + '</div></div>' : '') +
+          '<div class="h5p-dialogcards-description">' + this.params.description + '</div>');
+
+        this.summaryScreen = new SummaryScreen(this.params, {nextRound: this.nextRound, retry: this.restartRepetition});
+      }
+
+      if (firstCall === true) {
+        this.$cardwrapperSet = this.initCards(this.cardIds);
+      }
+      else {
+        this.$cardwrapperSet.remove();
+        this.$cardwrapperSet = this.initCards(this.cardIds);
+        this.$cardSideAnnouncer.before(this.$cardwrapperSet);
+      }
+
+      this.$cardwrapperSet.prepend(this.summaryScreen.getDOM());
+
+      if (firstCall === true) {
+        this.$cardSideAnnouncer = $('<div>', {
+          html: this.params.cardFrontLabel,
+          'class': 'h5p-dialogcards-card-side-announcer',
+          'aria-live': 'polite',
+          'aria-hidden': 'true'
+        });
+
+        this.$footer = this.createFooter();
+
+        this.$mainContent = $('<div>')
+          .append(this.$header)
+          .append(this.$cardwrapperSet)
+          .append(this.$cardSideAnnouncer)
+          .append(this.$footer)
+          .appendTo(this.$inner);
+
+        this.on('reset', function () {
+          this.reset();
+        });
+
+        this.on('resize', this.resize);
+
+        this.round = 1;
+      }
     };
 
     /**
@@ -210,28 +230,31 @@ class Dialogcards extends H5P.EventDispatcher {
     /**
      * Creates all cards and appends them to card wrapper.
      *
-     * @param {object[]} cards Card parameters
+     * @param {object[]} cardIds Card ids.
      * @returns {*|jQuery|HTMLElement} Card wrapper set
      */
-    this.initCards = (cards) => {
+    this.initCards = (cardIds) => {
       const initLoad = 2;
+      this.cards = [];
+      this.currentCardId = 0;
 
       // Randomize cards order
       if (this.params.behaviour.randomCards) {
-        cards = H5P.shuffleArray(cards);
+        cardIds = H5P.shuffleArray(cardIds);
       }
 
-      this.$cardwrapperSet = $('<div>', {
+      const $cardwrapperSet = $('<div>', {
         'class': 'h5p-dialogcards-cardwrap-set'
       });
 
-      for (let i = 0; i < cards.length; i++) {
+      for (let i = 0; i < cardIds.length; i++) {
         // Load cards progressively
         if (i >= initLoad) {
           break;
         }
 
-        const card = this.cardManager.getCard(this.cardIds[i]);
+        const card = this.getCard(cardIds[i]);
+        card.setProgressText(i + 1, cardIds.length);
 
         this.cards.push(card);
         const $cardWrapper = card.getDOM();
@@ -244,10 +267,10 @@ class Dialogcards extends H5P.EventDispatcher {
 
         card.addTipToCard($cardWrapper.find('.h5p-dialogcards-card-content'), 'front', i);
 
-        this.$cardwrapperSet.append($cardWrapper);
+        $cardwrapperSet.append($cardWrapper);
       }
 
-      return this.$cardwrapperSet;
+      return $cardwrapperSet;
     };
 
     /**
@@ -350,7 +373,6 @@ class Dialogcards extends H5P.EventDispatcher {
 
       this.summaryScreen.update(summary);
       this.summaryScreen.show();
-
       this.hideCards();
 
       this.trigger('resize');
@@ -402,8 +424,10 @@ class Dialogcards extends H5P.EventDispatcher {
 
       // Load next card
       if (this.currentCardId + 1 < this.cardIds.length) {
-        const card = this.cardManager.getCard(this.cardIds[this.currentCardId + 1]);
+        const card = this.getCard(this.cardIds[this.currentCardId + 1]);
+        card.setProgressText(this.currentCardId + 2, this.cardIds.length);
         this.cards.push(card);
+
         const $cardWrapper = card.getDOM();
         $cardWrapper.appendTo(this.$cardwrapperSet);
 
@@ -412,6 +436,18 @@ class Dialogcards extends H5P.EventDispatcher {
       }
 
       this.updateNavigation();
+    };
+
+    /**
+     * Get card from card manager.
+     * @param {number} id Card's Id.
+     * @return {object} Card.
+     */
+    this.getCard = (id) => {
+      const card = this.cardManager.getCard(id);
+      card.createButtonListeners();
+
+      return card;
     };
 
     /**
@@ -442,17 +478,31 @@ class Dialogcards extends H5P.EventDispatcher {
         .removeClass('hide');
     };
 
+    this.restartRepetition = () => {
+      this.cardManager.reset();
+      this.round = 0;
+
+      this.nextRound();
+    };
+
     this.nextRound = () => {
-      console.log('nextRound');
       this.round++;
+      this.summaryScreen.hide();
+      this.showCards();
+
+      this.reset();
+      this.createDOM();
+
+      this.updateNavigation();
+
+      this.trigger('resize');
     };
 
     /**
      * Reset the task so that the user can do it again.
-     *
-     * TODO: Needs to be changed when HFP-2342 is done.
      */
     this.reset = () => {
+      this.results = [];
       this.cards[this.currentCardId].stopAudio(this.$current.index());
 
       // Show first card
@@ -462,16 +512,13 @@ class Dialogcards extends H5P.EventDispatcher {
       this.updateNavigation();
 
       // Turn all cards to front
-      this.cards.forEach((card, index) => {
-        const $card = card.getDOM();
-        $card.removeClass('h5p-dialogcards-previous');
-        card.changeText(card.getText());
-        const $cardContent = $card.find('.h5p-dialogcards-card-content');
-        $cardContent.removeClass('h5p-dialogcards-turned');
-        card.addTipToCard($cardContent, 'front', index);
+      this.cards.forEach(card => {
+        card.reset();
       });
 
-      this.$retry.addClass('h5p-dialogcards-disabled');
+      if (this.$retry) {
+        this.$retry.addClass('h5p-dialogcards-disabled');
+      }
       this.showAllAudio();
 
       this.cards[this.currentCardId].resizeOverflowingText();
