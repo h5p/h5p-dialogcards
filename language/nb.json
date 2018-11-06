@@ -114,7 +114,7 @@
     },
     {
       "label": "Text for the \"incorrect answer\" button",
-      "default": "I got it wrong."
+      "default": "I got it wrong"
     },
     {
       "label": "Text for \"Round\" message below cards and on the summary screen",

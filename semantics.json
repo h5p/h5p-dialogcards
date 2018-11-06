@@ -268,7 +268,7 @@
     "type": "text",
     "label": "Text for the \"incorrect answer\" button",
     "importance": "low",
-    "default": "I got it wrong.",
+    "default": "I got it wrong",
     "common": true
   },
   {
