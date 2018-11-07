@@ -383,7 +383,7 @@ class Dialogcards extends H5P.EventDispatcher {
      * Show main content.
      */
     this.showCards = () => {
-      this.$cardwrapperSet.find('h5p-dialogcards-cardwrap').removeClass('h5p-dialogcards-gone');
+      this.$cardwrapperSet.find('.h5p-dialogcards-cardwrap').removeClass('h5p-dialogcards-gone');
       this.$footer.removeClass('h5p-dialogcards-gone');
       this.cardsShown = true;
     };
@@ -392,7 +392,7 @@ class Dialogcards extends H5P.EventDispatcher {
      * Hide main content.
      */
     this.hideCards = () => {
-      this.$cardwrapperSet.find('h5p-dialogcards-cardwrap').addClass('h5p-dialogcards-gone');
+      this.$cardwrapperSet.find('.h5p-dialogcards-cardwrap').addClass('h5p-dialogcards-gone');
       this.$footer.addClass('h5p-dialogcards-gone');
       this.cardsShown = false;
     };
