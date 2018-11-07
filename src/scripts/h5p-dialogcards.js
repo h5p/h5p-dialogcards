@@ -27,6 +27,7 @@ class Dialogcards extends H5P.EventDispatcher {
     // Set default behavior.
     this.params = $.extend({
       title: '',
+      mode: 'normal',
       description: "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
       next: "Next",
       prev: "Previous",
