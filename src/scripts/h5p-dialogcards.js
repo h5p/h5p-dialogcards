@@ -335,8 +335,8 @@ class Dialogcards extends H5P.EventDispatcher {
       const right = this.results.filter(result => result.result === true).length;
       const wrong = this.results.length - right;
       const unseen = this.cardPoolSize - right - wrong;
-      const rightOverall = newPileSizes.slice(-1)[0];
-      const done = rightOverall === this.cardPoolSize;
+      const completed = newPileSizes.slice(-1)[0];
+      const done = completed === this.cardPoolSize;
 
       const summary = {
         round: this.round,
@@ -354,8 +354,8 @@ class Dialogcards extends H5P.EventDispatcher {
             score: {value: unseen}
           },
           {
-            field: 'h5p-dialogcards-overall-cards-right',
-            score: {value: rightOverall, max: this.cardPoolSize}
+            field: 'h5p-dialogcards-overall-cards-completed',
+            score: {value: completed, max: this.cardPoolSize}
           },
           {
             field: 'h5p-dialogcards-overall-completed-rounds',

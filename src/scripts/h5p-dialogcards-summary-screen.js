@@ -24,8 +24,8 @@ class SummaryScreen {
       containerRound, {category: this.params.summaryCardsUnseen});
 
     const containerOverall = this.createContainerDOM(params.summaryOverallScore);
-    this.fields['h5p-dialogcards-overall-cards-right'] = this.addTableRow(
-      containerOverall, {category: this.params.summaryCardsRight, symbol: 'h5p-dialogcards-check'});
+    this.fields['h5p-dialogcards-overall-cards-completed'] = this.addTableRow(
+      containerOverall, {category: this.params.summaryCardsCompleted, symbol: 'h5p-dialogcards-check'});
     this.fields['h5p-dialogcards-overall-completed-rounds'] = this.addTableRow(
       containerOverall, {category: this.params.summaryCompletedRounds, symbol: ''});
 

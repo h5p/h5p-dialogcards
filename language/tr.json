@@ -156,6 +156,10 @@
       "default": "Overall Score"
     },
     {
+      "label": "Text for \"Cards completed\"",
+      "default": "Cards you have completed learning:"
+    },
+    {
       "label": "Text for \"Completed rounds:\"",
       "default": "Completed rounds:"
     },

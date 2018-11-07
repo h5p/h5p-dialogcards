@@ -347,6 +347,14 @@
     "common": true
   },
   {
+    "name": "summaryCardsCompleted",
+    "type": "text",
+    "label": "Text for \"Cards completed\"",
+    "importance": "low",
+    "default": "Cards you have completed learning:",
+    "common": true
+  },
+  {
     "name": "summaryCompletedRounds",
     "type": "text",
     "label": "Text for \"Completed rounds:\"",
