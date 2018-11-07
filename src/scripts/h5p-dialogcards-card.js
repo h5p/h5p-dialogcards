@@ -470,8 +470,6 @@ class Card {
    */
   setCardFocus(force) {
     if (force === true) {
-      console.log('foo');
-      console.log(this.getDOM().find('.h5p-dialogcards-card-text-area'));
       this.getDOM().find('.h5p-dialogcards-card-text-area').focus();
     }
     else {
