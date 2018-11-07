@@ -251,6 +251,7 @@
   margin: 0;
   font-weight: normal;
   line-height: 1;
+  order: 1;
 }
 
 .h5p-dialogcards .h5p-dialogcards-turn:before {
@@ -262,6 +263,7 @@
   margin: 0;
   font-weight: normal;
   line-height: 1;
+  order: 1;
 }
 
 .h5p-dialogcards .h5p-dialogcards-show-summary:before {
@@ -301,6 +303,10 @@
   cursor: pointer;
 }
 
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.correct {
+  order: 2;
+}
+
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.correct:before {
   font-family: 'H5PFontAwesome4';
   content: "\f00c";
@@ -316,6 +322,10 @@
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.correct.h5p-dialogcards-quick-progression:hover {
   color: #fff;
   background-color: #1f824c;
+}
+
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.incorrect {
+  order: 0;
 }
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.incorrect:before {

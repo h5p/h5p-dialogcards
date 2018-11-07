@@ -167,14 +167,6 @@ class Card {
       }
     }
 
-    this.$buttonIncorrect = H5P.JoubelUI.createButton({
-      'class': 'h5p-dialogcards-answer-button',
-      'html': this.params.incorrectAnswer
-    }).addClass('incorrect')
-      .addClass(classesRepetition)
-      .attr('tabindex', attributeTabindex)
-      .appendTo($cardFooter);
-
     this.$buttonTurn = H5P.JoubelUI.createButton({
       'class': 'h5p-dialogcards-turn',
       'html': this.params.answer
@@ -184,6 +176,14 @@ class Card {
       'class': 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone',
       'html': this.params.showSummary
     }).appendTo($cardFooter);
+
+    this.$buttonIncorrect = H5P.JoubelUI.createButton({
+      'class': 'h5p-dialogcards-answer-button',
+      'html': this.params.incorrectAnswer
+    }).addClass('incorrect')
+      .addClass(classesRepetition)
+      .attr('tabindex', attributeTabindex)
+      .appendTo($cardFooter);
 
     this.$buttonCorrect = H5P.JoubelUI.createButton({
       'class': 'h5p-dialogcards-answer-button',
