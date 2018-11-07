@@ -166,7 +166,7 @@
     {
       "label": "Message when all cards have been learned proficiently",
       "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row each!"
+      "default": "Well done! You got all @cards cards correct @max times in a row!"
     },
     {
       "label": "Label for card text",
