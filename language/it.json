@@ -16,13 +16,6 @@
       ]
     },
     {
-      "label": "Maximum proficiency level"
-    },
-    {
-      "label": "Allow quick progression",
-      "description": "If activated, learners can decide to indicate that they know a card without turning it"
-    },
-    {
       "label": "Descrizione attività",
       "default": ""
     },
@@ -89,6 +82,13 @@
         {
           "label": "Randomize cards",
           "description": "Enable to randomize the order of cards on display."
+        },
+        {
+          "label": "Maximum proficiency level"
+        },
+        {
+          "label": "Allow quick progression",
+          "description": "If activated, learners can decide to indicate that they know a card without turning it"
         }
       ]
     },

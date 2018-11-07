@@ -16,13 +16,6 @@
       ]
     },
     {
-      "label": "Maximum proficiency level"
-    },
-    {
-      "label": "Allow quick progression",
-      "description": "If activated, learners can decide to indicate that they know a card without turning it"
-    },
-    {
       "label": "Etkinlik açıklaması",
       "default": ""
     },
@@ -89,6 +82,13 @@
         {
           "label": "Kartları karıştır",
           "description": "Kartların gösterilme sırasının rasgele olmasını sağlar."
+        },
+        {
+          "label": "Maximum proficiency level"
+        },
+        {
+          "label": "Allow quick progression",
+          "description": "If activated, learners can decide to indicate that they know a card without turning it"
         }
       ]
     },

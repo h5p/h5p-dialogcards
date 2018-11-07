@@ -16,13 +16,6 @@
       ]
     },
     {
-      "label": "Maximum proficiency level"
-    },
-    {
-      "label": "Allow quick progression",
-      "description": "If activated, learners can decide to indicate that they know a card without turning it"
-    },
-    {
       "label": "描述",
       "default": ""
     },
@@ -89,6 +82,13 @@
         {
           "label": "隨機出卡",
           "description": "啟用後，卡片顯示的順序會隨機。"
+        },
+        {
+          "label": "Maximum proficiency level"
+        },
+        {
+          "label": "Allow quick progression",
+          "description": "If activated, learners can decide to indicate that they know a card without turning it"
         }
       ]
     },

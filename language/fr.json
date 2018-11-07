@@ -16,13 +16,6 @@
       ]
     },
     {
-      "label": "Maximum proficiency level"
-    },
-    {
-      "label": "Allow quick progression",
-      "description": "If activated, learners can decide to indicate that they know a card without turning it"
-    },
-    {
       "label": "Consigne",
       "default": ""
     },
@@ -89,6 +82,13 @@
         {
           "label": "Mélanger les cartes",
           "description": "Cocher pour mélanger l'ordre des cartes à l'affichage."
+        },
+        {
+          "label": "Maximum proficiency level"
+        },
+        {
+          "label": "Allow quick progression",
+          "description": "If activated, learners can decide to indicate that they know a card without turning it"
         }
       ]
     },

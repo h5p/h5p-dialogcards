@@ -16,13 +16,6 @@
       ]
     },
     {
-      "label": "Maximum proficiency level"
-    },
-    {
-      "label": "Allow quick progression",
-      "description": "If activated, learners can decide to indicate that they know a card without turning it"
-    },
-    {
       "label": "Zereginaren deskribapena",
       "default": ""
     },
@@ -89,6 +82,13 @@
         {
           "label": "Ausazko txartelak",
           "description": "Gaitu pantailako txartelen ordena ausazkoa izatea."
+        },
+        {
+          "label": "Maximum proficiency level"
+        },
+        {
+          "label": "Allow quick progression",
+          "description": "If activated, learners can decide to indicate that they know a card without turning it"
         }
       ]
     },

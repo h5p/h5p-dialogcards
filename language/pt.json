@@ -16,13 +16,6 @@
       ]
     },
     {
-      "label": "Maximum proficiency level"
-    },
-    {
-      "label": "Allow quick progression",
-      "description": "If activated, learners can decide to indicate that they know a card without turning it"
-    },
-    {
       "label": "Descrição da tarefa",
       "default": ""
     },
@@ -89,6 +82,13 @@
         {
           "label": "Aleatorizar cartões",
           "description": "Habilite para aleatorizar a ordem em que os cartões são exibidos."
+        },
+        {
+          "label": "Maximum proficiency level"
+        },
+        {
+          "label": "Allow quick progression",
+          "description": "If activated, learners can decide to indicate that they know a card without turning it"
         }
       ]
     },

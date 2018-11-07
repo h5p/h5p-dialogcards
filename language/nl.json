@@ -16,13 +16,6 @@
       ]
     },
     {
-      "label": "Maximum proficiency level"
-    },
-    {
-      "label": "Allow quick progression",
-      "description": "If activated, learners can decide to indicate that they know a card without turning it"
-    },
-    {
       "label": "Beschrijving taak",
       "default": ""
     },
@@ -89,6 +82,13 @@
         {
           "label": "Kaarten in willekeurige volgorde",
           "description": "Schakel in om de kaarten in willekeurige volgorde te tonen."
+        },
+        {
+          "label": "Maximum proficiency level"
+        },
+        {
+          "label": "Allow quick progression",
+          "description": "If activated, learners can decide to indicate that they know a card without turning it"
         }
       ]
     },

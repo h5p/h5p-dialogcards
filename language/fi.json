@@ -16,13 +16,6 @@
       ]
     },
     {
-      "label": "Maximum proficiency level"
-    },
-    {
-      "label": "Allow quick progression",
-      "description": "If activated, learners can decide to indicate that they know a card without turning it"
-    },
-    {
       "label": "Tehtävän kuvaus",
       "default": ""
     },
@@ -89,6 +82,13 @@
         {
           "label": "Sekoita kortit",
           "description": "Tällä valinnalla voit satunnaistaa korttien esiintymisjärjestyksen."
+        },
+        {
+          "label": "Maximum proficiency level"
+        },
+        {
+          "label": "Allow quick progression",
+          "description": "If activated, learners can decide to indicate that they know a card without turning it"
         }
       ]
     },
