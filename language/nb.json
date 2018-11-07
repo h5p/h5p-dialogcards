@@ -148,8 +148,8 @@
       "default": "Cards you got wrong:"
     },
     {
-      "label": "Text for \"Unseen cards:\"",
-      "default": "Unseen cards:"
+      "label": "Text for \"Cards not shown:\"",
+      "default": "Cards in pool not shown:"
     },
     {
       "label": "Text for \"Overall Score\"",

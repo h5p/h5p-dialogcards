@@ -331,11 +331,11 @@
     "common": true
   },
   {
-    "name": "summaryCardsUnseen",
+    "name": "summaryCardsNotShown",
     "type": "text",
-    "label": "Text for \"Unseen cards:\"",
+    "label": "Text for \"Cards not shown:\"",
     "importance": "low",
-    "default": "Unseen cards:",
+    "default": "Cards in pool not shown:",
     "common": true
   },
   {
