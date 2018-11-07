@@ -244,7 +244,8 @@ class Card {
 
     this.$buttonShowSummary
       .click(() => callback())
-      .removeClass('h5p-dialogcards-button-gone');
+      .removeClass('h5p-dialogcards-button-gone')
+      .focus();
   }
 
   /**
