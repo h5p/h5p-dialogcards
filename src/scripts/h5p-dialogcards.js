@@ -493,6 +493,7 @@ class Dialogcards extends H5P.EventDispatcher {
 
       this.reset();
       this.createDOM();
+      this.cards[this.currentCardId].setCardFocus(true);
 
       this.updateNavigation();
 
@@ -524,7 +525,7 @@ class Dialogcards extends H5P.EventDispatcher {
       this.showAllAudio();
 
       this.cards[this.currentCardId].resizeOverflowingText();
-      this.cards[this.currentCardId].setCardFocus(this.$current);
+      this.cards[this.currentCardId].setCardFocus();
     };
 
     /**

@@ -191,6 +191,7 @@ class SummaryScreen {
    */
   show() {
     this.container.classList.remove('h5p-dialogcards-gone');
+    this.fields['button'].focus();
   }
 
   /**

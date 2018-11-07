@@ -244,7 +244,8 @@ class Card {
 
     this.$buttonShowSummary
       .click(() => callback())
-      .removeClass('h5p-dialogcards-button-gone');
+      .removeClass('h5p-dialogcards-button-gone')
+      .focus();
   }
 
   /**
@@ -464,13 +465,21 @@ class Card {
   }
 
   /**
-   * Set focus to a given card
+   * Set focus to a given card.
+   * @param {boolean} force If true, don't wait for transition.
    */
-  setCardFocus() {
-    // Wait for transition, then set focus
-    this.getDOM().one('transitionend', () => {
+  setCardFocus(force) {
+    if (force === true) {
+      console.log('foo');
+      console.log(this.getDOM().find('.h5p-dialogcards-card-text-area'));
       this.getDOM().find('.h5p-dialogcards-card-text-area').focus();
-    });
+    }
+    else {
+      // Wait for transition, then set focus
+      this.getDOM().one('transitionend', () => {
+        this.getDOM().find('.h5p-dialogcards-card-text-area').focus();
+      });
+    }
   }
 
   /**
