@@ -32,43 +32,6 @@
     "default": "normal"
   },
   {
-    "name": "maxProficiency",
-    "type": "number",
-    "label": "Maximum proficiency level",
-    "importance": "low",
-    "default": 5,
-    "min": 3,
-    "max": 7,
-    "optional": true,
-    "widget": "showWhen",
-    "showWhen": {
-      "rules": [
-        {
-          "field": "mode",
-          "equals": "repetition"
-        }
-      ]
-    }
-  },
-  {
-    "name": "quickProgression",
-    "type": "boolean",
-    "label": "Allow quick progression",
-    "description": "If activated, learners can decide to indicate that they know a card without turning it",
-    "importance": "low",
-    "default": false,
-    "optional": true,
-    "widget": "showWhen",
-    "showWhen": {
-      "rules": [
-        {
-          "field": "mode",
-          "equals": "repetition"
-        }
-      ]
-    }
-  },
-  {
     "name": "description",
     "type": "text",
     "widget": "html",
@@ -203,7 +166,16 @@
         "importance": "low",
         "description": "This option will only allow you to move forward with Dialog Cards",
         "optional": true,
-        "default": false
+        "default": false,
+        "widget": "showWhen",
+        "showWhen": {
+          "rules": [
+            {
+              "field": "../mode",
+              "equals": "normal"
+            }
+          ]
+        }
       },
       {
         "name": "scaleTextNotCard",
@@ -219,7 +191,53 @@
         "label": "Randomize cards",
         "importance": "low",
         "description": "Enable to randomize the order of cards on display.",
-        "default": false
+        "default": false,
+        "widget": "showWhen",
+        "showWhen": {
+          "rules": [
+            {
+              "field": "../mode",
+              "equals": "normal"
+            }
+          ]
+        }
+      },
+      {
+        "name": "maxProficiency",
+        "type": "number",
+        "label": "Maximum proficiency level",
+        "importance": "low",
+        "default": 5,
+        "min": 3,
+        "max": 7,
+        "optional": true,
+        "widget": "showWhen",
+        "showWhen": {
+          "rules": [
+            {
+              "field": "../mode",
+              "equals": "repetition"
+            }
+          ]
+        }
+      },
+      {
+        "name": "quickProgression",
+        "type": "boolean",
+        "label": "Allow quick progression",
+        "description": "If activated, learners can decide to indicate that they know a card without turning it",
+        "importance": "low",
+        "default": false,
+        "optional": true,
+        "widget": "showWhen",
+        "showWhen": {
+          "rules": [
+            {
+              "field": "../mode",
+              "equals": "repetition"
+            }
+          ]
+        }
       }
     ]
   },

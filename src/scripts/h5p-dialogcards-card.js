@@ -161,7 +161,7 @@ class Card {
 
     if (this.params.mode === 'repetition') {
       classesRepetition = '';
-      if (this.params.quickProgression) {
+      if (this.params.behaviour.quickProgression) {
         classesRepetition = 'h5p-dialogcards-quick-progression';
         attributeTabindex = '0';
       }
@@ -297,7 +297,7 @@ class Card {
       }
 
       // Toggle state for knowledge confirmation buttons
-      if (this.params.mode === 'repetition' && !this.params.quickProgression) {
+      if (this.params.mode === 'repetition' && !this.params.behaviour.quickProgression) {
         const $answerButtons = $card.find('.h5p-dialogcards-answer-button');
 
         // Don't revoke quick progression after card was turned.
@@ -561,7 +561,7 @@ class Card {
     $cardContent.removeClass('h5p-dialogcards-turned');
     this.addTipToCard($cardContent, 'front', this.id);
 
-    if (!this.params.quickProgression) {
+    if (!this.params.behaviour.quickProgression) {
       $card.find('.h5p-dialogcards-answer-button').removeClass('h5p-dialogcards-quick-progression');
     }
     this.hideSummaryButton();

@@ -142,11 +142,16 @@ class SummaryScreen {
    */
   update({done = false, round = undefined, message = undefined, results = []} = {}) {
     if (done === true) {
-      this.fields['button'].classList.remove('h5p-dialogcards-button-next-round');
-      this.fields['button'].classList.add('h5p-dialogcards-button-restart');
-      this.fields['button'].innerHTML = this.params.retry;
-      this.fields['button'].title = this.params.retry;
-      this.currentCallback = this.callbacks.retry;
+      if (this.params.behaviour.enableRetry) {
+        this.fields['button'].classList.remove('h5p-dialogcards-button-next-round');
+        this.fields['button'].classList.add('h5p-dialogcards-button-restart');
+        this.fields['button'].innerHTML = this.params.retry;
+        this.fields['button'].title = this.params.retry;
+        this.currentCallback = this.callbacks.retry;
+      }
+      else {
+        this.fields['button'].classList.add('h5p-dialogcards-button-gone');
+      }
     }
     else {
       this.fields['button'].classList.add('h5p-dialogcards-button-next-round');

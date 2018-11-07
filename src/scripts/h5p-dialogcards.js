@@ -368,7 +368,7 @@ class Dialogcards extends H5P.EventDispatcher {
         summary.done = true;
         summary.message = this.params.summaryAllDone
           .replace('@cards', this.cardPoolSize)
-          .replace('@max', this.params.maxProficiency - 1);
+          .replace('@max', this.params.behaviour.maxProficiency - 1);
       }
 
       this.summaryScreen.update(summary);
