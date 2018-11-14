@@ -166,7 +166,12 @@
     {
       "label": "Message when all cards have been learned proficiently",
       "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row each!"
+      "default": "Well done! You got all @cards cards correct @max times in a row!"
+    },
+    {
+      "label": "Tekst bij voortgang",
+      "description": "Beschikbare variabelen zijn @card en @total.",
+      "default": "Kaart @card van @total"
     },
     {
       "label": "Label voor de kaarttekst",
@@ -180,16 +185,11 @@
     },
     {
       "label": "Label voor de toon tip knop",
-      "description": "Used for accessibility by assistive technologies",
       "default": "Toon tip"
     },
     {
       "label": "Statusbericht dat de audio niet wordt ondersteund",
       "default": "Je browser ondersteunt de audio niet"
-    },
-    {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
     }
   ]
 }

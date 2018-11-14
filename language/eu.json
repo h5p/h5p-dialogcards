@@ -166,7 +166,12 @@
     {
       "label": "Message when all cards have been learned proficiently",
       "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row each!"
+      "default": "Well done! You got all @cards cards correct @max times in a row!"
+    },
+    {
+      "label": "Aurrerapena testua",
+      "description": "Erabiltzen dituen aldagaiak dira @card eta @total.",
+      "default": "@total -tik @card . txartela"
     },
     {
       "label": "Txartelaren testuaren etiketa",
@@ -180,16 +185,11 @@
     },
     {
       "label": "Erakutsi argibidea botoiaren etiketa",
-      "description": "Used for accessibility by assistive technologies",
       "default": "Erakutsi argibidea"
     },
     {
       "label": "Audioa ez da onartzen mezua",
       "default": "Zure nabigatzaileak ez du onartzen audio hau"
-    },
-    {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
     }
   ]
 }

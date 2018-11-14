@@ -169,6 +169,11 @@
       "default": "Well done! You got all @cards cards correct @max times in a row!"
     },
     {
+      "label": "Progress text",
+      "description": "Available variables are @card and @total.",
+      "default": "Card @card of @total"
+    },
+    {
       "label": "Label for card text",
       "description": "Used for accessibility by assistive technologies",
       "default": "Card front"
@@ -180,12 +185,7 @@
     },
     {
       "label": "Label for the show tip button",
-      "description": "Used for accessibility by assistive technologies",
       "default": "Show tip"
-    },
-    {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
     },
     {
       "label": "Audio not supported message",
