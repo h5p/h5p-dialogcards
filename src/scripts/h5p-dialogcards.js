@@ -33,6 +33,20 @@ class Dialogcards extends H5P.EventDispatcher {
       prev: "Previous",
       retry: "Retry",
       answer: "Turn",
+      correctAnswer: 'I got it right!',
+      incorrectAnswer: 'I got it wrong',
+      round: 'Round @round',
+      cardsLeft: 'Cards left: @number',
+      nextRound: 'Proceed to round @round',
+      showSummary: 'Next',
+      summary: 'Summary',
+      summaryCardsRight: 'Cards you got right:',
+      summaryCardsWrong: 'Cards you got wrong:',
+      summaryCardsNotShown: 'Cards in pool not shown:',
+      summaryOverallScore: 'Overall Score',
+      summaryCardsCompleted: 'Cards you have completed learning:',
+      summaryCompletedRounds: 'Completed rounds:',
+      summaryAllDone: 'Well done! You got all @cards cards correct @max times in a row each!',
       progressText: "Card @card of @total",
       cardFrontLabel: "Card front",
       cardBackLabel: "Card back",
@@ -50,8 +64,11 @@ class Dialogcards extends H5P.EventDispatcher {
       ],
       behaviour: {
         enableRetry: true,
+        disableBackwardsNavigation: false,
         scaleTextNotCard: false,
-        randomCards: false
+        randomCards: false,
+        maxProficiency: 5,
+        quickProgression: false
       }
     }, params);
 
