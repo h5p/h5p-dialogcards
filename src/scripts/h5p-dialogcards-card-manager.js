@@ -5,8 +5,6 @@ class CardManager {
   /**
    * @constructor
    *
-   * TODO: Not all params are needed. Could be limited to the ones necessary.
-   *
    * @param {object} params Parameters from content type.
    * @param {number} contentId Id of content.
    * @param {object} callbacks Callbacks to parent.

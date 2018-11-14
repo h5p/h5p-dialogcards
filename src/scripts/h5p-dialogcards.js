@@ -55,12 +55,6 @@ class Dialogcards extends H5P.EventDispatcher {
       }
     }, params);
 
-    // TODO: Check which variables are not needed anymore
-    this._current = -1;
-    this._turned = [];
-    this.$images = [];
-    this.audios = [];
-
     this.cards = [];
 
     this.currentCardId = 0;
@@ -78,7 +72,25 @@ class Dialogcards extends H5P.EventDispatcher {
         $container.addClass('h5p-text-scaling');
       }
 
-      this.cardManager = new CardManager(this.params, this.id, {
+      // Only pass what's necessary
+      const managerParams = {
+        mode: this.params.mode,
+        dialogs: this.params.dialogs,
+        audioNotSupported: this.params.audioNotSupported,
+        answer: this.params.answer,
+        showSummary: this.params.showSummary,
+        incorrectAnswer: this.params.incorrectAnswer,
+        correctAnswer: this.params.correctAnswer,
+        progressText: this.params.progressText,
+        tipButtonLabel: this.params.tipButtonLabel,
+        behaviour: {
+          scaleTextNotCard: this.params.behaviour.scaleTextNotCard,
+          maxProficiency: this.params.behaviour.maxProficiency,
+          quickProgression: this.params.behaviour.quickProgression
+        }
+      };
+
+      this.cardManager = new CardManager(managerParams, this.id, {
         onCardTurned: this.handleCardTurned,
         onNextCard: this.nextCard
       });

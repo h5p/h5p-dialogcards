@@ -5,7 +5,7 @@ class Card {
    * @constructor
    *
    * @param {object} card Card parameters
-   * @param {object} params Parent's params // TODO: Only pass what's required
+   * @param {object} params Parent's params
    * @param {number} id Card number in order of appearance
    * @param {object} [callbacks] Callbacks.
    * @param {function} [callbacks.onCardSize] Call when card needs resize.
@@ -141,7 +141,6 @@ class Card {
     else {
       this.$audioWrapper.addClass('hide');
     }
-    // TODO: Here the audio was pushed to the parent. Change retrieval there!
 
     return this.$audioWrapper;
   }
@@ -381,8 +380,7 @@ class Card {
     const parentFontSize = parseFloat($textContainer.css('font-size'));
     let fontSize = parseFloat($text.css('font-size'));
 
-    // TODO: Don't get $inner this way
-    const $inner = $(document).find('.h5p-container');
+    const $inner = this.getDOM().closest('.h5p-container');
     const mainFontSize = parseFloat($inner.css('font-size'));
 
     // Decrease font size

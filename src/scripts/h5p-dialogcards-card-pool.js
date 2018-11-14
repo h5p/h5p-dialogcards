@@ -4,8 +4,6 @@ class CardPool {
   /**
    * @constructor
    *
-   * TODO: Check what params are actually necessary
-   *
    * @param {object} params Parameters from content type.
    * @param {number} contentId Id of content.
    * @param {object} callbacks Callbacks to main component.
