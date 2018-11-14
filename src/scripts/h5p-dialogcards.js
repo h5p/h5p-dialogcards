@@ -571,7 +571,7 @@ class Dialogcards extends H5P.EventDispatcher {
       this.$cardwrapperSet.css('height', 'auto');
 
       //Find max required height for all cards
-      this.$cardwrapperSet.children('.h5p-dialogcards-cardwrap').each( function () {
+      this.$cardwrapperSet.children(':not(.h5p-dialogcards-gone)').each( function () {
         const wrapperHeight = $(this).css('height', 'initial').outerHeight();
         $(this).css('height', 'inherit');
         maxHeight = wrapperHeight > maxHeight ? wrapperHeight : maxHeight;
