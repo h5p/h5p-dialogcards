@@ -455,16 +455,17 @@ class Dialogcards extends H5P.EventDispatcher {
       currentCard.getDOM().addClass('h5p-dialogcards-current');
       currentCard.setCardFocus();
 
-      // Load next card
-      if (this.currentCardId + 1 < this.cardIds.length) {
-        const card = this.getCard(this.cardIds[this.currentCardId + 1]);
-        card.setProgressText(this.currentCardId + 2, this.cardIds.length);
+      const nextCardIndex = this.currentCardId + 1;
+      // Load next card if it isn't loaded already
+      if (nextCardIndex >= this.cards.length && nextCardIndex < this.cardIds.length) {
+        const card = this.getCard(this.cardIds[nextCardIndex]);
+        card.setProgressText(nextCardIndex + 1, this.cardIds.length);
         this.cards.push(card);
 
         const $cardWrapper = card.getDOM();
         $cardWrapper.appendTo(this.$cardwrapperSet);
 
-        card.addTipToCard($cardWrapper.find('.h5p-dialogcards-card-content'), 'front', this.currentCardId + 1);
+        card.addTipToCard($cardWrapper.find('.h5p-dialogcards-card-content'), 'front', nextCardIndex);
         this.resize();
       }
 
