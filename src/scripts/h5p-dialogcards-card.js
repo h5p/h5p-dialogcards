@@ -66,7 +66,7 @@ class Card {
       'class': 'h5p-dialogcards-card-text'
     }).appendTo($cardTextInnerContent);
 
-    $('<div>', {
+    this.$cardTextArea = $('<div>', {
       'class': 'h5p-dialogcards-card-text-area',
       'tabindex': '-1',
       'html': card.text
@@ -321,7 +321,7 @@ class Card {
       this.resizeOverflowingText();
 
       // Focus text
-      $card.find('.h5p-dialogcards-card-text-area').focus();
+      this.$cardTextArea.focus();
     }, 200);
   }
 
@@ -331,9 +331,8 @@ class Card {
    * @param {string} text Text to set.
    */
   changeText(text) {
-    const $cardText = this.getDOM().find('.h5p-dialogcards-card-text-area');
-    $cardText.html(text);
-    $cardText.toggleClass('hide', (!text || !text.length));
+    this.$cardTextArea.html(text);
+    this.$cardTextArea.toggleClass('hide', (!text || !text.length));
   }
 
   /**
@@ -468,12 +467,12 @@ class Card {
    */
   setCardFocus(force) {
     if (force === true) {
-      this.getDOM().find('.h5p-dialogcards-card-text-area').focus();
+      this.$cardTextArea.focus();
     }
     else {
       // Wait for transition, then set focus
       this.getDOM().one('transitionend', () => {
-        this.getDOM().find('.h5p-dialogcards-card-text-area').focus();
+        this.$cardTextArea.focus();
       });
     }
   }
