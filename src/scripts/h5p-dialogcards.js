@@ -663,12 +663,13 @@ class Dialogcards extends H5P.EventDispatcher {
           $parentContainer = this.$inner.parents('.h5p-popup-container');
         }
         const containerHeight = $parentContainer.get(0).getBoundingClientRect().height;
-        const getContentHeight = function () {
+        const getContentHeight = () => {
           let contentHeight = 0;
           this.$inner.children().each(function () {
             // Here "this" references the jQuery object
-            contentHeight += $(this).get(0).getBoundingClientRect().height +
-            parseFloat($(this).css('margin-top')) + parseFloat($(this).css('margin-bottom'));
+            const $child = $(this);
+            contentHeight += this.getBoundingClientRect().height +
+            parseFloat($child.css('margin-top')) + parseFloat($child.css('margin-bottom'));
           });
           return contentHeight;
         };
