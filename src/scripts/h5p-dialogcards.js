@@ -202,7 +202,6 @@ class Dialogcards extends H5P.EventDispatcher {
 
         this.$retry = JoubelUI.createButton({
           'class': 'h5p-dialogcards-footer-button h5p-dialogcards-retry h5p-dialogcards-disabled',
-          'aria-title': this.params.retry,
           'title': this.params.retry,
           'html': this.params.retry
         }).click(() => {
