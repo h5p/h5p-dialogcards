@@ -19,6 +19,7 @@ class Dialogcards extends H5P.EventDispatcher {
     super();
 
     this.contentId = this.id = id;
+    this.previousState = contentData.previousState || {};
 
     // Var cardOrder stores order of cards to allow resuming of card set.
     // Var progress stores current card index.
@@ -76,7 +77,7 @@ class Dialogcards extends H5P.EventDispatcher {
 
     this.currentCardId = 0;
     this.round = 0; // 0 indicates that DOM needs to be set up
-    this.results = [];
+    this.results = this.previousState.results || [];
 
     /**
      * Attach h5p inside the given container.
@@ -104,7 +105,8 @@ class Dialogcards extends H5P.EventDispatcher {
           scaleTextNotCard: this.params.behaviour.scaleTextNotCard,
           maxProficiency: this.params.behaviour.maxProficiency,
           quickProgression: this.params.behaviour.quickProgression
-        }
+        },
+        cardPiles: this.previousState.cardPiles
       };
 
       this.cardManager = new CardManager(managerParams, this.id, {
@@ -113,6 +115,20 @@ class Dialogcards extends H5P.EventDispatcher {
       });
 
       this.createDOM(this.round === 0);
+
+      /*
+       * Goto previously viewed card. It was possible to also recover the turned
+       * state, but it feels sensible to let the previously viewed card be
+       * reviewed starting with the front.
+       */
+      if (this.previousState.currentCardId !== undefined) {
+        this.gotoCard(this.previousState.currentCardId);
+
+        // Show summary if previous round was completed but next round not started.
+        if (this.results.length === this.cardIds.length) {
+          this.showSummary();
+        }
+      }
 
       this.updateNavigation();
       this.trigger('resize');
@@ -123,8 +139,11 @@ class Dialogcards extends H5P.EventDispatcher {
      * @param {boolean} firstCall Is first call?
      */
     this.createDOM = (firstCall) => {
-      this.cardIds = this.cardManager.createSelection();
-      this.cardPoolSize = this.cardPoolSize || this.cardIds.length;
+      this.cardIds = (firstCall && this.previousState.cardIds) ?
+        this.previousState.cardIds :
+        this.cardManager.createSelection();
+
+      this.cardPoolSize = this.cardPoolSize || this.cardManager.getSize();
 
       if (firstCall === true) {
         const title = $('<div>' + this.params.title + '</div>').text().trim();
@@ -168,7 +187,8 @@ class Dialogcards extends H5P.EventDispatcher {
 
         this.on('resize', this.resize);
 
-        this.round = 1;
+        // Set round to previous state if available
+        this.round = (this.previousState.round !== undefined) ? this.previousState.round : 1;
       }
     };
 
@@ -345,9 +365,13 @@ class Dialogcards extends H5P.EventDispatcher {
           this.$prev.addClass('h5p-dialogcards-disabled');
         }
 
-        this.$progress.text(this.params.progressText.replace('@card', this.currentCardId + 1).replace('@total', this.cardIds.length));
+        this.$progress.text(this.params.progressText
+          .replace('@card', this.getCurrentSelectionIndex() + 1)
+          .replace('@total', this.cardIds.length)
+        );
 
-        this.cards[this.currentCardId].resizeOverflowingText();
+        // Looks strange, but the Ids get mixed up elsewhere
+        this.cards[this.findCardPosition(this.cards[this.currentCardId].id)].resizeOverflowingText();
       }
       else {
         this.$round.text(this.params.round.replace('@round', this.round));
@@ -445,30 +469,7 @@ class Dialogcards extends H5P.EventDispatcher {
         return;
       }
 
-      let currentCard = this.cards[this.currentCardId];
-      currentCard.stopAudio();
-      currentCard.getDOM().removeClass('h5p-dialogcards-current').addClass('h5p-dialogcards-previous');
-
-      this.currentCardId++;
-      currentCard = this.cards[this.currentCardId];
-      currentCard.getDOM().addClass('h5p-dialogcards-current');
-      currentCard.setCardFocus();
-
-      const nextCardIndex = this.currentCardId + 1;
-      // Load next card if it isn't loaded already
-      if (nextCardIndex >= this.cards.length && nextCardIndex < this.cardIds.length) {
-        const card = this.getCard(this.cardIds[nextCardIndex]);
-        card.setProgressText(nextCardIndex + 1, this.cardIds.length);
-        this.cards.push(card);
-
-        const $cardWrapper = card.getDOM();
-        $cardWrapper.appendTo(this.$cardwrapperSet);
-
-        card.addTipToCard($cardWrapper.find('.h5p-dialogcards-card-content'), 'front', nextCardIndex);
-        this.resize();
-      }
-
-      this.updateNavigation();
+      this.gotoCard(this.getCurrentSelectionIndex() + 1);
     };
 
     /**
@@ -484,23 +485,136 @@ class Dialogcards extends H5P.EventDispatcher {
     };
 
     /**
-     * Show previous card.
+     * Find the position of a loaded card.
+     * @param {number} cardId CardId to look for.
+     * @return {number} Position or undefined.
      */
-    this.prevCard = () => {
-      if (this.currentCardId === 0) {
+    this.findCardPosition = (cardId) => {
+      let position;
+
+      this.cards.forEach((card, index) => {
+        if (!position && card.id === cardId) {
+          position = index;
+        }
+      });
+
+      return position;
+    };
+
+    /**
+     * Insert a card into the DOM.
+     * @param {Card} card Card to insert.
+     * @param {number} [index] Position to insert card at.
+     */
+    this.insertCardToDOM = (card, index) => {
+      const $node = card.getDOM();
+
+      // Put at appropriate position.
+      if (index === undefined) {
+        $node.appendTo(this.$cardwrapperSet);
+      }
+      else if (index === 0) {
+        this.$cardwrapperSet.prepend($node);
+      }
+      else {
+        this.$cardwrapperSet.children().eq(index).after($node);
+      }
+
+      // Add hints
+      card.addTipToCard($node.find('.h5p-dialogcards-card-content'), 'front', index);
+    };
+
+    /**
+     * Go to a specific card.
+     * @param {number} targetPosition Target card position.
+     */
+    this.gotoCard = (targetPosition) => {
+      if (targetPosition < 0 || targetPosition >= this.cardIds.length) {
         return;
       }
 
-      let currentCard = this.cards[this.currentCardId];
+      const currentId = this.cards[this.currentCardId].id;
+      let targetId;
+
+      // Load target card if necessary
+      let position = this.findCardPosition(this.cardIds[targetPosition]);
+      if (position === undefined) {
+        const card = this.getCard(this.cardIds[targetPosition]);
+        card.setProgressText(targetPosition + 1, this.cardIds.length);
+        this.cards.push(card);
+        this.insertCardToDOM(card);
+
+        targetId = this.cards[this.cards.length - 1].id;
+      }
+      else {
+        targetId = this.cards[position].id;
+      }
+
+      // Load target card predecessor if necessary
+      if (targetPosition > 0) {
+        position = this.findCardPosition(this.cardIds[targetPosition - 1]);
+        if (position === undefined) {
+          const card = this.getCard(this.cardIds[targetPosition - 1]);
+          card.setProgressText(targetPosition, this.cardIds.length);
+          this.cards.splice(
+            this.findCardPosition(this.cardIds[targetPosition]),
+            0,
+            card
+          );
+
+          this.insertCardToDOM(card, this.findCardPosition(this.cardIds[targetPosition]) - 1);
+        }
+      }
+
+      // Load target card successor if necessary
+      if (targetPosition + 1 < this.cardIds.length) {
+        position = this.findCardPosition(this.cardIds[targetPosition + 1]);
+        if (position === undefined) {
+          const card = this.getCard(this.cardIds[targetPosition + 1]);
+          card.setProgressText(targetPosition + 2, this.cardIds.length);
+          this.cards.splice(
+            this.findCardPosition(this.cardIds[targetPosition]) + 1,
+            0,
+            card
+          );
+          this.insertCardToDOM(card, this.findCardPosition(this.cardIds[targetPosition]) + 1);
+        }
+      }
+
+      this.resize();
+
+      // Stop action on current card
+      const currentCard = this.cards[this.findCardPosition(currentId)];
       currentCard.stopAudio();
       currentCard.getDOM().removeClass('h5p-dialogcards-current');
 
-      this.currentCardId--;
-      currentCard = this.cards[this.currentCardId];
-      currentCard.getDOM().addClass('h5p-dialogcards-current').removeClass('h5p-dialogcards-previous');
-      currentCard.setCardFocus();
+      targetPosition = this.findCardPosition(targetId);
+
+      // Set classes for card order/display
+      this.cards.forEach((card, index) => {
+        if (index < targetPosition) {
+          card.getDOM().addClass('h5p-dialogcards-previous');
+        }
+        else {
+          card.getDOM().removeClass('h5p-dialogcards-previous');
+
+          if (index === targetPosition) {
+            card.getDOM().addClass('h5p-dialogcards-current');
+          }
+        }
+      });
+
+      this.currentCardId = targetPosition;
+      this.cards[this.currentCardId].setCardFocus();
 
       this.updateNavigation();
+    };
+
+    /**
+     * Show previous card.
+     */
+    this.prevCard = () => {
+      this.gotoCard(this.getCurrentSelectionIndex() - 1);
     };
 
     /**
@@ -607,10 +721,12 @@ class Dialogcards extends H5P.EventDispatcher {
 
       // Go through each card
       this.$cardwrapperSet.children(':visible').each(function (i) {
-        if (self.cardSizeDetermined.indexOf(i) !== -1) {
+        const cardId = self.cards[i].id;
+
+        if (self.cardSizeDetermined.indexOf(cardId) !== -1) {
           return; // Already determined, no need to determine again.
         }
-        self.cardSizeDetermined.push(i);
+        self.cardSizeDetermined.push(cardId);
 
         // Here "this" references the jQuery object
         const $content = $('.h5p-dialogcards-card-content', this);
@@ -745,12 +861,30 @@ class Dialogcards extends H5P.EventDispatcher {
     };
 
     /**
+     * Retrieve index of card in selection, not loaded cards.
+     */
+    this.getCurrentSelectionIndex = () => this.cardIds.indexOf(this.cards[this.currentCardId].id);
+
+    /**
      * Get the content type title.
      *
      * @return {string} title.
      */
     this.getTitle = () => {
       return H5P.createTitle((this.contentData && this.contentData.metadata && this.contentData.metadata.title) ? this.contentData.metadata.title : 'Dialog Cards');
+    };
+
+    /**
+     * Save the current state to be restored later.
+     */
+    this.getCurrentState = () => {
+      return {
+        cardPiles: this.cardManager.cardPiles,
+        cardIds: this.cardIds,
+        round: this.round,
+        currentCardId: this.getCurrentSelectionIndex(),
+        results: this.results
+      };
     };
   }
 }

@@ -13,7 +13,7 @@ class CardManager {
     this.params = params;
     this.cardPool = new CardPool(params, contentId, callbacks);
 
-    this.reset();
+    this.reset(params.cardPiles);
 
     return this;
   }
@@ -41,8 +41,17 @@ class CardManager {
 
   /**
    * Create card piles depending on mode.
+   * @param {object} [cardPiles] Piles to set (from previous state).
    */
-  createPiles() {
+  createPiles(cardPiles) {
+    if (cardPiles) {
+      this.cardPiles = cardPiles.map(cardPile => {
+        return new CardPile(cardPile.cards);
+      });
+
+      return;
+    }
+
     this.cardPiles = [];
     const pool = this.cardPool.getCardIds();
 
@@ -167,9 +176,10 @@ class CardManager {
 
   /**
    * Reset Card Manager.
+   * @param {object} [cardPiles] Piles to set (from previous state).
    */
-  reset() {
-    this.createPiles();
+  reset(cardPiles) {
+    this.createPiles(cardPiles);
   }
 
   /**
@@ -179,6 +189,14 @@ class CardManager {
    */
   getCard(id) {
     return this.cardPool.getCard(id);
+  }
+
+  /**
+   * Retrieve the total number of cards available.
+   * @return {number} Total number of cards available.
+   */
+  getSize() {
+    return this.cardPool.getCardIds().length;
   }
 }
 
