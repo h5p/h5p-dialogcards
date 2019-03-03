@@ -132,6 +132,10 @@
       "default": "Proceed to round @round"
     },
     {
+      "label": "Text for the \"Start over\" button",
+      "default": "Start over"
+    },
+    {
       "label": "Text for the \"show summary\" button",
       "default": "Next"
     },

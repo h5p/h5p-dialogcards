@@ -42,9 +42,19 @@ class SummaryScreen {
 
     this.fields['button'] = buttonNextRound;
 
+    // TODO: Add confirmation dialog (sadly not using H5P.Question)
+    const buttonStartOver = H5P.JoubelUI.createButton({
+      'class': 'h5p-dialogcards-button-restart',
+      'title': this.params.startOver,
+      'html': this.params.startOver
+    }).click(this.callbacks.retry).get(0);
+
+    this.fields['buttonStartOver'] = buttonStartOver;
+
     const footer = document.createElement('div');
     footer.classList.add('h5p-dialogcards-summary-footer');
     footer.appendChild(buttonNextRound);
+    footer.appendChild(buttonStartOver);
 
     this.container.appendChild(containerRound);
     this.container.appendChild(containerOverall);

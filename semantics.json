@@ -317,6 +317,14 @@
     "common": true
   },
   {
+    "name": "startOver",
+    "type": "text",
+    "label": "Text for the \"Start over\" button",
+    "importance": "low",
+    "default": "Start over",
+    "common": true
+  },
+  {
     "name": "showSummary",
     "type": "text",
     "label": "Text for the \"show summary\" button",

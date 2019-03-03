@@ -39,6 +39,7 @@ class Dialogcards extends H5P.EventDispatcher {
       round: 'Round @round',
       cardsLeft: 'Cards left: @number',
       nextRound: 'Proceed to round @round',
+      startOver: 'Start over',
       showSummary: 'Next',
       summary: 'Summary',
       summaryCardsRight: 'Cards you got right:',
