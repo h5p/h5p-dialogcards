@@ -375,7 +375,8 @@ class Dialogcards extends H5P.EventDispatcher {
       }
       else {
         this.$round.text(this.params.round.replace('@round', this.round));
-        this.$progress.text(this.params.cardsLeft.replace('@number', this.cardIds.length - this.currentCardId));
+        const selectionIndex = this.getCurrentSelectionIndex();
+        this.$progress.text(this.params.cardsLeft.replace('@number', this.cardIds.length - selectionIndex));
       }
 
       this.trigger('resize');
@@ -461,7 +462,7 @@ class Dialogcards extends H5P.EventDispatcher {
       this.results.push(result);
 
       // On final card
-      if (this.currentCardId + 1 === this.cardIds.length) {
+      if (this.cardIds.length - this.getCurrentSelectionIndex() === 1) {
         if (this.params.mode === 'repetition') {
           this.$progress.text(this.params.cardsLeft.replace('@number', 0));
           this.cards[this.currentCardId].showSummaryButton(this.showSummary);
