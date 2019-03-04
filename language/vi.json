@@ -1,17 +1,17 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "Phần đầu"
     },
     {
-      "label": "Mode",
-      "description": "Mode of presenting the dialog cards",
+      "label": "Phương thức",
+      "description": "Phương thức trình bày thẻ hội thoại",
       "options": [
         {
-          "label": "Normal"
+          "label": "Thông thường"
         },
         {
-          "label": "Repetition"
+          "label": "Lặp lại"
         }
       ]
     },
