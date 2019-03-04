@@ -194,6 +194,27 @@
     {
       "label": "Audioa ez da onartzen mezua",
       "default": "Zure nabigatzaileak ez du onartzen audio hau"
+    },
+    {
+      "label": "Confirm starting over dialog",
+      "fields": [
+        {
+          "label": "Header text",
+          "default": "Start over?"
+        },
+        {
+          "label": "Body text",
+          "default": "All progress will be lost. Are you sure you want to start over?"
+        },
+        {
+          "label": "Cancel button label",
+          "default": "Cancel"
+        },
+        {
+          "label": "Confirm button label",
+          "default": "Start over"
+        }
+      ]
     }
   ]
 }

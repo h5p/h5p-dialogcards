@@ -194,6 +194,27 @@
     {
       "label": "Message L'audio n'est pas supporté",
       "default": "Votre navigateur ne supporte pas ce fichier audio"
+    },
+    {
+      "label": "Confirm starting over dialog",
+      "fields": [
+        {
+          "label": "Header text",
+          "default": "Start over?"
+        },
+        {
+          "label": "Body text",
+          "default": "All progress will be lost. Are you sure you want to start over?"
+        },
+        {
+          "label": "Cancel button label",
+          "default": "Cancel"
+        },
+        {
+          "label": "Confirm button label",
+          "default": "Start over"
+        }
+      ]
     }
   ]
 }

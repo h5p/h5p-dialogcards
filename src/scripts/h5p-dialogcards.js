@@ -54,6 +54,12 @@ class Dialogcards extends H5P.EventDispatcher {
       cardBackLabel: "Card back",
       tipButtonLabel: 'Show tip',
       audioNotSupported: 'Your browser does not support this audio',
+      confirmStartingOver: {
+        header: 'Start over?',
+        body: 'All progress will be lost. Are you sure you want to start over?',
+        cancelLabel: 'Cancel',
+        confirmLabel: 'Start over'
+      },
       dialogs: [
         {
           text: 'Horse',

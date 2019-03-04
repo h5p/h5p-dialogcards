@@ -439,5 +439,50 @@
     "importance": "low",
     "common": true,
     "default": "Your browser does not support this audio"
+  },
+  {
+    "name": "confirmStartingOver",
+    "type": "group",
+    "label": "Confirm starting over dialog",
+    "importance": "low",
+    "common": true,
+    "fields": [
+      {
+        "name": "header",
+        "type": "text",
+        "label": "Header text",
+        "importance": "low",
+        "default": "Start over?"
+      },
+      {
+        "name": "body",
+        "type": "text",
+        "label": "Body text",
+        "importance": "low",
+        "default": "All progress will be lost. Are you sure you want to start over?",
+        "widget": "html",
+        "enterMode": "p",
+        "tags": [
+          "strong",
+          "em",
+          "del",
+          "u"
+        ]
+      },
+      {
+        "name": "cancelLabel",
+        "type": "text",
+        "label": "Cancel button label",
+        "importance": "low",
+        "default": "Cancel"
+      },
+      {
+        "name": "confirmLabel",
+        "type": "text",
+        "label": "Confirm button label",
+        "importance": "low",
+        "default": "Start over"
+      }
+    ]
   }
 ]
