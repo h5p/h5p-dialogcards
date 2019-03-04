@@ -533,7 +533,7 @@ class Dialogcards extends H5P.EventDispatcher {
     };
 
     /**
-     * Go to a specific card.
+     * Go to a specific card in the selection. Cards may need to be loaded.
      * @param {number} targetPosition Target card position.
      */
     this.gotoCard = (targetPosition) => {
@@ -541,62 +541,37 @@ class Dialogcards extends H5P.EventDispatcher {
         return;
       }
 
-      const currentId = this.cards[this.currentCardId].id;
-      let targetId;
-
-      // Load target card if necessary
-      let position = this.findCardPosition(this.cardIds[targetPosition]);
-      if (position === undefined) {
-        const card = this.getCard(this.cardIds[targetPosition]);
-        card.setProgressText(targetPosition + 1, this.cardIds.length);
-        this.cards.push(card);
-        this.insertCardToDOM(card);
-
-        targetId = this.cards[this.cards.length - 1].id;
-      }
-      else {
-        targetId = this.cards[position].id;
-      }
-
-      // Load target card predecessor if necessary
-      if (targetPosition > 0) {
-        position = this.findCardPosition(this.cardIds[targetPosition - 1]);
-        if (position === undefined) {
-          const card = this.getCard(this.cardIds[targetPosition - 1]);
-          card.setProgressText(targetPosition, this.cardIds.length);
-          this.cards.splice(
-            this.findCardPosition(this.cardIds[targetPosition]),
-            0,
-            card
-          );
-
-          this.insertCardToDOM(card, this.findCardPosition(this.cardIds[targetPosition]) - 1);
-        }
-      }
-
-      // Load target card successor if necessary
-      if (targetPosition + 1 < this.cardIds.length) {
-        position = this.findCardPosition(this.cardIds[targetPosition + 1]);
-        if (position === undefined) {
-          const card = this.getCard(this.cardIds[targetPosition + 1]);
-          card.setProgressText(targetPosition + 2, this.cardIds.length);
-          this.cards.splice(
-            this.findCardPosition(this.cardIds[targetPosition]) + 1,
-            0,
-            card
-          );
-          this.insertCardToDOM(card, this.findCardPosition(this.cardIds[targetPosition]) + 1);
-        }
-      }
-
-      this.resize();
-
       // Stop action on current card
-      const currentCard = this.cards[this.findCardPosition(currentId)];
+      const currentCard = this.cards[this.currentCardId];
       currentCard.stopAudio();
       currentCard.getDOM().removeClass('h5p-dialogcards-current');
 
-      targetPosition = this.findCardPosition(targetId);
+      // Get card positions to check for being loaded
+      const checkLoaded = [];
+      if (targetPosition > 0) {
+        checkLoaded.push(targetPosition - 1);
+      }
+      checkLoaded.push(targetPosition);
+      if (targetPosition + 1 < this.cardIds.length) {
+        checkLoaded.push(targetPosition + 1);
+      }
+
+      // Load and insert target card, predecessor and successor if required.
+      checkLoaded.forEach(position => {
+        const loadedPosition = this.findCardPosition(this.cardIds[position]);
+        if (loadedPosition === undefined) {
+          const card = this.getCard(this.cardIds[position]);
+          card.setProgressText(position + 1, this.cardIds.length);
+
+          this.cards.splice(position, 0, card); // position may be greater than resulting position
+          this.insertCardToDOM(card);
+        }
+      });
+
+      this.resize();
+
+      // Retrieve position of id now in *loaded cards*
+      targetPosition = this.findCardPosition(this.cardIds[targetPosition]);
 
       // Set classes for card order/display
       this.cards.forEach((card, index) => {
