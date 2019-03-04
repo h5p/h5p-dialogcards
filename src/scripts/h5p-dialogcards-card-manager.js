@@ -99,7 +99,7 @@ class CardManager {
       this.cardPiles[newPileId].add(result.cardId, 'bottom');
     });
 
-    return this.cardPiles.map(pile => pile.length());
+    return this.getPileSizes();
   }
 
   /**
@@ -197,6 +197,14 @@ class CardManager {
    */
   getSize() {
     return this.cardPool.getCardIds().length;
+  }
+
+  /**
+   * Retrieve the size of each pile.
+   * @return {object[]} Pile sizes.
+   */
+  getPileSizes() {
+    return this.cardPiles.map(pile => pile.length());
   }
 }
 

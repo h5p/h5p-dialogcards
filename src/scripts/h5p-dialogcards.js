@@ -133,7 +133,7 @@ class Dialogcards extends H5P.EventDispatcher {
 
         // Show summary if previous round was completed but next round not started.
         if (this.results.length === this.cardIds.length) {
-          this.showSummary();
+          this.showSummary(true);
         }
       }
 
@@ -391,10 +391,13 @@ class Dialogcards extends H5P.EventDispatcher {
 
     /**
      * Show summary screen.
+     * @param {boolean} [previousState = false] If true, piles will not be updated.
      */
-    this.showSummary = () => {
+    this.showSummary = (previousState = false) => {
       // Update piles and retrieve the new pile sizes
-      const newPileSizes = this.cardManager.updatePiles(this.results);
+      const newPileSizes = (previousState) ?
+        this.cardManager.getPileSizes() :
+        this.cardManager.updatePiles(this.results);
 
       const right = this.results.filter(result => result.result === true).length;
       const wrong = this.results.length - right;
