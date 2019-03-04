@@ -67,8 +67,8 @@ class SummaryScreen {
     // Footer
     const footer = document.createElement('div');
     footer.classList.add('h5p-dialogcards-summary-footer');
-    footer.appendChild(buttonNextRound);
     footer.appendChild(buttonStartOver);
+    footer.appendChild(buttonNextRound);
 
     this.container.appendChild(containerRound);
     this.container.appendChild(containerOverall);
