@@ -166,6 +166,8 @@ class SummaryScreen {
    */
   update({done = false, round = undefined, message = undefined, results = []} = {}) {
     if (done === true) {
+      this.fields['buttonStartOver'].classList.add('h5p-dialogcards-button-gone');
+
       if (this.params.behaviour.enableRetry) {
         this.fields['button'].classList.remove('h5p-dialogcards-button-next-round');
         this.fields['button'].classList.add('h5p-dialogcards-button-restart');
@@ -178,6 +180,8 @@ class SummaryScreen {
       }
     }
     else {
+      this.fields['buttonStartOver'].classList.remove('h5p-dialogcards-button-gone');
+
       this.fields['button'].classList.add('h5p-dialogcards-button-next-round');
       this.fields['button'].classList.remove('h5p-dialogcards-button-restart');
       this.fields['button'].innerHTML = this.params.nextRound;
