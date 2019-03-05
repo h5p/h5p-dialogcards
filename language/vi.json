@@ -16,48 +16,48 @@
       ]
     },
     {
-      "label": "Task description",
+      "label": "Mô tả nhiệm vụ",
       "default": ""
     },
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Mặc định"
         }
       ],
-      "label": "Dialogs",
-      "entity": "dialog",
+      "label": "Hội thoại",
+      "entity": "Hội thoại",
       "field": {
-        "label": "Question",
+        "label": "Câu hỏi",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue"
+            "label": "Văn bản",
+            "description": "Gợi ý cho phần đầu của hội thoại"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue"
+            "label": "Trả lời",
+            "description": "Gợi ý cho phần thứ 2 của hội thoại"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "Hình ảnh",
+            "description": "Hình ảnh tùy chọn cho thẻ. (Thẻ có thể sử dụng chỉ hình ảnh, chỉ văn bản, hoặc cả hai)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Văn bản thay thế cho hình ảnh"
           },
           {
-            "label": "Audio files"
+            "label": "File audion"
           },
           {
-            "label": "Tips",
+            "label": "Gợi ý",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Gợi ý cho văn bản",
+                "description": "Gợi ý cho phần đầu hội thoại"
               },
               {
                 "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "description": "Gợi ý cho phần thứ 2 hội thoại"
               }
             ]
           }
@@ -65,14 +65,14 @@
       }
     },
     {
-      "label": "Behavioural settings.",
-      "description": "These options will let you control how the task behaves.",
+      "label": "Cài đặt hành vi.",
+      "description": "Các tùy chọn này sẽ cho bạn điều khiển nhiệm cụ được thể hiện như thế nào.",
       "fields": [
         {
-          "label": "Enable \"Retry\" button"
+          "label": "Bật \"Thử lại\" nút"
         },
         {
-          "label": "Disable backwards navigation",
+          "label": "Tắt điều hướng ngược",
           "description": "This option will only allow you to move forward with Dialog Cards"
         },
         {
