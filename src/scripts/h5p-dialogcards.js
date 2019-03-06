@@ -865,7 +865,7 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.getCurrentState = () => {
       return {
-        cardPiles: this.cardManager.cardPiles,
+        cardPiles: this.cardManager.getPiles(),
         cardIds: this.cardIds,
         round: this.round,
         currentCardId: this.getCurrentSelectionIndex(),

@@ -200,6 +200,14 @@ class CardManager {
   }
 
   /**
+   * Retrieve all piles.
+   * @return {object[]} Piles.
+   */
+  getPiles() {
+    return this.cardPiles;
+  }
+
+  /**
    * Retrieve the size of each pile.
    * @return {object[]} Pile sizes.
    */
