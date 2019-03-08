@@ -52,7 +52,12 @@ class SummaryScreen {
     const confirmationDialog = this.createConfirmationDialog({
       l10n: this.params.confirmStartingOver,
       instance: this
-    }, this.callbacks.retry);
+    }, () => {
+      // Stop interference with confirm dialog animation and goto animation
+      setTimeout(() => {
+        this.callbacks.retry();
+      }, 100);
+    });
 
     /*
      * For some reason, using $.click to add the listener in the line above
