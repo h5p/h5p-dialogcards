@@ -563,6 +563,7 @@ class Dialogcards extends H5P.EventDispatcher {
       // Stop action on current card
       const currentCard = this.cards[this.currentCardId];
       currentCard.stopAudio();
+      currentCard.stopVideo();
       currentCard.getDOM().removeClass('h5p-dialogcards-current');
 
       // Get card positions to check for being loaded
@@ -658,11 +659,21 @@ class Dialogcards extends H5P.EventDispatcher {
     };
 
     /**
+     * Stop videos and reset to 0:00.
+     */
+    this.resetVideos = () => {
+      this.cards.forEach(card => {
+        card.stopVideo(true);
+      });
+    };
+
+    /**
      * Reset the task so that the user can do it again.
      */
     this.reset = () => {
       this.results = [];
       this.cards[this.currentCardId].stopAudio(this.$current.index());
+      this.resetVideos();
 
       // Turn all cards to front
       this.cards.forEach(card => {

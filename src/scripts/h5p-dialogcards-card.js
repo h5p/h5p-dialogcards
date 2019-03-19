@@ -323,6 +323,7 @@ class Card {
 
     // Update HTML class for card
     $c.toggleClass('h5p-dialogcards-turned', !turned);
+    this.stopVideo();
 
     setTimeout(() => {
       $ch.removeClass('h5p-dialogcards-collapse');
@@ -527,6 +528,25 @@ class Card {
   stopAudio() {
     if (this.audio && this.audio.stop) {
       this.audio.stop();
+    }
+  }
+
+  /**
+   * Stop video of card.
+   * @param {boolean} reset If true, video will also be reset.
+   */
+  stopVideo(reset = false) {
+    if (!this.video) {
+      return;
+    }
+
+    // Calling pause on unstarted YouTube video would start it
+    if (this.video.pause && this.video.getDuration && this.video.getDuration() > 0) {
+      this.video.pause();
+    }
+
+    if (reset === true && this.video.seek) {
+      this.video.seek(0);
     }
   }
 
