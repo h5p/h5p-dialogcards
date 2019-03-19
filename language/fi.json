@@ -39,11 +39,8 @@
             "description": "Tekstisisältö kortin kääntöpuolelle"
           },
           {
-            "label": "Kuva",
-            "description": "Valinnainen kuva kortille. Kortti voi olla vain kuva, tekstiä tai molemmat."
-          },
-          {
-            "label": "Vaihtoehtoinen teksti kuvalle"
+            "label": "Media",
+            "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
           },
           {
             "label": "Äänitiedostot"

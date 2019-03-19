@@ -39,11 +39,8 @@
             "description": "Gợi ý cho phần thứ 2 của hội thoại"
           },
           {
-            "label": "Hình ảnh",
-            "description": "Hình ảnh tùy chọn cho thẻ. (Thẻ có thể sử dụng chỉ hình ảnh, chỉ văn bản, hoặc cả hai)"
-          },
-          {
-            "label": "Văn bản thay thế cho hình ảnh"
+            "label": "Media",
+            "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
           },
           {
             "label": "File audion"

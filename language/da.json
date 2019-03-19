@@ -39,11 +39,8 @@
             "description": "Hint til anden del af dialogen"
           },
           {
-            "label": "Billede",
-            "description": "Valgfrit billede til kortet. (Kortet kan indeholde enten billede eller tekst, eller begge dele)."
-          },
-          {
-            "label": "Alternativ tekst til billedet"
+            "label": "Media",
+            "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
           },
           {
             "label": "Lydfiler"

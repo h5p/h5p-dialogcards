@@ -35,6 +35,72 @@ H5PUpgrades['H5P.Dialogcards'] = (function () {
         };
 
         finished(null, parameters, extrasOut);
+      },
+
+      8: function (parameters, finished, extras) {
+
+        // Update image items
+        if (parameters.dialogs) {
+          parameters.dialogs.forEach(function (dialog) {
+            if (!dialog.image) {
+              return; // skip
+            }
+
+            // Create new image
+            const newImage = {
+              library: 'H5P.Image 1.1',
+              // Avoid using H5P.createUUID since this is an upgrade script and H5P function may change
+              subContentId: 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (char) {
+                const random = Math.random()*16|0, newChar = char === 'x' ? random : (random&0x3|0x8);
+                return newChar.toString(16);
+              }),
+              params: {
+                alt: dialog.imageAltText || '',
+                contentName: 'Image',
+                title: dialog.imageAltText || '',
+                file: dialog.image
+              },
+              metadata: {}
+            };
+
+            // Move copyright data to metadata
+            const copyright = dialog.image.copyright;
+            if (copyright) {
+              let years = [];
+              if (copyright.year) {
+                // Try to find start and end year
+                years = copyright.year
+                  .replace(' ', '')
+                  .replace('--', '-') // Check for LaTeX notation
+                  .split('-');
+              }
+              const yearFrom = (years.length > 0) ? new Date('00'.concat(years[0])).getFullYear() : undefined;
+              const yearTo = (years.length > 0) ? new Date('00'.concat(years[1])).getFullYear() : undefined;
+
+               // Build metadata object
+              newImage.metadata = {
+                title: copyright.title,
+                authors: (copyright.author) ? [{name: copyright.author, role: ''}] : undefined,
+                source: copyright.source,
+                yearFrom: isNaN(yearFrom) ? undefined : yearFrom,
+                yearTo: isNaN(yearTo) ? undefined : yearTo,
+                license: copyright.license,
+                licenseVersion: copyright.version
+              };
+
+              if (newImage.params.file) {
+                delete newImage.params.file.copyright;
+              }
+            }
+
+            dialog.media = newImage;
+
+            delete dialog.image;
+            delete dialog.imageAltText;
+          });
+        }
+
+        finished(null, parameters, extras);
       }
     }
   };

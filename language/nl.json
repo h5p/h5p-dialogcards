@@ -39,11 +39,8 @@
             "description": "Hint voor het tweede deel van het dialoog"
           },
           {
-            "label": "Afbeelding",
-            "description": "Optionele afbeelding voor de kaart. (De kaart mag alleen een afbeelding gebruiken, alleen een tekst of allebei)"
-          },
-          {
-            "label": "Alternatieve tekst voor een afbeelding"
+            "label": "Media",
+            "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
           },
           {
             "label": "Audio bestanden"

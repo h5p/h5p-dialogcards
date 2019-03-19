@@ -119,7 +119,8 @@ class Dialogcards extends H5P.EventDispatcher {
 
       this.cardManager = new CardManager(managerParams, this.id, {
         onCardTurned: this.handleCardTurned,
-        onNextCard: this.nextCard
+        onNextCard: this.nextCard,
+        onResize: this.resize // Videos need to trigger resize
       });
 
       this.createDOM(this.round === 0);
@@ -259,31 +260,42 @@ class Dialogcards extends H5P.EventDispatcher {
     /**
      * Called when all cards has been loaded.
      */
-    this.updateImageSize = () => {
+    this.updateMediaSize = () => {
       // Find highest card content
       let relativeHeightCap = 15;
       let height = 0;
+      let mediaHeight = 0;
 
       const $currentCardContent = this.cards[this.currentCardId].getDOM().find('.h5p-dialogcards-card-content');
 
+      this.cards[this.currentCardId].resizeVideo();
+
       this.params.dialogs.forEach(dialog => {
-        if (!dialog.image) {
+        if (!dialog.media || !dialog.media.library) {
           return;
         }
 
-        const imageHeight = dialog.image.height / dialog.image.width * $currentCardContent.get(0).getBoundingClientRect().width;
-        if (imageHeight > height) {
-          height = imageHeight;
+        // Set media height depending on type
+        const type = dialog.media.library.split(' ')[0];
+        if (type === 'H5P.Image') {
+          mediaHeight = dialog.media.params.file.height / dialog.media.params.file.width * $currentCardContent.get(0).getBoundingClientRect().width;
+        }
+        else if (type === 'H5P.Video') {
+          mediaHeight = $currentCardContent.find('.h5p-dialogcards-video').height() || 0;
+        }
+
+        if (mediaHeight > height) {
+          height = mediaHeight;
         }
       });
 
       if (height > 0) {
-        let relativeImageHeight = height / parseFloat(this.$inner.css('font-size'));
-        if (relativeImageHeight > relativeHeightCap) {
-          relativeImageHeight = relativeHeightCap;
+        let relativeMediaHeight = height / parseFloat(this.$inner.css('font-size'));
+        if (relativeMediaHeight > relativeHeightCap) {
+          relativeMediaHeight = relativeHeightCap;
         }
         this.cards.forEach(card => {
-          card.getImage().parent().css('height', relativeImageHeight + 'em');
+          card.getMedia().parent().css('height', relativeMediaHeight + 'em');
         });
       }
     };
@@ -678,7 +690,8 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.resize = () => {
       let maxHeight = 0;
-      this.updateImageSize();
+      this.updateMediaSize();
+
       if (!this.params.behaviour.scaleTextNotCard && this.cardsShown !== false) {
         this.determineCardSizes();
       }

@@ -47,7 +47,7 @@ class Card {
       'class': 'h5p-dialogcards-card-content'
     });
 
-    this.createCardImage(card)
+    this.createCardMedia(card)
       .appendTo($cardContent);
 
     const $cardTextWrapper = $('<div>', {
@@ -91,27 +91,63 @@ class Card {
    * @param {object} card Card parameters
    * @returns {*|jQuery|HTMLElement} Card image wrapper
    */
-  createCardImage(card) {
-    this.$image;
-    const $imageWrapper = $('<div>', {
-      'class': 'h5p-dialogcards-image-wrapper'
+  createCardMedia(card) {
+    this.$media = $('<div class="h5p-dialogcards-image"></div>');
+
+    const $mediaWrapper = $('<div>', {
+      'class': 'h5p-dialogcards-media-wrapper'
     });
 
-    if (card.image !== undefined) {
-      this.image = card.image;
-      this.$image = $('<img class="h5p-dialogcards-image" src="' + H5P.getPath(card.image.path, this.contentId) + '"/>');
+    if (card.media !== undefined && card.media.library !== undefined) {
+      const type = card.media.library.split(' ')[0];
+      if (type === 'H5P.Image') {
+        if (card.media.params.file) {
+          this.$media = $('<img class="h5p-dialogcards-image" src="' + H5P.getPath(card.media.params.file.path, this.contentId) + '"/>');
+          if (card.media.params.alt) {
+            this.$media.attr('alt', card.media.params.alt);
+          }
+          if (card.media.params.title) {
+            this.$media.attr('title', card.media.params.title);
+          }
+        }
+      }
+      else if (type === 'H5P.Video') {
+        if (card.media.params.sources) {
+          this.$media = $('<div/>', {'class': 'h5p-dialogcards-video'});
 
-      if (card.imageAltText) {
-        this.$image.attr('alt', card.imageAltText);
+           // Never fit to wrapper
+          if (!card.media.params.visuals) {
+            card.media.params.visuals = {};
+          }
+          card.media.params.visuals.fit = false;
+          this.video = H5P.newRunnable(card.media, this.contentId, this.$media, true);
+
+          // YouTube video may require a 2nd resize
+          this.fromVideo = 2;
+          this.video.on('resize', () => {
+            // YouTube videos are scaled by fixing width, not height. Prevent too large height.
+            this.$media.css('max-width', this.$media.width() / this.$media.height() * this.$media.parent().height() + 'px');
+
+            this.fromVideo--;
+            this.callbacks.onResize();
+            this.fromVideo = 2;
+          });
+        }
       }
     }
-    else {
-      this.$image = $('<div class="h5p-dialogcards-image"></div>');
+
+    this.$media.appendTo($mediaWrapper);
+
+    return $mediaWrapper;
+  }
+
+  /**
+   * Resize video.
+   */
+  resizeVideo() {
+    if (this.video && this.fromVideo > 0) {
+      this.video.trigger('resize');
     }
-
-    this.$image.appendTo($imageWrapper);
-
-    return $imageWrapper;
   }
 
   /**
@@ -121,7 +157,7 @@ class Card {
    * @returns {*|jQuery|HTMLElement} Card audio element.
    */
   createCardAudio(card) {
-    this.audio;
+    this.audio = undefined;
 
     this.$audioWrapper = $('<div>', {
       'class': 'h5p-dialogcards-audio-wrapper'
@@ -532,12 +568,12 @@ class Card {
   }
 
   /**
-   * Get card's Image.
+   * Get card's media.
    *
    * @return {jQuery} Card's image.
    */
-  getImage() {
-    return this.$image;
+  getMedia() {
+    return this.$media;
   }
 
   /**
