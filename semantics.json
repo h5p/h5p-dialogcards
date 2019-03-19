@@ -81,6 +81,7 @@
           ],
           "label": "Text",
           "importance": "high",
+          "optional": true,
           "description": "Hint for the first part of the dialogue"
         },
         {
@@ -96,6 +97,7 @@
           ],
           "label": "Answer",
           "importance": "high",
+          "optional": true,
           "description": "Hint for the second part of the dialogue"
         },
         {

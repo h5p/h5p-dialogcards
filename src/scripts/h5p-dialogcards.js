@@ -81,6 +81,13 @@ class Dialogcards extends H5P.EventDispatcher {
       }
     }, params);
 
+    // Filter out empty cards (that don't have text and answer or at least one of both and media)
+    this.params.dialogs = this.params.dialogs.filter(dialog => {
+      const text = dialog.text && dialog.text.trim !== '';
+      const answer = dialog.answer && dialog.answer.trim() !== '';
+      return (dialog.media && (text || answer) || (text && answer));
+    });
+
     this.cards = [];
 
     this.currentCardId = 0;
@@ -93,6 +100,17 @@ class Dialogcards extends H5P.EventDispatcher {
      * @param {jQuery} $container Container.
      */
     this.attach = ($container) => {
+
+      // No cards
+      if (this.params.dialogs.length === 0) {
+        $container
+          .addClass('h5p-dialogcards')
+          .append('<div class="h5p-dialogcards h5p-dialogcards-warning">I really need at least one card with content :-)</div>');
+
+        this.trigger('resize');
+        return;
+      }
+
       this.$inner = $container.addClass('h5p-dialogcards');
       if (this.params.behaviour.scaleTextNotCard) {
         $container.addClass('h5p-text-scaling');

@@ -75,8 +75,8 @@ class Card {
       'html': card.text
     }).appendTo($cardText);
 
-    if (!card.text || !card.text.length) {
-      $cardText.addClass('hide');
+    if ((!card.text || !card.text.length) && (!card.answer || !card.answer.length)) {
+      this.$cardTextArea.addClass('hide');
     }
 
     this.createCardFooter()
