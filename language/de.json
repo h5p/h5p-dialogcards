@@ -73,11 +73,11 @@
         },
         {
           "label": "Rückwärts-Navigation deaktivieren",
-          "description": "Diese Option sorgt dafür, dass man nur vorwärts durch die Dialogkarten navigieren kann."
+          "description": "Diese Option sorgt dafür, dass man nur vorwärts durch die Dialogkarten navigieren kann"
         },
         {
           "label": "Text ggf. verkleinern, damit er in die Karten passt",
-          "description": "Wenn diese Option abgewählt wird, passt sich die Größe der Karte der Textgröße an."
+          "description": "Wenn diese Option abgewählt wird, passt sich die Größe der Karte der Textgröße an"
         },
         {
           "label": "Karten mischen",
@@ -88,7 +88,7 @@
         },
         {
           "label": "Schnellantwort erlauben",
-          "description": "Wenn aktiviert, können Lernende angeben, dass sie eine Karte kennen, ohne sie umzudrehen."
+          "description": "Wenn aktiviert, können Lernende angeben, dass sie eine Karte kennen, ohne sie umzudrehen"
         }
       ]
     },
@@ -122,9 +122,9 @@
       "default": "Runde @round"
     },
     {
-      "label": "Text mit der Anzahl der übrigen Karten",
+      "label": "Text mit der Anzahl der verbleibenden Karten",
       "description": "@number wird mit der Zahl der in dieser Runde noch übrigen Karten ersetzt",
-      "default": "übrige Karten: @number"
+      "default": "Verbleibende Karten: @number"
     },
     {
       "label": "Beschriftung des \"Nächste Runde\"-Buttons",
@@ -166,7 +166,7 @@
     {
       "label": "Nachricht, wenn alle Karten beherrscht werden",
       "description": "@cards wird mit der Gesamtzahl der Karten ersetzt. @max wird mit dem \"maximalen Beherrschungsniveau\" - 1 ersetzt.",
-      "default": "Gut gemacht! Du hattest alle @cards Karten @max-mal hintereinander richtig!"
+      "default": "Gut gemacht! Du hattest alle @cards Karten @max -mal hintereinander richtig!"
     },
     {
       "label": "Text der Fortschrittsanzeige",
@@ -175,12 +175,12 @@
     },
     {
       "label": "Beschriftung des Kartentexts",
-      "description": "Von Vorlesewerkzeuge genutzt (Barrierefreiheit).",
+      "description": "Von Vorlesewerkzeuge genutzt (Barrierefreiheit)",
       "default": "Kartenvorderseite"
     },
     {
       "label": "Beschriftung der Kartenrückseite",
-      "description": "Von Vorlesewerkzeuge genutzt (Barrierefreiheit).",
+      "description": "Von Vorlesewerkzeuge genutzt (Barrierefreiheit)",
       "default": "Kartenrückseite"
     },
     {
@@ -188,8 +188,8 @@
       "default": "Tipp anzeigen"
     },
     {
-      "label": "Hinweis, dass keine Tonaufnahmen abgespielt werden können",
-      "default": "Dein Browser unterstützt diese Tondatei nicht."
+      "label": "Hinweis, dass die Tonaufnahme nicht abgespielt werden kann",
+      "default": "Dein Browser unterstützt diese Tondatei nicht"
     }
   ]
 }
