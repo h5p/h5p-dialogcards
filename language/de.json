@@ -1,28 +1,28 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "Titel"
     },
     {
-      "label": "Mode",
-      "description": "Mode of presenting the dialog cards",
+      "label": "Modus",
+      "description": "Art und Weise, wie die Dialogkarten angezeigt werden",
       "options": [
         {
-          "label": "Normal"
+          "label": "Normal (der Reihe nach)"
         },
         {
-          "label": "Repetition"
+          "label": "Nicht gewusste Karten wiederholen"
         }
       ]
     },
     {
-      "label": "Beschreibung der Aufgabe",
+      "label": "Aufgabenbeschreibung",
       "default": ""
     },
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Voreinstellung"
         }
       ],
       "label": "Dialoge",
@@ -31,33 +31,33 @@
         "label": "Frage",
         "fields": [
           {
-            "label": "Text",
+            "label": "Vorderseite",
             "description": "Hinweis für den ersten Teil des Dialogs"
           },
           {
-            "label": "Antwort",
+            "label": "Rückseite",
             "description": "Hinweis für den zweiten Teil des Dialogs"
           },
           {
             "label": "Bild",
-            "description": "Optionales Bild für die Karte. (Die Karte kann ein Bild benutzen, Text oder beides.)"
+            "description": "Optionales Bild für die Karte. (Die Karte kann nur aus einem Bild bestehen, Text oder beidem.)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Alternativer Text zur Bildbeschreibung (Barrierefreiheit)"
           },
           {
-            "label": "Audio files"
+            "label": "Audiodateien"
           },
           {
-            "label": "Tips",
+            "label": "Tipps",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Tipp zur Vorderseite",
+                "description": "Tipp für den ersten Teil des Dialogs"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Tipp zur Rückseite",
+                "description": "Tipp für den zweiten Teil des Dialogs"
               }
             ]
           }
@@ -65,131 +65,131 @@
       }
     },
     {
-      "label": "Verhaltenssteuerung",
-      "description": "Diese Optionen legen fest, wie sich die Aufgabe verhält.",
+      "label": "Verhaltenseinstellungen",
+      "description": "Diese Optionen legen fest, wie die Aufgabe im Detail funktioniert.",
       "fields": [
         {
           "label": "\"Wiederholen\"-Button anzeigen"
         },
         {
-          "label": "Rückwärts-Navigation ausstellen",
-          "description": "Diese Option sorgt dafür, dass man nur vorwärts durch die Dialogkarten navigieren kann."
+          "label": "Rückwärts-Navigation deaktivieren",
+          "description": "Diese Option sorgt dafür, dass man nur vorwärts durch die Dialogkarten navigieren kann"
         },
         {
-          "label": "Die Textgröße skalieren, um in die Karte zu passen",
-          "description": "Wenn diese Option abgewählt wird, passt sich die Größe der Karte der Textgröße an."
+          "label": "Text ggf. verkleinern, damit er in die Karten passt",
+          "description": "Wenn diese Option abgewählt wird, passt sich die Größe der Karte der Textgröße an"
         },
         {
           "label": "Karten mischen",
           "description": "Anwählen, um die Karten zufällig anzuordnen."
         },
         {
-          "label": "Maximum proficiency level"
+          "label": "Anzahl der Wiederholungen, nach denen eine Karte als beherrscht gilt"
         },
         {
-          "label": "Allow quick progression",
-          "description": "If activated, learners can decide to indicate that they know a card without turning it"
+          "label": "Schnellantwort erlauben",
+          "description": "Wenn aktiviert, können Lernende angeben, dass sie eine Karte kennen, ohne sie umzudrehen"
         }
       ]
     },
     {
-      "label": "Text für den \"Umdrehen\"-Button",
+      "label": "Beschriftung des \"Umdrehen\"-Buttons",
       "default": "Umdrehen"
     },
     {
-      "label": "Text für den \"Weiter\"-Button",
+      "label": "Beschriftung des \"Weiter\"-Buttons",
       "default": "Weiter"
     },
     {
-      "label": "Text für den \"Zurück\"-Button",
+      "label": "Beschriftung des \"Zurück\"-Buttons",
       "default": "Zurück"
     },
     {
-      "label": "Text für den \"Wiederholen\"-Button",
+      "label": "Beschriftung des \"Wiederholen\"-Buttons",
       "default": "Wiederholen"
     },
     {
-      "label": "Text for the \"correct answer\" button",
-      "default": "I got it right!"
+      "label": "Beschriftung des \"Richtige Antwort\"-Buttons",
+      "default": "Ich hatte es richtig!"
     },
     {
-      "label": "Text for the \"incorrect answer\" button",
-      "default": "I got it wrong"
+      "label": "Beschriftung des \"Falsche Antwort\"-Buttons",
+      "default": "Ich hatte es falsch!"
     },
     {
-      "label": "Text for \"Round\" message below cards and on the summary screen",
-      "description": "@round will be replaced by the number of the current round",
-      "default": "Round @round"
+      "label": "Text mit der Rundennummer unterhalb der Karten und in der Zusammenfassung",
+      "description": "@round wird mit der Nummer der aktuellen Runde ersetzt",
+      "default": "Runde @round"
     },
     {
-      "label": "Text for \"Cards left\" message",
-      "description": "@number will be replaced by the number of cards left in this round",
-      "default": "Cards left: @number"
+      "label": "Text mit der Anzahl der verbleibenden Karten",
+      "description": "@number wird mit der Zahl der in dieser Runde noch übrigen Karten ersetzt",
+      "default": "Verbleibende Karten: @number"
     },
     {
-      "label": "Text for the \"next round\" button",
-      "description": "@round will be replaced by the round number",
-      "default": "Proceed to round @round"
+      "label": "Beschriftung des \"Nächste Runde\"-Buttons",
+      "description": "@round wird mit der Nummer der Runde ersetzt",
+      "default": "Weiter mit Runde @round"
     },
     {
-      "label": "Text for the \"show summary\" button",
-      "default": "Next"
+      "label": "Beschriftung des \"Zusammenfassung anzeigen\"-Buttons",
+      "default": "Weiter"
     },
     {
-      "label": "Title text for the summary page",
-      "default": "Summary"
+      "label": "Überschrift der Zusammenfassungsseite",
+      "default": "Zusammenfassung"
     },
     {
-      "label": "Text for \"Cards you got right:\"",
-      "default": "Cards you got right:"
+      "label": "Beschriftung für \"Richtige Karten:\"",
+      "default": "Richtige Karten:"
     },
     {
-      "label": "Text for \"Cards you got wrong:\"",
-      "default": "Cards you got wrong:"
+      "label": "Beschriftung für \"Falsche Karten:\"",
+      "default": "Falsche Karten:"
     },
     {
-      "label": "Text for \"Cards not shown:\"",
-      "default": "Cards in pool not shown:"
+      "label": "Beschriftung für \"Nicht angezeigt Karten:\"",
+      "default": "Nicht angezeigt Karten:"
     },
     {
-      "label": "Text for \"Overall Score\"",
-      "default": "Overall Score"
+      "label": "Beschriftung für \"Gesamtpunkte\"",
+      "default": "Gesamtpunkte"
     },
     {
-      "label": "Text for \"Cards completed\"",
-      "default": "Cards you have completed learning:"
+      "label": "Beschriftung für \"Fertige Karten\"",
+      "default": "Karten, die du fertig gelernt hast:"
     },
     {
-      "label": "Text for \"Completed rounds:\"",
-      "default": "Completed rounds:"
+      "label": "Beschriftung für \"Abgeschlossene Runden:\"",
+      "default": "Abgeschlossene Runden:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row!"
+      "label": "Nachricht, wenn alle Karten beherrscht werden",
+      "description": "@cards wird mit der Gesamtzahl der Karten ersetzt. @max wird mit dem \"maximalen Beherrschungsniveau\" - 1 ersetzt.",
+      "default": "Gut gemacht! Du hattest alle @cards Karten @max -mal hintereinander richtig!"
     },
     {
-      "label": "Fortschrittsanzeigetext",
-      "description": "Verfügbare Variablen sind @card und @total.",
+      "label": "Text der Fortschrittsanzeige",
+      "description": "@card wird mit der Nummer der aktuellen Karte ersetzt. @total wird mit der Gesamtzahl der Karten ersetzt.",
       "default": "Karte @card von @total"
     },
     {
-      "label": "Label for card text",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card front"
+      "label": "Beschriftung des Kartentexts",
+      "description": "Von Vorlesewerkzeuge genutzt (Barrierefreiheit)",
+      "default": "Kartenvorderseite"
     },
     {
-      "label": "Label for card back",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card back"
+      "label": "Beschriftung der Kartenrückseite",
+      "description": "Von Vorlesewerkzeuge genutzt (Barrierefreiheit)",
+      "default": "Kartenrückseite"
     },
     {
-      "label": "Label for the show tip button",
-      "default": "Show tip"
+      "label": "Beschriftung des \"Tipp anzeigen\"-Buttons",
+      "default": "Tipp anzeigen"
     },
     {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
+      "label": "Hinweis, dass die Tonaufnahme nicht abgespielt werden kann",
+      "default": "Dein Browser unterstützt diese Tondatei nicht"
     }
   ]
 }
