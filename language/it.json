@@ -1,17 +1,17 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "Intestazione"
     },
     {
-      "label": "Mode",
-      "description": "Mode of presenting the dialog cards",
+      "label": "Modo",
+      "description": "Modalità di presentazione delle dialog card",
       "options": [
         {
-          "label": "Normal"
+          "label": "Normale"
         },
         {
-          "label": "Repetition"
+          "label": "Ripetizione"
         }
       ]
     },
@@ -22,7 +22,7 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Predefinito"
         }
       ],
       "label": "Dialoghi",
@@ -39,25 +39,25 @@
             "description": "Suggerimento per la seconda parte del dialogo"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "Immagine",
+            "description": "Immagine opzionale per la carta (la carta può usare solo un'immagine, solo un testo o entrambi)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Testo alternativo per l'immagine"
           },
           {
-            "label": "Audio files"
+            "label": "File audio"
           },
           {
-            "label": "Tips",
+            "label": "Suggerimenti",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Suggerimento per il testo",
+                "description": "Suggerimento per la prima parte del dialogo"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Suggerimento per la risposta",
+                "description": "Suggerimento per la seconda parte del dialogo"
               }
             ]
           }
@@ -65,131 +65,131 @@
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the task behaves.",
+      "label": "Impostazioni di esecuzione",
+      "description": "Queste opzioni ti permetteranno di controllare il comportamento del compito.",
       "fields": [
         {
-          "label": "Enable \"Retry\" button"
+          "label": "Abilita il pulsante \"Riprova\""
         },
         {
-          "label": "Disable backwards navigation",
-          "description": "This option will only allow you to move forward with Dialog Cards"
+          "label": "Disabilita la navigazione all'indietro",
+          "description": "Questa opzione ti permette soltanto di andare avanti con le Dialog Cards"
         },
         {
-          "label": "Scale the text to fit inside the card",
-          "description": "Unchecking this option will make the card adapt its size to the size of the text"
+          "label": "Ridimensiona il testo per adattarlo alla carta",
+          "description": "Deselezionando questa opzione, la scheda si adatterà alle dimensioni del testo"
         },
         {
-          "label": "Randomize cards",
-          "description": "Enable to randomize the order of cards on display."
+          "label": "Ordine casuale",
+          "description": "Attiva la randomizzazione dell'ordine in cui vengono mostrate le carte."
         },
         {
-          "label": "Maximum proficiency level"
+          "label": "Massimo livello di competenza"
         },
         {
-          "label": "Allow quick progression",
-          "description": "If activated, learners can decide to indicate that they know a card without turning it"
+          "label": "Consenti una rapida progressione",
+          "description": "Se attivato, gli apprendenti possono decidere di indicare che conoscono una carta senza voltarla"
         }
       ]
     },
     {
       "label": "Testo per il pulsante Gira",
-      "default": "Turn"
+      "default": "Gira"
     },
     {
-      "label": "Testo per il pulsante Prossimo",
-      "default": "Next"
+      "label": "Testo per il pulsante \"avanti\"",
+      "default": "Avanti"
     },
     {
-      "label": "Testo per il pulsante Precedente",
-      "default": "Previous"
+      "label": "Testo per il pulsante \"indietro\"",
+      "default": "Indietro"
     },
     {
-      "label": "Testo per il pulsante Indietro",
-      "default": "Retry"
+      "label": "Testo per il pulsante \"riprova\"",
+      "default": "Riprova"
     },
     {
-      "label": "Text for the \"correct answer\" button",
-      "default": "I got it right!"
+      "label": "Testo per il pulsante \"risposta giusta\"",
+      "default": "Ho fatto bene!"
     },
     {
-      "label": "Text for the \"incorrect answer\" button",
-      "default": "I got it wrong"
+      "label": "Testo per il pulsante \"risposta sbagliata\"",
+      "default": "Ho sbagliato"
     },
     {
-      "label": "Text for \"Round\" message below cards and on the summary screen",
-      "description": "@round will be replaced by the number of the current round",
-      "default": "Round @round"
+      "label": "Testo per il messaggio \"Giocata\" sotto le carte e sulla schermata di riepilogo",
+      "description": "@round sarà sostituito dal numero della giocata in corso",
+      "default": "Giocata @round"
     },
     {
-      "label": "Text for \"Cards left\" message",
-      "description": "@number will be replaced by the number of cards left in this round",
-      "default": "Cards left: @number"
+      "label": "Testo per il messaggio \"Carte rimanenti\"",
+      "description": "@number sarà sostituito dal numero di carte ancora a disposizione in questa giocata",
+      "default": "Carte rimanenti: @number"
     },
     {
-      "label": "Text for the \"next round\" button",
-      "description": "@round will be replaced by the round number",
-      "default": "Proceed to round @round"
+      "label": "Testo per il pulsante \"prossima giocata\"",
+      "description": "@round sarà sostituito dal numero della giocata",
+      "default": "Vai alla giocata @round"
     },
     {
-      "label": "Text for the \"show summary\" button",
-      "default": "Next"
+      "label": "Testo per il pulsante \"mostra sommario\"",
+      "default": "Avanti"
     },
     {
-      "label": "Title text for the summary page",
-      "default": "Summary"
+      "label": "Testo del titolo della pagina sommario",
+      "default": "Sommario"
     },
     {
-      "label": "Text for \"Cards you got right:\"",
-      "default": "Cards you got right:"
+      "label": "Testo per le risposte giuste:",
+      "default": "Risposte giuste:"
     },
     {
-      "label": "Text for \"Cards you got wrong:\"",
-      "default": "Cards you got wrong:"
+      "label": "Testo per le risposte sbagliate:",
+      "default": "Risposte sbagliate:"
     },
     {
-      "label": "Text for \"Cards not shown:\"",
-      "default": "Cards in pool not shown:"
+      "label": "Testo per \"Carte non mostrate:\"",
+      "default": "Carte del mazzo non mostrate:"
     },
     {
-      "label": "Text for \"Overall Score\"",
-      "default": "Overall Score"
+      "label": "Testo per \"Punteggio complessivo\"",
+      "default": "Punteggio complessivo"
     },
     {
-      "label": "Text for \"Cards completed\"",
-      "default": "Cards you have completed learning:"
+      "label": "Testo per \"Carte completate\"",
+      "default": "Carte che hai già imparato:"
     },
     {
-      "label": "Text for \"Completed rounds:\"",
-      "default": "Completed rounds:"
+      "label": "Testo per \"Giocate completate:\"",
+      "default": "Giocate completate:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row!"
+      "label": "Messaggio per quando tutte le carte sono state imparate per bene",
+      "description": "@cards sarà sostituito dal numero di tutte le carte nel mazzo. @max sarà sostituito dal livello massimo di competenza - 1.",
+      "default": "Bravo! Hai fatto @cards carte giuste @max volte di seguito!"
     },
     {
-      "label": "Testo avanzamento",
+      "label": "Testo di avanzamento",
       "description": "Le variabili disponibili sono @card e @total.",
-      "default": "Card @card of @total"
+      "default": "Carta @card di @total"
     },
     {
-      "label": "Label for card text",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card front"
+      "label": "Etichetta per il testo della carta",
+      "description": "Usato per l'accessibilità tramite tecnologie assistive",
+      "default": "Davanti della carta"
     },
     {
-      "label": "Label for card back",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card back"
+      "label": "Etichetta per il testo della carta",
+      "description": "Usato per l'accessibilità tramite tecnologie assistive",
+      "default": "Dietro della carta"
     },
     {
-      "label": "Label for the show tip button",
-      "default": "Show tip"
+      "label": "Etichetta per il pulsante \"mostra suggerimento\"",
+      "default": "Mostra suggerimento"
     },
     {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
+      "label": "Messaggio di audio non supportato",
+      "default": "Il tuo browser non supporta questo audio"
     }
   ]
 }
