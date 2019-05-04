@@ -57,8 +57,10 @@ const config = {
   }
 };
 
-if (isDev) {
-  config.devtool = 'inline-source-map';
-}
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.devtool = 'inline-source-map';
+  }
 
-module.exports = config;
+  return config;
+}
