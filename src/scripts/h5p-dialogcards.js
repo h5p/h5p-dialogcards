@@ -356,7 +356,7 @@ class Dialogcards extends H5P.EventDispatcher {
     this.updateNavigation = () => {
       if (this.params.mode === 'normal') {
         // Final card
-        if (this.currentCardId < this.cardIds.length - 1) {
+        if (this.getCurrentSelectionIndex() < this.cardIds.length - 1) {
           this.$next.removeClass('h5p-dialogcards-disabled');
           this.$retry.addClass('h5p-dialogcards-disabled');
         }
@@ -563,11 +563,21 @@ class Dialogcards extends H5P.EventDispatcher {
       checkLoaded.forEach(position => {
         const loadedPosition = this.findCardPosition(this.cardIds[position]);
         if (loadedPosition === undefined) {
+
+          // Card has not been loaded. Load now.
           const card = this.getCard(this.cardIds[position]);
           card.setProgressText(position + 1, this.cardIds.length);
 
-          this.cards.splice(position, 0, card); // position may be greater than resulting position
-          this.insertCardToDOM(card);
+          /*
+           * Try to find successor card in loaded pile and insert before
+           * or put to the end of the loaded pile.
+           */
+          const successorId = Math.min(position + 1, this.cardIds.length - 1);
+          const successor = this.findCardPosition(this.cardIds[successorId]);
+          const insertPosition = successor || this.cards.length;
+
+          this.cards.splice(insertPosition, 0, card);
+          this.insertCardToDOM(card, insertPosition);
         }
       });
 
