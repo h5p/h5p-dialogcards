@@ -132,7 +132,7 @@ class Dialogcards extends H5P.EventDispatcher {
         this.gotoCard(this.previousState.currentCardId);
 
         // Show summary if previous round was completed but next round not started.
-        if (this.results.length === this.cardIds.length) {
+        if (this.params.mode === 'repetition' && this.results.length === this.cardIds.length) {
           this.showSummary(true);
         }
       }
