@@ -132,6 +132,10 @@
       "default": "Proceed to round @round"
     },
     {
+      "label": "Text for the \"Start over\" button",
+      "default": "Start over"
+    },
+    {
       "label": "Text for the \"show summary\" button",
       "default": "Next"
     },
@@ -190,6 +194,27 @@
     {
       "label": "Statusbericht dat de audio niet wordt ondersteund",
       "default": "Je browser ondersteunt de audio niet"
+    },
+    {
+      "label": "Confirm starting over dialog",
+      "fields": [
+        {
+          "label": "Header text",
+          "default": "Start over?"
+        },
+        {
+          "label": "Body text",
+          "default": "All progress will be lost. Are you sure you want to start over?"
+        },
+        {
+          "label": "Cancel button label",
+          "default": "Cancel"
+        },
+        {
+          "label": "Confirm button label",
+          "default": "Start over"
+        }
+      ]
     }
   ]
 }

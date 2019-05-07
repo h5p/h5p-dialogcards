@@ -132,6 +132,10 @@
       "default": "Weiter mit Runde @round"
     },
     {
+      "label": "Beschriftung des \"Von vorne anfangen\"-Buttons",
+      "default": "Von vorne anfangen"
+    },
+    {
       "label": "Beschriftung des \"Zusammenfassung anzeigen\"-Buttons",
       "default": "Weiter"
     },
@@ -190,6 +194,27 @@
     {
       "label": "Hinweis, dass die Tonaufnahme nicht abgespielt werden kann",
       "default": "Dein Browser unterstützt diese Tondatei nicht"
+    },
+    {
+      "label": "Bestätigungsdialog zum Neustart",
+      "fields": [
+        {
+          "label": "Kopfzeile",
+          "default": "Von vorne anfangen?"
+        },
+        {
+          "label": "Haupttext",
+          "default": "Dein gesamter Fortschritt bisher wird gelöscht. Bist du sicher, dass du von vorne anfangen möchtest?"
+        },
+        {
+          "label": "Beschriftung des \"Abbrechen\"-Buttons",
+          "default": "Abbrechen"
+        },
+        {
+          "label": "Beschriftung des \"Bestätigen\"-Buttons",
+          "default": "Ja, von vorne anfangen"
+        }
+      ]
     }
   ]
 }

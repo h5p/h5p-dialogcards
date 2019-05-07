@@ -132,6 +132,10 @@
       "default": "Tiếp tục vòng @round"
     },
     {
+      "label": "Text for the \"Start over\" button",
+      "default": "Start over"
+    },
+    {
       "label": "Văn bản cho nút \"hiển thị tóm tắt\"",
       "default": "Tiếp theo"
     },
@@ -190,6 +194,27 @@
     {
       "label": "Thông điệp audio không được hỗ trợ",
       "default": "Trình duyệt của bạn không hỗ trợ audio này"
+    },
+    {
+      "label": "Confirm starting over dialog",
+      "fields": [
+        {
+          "label": "Header text",
+          "default": "Start over?"
+        },
+        {
+          "label": "Body text",
+          "default": "All progress will be lost. Are you sure you want to start over?"
+        },
+        {
+          "label": "Cancel button label",
+          "default": "Cancel"
+        },
+        {
+          "label": "Confirm button label",
+          "default": "Start over"
+        }
+      ]
     }
   ]
 }

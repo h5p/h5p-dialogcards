@@ -42,8 +42,37 @@ class SummaryScreen {
 
     this.fields['button'] = buttonNextRound;
 
+    // Button to start over including confirmation dialog
+    const buttonStartOver = H5P.JoubelUI.createButton({
+      'class': 'h5p-dialogcards-button-restart',
+      'title': this.params.startOver,
+      'html': this.params.startOver
+    }).get(0);
+
+    const confirmationDialog = this.createConfirmationDialog({
+      l10n: this.params.confirmStartingOver,
+      instance: this
+    }, () => {
+      // Stop interference with confirm dialog animation and goto animation
+      setTimeout(() => {
+        this.callbacks.retry();
+      }, 100);
+    });
+
+    /*
+     * For some reason, using $.click to add the listener in the line above
+     * leads to losing the listener when button reappears on next summary screen
+     */
+    buttonStartOver.addEventListener('click', (event) => {
+      confirmationDialog.show(event.target.offsetTop);
+    });
+
+    this.fields['buttonStartOver'] = buttonStartOver;
+
+    // Footer
     const footer = document.createElement('div');
     footer.classList.add('h5p-dialogcards-summary-footer');
+    footer.appendChild(buttonStartOver);
     footer.appendChild(buttonNextRound);
 
     this.container.appendChild(containerRound);
@@ -142,6 +171,8 @@ class SummaryScreen {
    */
   update({done = false, round = undefined, message = undefined, results = []} = {}) {
     if (done === true) {
+      this.fields['buttonStartOver'].classList.add('h5p-dialogcards-button-gone');
+
       if (this.params.behaviour.enableRetry) {
         this.fields['button'].classList.remove('h5p-dialogcards-button-next-round');
         this.fields['button'].classList.add('h5p-dialogcards-button-restart');
@@ -154,6 +185,8 @@ class SummaryScreen {
       }
     }
     else {
+      this.fields['buttonStartOver'].classList.remove('h5p-dialogcards-button-gone');
+
       this.fields['button'].classList.add('h5p-dialogcards-button-next-round');
       this.fields['button'].classList.remove('h5p-dialogcards-button-restart');
       this.fields['button'].innerHTML = this.params.nextRound;
@@ -199,6 +232,55 @@ class SummaryScreen {
    */
   hide() {
     this.container.classList.add('h5p-dialogcards-gone');
+  }
+
+  /**
+   * Add confirmation dialog to button.
+   * @param {object} options Dialog options.
+   * @param {function} clicked Callback for confirmation button.
+   * @return {H5P.ConfirmationDialog|undefined} Confirmation dialog.
+   */
+  createConfirmationDialog(options, clicked) {
+    options = options || {};
+
+    var confirmationDialog = new H5P.ConfirmationDialog({
+      instance: options.instance,
+      headerText: options.l10n.header,
+      dialogText: options.l10n.body,
+      cancelText: options.l10n.cancelLabel,
+      confirmText: options.l10n.confirmLabel
+    });
+
+    confirmationDialog.on('confirmed', () => {
+      clicked();
+    });
+
+    confirmationDialog.appendTo(this.getContainer());
+
+    return confirmationDialog;
+  }
+
+  /**
+   * Find container to attach dialogs to.
+   * @return {HTMLElement} Container to attach dialogs to.
+   */
+  getContainer() {
+    const $content = H5P.jQuery('[data-content-id="' + self.contentId + '"].h5p-content');
+    const $containerParents = $content.parents('.h5p-container');
+
+    let $container;
+    if ($containerParents.length !== 0) {
+      // use parent highest up if any
+      $container = $containerParents.last();
+    }
+    else if ($content.length !== 0) {
+      $container = $content;
+    }
+    else {
+      $container = H5P.jQuery(document.body);
+    }
+
+    return $container.get(0);
   }
 }
 

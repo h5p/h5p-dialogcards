@@ -136,6 +136,10 @@
       "default": "Avanti"
     },
     {
+      "label": "Text for the \"show summary\" button",
+      "default": "Next"
+    },
+    {
       "label": "Testo del titolo della pagina sommario",
       "default": "Sommario"
     },
@@ -189,7 +193,28 @@
     },
     {
       "label": "Messaggio di audio non supportato",
-      "default": "Il tuo browser non supporta questo audio"
+      "default": "Il tuo browser non supporta questo audi"
+    },
+    {
+      "label": "Confirm starting over dialog",
+      "fields": [
+        {
+          "label": "Header text",
+          "default": "Start over?"
+        },
+        {
+          "label": "Body text",
+          "default": "All progress will be lost. Are you sure you want to start over?"
+        },
+        {
+          "label": "Cancel button label",
+          "default": "Cancel"
+        },
+        {
+          "label": "Confirm button label",
+          "default": "Start over"
+        }
+      ]
     }
   ]
 }
