@@ -469,7 +469,9 @@ class Dialogcards extends H5P.EventDispatcher {
      * @param {object} [result] Optional result of repetition mode.
      */
     this.nextCard = (result) => {
-      this.results.push(result);
+      if (typeof(result) !== 'undefined') {
+        this.results.push(result);
+      }
 
       // On final card
       if (this.cardIds.length - this.getCurrentSelectionIndex() === 1) {
