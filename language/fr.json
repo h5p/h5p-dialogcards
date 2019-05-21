@@ -1,17 +1,17 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "En-tête"
     },
     {
       "label": "Mode",
-      "description": "Mode of presenting the dialog cards",
+      "description": "Mode de présentation des cartes de dialogue",
       "options": [
         {
           "label": "Normal"
         },
         {
-          "label": "Repetition"
+          "label": "Répétition"
         }
       ]
     },
@@ -84,11 +84,11 @@
           "description": "Cocher pour mélanger l'ordre des cartes à l'affichage."
         },
         {
-          "label": "Maximum proficiency level"
+          "label": "Niveau de compétences maximum"
         },
         {
-          "label": "Allow quick progression",
-          "description": "If activated, learners can decide to indicate that they know a card without turning it"
+          "label": "Autoriser la progression rapide",
+          "description": "Si activé, les apprenants pourront décider d'indiquer ce qu'ils connaissent une carte sans la retourner"
         }
       ]
     },
@@ -109,68 +109,68 @@
       "default": "Recommencer"
     },
     {
-      "label": "Text for the \"correct answer\" button",
-      "default": "I got it right!"
+      "label": "Texte pour le bouton \"Réponse correcte\"",
+      "default": "J'ai eu bon!"
     },
     {
-      "label": "Text for the \"incorrect answer\" button",
-      "default": "I got it wrong"
+      "label": "Texte pour le bouton \"Réponse incorrecte\"",
+      "default": "J'ai eu faux"
     },
     {
-      "label": "Text for \"Round\" message below cards and on the summary screen",
-      "description": "@round will be replaced by the number of the current round",
+      "label": "Texte pour le message \"Round\" en dessous des cartes et sur le résumé",
+      "description": "@round sera remplacé par le numéro du round actuel",
       "default": "Round @round"
     },
     {
-      "label": "Text for \"Cards left\" message",
-      "description": "@number will be replaced by the number of cards left in this round",
-      "default": "Cards left: @number"
+      "label": "Texte pour le message \"Cartes restantes\"",
+      "description": "@number sera remplacé par le nombre de cartes restantes pour ce round",
+      "default": "Cartes restantes: @number"
     },
     {
-      "label": "Text for the \"next round\" button",
-      "description": "@round will be replaced by the round number",
-      "default": "Proceed to round @round"
+      "label": "Texte pour le bouton \"Round suivant\"",
+      "description": "@round sera remplacé par le numéro du round",
+      "default": "Procéder au round @round"
     },
     {
-      "label": "Text for the \"Start over\" button",
-      "default": "Start over"
+      "label": "Texte pour le bouton \"Recommencer\"",
+      "default": "Recommencer"
     },
     {
-      "label": "Text for the \"show summary\" button",
-      "default": "Next"
+      "label": "Texte pour le bouton \"Voir le résumé\"",
+      "default": "Suivant"
     },
     {
-      "label": "Title text for the summary page",
-      "default": "Summary"
+      "label": "Titre de la page de résumé",
+      "default": "Résumé"
     },
     {
-      "label": "Text for \"Cards you got right:\"",
-      "default": "Cards you got right:"
+      "label": "Texte pour \"Cartes correctes:\"",
+      "default": "Cartes correctes:"
     },
     {
-      "label": "Text for \"Cards you got wrong:\"",
-      "default": "Cards you got wrong:"
+      "label": "Texte pour \"Cartes incorrectes:\"",
+      "default": "Cartes incorrectes:"
     },
     {
-      "label": "Text for \"Cards not shown:\"",
-      "default": "Cards in pool not shown:"
+      "label": "Texte pour \"Cartes non montrées:\"",
+      "default": "Cartes non montrées:"
     },
     {
-      "label": "Text for \"Overall Score\"",
-      "default": "Overall Score"
+      "label": "Texte pour \"Score global\"",
+      "default": "Score global"
     },
     {
-      "label": "Text for \"Cards completed\"",
-      "default": "Cards you have completed learning:"
+      "label": "Texte pour \"Cartes completées\"",
+      "default": "Cartes que vous avez complétées:"
     },
     {
-      "label": "Text for \"Completed rounds:\"",
-      "default": "Completed rounds:"
+      "label": "Texte pour \"Rounds complétés:\"",
+      "default": "Rounds complétés:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row!"
+      "label": "Message lorsque toutes les cartes ont été apprises avec compétence",
+      "description": "@cards sera remplacé par le nombre de cartes dans la réserve. @max sera remplacé par le niveau de compétences maximal - 1.",
+      "default": "Bien joué! Vous avez réussi à avoir les @cards cartes correctes @max fois de suite!"
     },
     {
       "label": "Texte de progression",
@@ -196,23 +196,23 @@
       "default": "Votre navigateur ne supporte pas ce fichier audio"
     },
     {
-      "label": "Confirm starting over dialog",
+      "label": "Confirmer le redémarrage du dialogue",
       "fields": [
         {
-          "label": "Header text",
-          "default": "Start over?"
+          "label": "Texte d'en-tête",
+          "default": "Recommencer?"
         },
         {
-          "label": "Body text",
-          "default": "All progress will be lost. Are you sure you want to start over?"
+          "label": "Contenu",
+          "default": "Toutes les progressions seront perdues. Êtes-vous sûr de vouloir recommencer?"
         },
         {
-          "label": "Cancel button label",
-          "default": "Cancel"
+          "label": "Libellé du bouton annuler",
+          "default": "Annuler"
         },
         {
-          "label": "Confirm button label",
-          "default": "Start over"
+          "label": "Libellé du bouton de confirmation",
+          "default": "Recommencer"
         }
       ]
     }
