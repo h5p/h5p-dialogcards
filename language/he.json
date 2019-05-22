@@ -66,34 +66,34 @@
     },
     {
       "label": "הגדרות התנהגות הרכיב.",
-      "description": "",
+      "description": "אפשרויות אלה יאפשרו לכם לשלוט בהתנהגות המשימה.",
       "fields": [
         {
           "label": "הצגת כפתור \"ניסיון חוזר\""
         },
         {
-          "label": "",
+          "label": "ביטול ניווט אחורה",
           "description": ""
         },
         {
-          "label": "",
-          "description": ""
+          "label": "התאמת תצוגת התוכן לגודל הכרטיס",
+          "description": "ביטול הסימון של אפשרות זו יתאים את גודל הכרטיס לטקסט"
         },
         {
           "label": "הצגת כרטיסים באופן אקראי",
-          "description": ""
+          "description": "אפשרות סידור אקראי של הכרטיסים המוצגים."
         },
         {
-          "label": ""
+          "label": "רמת מיומנות מרבית"
         },
         {
-          "label": "",
-          "description": ""
+          "label": "אפשרות התקדמות מהירה",
+          "description": "אם מופעל, תלמידים יכולים לציין שהם מכירים כרטיס מבלי להפוך אותו"
         }
       ]
     },
     {
-      "label": "",
+      "label": "טקסט עבור כפתור \"היפוך\"",
       "default": "תצוגת התשובה"
     },
     {
@@ -122,21 +122,21 @@
       "default": "ניסיון מענה @round"
     },
     {
-      "label": "",
-      "description": "",
+      "label": "תאור עבור הודעת \"כרטיסים שנותרו\"",
+      "description": "@number יוחלף במספר הקלפים שנותרו בסיבוב זה",
       "default": "כרטיסים נותרים: @number"
     },
     {
-      "label": "",
-      "description": "",
+      "label": "טקסט עבור הכפתור \"סיבוב הבא\"",
+      "description": "@round יוחלף במספר הסיבוב",
       "default": "המשיכו לניסיון @round"
     },
     {
-      "label": "Text for the \"Start over\" button",
-      "default": "Start over"
+      "label": "תאור הכפתור \"התחלה מחדש\"",
+      "default": "התחלה מחדש"
     },
     {
-      "label": "",
+      "label": "תאור כפתור \"תצוגת סיכום\"",
       "default": "הבא"
     },
     {
@@ -144,75 +144,75 @@
       "default": "סיכום"
     },
     {
-      "label": "",
+      "label": "תאור עבור \"כרטיסים שהצלחת:\"",
       "default": "כרטיסים בהם המענה נכון:"
     },
     {
-      "label": "",
+      "label": "תאור עבור \"כרטיסים שלא הצלחת:\"",
       "default": "כרטיסים בהם המענה שגוי:"
     },
     {
       "label": "",
-      "default": ""
+      "default": "כרטיסים שאינם מוצגים ברשימה:"
     },
     {
-      "label": "",
+      "label": "תאור עבור \"ניקוד כולל\"",
       "default": "ציון מסכם"
     },
     {
-      "label": "",
-      "default": ""
+      "label": "תאור עבור \"כרטיסים שהושלמו\"",
+      "default": "כרטיסים שסיימת ללמוד:"
     },
     {
-      "label": "",
-      "default": ""
+      "label": "תאור עבור \"סיבובים שהסתיימו:\"",
+      "default": "סיבובים שהסתיימו:"
     },
     {
-      "label": "",
+      "label": "הודעה כאשר כל הקלפים נלמדו במיומנות",
       "description": "",
-      "default": ""
+      "default": "כל הכבוד! הצלחת את כל @cards הכרטיסים @max פעמים ברציפות!"
     },
     {
-      "label": "",
-      "description": "",
-      "default": ""
+      "label": "תאור התקדמות",
+      "description": "המשתנים הזמינים הם @card ו- @total.",
+      "default": "כרטיס @card מתוך @total"
     },
     {
-      "label": "",
-      "description": "",
+      "label": "תאור לתווית התוכן",
+      "description": "משמש עבור נגישות על ידי טכנולוגיות מסייעות",
       "default": "צד הכרטיס הקדמי"
     },
     {
-      "label": "",
-      "description": "",
+      "label": "תווית עבור אחורי הכרטיס",
+      "description": "משמש עבור נגישות על ידי טכנולוגיות מסייעות",
       "default": "צד הכרטיס האחורי"
     },
     {
-      "label": "",
+      "label": "תווית עבור כפתור תצוגת עצה",
       "default": "הצגת עצה"
     },
     {
-      "label": "",
-      "default": ""
+      "label": "הודעת שמע לא נתמך",
+      "default": "הדפדפן שלך לא תומך במנגנון שמע זה"
     },
     {
-      "label": "Confirm starting over dialog",
+      "label": "אישור הודעת התחלה מחדש",
       "fields": [
         {
-          "label": "Header text",
-          "default": "Start over?"
+          "label": "כותרת",
+          "default": "להתחיל מחדש?"
         },
         {
-          "label": "Body text",
-          "default": "All progress will be lost. Are you sure you want to start over?"
+          "label": "תוכן",
+          "default": "כל ההתקדמות תמחק. האם להתחיל מחדש?"
         },
         {
-          "label": "Cancel button label",
-          "default": "Cancel"
+          "label": "תאור כפתור ביטול",
+          "default": "ביטול"
         },
         {
-          "label": "Confirm button label",
-          "default": "Start over"
+          "label": "תאור כפתור אישור",
+          "default": "התחלה מחדש"
         }
       ]
     }
