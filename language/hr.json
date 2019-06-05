@@ -54,7 +54,7 @@
     },
     {
       "label": "Behavioural settings.",
-      "description": "These options will let you control how the task behaves.",
+      "description": "Ove opcije vam omogućavaju kontrolu nad ponašanjem zadatka.",
       "fields": [
         {
           "label": "Omogući gumb \"Ponovni pokušaj\""
@@ -64,25 +64,25 @@
           "description": "Ovo opcija će onemogućiti prikaz navigacije za povratak na prethodne kartice, prikazujući isključivo navigaciju za sljedeće kartice"
         },
         {
-          "label": "Scale the text to fit inside the card",
-          "description": "Unchecking this option will make the card adapt its size to the size of the text"
+          "label": "Smanji veličinu teksta kako bi stala na karticu",
+          "description": "Onemogućavanje ove opcije će rezultirati povećanjem površine kartice kako bi stao sav tekst"
         },
         {
-          "label": "Prikaži kartice slučajnim rasporedom",
-          "description": "Enable to randomize the order of cards on display."
+          "label": "Prikaži kartice nasumičnim rasporedom",
+          "description": "Omogući nasumično raspoređivanje kartica na zaslonu."
         }
       ]
     },
     {
-      "label": "Text for the turn button",
+      "label": "Tekst za gumb Okreni",
       "default": "Okreni"
     },
     {
-      "label": "Text for the next button",
+      "label": "Tekst za gumb Sljedeća",
       "default": "Sljedeća"
     },
     {
-      "label": "Text for the previous button",
+      "label": "Tekst za gumb Prethodna",
       "default": "Prethodna"
     },
     {
@@ -96,12 +96,12 @@
     },
     {
       "label": "Oznaka za tekst prve strane kartice",
-      "description": "Used for accessibility by assistive technologies",
+      "description": "Koristi se za pristupačnost asistivnim tehnologijama",
       "default": "Prva strana kartice"
     },
     {
       "label": "Oznaka za tekst druge strane kartice",
-      "description": "Used for accessibility by assistive technologies",
+      "description": "Koristi se za pristupačnost asistivnim tehnologijama",
       "default": "Druga strana kartice"
     },
     {
