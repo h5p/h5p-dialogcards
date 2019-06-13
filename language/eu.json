@@ -1,7 +1,7 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "Titulua"
     },
     {
       "label": "Mode",
@@ -16,48 +16,48 @@
       ]
     },
     {
-      "label": "وصف النشاط",
+      "label": "Zereginaren deskribapena",
       "default": ""
     },
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Lehenetsia"
         }
       ],
-      "label": "الحوارات",
-      "entity": "الحوار",
+      "label": "Elkarrizketak",
+      "entity": "elkarrizketa",
       "field": {
-        "label": "السؤال",
+        "label": "Ariketa",
         "fields": [
           {
-            "label": "نص",
-            "description": "تلميح للجزء الأول من الحوار"
+            "label": "Testua",
+            "description": "Elkarrizketaren lehenengo zatirako laguntza"
           },
           {
-            "label": "الاجابة",
-            "description": "تلميح للجزء الثاني من الحوار"
+            "label": "Erantzuna",
+            "description": "Elkarrizketaren bigarren zatirako laguntza"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "Irudia",
+            "description": "Aukerazko irudia txartelerako. (Txartelak izan dezake irudi bat, testu bat edo biak)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Irudiaren ordezko testua"
           },
           {
-            "label": "Audio files"
+            "label": "Audio fitxategiak"
           },
           {
-            "label": "Tips",
+            "label": "Argibideak",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Testurako aholkua",
+                "description": "Elkarrizketaren lehenengo zatirako argibidea"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Erantzuteko argibidea",
+                "description": "Elkarrizketaren bigarren parterako argibidea"
               }
             ]
           }
@@ -65,23 +65,23 @@
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the task behaves.",
+      "label": "Portaera ezarpenak.",
+      "description": "Aukera hauen bidez kontrolatu ahal izango duzu zereginaren portaera.",
       "fields": [
         {
-          "label": "Enable \"Retry\" button"
+          "label": "Aktibatu \"Saiatu berriro\" botoia"
         },
         {
-          "label": "Disable backwards navigation",
-          "description": "This option will only allow you to move forward with Dialog Cards"
+          "label": "Desgaitu atzeranzko nabigazioa",
+          "description": "Aukera hau aktibatuta soilik aurreruntz mugitu ahal izango da elkarrizketa-txarteletan"
         },
         {
-          "label": "Scale the text to fit inside the card",
-          "description": "Unchecking this option will make the card adapt its size to the size of the text"
+          "label": "Eskalatu testua txartelera doitzeko",
+          "description": "Aukera hau desmarkatuta txartela egokituko da testuaren tamainara"
         },
         {
-          "label": "Randomize cards",
-          "description": "Enable to randomize the order of cards on display."
+          "label": "Ausazko txartelak",
+          "description": "Gaitu pantailako txartelen ordena ausazkoa izatea."
         },
         {
           "label": "Maximum proficiency level"
@@ -93,20 +93,20 @@
       ]
     },
     {
-      "label": "نص زر التدوير",
-      "default": "Turn"
+      "label": "Buelta emateko botoiaren testua",
+      "default": "Eman buelta"
     },
     {
-      "label": "نص الزر التالي",
-      "default": "Next"
+      "label": "Hurrengoa botoiaren testua",
+      "default": "Hurrengoa"
     },
     {
-      "label": "نص الزر السابق",
-      "default": "Previous"
+      "label": "Aurrekoa botoiaren testua",
+      "default": "Aurrekoa"
     },
     {
-      "label": "النص الزر إعادة المحاولة",
-      "default": "Retry"
+      "label": "Saiatu berriro botoiaren testua",
+      "default": "Saiatu berriro"
     },
     {
       "label": "Text for the \"correct answer\" button",
@@ -173,27 +173,27 @@
       "default": "Well done! You got all @cards cards correct @max times in a row!"
     },
     {
-      "label": "نص التقدم",
-      "description": "المتغيرات المتاحة هي البطاقة والمجموع",
-      "default": "Card @card of @total"
+      "label": "Aurrerapena testua",
+      "description": "Erabiltzen dituen aldagaiak dira @card eta @total.",
+      "default": "@total -tik @card . txartela"
     },
     {
-      "label": "Label for card text",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card front"
+      "label": "Txartelaren testuaren etiketa",
+      "description": "Laguntza teknologiko bidezko erabilerraztasunerako erabiltzen da",
+      "default": "Txartelaren aurreko aldea"
     },
     {
-      "label": "Label for card back",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card back"
+      "label": "Txartelaren atzeko aldeko etiketa",
+      "description": "Laguntza teknologiko bidezko erabilerraztasunerako erabiltzen da",
+      "default": "Txartelaren atzeko aldea"
     },
     {
-      "label": "Label for the show tip button",
-      "default": "Show tip"
+      "label": "Erakutsi argibidea botoiaren etiketa",
+      "default": "Erakutsi argibidea"
     },
     {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
+      "label": "Audioa ez da onartzen mezua",
+      "default": "Zure nabigatzaileak ez du onartzen audio hau"
     },
     {
       "label": "Confirm starting over dialog",

@@ -1,7 +1,7 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "標語"
     },
     {
       "label": "Mode",
@@ -16,48 +16,48 @@
       ]
     },
     {
-      "label": "وصف النشاط",
+      "label": "描述",
       "default": ""
     },
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "預設"
         }
       ],
-      "label": "الحوارات",
-      "entity": "الحوار",
+      "label": "卡片",
+      "entity": "dialog",
       "field": {
-        "label": "السؤال",
+        "label": "題目",
         "fields": [
           {
-            "label": "نص",
-            "description": "تلميح للجزء الأول من الحوار"
+            "label": "問題",
+            "description": "卡片的正面"
           },
           {
-            "label": "الاجابة",
-            "description": "تلميح للجزء الثاني من الحوار"
+            "label": "答案",
+            "description": "卡片的背面"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "圖像",
+            "description": "卡片上額外顯示的圖片（卡片可以只有文字或圖片，或兩個都有）"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "替代文字"
           },
           {
-            "label": "Audio files"
+            "label": "音樂"
           },
           {
-            "label": "Tips",
+            "label": "提示與註解",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "問題提示",
+                "description": "在卡片正面顯示的提示文字"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "答案註解",
+                "description": "在卡片背面顯示的註解文字"
               }
             ]
           }
@@ -65,23 +65,23 @@
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the task behaves.",
+      "label": "行為設定",
+      "description": "透過設定來控制行為",
       "fields": [
         {
-          "label": "Enable \"Retry\" button"
+          "label": "啟用「重新開始」按鈕"
         },
         {
-          "label": "Disable backwards navigation",
-          "description": "This option will only allow you to move forward with Dialog Cards"
+          "label": "停用「返回」按鈕",
+          "description": "在進行中禁止使用者回到上一張卡片。"
         },
         {
-          "label": "Scale the text to fit inside the card",
-          "description": "Unchecking this option will make the card adapt its size to the size of the text"
+          "label": "依卡片調整字體尺寸",
+          "description": "若不勾選，會改以文字內容來決定卡片尺寸。"
         },
         {
-          "label": "Randomize cards",
-          "description": "Enable to randomize the order of cards on display."
+          "label": "隨機出卡",
+          "description": "啟用後，卡片顯示的順序會隨機。"
         },
         {
           "label": "Maximum proficiency level"
@@ -93,20 +93,20 @@
       ]
     },
     {
-      "label": "نص زر التدوير",
-      "default": "Turn"
+      "label": "翻面按鈕文字",
+      "default": "翻面"
     },
     {
-      "label": "نص الزر التالي",
-      "default": "Next"
+      "label": "下一張卡片按鈕文字",
+      "default": "下一張"
     },
     {
-      "label": "نص الزر السابق",
-      "default": "Previous"
+      "label": "上一張卡片按鈕文字",
+      "default": "上一張"
     },
     {
-      "label": "النص الزر إعادة المحاولة",
-      "default": "Retry"
+      "label": "重新開始按鈕文字",
+      "default": "重新開始"
     },
     {
       "label": "Text for the \"correct answer\" button",
@@ -173,27 +173,27 @@
       "default": "Well done! You got all @cards cards correct @max times in a row!"
     },
     {
-      "label": "نص التقدم",
-      "description": "المتغيرات المتاحة هي البطاقة والمجموع",
-      "default": "Card @card of @total"
+      "label": "進度訊息文字",
+      "description": "可用的變數為 @card 與 @total。",
+      "default": "目前在第 @card 張，共 @total 張。"
     },
     {
-      "label": "Label for card text",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card front"
+      "label": "卡片正面文本",
+      "description": "此設定為報讀器使用",
+      "default": "卡片正面"
     },
     {
-      "label": "Label for card back",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card back"
+      "label": "卡片反面文本",
+      "description": "此設定為報讀器使用",
+      "default": "卡片反面"
     },
     {
-      "label": "Label for the show tip button",
-      "default": "Show tip"
+      "label": "顯示提示或註解按鈕",
+      "default": "提示或註解"
     },
     {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
+      "label": "音訊無法支援說明文字",
+      "default": "目前使用的瀏覽器不支援播放這個音訊。"
     },
     {
       "label": "Confirm starting over dialog",

@@ -1,7 +1,7 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "Título"
     },
     {
       "label": "Mode",
@@ -16,48 +16,48 @@
       ]
     },
     {
-      "label": "وصف النشاط",
+      "label": "Descrição da tarefa",
       "default": ""
     },
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Padrão"
         }
       ],
-      "label": "الحوارات",
-      "entity": "الحوار",
+      "label": "Diálogos",
+      "entity": "dialog",
       "field": {
-        "label": "السؤال",
+        "label": "Questão",
         "fields": [
           {
-            "label": "نص",
-            "description": "تلميح للجزء الأول من الحوار"
+            "label": "Texto",
+            "description": "Texto da primeira parte do diálogo"
           },
           {
-            "label": "الاجابة",
-            "description": "تلميح للجزء الثاني من الحوار"
+            "label": "Resposta",
+            "description": "Texto da segunda parte do diálogo"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "Imagem",
+            "description": "Imagem opcional para o cartão. (O cartão pode conter apenas uma imagem, apenas um texto, ou ambos)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Texto alternativo para a imagem"
           },
           {
-            "label": "Audio files"
+            "label": "Arquivos de áudio"
           },
           {
-            "label": "Tips",
+            "label": "Dicas",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Dica para texto",
+                "description": "Dica para a primeira parte do diálogo"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Dica para resposta",
+                "description": "Dica para a segunda parte do diálogo"
               }
             ]
           }
@@ -65,23 +65,23 @@
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the task behaves.",
+      "label": "Configurações comportamentais.",
+      "description": "stas opções permitirão que você controle como a tarefa se comporta.",
       "fields": [
         {
-          "label": "Enable \"Retry\" button"
+          "label": "Habilitar botão \"Tentar novamente\""
         },
         {
-          "label": "Disable backwards navigation",
-          "description": "This option will only allow you to move forward with Dialog Cards"
+          "label": "Desabilitar navegação para trás",
+          "description": "Esta opção permitirá apenas que você navegue para frente nos cartões de diálogo"
         },
         {
-          "label": "Scale the text to fit inside the card",
-          "description": "Unchecking this option will make the card adapt its size to the size of the text"
+          "label": "Dimensionar o texto para ajustar-se dentro do cartão",
+          "description": "Desmarcar esta opção fará com que o cartão adapte seu tamanho ao tamanho do texto"
         },
         {
-          "label": "Randomize cards",
-          "description": "Enable to randomize the order of cards on display."
+          "label": "Aleatorizar cartões",
+          "description": "Habilite para aleatorizar a ordem em que os cartões são exibidos."
         },
         {
           "label": "Maximum proficiency level"
@@ -93,20 +93,20 @@
       ]
     },
     {
-      "label": "نص زر التدوير",
-      "default": "Turn"
+      "label": "Texto para o botão de virar",
+      "default": "Virar"
     },
     {
-      "label": "نص الزر التالي",
-      "default": "Next"
+      "label": "Texto para o botão de próximo",
+      "default": "Próximo"
     },
     {
-      "label": "نص الزر السابق",
-      "default": "Previous"
+      "label": "Texto para o botão de anterior",
+      "default": "Anterior"
     },
     {
-      "label": "النص الزر إعادة المحاولة",
-      "default": "Retry"
+      "label": "Texto para o botão de tentar novamente",
+      "default": "Tentar novamente"
     },
     {
       "label": "Text for the \"correct answer\" button",
@@ -173,27 +173,27 @@
       "default": "Well done! You got all @cards cards correct @max times in a row!"
     },
     {
-      "label": "نص التقدم",
-      "description": "المتغيرات المتاحة هي البطاقة والمجموع",
-      "default": "Card @card of @total"
+      "label": "Texto de progresso",
+      "description": "Variáveis disponíveis são @card e @total.",
+      "default": "Cartão @card de @total"
     },
     {
-      "label": "Label for card text",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card front"
+      "label": "Rótulo para o texto do cartão",
+      "description": "Usado para acessibilidade por tecnologias assistivas",
+      "default": "Frente do cartão"
     },
     {
-      "label": "Label for card back",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card back"
+      "label": "Rótulo para verso do cartão",
+      "description": "Usado para acessibilidade por tecnologias assistivas",
+      "default": "Verso do cartão"
     },
     {
-      "label": "Label for the show tip button",
-      "default": "Show tip"
+      "label": "Rótulo para o botão de mostrar dica",
+      "default": "Mostrar dica"
     },
     {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
+      "label": "Mensagem de áudio não suportado",
+      "default": "Seu navegador não suporta este áudio"
     },
     {
       "label": "Confirm starting over dialog",

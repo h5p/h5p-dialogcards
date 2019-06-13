@@ -16,48 +16,48 @@
       ]
     },
     {
-      "label": "وصف النشاط",
+      "label": "Etkinlik açıklaması",
       "default": ""
     },
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Varsayılan"
         }
       ],
-      "label": "الحوارات",
-      "entity": "الحوار",
+      "label": "Diyaloglar",
+      "entity": "dialog",
       "field": {
-        "label": "السؤال",
+        "label": "Soru",
         "fields": [
           {
-            "label": "نص",
-            "description": "تلميح للجزء الأول من الحوار"
+            "label": "Metin",
+            "description": "Diyaloğun ilk bölümü için ipucu"
           },
           {
-            "label": "الاجابة",
-            "description": "تلميح للجزء الثاني من الحوار"
+            "label": "Cevap",
+            "description": "Diyaloğun ikinci bölümü için ipucu"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "Görsel",
+            "description": "Kart için isteğe bağlı görsel. (Kart sadece bir görsel, sadece bir metin ya da ikisini birden içerebilir.)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Görsel için alternatif metin"
           },
           {
-            "label": "Audio files"
+            "label": "Ses dosyaları"
           },
           {
-            "label": "Tips",
+            "label": "İpuçları",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "İpucu metni",
+                "description": "Diyaloğun ilk bölümü için ipucu"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Cevap için ipucu",
+                "description": "Diyaloğun ikinci bölümü için ipucu"
               }
             ]
           }
@@ -65,23 +65,23 @@
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the task behaves.",
+      "label": "Davranış ayarları.",
+      "description": "Bu seçenekler etkinliğin nasıl gerçekleşeceğini kontrol etmenizi sağlar.",
       "fields": [
         {
-          "label": "Enable \"Retry\" button"
+          "label": "Açık \"Yeniden dene\" düğmesi"
         },
         {
-          "label": "Disable backwards navigation",
-          "description": "This option will only allow you to move forward with Dialog Cards"
+          "label": "Geri dönüş gezinmesini kapat",
+          "description": "Bu seçenek Diyalog Kartlarında sadece ileri gidilmesini sağlar."
         },
         {
-          "label": "Scale the text to fit inside the card",
-          "description": "Unchecking this option will make the card adapt its size to the size of the text"
+          "label": "Metni karta sığacak şekilde boyutlandır",
+          "description": "Bu seçeneği kapatarak kartın boyutunun metne uygun şekilde değişmesini sağlayabilirsiniz."
         },
         {
-          "label": "Randomize cards",
-          "description": "Enable to randomize the order of cards on display."
+          "label": "Kartları karıştır",
+          "description": "Kartların gösterilme sırasının rasgele olmasını sağlar."
         },
         {
           "label": "Maximum proficiency level"
@@ -93,20 +93,20 @@
       ]
     },
     {
-      "label": "نص زر التدوير",
-      "default": "Turn"
+      "label": "Döndür düğmesinin metni",
+      "default": "Çevir"
     },
     {
-      "label": "نص الزر التالي",
-      "default": "Next"
+      "label": "sonraki düğmesinin metni",
+      "default": "Sonraki"
     },
     {
-      "label": "نص الزر السابق",
-      "default": "Previous"
+      "label": "Önceki düğmesinin metni",
+      "default": "Önceki"
     },
     {
-      "label": "النص الزر إعادة المحاولة",
-      "default": "Retry"
+      "label": "Yeniden dene düğmesinin metni",
+      "default": "Yeniden dene"
     },
     {
       "label": "Text for the \"correct answer\" button",
@@ -173,27 +173,27 @@
       "default": "Well done! You got all @cards cards correct @max times in a row!"
     },
     {
-      "label": "نص التقدم",
-      "description": "المتغيرات المتاحة هي البطاقة والمجموع",
-      "default": "Card @card of @total"
+      "label": "İlerleme metni",
+      "description": "Olası değişkenler @card ve @total.",
+      "default": "Kart @card / @total"
     },
     {
-      "label": "Label for card text",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card front"
+      "label": "Kart metni etiketi ",
+      "description": "Destek teknolojileri tarafından kullanılır",
+      "default": "Kartın önü"
     },
     {
-      "label": "Label for card back",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card back"
+      "label": "Kartın arkası metni ",
+      "description": "Destek teknolojileri tarafından kullanılır",
+      "default": "Kartın arkası"
     },
     {
-      "label": "Label for the show tip button",
-      "default": "Show tip"
+      "label": "İpucu düğmesinin etiketi",
+      "default": "İpucunu göster"
     },
     {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
+      "label": "Ses desteklenmiyor mesajı",
+      "default": "İnternet tarayıcınız bu sesi desteklemiyor"
     },
     {
       "label": "Confirm starting over dialog",

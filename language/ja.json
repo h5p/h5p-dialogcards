@@ -16,7 +16,7 @@
       ]
     },
     {
-      "label": "وصف النشاط",
+      "label": "Task description",
       "default": ""
     },
     {
@@ -25,18 +25,18 @@
           "label": "Default"
         }
       ],
-      "label": "الحوارات",
-      "entity": "الحوار",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "السؤال",
+        "label": "Question",
         "fields": [
           {
-            "label": "نص",
-            "description": "تلميح للجزء الأول من الحوار"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue"
           },
           {
-            "label": "الاجابة",
-            "description": "تلميح للجزء الثاني من الحوار"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue"
           },
           {
             "label": "Image",
@@ -65,7 +65,7 @@
       }
     },
     {
-      "label": "Behavioural settings",
+      "label": "Behavioural settings.",
       "description": "These options will let you control how the task behaves.",
       "fields": [
         {
@@ -93,19 +93,19 @@
       ]
     },
     {
-      "label": "نص زر التدوير",
+      "label": "Text for the turn button",
       "default": "Turn"
     },
     {
-      "label": "نص الزر التالي",
+      "label": "Text for the next button",
       "default": "Next"
     },
     {
-      "label": "نص الزر السابق",
+      "label": "Text for the previous button",
       "default": "Previous"
     },
     {
-      "label": "النص الزر إعادة المحاولة",
+      "label": "Text for the retry button",
       "default": "Retry"
     },
     {
@@ -173,8 +173,8 @@
       "default": "Well done! You got all @cards cards correct @max times in a row!"
     },
     {
-      "label": "نص التقدم",
-      "description": "المتغيرات المتاحة هي البطاقة والمجموع",
+      "label": "Progress text",
+      "description": "Available variables are @card and @total.",
       "default": "Card @card of @total"
     },
     {
