@@ -88,7 +88,7 @@
         },
         {
           "label": "Salli pikavastaaminen",
-          "description": "Jos tämä asetus aktivoidaan henkilöt voivat merkitä kortin "tiedän tämän"-toiminnolla kääntämättä korttia."
+          "description": "Jos tämä asetus aktivoidaan henkilöt voivat merkitä kortin tiedän tämän-toiminnolla kääntämättä korttia."
         }
       ]
     },
