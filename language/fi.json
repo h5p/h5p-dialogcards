@@ -1,22 +1,22 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "Otsikko"
     },
     {
-      "label": "Mode",
-      "description": "Mode of presenting the dialog cards",
+      "label": "Moodi",
+      "description": "Dialogikorttien toiminta",
       "options": [
         {
-          "label": "Normal"
+          "label": "Kertasuoritus"
         },
         {
-          "label": "Repetition"
+          "label": "Toistuvat kierrokset"
         }
       ]
     },
     {
-      "label": "Tehtävän kuvaus",
+      "label": "Tehtävänkuvaus",
       "default": ""
     },
     {
@@ -84,11 +84,11 @@
           "description": "Tällä valinnalla voit satunnaistaa korttien esiintymisjärjestyksen."
         },
         {
-          "label": "Maximum proficiency level"
+          "label": "Maksimiosaamistaso"
         },
         {
-          "label": "Allow quick progression",
-          "description": "If activated, learners can decide to indicate that they know a card without turning it"
+          "label": "Salli pikavastaaminen",
+          "description": "Jos tämä asetus aktivoidaan henkilöt voivat merkitä kortin tiedän tämän-toiminnolla kääntämättä korttia."
         }
       ]
     },
@@ -109,68 +109,68 @@
       "default": "Yritä uudelleen"
     },
     {
-      "label": "Text for the \"correct answer\" button",
-      "default": "I got it right!"
+      "label": "\"correct answer\" painikkeen teksti",
+      "default": "Tiedän tämän"
     },
     {
       "label": "Text for the \"incorrect answer\" button",
-      "default": "I got it wrong"
+      "default": "En tiedä tätä"
     },
     {
-      "label": "Text for \"Round\" message below cards and on the summary screen",
-      "description": "@round will be replaced by the number of the current round",
-      "default": "Round @round"
+      "label": "\"Round\"  viestin teksti joka näkyy kortiten alapuolella ja yhteenvetosivulla. ",
+      "description": "@round muuttuja korvataan tekstissä nykyisen kuluvan kierroksen numerolla",
+      "default": "Kierros @round"
     },
     {
-      "label": "Text for \"Cards left\" message",
-      "description": "@number will be replaced by the number of cards left in this round",
-      "default": "Cards left: @number"
+      "label": "Teksti \"Cards left\" viestille",
+      "description": "@number muuttuja korvataan tekstissä nykyisen kuluvan kierroksen jäljellä olevien korttien numerolla",
+      "default": "Kortteja jäljellä: @number"
     },
     {
-      "label": "Text for the \"next round\" button",
-      "description": "@round will be replaced by the round number",
-      "default": "Proceed to round @round"
+      "label": "Teksti \"next round\" painikkeelle",
+      "description": "@round muuttuja korvataan kieroksen numerolla",
+      "default": "Jatka kierrokselle @round"
     },
     {
-      "label": "Text for the \"Start over\" button",
-      "default": "Start over"
+      "label": "Teksti \"Start over\" painikkeella",
+      "default": "Aloita uudelleen alusta"
     },
     {
-      "label": "Text for the \"show summary\" button",
-      "default": "Next"
+      "label": "Teksti \"show summary\" painikkeelle",
+      "default": "Seuraava"
     },
     {
-      "label": "Title text for the summary page",
-      "default": "Summary"
+      "label": "Yhteenvetosivun otsikko",
+      "default": "Yhteenveto"
     },
     {
-      "label": "Text for \"Cards you got right:\"",
-      "default": "Cards you got right:"
+      "label": "Teksti \"Cards you got right:\"",
+      "default": "Kortit jotka sait oikein:"
     },
     {
-      "label": "Text for \"Cards you got wrong:\"",
-      "default": "Cards you got wrong:"
+      "label": "Teksti \"Cards you got wrong:\"",
+      "default": "Kortit joita et saanut oikein:"
     },
     {
-      "label": "Text for \"Cards not shown:\"",
-      "default": "Cards in pool not shown:"
+      "label": "Teksti \"Cards not shown:\"",
+      "default": "Kortteja joita ei näytetty:"
     },
     {
-      "label": "Text for \"Overall Score\"",
-      "default": "Overall Score"
+      "label": "Teksti \"Overall Score\"",
+      "default": "Kokonaispisteet"
     },
     {
-      "label": "Text for \"Cards completed\"",
-      "default": "Cards you have completed learning:"
+      "label": "Teksti \"Cards completed\"",
+      "default": "Opeteltujen korttien lukumäärä:"
     },
     {
-      "label": "Text for \"Completed rounds:\"",
-      "default": "Completed rounds:"
+      "label": "Teksti \"Completed rounds:\"",
+      "default": "Suoritettuja kierroksia:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row!"
+      "label": "Viesti kun kaikki kortit ovat opiskeltu oikein.",
+      "description": "@cards muuttuja korvataan kaikkien saatavilla olevien korttien lukumäärällä. @max muuttuja korvataan maksimiosaamistaso -1 luvulla.",
+      "default": "Hienosti tehty! Tiesit kaikki @cards korttia oikein @max kertaa peräkkäin!"
     },
     {
       "label": "Edistymisteksti",
@@ -192,27 +192,27 @@
       "default": "Näytä vinkki"
     },
     {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
+      "label": "Audio ei tuettu -viesti",
+      "default": "Selaimesi ei tue tätä audioformaattia"
     },
     {
-      "label": "Confirm starting over dialog",
+      "label": "Uudelleenaloituksen varmistusdialogi",
       "fields": [
         {
-          "label": "Header text",
-          "default": "Start over?"
+          "label": "Otsikkoteksti",
+          "default": "Haluatko aloittaa uudelleen alusta?"
         },
         {
-          "label": "Body text",
-          "default": "All progress will be lost. Are you sure you want to start over?"
+          "label": "Kappaleteksti",
+          "default": "Kaikki nykyinen suoritustieto poistetaan. Oletko varma että haluat aloittaa uudelleen alusta?"
         },
         {
-          "label": "Cancel button label",
-          "default": "Cancel"
+          "label": "Peruuta-painikkeen teksti",
+          "default": "Peruuta"
         },
         {
-          "label": "Confirm button label",
-          "default": "Start over"
+          "label": "Vahvista-painikkeen teksti",
+          "default": "Aloita uudelleen alusta"
         }
       ]
     }
