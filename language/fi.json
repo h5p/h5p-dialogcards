@@ -1,10 +1,22 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "Otsikko"
     },
     {
-      "label": "Tehtävän kuvaus",
+      "label": "Moodi",
+      "description": "Dialogikorttien toiminta",
+      "options": [
+        {
+          "label": "Kertasuoritus"
+        },
+        {
+          "label": "Toistuvat kierrokset"
+        }
+      ]
+    },
+    {
+      "label": "Tehtävänkuvaus",
       "default": ""
     },
     {
@@ -70,6 +82,13 @@
         {
           "label": "Sekoita kortit",
           "description": "Tällä valinnalla voit satunnaistaa korttien esiintymisjärjestyksen."
+        },
+        {
+          "label": "Maksimiosaamistaso"
+        },
+        {
+          "label": "Salli pikavastaaminen",
+          "description": "Jos tämä asetus aktivoidaan henkilöt voivat merkitä kortin tiedän tämän-toiminnolla kääntämättä korttia."
         }
       ]
     },
@@ -88,6 +107,70 @@
     {
       "label": "Painikkeen Yritä uudelleen teksti",
       "default": "Yritä uudelleen"
+    },
+    {
+      "label": "\"correct answer\" painikkeen teksti",
+      "default": "Tiedän tämän"
+    },
+    {
+      "label": "Text for the \"incorrect answer\" button",
+      "default": "En tiedä tätä"
+    },
+    {
+      "label": "\"Round\"  viestin teksti joka näkyy kortiten alapuolella ja yhteenvetosivulla. ",
+      "description": "@round muuttuja korvataan tekstissä nykyisen kuluvan kierroksen numerolla",
+      "default": "Kierros @round"
+    },
+    {
+      "label": "Teksti \"Cards left\" viestille",
+      "description": "@number muuttuja korvataan tekstissä nykyisen kuluvan kierroksen jäljellä olevien korttien numerolla",
+      "default": "Kortteja jäljellä: @number"
+    },
+    {
+      "label": "Teksti \"next round\" painikkeelle",
+      "description": "@round muuttuja korvataan kieroksen numerolla",
+      "default": "Jatka kierrokselle @round"
+    },
+    {
+      "label": "Teksti \"Start over\" painikkeella",
+      "default": "Aloita uudelleen alusta"
+    },
+    {
+      "label": "Teksti \"show summary\" painikkeelle",
+      "default": "Seuraava"
+    },
+    {
+      "label": "Yhteenvetosivun otsikko",
+      "default": "Yhteenveto"
+    },
+    {
+      "label": "Teksti \"Cards you got right:\"",
+      "default": "Kortit jotka sait oikein:"
+    },
+    {
+      "label": "Teksti \"Cards you got wrong:\"",
+      "default": "Kortit joita et saanut oikein:"
+    },
+    {
+      "label": "Teksti \"Cards not shown:\"",
+      "default": "Kortteja joita ei näytetty:"
+    },
+    {
+      "label": "Teksti \"Overall Score\"",
+      "default": "Kokonaispisteet"
+    },
+    {
+      "label": "Teksti \"Cards completed\"",
+      "default": "Opeteltujen korttien lukumäärä:"
+    },
+    {
+      "label": "Teksti \"Completed rounds:\"",
+      "default": "Suoritettuja kierroksia:"
+    },
+    {
+      "label": "Viesti kun kaikki kortit ovat opiskeltu oikein.",
+      "description": "@cards muuttuja korvataan kaikkien saatavilla olevien korttien lukumäärällä. @max muuttuja korvataan maksimiosaamistaso -1 luvulla.",
+      "default": "Hienosti tehty! Tiesit kaikki @cards korttia oikein @max kertaa peräkkäin!"
     },
     {
       "label": "Edistymisteksti",
@@ -109,8 +192,29 @@
       "default": "Näytä vinkki"
     },
     {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
+      "label": "Audio ei tuettu -viesti",
+      "default": "Selaimesi ei tue tätä audioformaattia"
+    },
+    {
+      "label": "Uudelleenaloituksen varmistusdialogi",
+      "fields": [
+        {
+          "label": "Otsikkoteksti",
+          "default": "Haluatko aloittaa uudelleen alusta?"
+        },
+        {
+          "label": "Kappaleteksti",
+          "default": "Kaikki nykyinen suoritustieto poistetaan. Oletko varma että haluat aloittaa uudelleen alusta?"
+        },
+        {
+          "label": "Peruuta-painikkeen teksti",
+          "default": "Peruuta"
+        },
+        {
+          "label": "Vahvista-painikkeen teksti",
+          "default": "Aloita uudelleen alusta"
+        }
+      ]
     }
   ]
 }
