@@ -473,6 +473,8 @@ class Dialogcards extends H5P.EventDispatcher {
         this.results.push(result);
       }
 
+      this.cards[this.currentCardId].stopAudio();
+
       // On final card
       if (this.cardIds.length - this.getCurrentSelectionIndex() === 1) {
         if (this.params.mode === 'repetition') {
