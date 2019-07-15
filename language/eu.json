@@ -4,14 +4,14 @@
       "label": "Titulua"
     },
     {
-      "label": "Mode",
-      "description": "Mode of presenting the dialog cards",
+      "label": "Modua",
+      "description": "Elkarrizketa-txartelak erakusteko modua",
       "options": [
         {
-          "label": "Normal"
+          "label": "Normala"
         },
         {
-          "label": "Repetition"
+          "label": "Errepikapena"
         }
       ]
     },
@@ -84,11 +84,11 @@
           "description": "Gaitu pantailako txartelen ordena ausazkoa izatea."
         },
         {
-          "label": "Maximum proficiency level"
+          "label": "Gehienezko gaitasun maila"
         },
         {
-          "label": "Allow quick progression",
-          "description": "If activated, learners can decide to indicate that they know a card without turning it"
+          "label": "Baimendu aurrerapen azkarra",
+          "description": "Gaituz gero, ikasleek erabaki dezakete txartel bat dakitela buelta eman gabe"
         }
       ]
     },
@@ -109,68 +109,68 @@
       "default": "Saiatu berriro"
     },
     {
-      "label": "Text for the \"correct answer\" button",
-      "default": "I got it right!"
+      "label": "\"erantzun zuzena\" botoiarentzako testua",
+      "default": "Asmatu duzu!"
     },
     {
-      "label": "Text for the \"incorrect answer\" button",
-      "default": "I got it wrong"
+      "label": "\"erantzun okerra\" botoiarentzako testua",
+      "default": "Ez duzu asmatu"
     },
     {
-      "label": "Text for \"Round\" message below cards and on the summary screen",
-      "description": "@round will be replaced by the number of the current round",
-      "default": "Round @round"
+      "label": "\"Erronda\" mezuarentzako testua txartelen azpian laburpen-pantailan",
+      "description": "@round unean uneko errondaren zenbakiarekin ordezkatuko da",
+      "default": "@round. erronda"
     },
     {
-      "label": "Text for \"Cards left\" message",
-      "description": "@number will be replaced by the number of cards left in this round",
-      "default": "Cards left: @number"
+      "label": "\"Geratzen diren txartelak\" mezuarentzako testua",
+      "description": "@number erronda horretan geratzen den txartel kopuruarekin ordezkatuko da",
+      "default": "Geratzen diren txartelak: @number"
     },
     {
-      "label": "Text for the \"next round\" button",
-      "description": "@round will be replaced by the round number",
-      "default": "Proceed to round @round"
+      "label": "\"hurrengo erronda\" botoiarentzako testua",
+      "description": "@round errondaren zenbakiarekin ordezkatuko da",
+      "default": "Jarraitu @round. errondara"
     },
     {
-      "label": "Text for the \"Start over\" button",
-      "default": "Start over"
+      "label": "\"Berriz hasi\" botoiarentzako testua",
+      "default": "Berriz hasi"
     },
     {
-      "label": "Text for the \"show summary\" button",
-      "default": "Next"
+      "label": "\"Erakutsi laburpena\" botoiarentzako testua",
+      "default": "Hurrengoa"
     },
     {
-      "label": "Title text for the summary page",
-      "default": "Summary"
+      "label": "Laburpen-orriaren izenburuaren testua",
+      "default": "Laburpena"
     },
     {
-      "label": "Text for \"Cards you got right:\"",
-      "default": "Cards you got right:"
+      "label": "\"Asmatutako txartel kopurua:\"-rentzako testua",
+      "default": "Asmatutako txartel kopurua:"
     },
     {
-      "label": "Text for \"Cards you got wrong:\"",
-      "default": "Cards you got wrong:"
+      "label": "\"Asmatu ez duzun txartel kopurua:\"-rentzako testua",
+      "default": "Asmatu ez duzun txartel kopurua:"
     },
     {
-      "label": "Text for \"Cards not shown:\"",
-      "default": "Cards in pool not shown:"
+      "label": "\"Erakutsi gabeko txartelak:\"-rentzako testua",
+      "default": "Erakutsi gabeko txartelak:"
     },
     {
-      "label": "Text for \"Overall Score\"",
-      "default": "Overall Score"
+      "label": "\"Kalifikazioa guztira\"-rentzako testua",
+      "default": "Kalifikazioa guztira"
     },
     {
-      "label": "Text for \"Cards completed\"",
-      "default": "Cards you have completed learning:"
+      "label": "\"Osatutako txartelak\"-rentzako testua",
+      "default": "Ikasten osatutako txartelak:"
     },
     {
-      "label": "Text for \"Completed rounds:\"",
-      "default": "Completed rounds:"
+      "label": "\"Osatutako errondak:\"-rentzako testua",
+      "default": "Osatutako errondak:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row!"
+      "label": "Txartel guztiak ondo ikasiz gero erakutsi beharreko mezua",
+      "description": "@cards bankuan dagoen txartel kopuruarekin ordezkatuko da. @max gehienezko gaitasun mailari 1 kenduta lortzen den emaitzarekin ordezkatuko da.",
+      "default": "Oso ondo! @cards txartel guztiak @max aldiz jarraian asmatu dituzu!"
     },
     {
       "label": "Aurrerapena testua",
@@ -196,23 +196,23 @@
       "default": "Zure nabigatzaileak ez du onartzen audio hau"
     },
     {
-      "label": "Confirm starting over dialog",
+      "label": "Berriz hasteko konfirmatzeko mezua",
       "fields": [
         {
-          "label": "Header text",
-          "default": "Start over?"
+          "label": "Goiburuko testua",
+          "default": "Berriz hasi?"
         },
         {
-          "label": "Body text",
-          "default": "All progress will be lost. Are you sure you want to start over?"
+          "label": "Gorputzaren testua",
+          "default": "Aurrerapen guztiak galduko dira. Ziur zaude berriz hasi nahi duzula?"
         },
         {
-          "label": "Cancel button label",
-          "default": "Cancel"
+          "label": "Utzi botoiaren etiketa",
+          "default": "Utzi"
         },
         {
-          "label": "Confirm button label",
-          "default": "Start over"
+          "label": "Baieztatu botoiaren etiketa",
+          "default": "Berriz hasi"
         }
       ]
     }
