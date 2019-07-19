@@ -138,7 +138,9 @@ class Dialogcards extends H5P.EventDispatcher {
       this.cardManager = new CardManager(managerParams, this.id, {
         onCardTurned: this.handleCardTurned,
         onNextCard: this.nextCard,
-        onResize: this.resize // Videos need to trigger resize
+        onResize: () => {
+          this.trigger('resize');
+        } // Videos need to trigger resize
       });
 
       this.createDOM(this.round === 0);
