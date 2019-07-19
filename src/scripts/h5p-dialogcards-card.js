@@ -11,7 +11,7 @@ class Card {
    * @param {function} [callbacks.onCardSize] Call when card needs resize.
    * @param {function} [callbacks.onCardTurned] Call when card was turned.
    */
-  constructor(card, params, id, contentId, callbacks={}) {
+  constructor(card, params, id, contentId, callbacks = {}) {
     this.card = card;
     this.params = params || {};
     this.id = id;
@@ -115,7 +115,7 @@ class Card {
         if (card.media.params.sources) {
           this.$media = $('<div/>', {'class': 'h5p-dialogcards-video'});
 
-           // Never fit to wrapper
+          // Never fit to wrapper
           if (!card.media.params.visuals) {
             card.media.params.visuals = {};
           }
@@ -463,7 +463,7 @@ class Card {
         currentTextHeight = $text.get(0).getBoundingClientRect().height;
         if (currentTextHeight >= currentTextContainerHeight) {
           increaseFontSize = false;
-          fontSize = fontSize- Card.SCALEINTERVAL;
+          fontSize = fontSize - Card.SCALEINTERVAL;
           $text.css('font-size', fontSize / parentFontSize + 'em');
         }
       }
