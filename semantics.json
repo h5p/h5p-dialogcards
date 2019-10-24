@@ -10,7 +10,8 @@
       "p",
       "br",
       "strong",
-      "em"
+      "em",
+      "code"
     ]
   },
   {
@@ -43,7 +44,8 @@
       "p",
       "br",
       "strong",
-      "em"
+      "em",
+      "code"
     ]
   },
   {
@@ -74,7 +76,8 @@
             "p",
             "br",
             "strong",
-            "em"
+            "em",
+            "code"
           ],
           "label": "Text",
           "importance": "high",
@@ -88,7 +91,8 @@
             "p",
             "br",
             "strong",
-            "em"
+            "em",
+            "code"
           ],
           "label": "Answer",
           "importance": "high",
@@ -466,7 +470,8 @@
           "strong",
           "em",
           "del",
-          "u"
+          "u",
+          "code"
         ]
       },
       {
