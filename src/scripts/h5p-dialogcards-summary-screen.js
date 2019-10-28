@@ -224,7 +224,10 @@ class SummaryScreen {
    */
   show() {
     this.container.classList.remove('h5p-dialogcards-gone');
-    this.fields['button'].focus();
+    // iOS13 requires DOM to be visible to focus
+    setTimeout(() => {
+      this.fields['button'].focus();
+    }, 0);
   }
 
   /**
