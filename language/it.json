@@ -132,12 +132,12 @@
       "default": "Vai alla giocata @round"
     },
     {
-      "label": "Testo per il pulsante \"mostra sommario\"",
+      "label": "Testo per il pulsante \"avanti\"",
       "default": "Avanti"
     },
     {
-      "label": "Text for the \"show summary\" button",
-      "default": "Next"
+      "label": "Testo per il pulsante \"prossimo\"",
+      "default": "Prossimo"
     },
     {
       "label": "Testo del titolo della pagina sommario",
@@ -196,23 +196,23 @@
       "default": "Il tuo browser non supporta questo audi"
     },
     {
-      "label": "Confirm starting over dialog",
+      "label": "Finestra di dialogo per confermare nuovo inizio",
       "fields": [
         {
-          "label": "Header text",
-          "default": "Start over?"
+          "label": "Testo di intestazione",
+          "default": "Ricominciare?"
         },
         {
-          "label": "Body text",
-          "default": "All progress will be lost. Are you sure you want to start over?"
+          "label": "Corpo del testo",
+          "default": "Tutto il lavoro andrà perduto. Sei sicuro/a di di voler ricominciare?"
         },
         {
-          "label": "Cancel button label",
-          "default": "Cancel"
+          "label": "Etichetta del pulsante di annullamento",
+          "default": "Annulla
         },
         {
-          "label": "Confirm button label",
-          "default": "Start over"
+          "label": "Etichetta del pulsante di conferma",
+          "default": "Ricomincia"
         }
       ]
     }
