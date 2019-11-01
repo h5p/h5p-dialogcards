@@ -18,17 +18,20 @@ class Card {
     this.contentId = contentId;
     this.callbacks = callbacks;
 
-    this.$cardWrapper = $('<div>', {'class': 'h5p-dialogcards-cardwrap'});
+    this.$cardWrapper = $('<div>', {
+      'class': 'h5p-dialogcards-cardwrap',
+      'role': 'group',
+      'tabindex': '-1'
+    });
+    if (this.params.mode !== 'repetition') {
+      this.$cardWrapper.attr('aria-labelledby', 'h5p-dialogcards-progress-' + H5P.Dialogcards.idCounter)
+    }
 
-    const $cardHolder = $('<div>', {'class': 'h5p-dialogcards-cardholder'})
+    this.$cardHolder = $('<div>', {'class': 'h5p-dialogcards-cardholder'})
       .appendTo(this.$cardWrapper);
 
-    this.$progressText = $('<div>', {
-      'class': 'h5p-dialogcards-at-progress'
-    }).appendTo($cardHolder);
-
     this.createCardContent(card)
-      .appendTo($cardHolder);
+      .appendTo(this.$cardHolder);
 
     return this;
   }
@@ -341,11 +344,15 @@ class Card {
    * @param {number} max Maximum position.
    */
   setProgressText(position, total) {
+    if (this.params.mode !== 'repetition') {
+      return;
+    }
+
     const progressText = this.params.progressText
       .replace('@card', (position).toString())
       .replace('@total', (total).toString());
 
-    this.$progressText.html(progressText);
+    this.$cardWrapper.attr('aria-label', progressText)
   }
 
   /**
@@ -471,8 +478,9 @@ class Card {
     }
     else {
       // Wait for transition, then set focus
-      this.getDOM().one('transitionend', () => {
-        this.$cardTextArea.focus();
+      const $card = this.getDOM();
+      $card.one('transitionend', () => {
+        $card.focus()
       });
     }
   }
