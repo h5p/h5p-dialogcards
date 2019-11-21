@@ -16,6 +16,7 @@ class Dialogcards extends H5P.EventDispatcher {
    * @returns {DialogCards} self
    */
   constructor(params, id, contentData) {
+    Dialogcards.idCounter++;
     super();
 
     this.contentId = this.id = id;
@@ -236,6 +237,7 @@ class Dialogcards extends H5P.EventDispatcher {
         }).appendTo($footer);
 
         this.$progress = $('<div>', {
+          'id': 'h5p-dialogcards-progress-' + Dialogcards.idCounter,
           'class': 'h5p-dialogcards-progress',
           'aria-live': 'assertive'
         }).appendTo($footer);
@@ -605,9 +607,8 @@ class Dialogcards extends H5P.EventDispatcher {
       });
 
       this.currentCardId = targetPosition;
-      this.cards[this.currentCardId].setCardFocus();
-
       this.updateNavigation();
+      this.cards[this.currentCardId].setCardFocus();
     };
 
     /**
@@ -639,9 +640,9 @@ class Dialogcards extends H5P.EventDispatcher {
 
       this.reset();
       this.createDOM();
-      this.cards[this.currentCardId].setCardFocus(true);
 
       this.updateNavigation();
+      this.cards[this.currentCardId].setCardFocus(true);
 
       this.trigger('resize');
     };
@@ -888,6 +889,8 @@ class Dialogcards extends H5P.EventDispatcher {
     };
   }
 }
+
+Dialogcards.idCounter = 0;
 
 // Constants
 Dialogcards.SCALEINTERVAL = 0.2;
