@@ -5,7 +5,7 @@
     },
     {
       "label": "Modo",
-      "description": "Modalità di presentazione delle dialog card",
+      "description": "Modalità di presentazione delle Dialog Cards",
       "options": [
         {
           "label": "Normale"
@@ -66,21 +66,21 @@
     },
     {
       "label": "Impostazioni di esecuzione",
-      "description": "Queste opzioni ti permetteranno di controllare il comportamento del compito.",
+      "description": "Queste opzioni permettono di controllare il comportamento del compito",
       "fields": [
         {
-          "label": "Abilita il pulsante \"Riprova\""
+          "label": "Attiva pulsante \"Riprova\""
         },
         {
           "label": "Disabilita la navigazione all'indietro",
           "description": "Questa opzione ti permette soltanto di andare avanti con le Dialog Cards"
         },
         {
-          "label": "Ridimensiona il testo per adattarlo alla carta",
+          "label": "Riproporziona il testo per adattarlo alla carta",
           "description": "Deselezionando questa opzione, la scheda si adatterà alle dimensioni del testo"
         },
         {
-          "label": "Ordine casuale",
+          "label": "Ordine casuale delle carte",
           "description": "Attiva la randomizzazione dell'ordine in cui vengono mostrate le carte."
         },
         {
@@ -132,8 +132,8 @@
       "default": "Vai alla giocata @round"
     },
     {
-      "label": "Testo per il pulsante \"avanti\"",
-      "default": "Avanti"
+      "label": "Testo per il pulsante \"Ricomincia\"",
+      "default": "Ricomincia"
     },
     {
       "label": "Testo per il pulsante \"prossimo\"",
@@ -170,7 +170,7 @@
     {
       "label": "Messaggio per quando tutte le carte sono state imparate per bene",
       "description": "@cards sarà sostituito dal numero di tutte le carte nel mazzo. @max sarà sostituito dal livello massimo di competenza - 1.",
-      "default": "Bravo! Hai fatto @cards carte giuste @max volte di seguito!"
+      "default": "Ottimo! Hai fatto @cards carte giuste @max volte di seguito!"
     },
     {
       "label": "Testo di avanzamento",
@@ -180,7 +180,7 @@
     {
       "label": "Etichetta per il testo della carta",
       "description": "Usato per l'accessibilità tramite tecnologie assistive",
-      "default": "Davanti della carta"
+      "default": "Fronte della carta"
     },
     {
       "label": "Etichetta per il testo della carta",
@@ -193,13 +193,13 @@
     },
     {
       "label": "Messaggio di audio non supportato",
-      "default": "Il tuo browser non supporta questo audi"
+      "default": "Il tuo browser non supporta questo audio"
     },
     {
       "label": "Finestra di dialogo per confermare nuovo inizio",
       "fields": [
         {
-          "label": "Testo di intestazione",
+          "label": "Testo dell'intestazione",
           "default": "Ricominciare?"
         },
         {
