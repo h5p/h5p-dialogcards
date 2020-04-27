@@ -26,7 +26,7 @@
         }
       ],
       "label": "Diálogos",
-      "entity": "dialog",
+      "entity": "diálogo",
       "field": {
         "label": "Pregunta",
         "fields": [
@@ -101,11 +101,11 @@
       "default": "Siguiente"
     },
     {
-      "label": "Text for the previous button",
-      "default": "Previous"
+      "label": "Texto para botón para Anterior",
+      "default": "Anterior"
     },
     {
-      "label": "Texto para botón para Anterior",
+      "label": "Texto para botón para Reintentar",
       "default": "Reintentar"
     },
     {
