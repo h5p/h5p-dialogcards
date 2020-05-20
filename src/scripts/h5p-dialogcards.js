@@ -165,7 +165,7 @@ class Dialogcards extends H5P.EventDispatcher {
         this.$cardwrapperSet = this.initCards(this.cardIds);
       }
       else {
-        this.$cardwrapperSet.remove();
+        this.$cardwrapperSet.detach();
         this.$cardwrapperSet = this.initCards(this.cardIds);
         this.$cardSideAnnouncer.before(this.$cardwrapperSet);
       }
@@ -474,6 +474,8 @@ class Dialogcards extends H5P.EventDispatcher {
       if (typeof(result) !== 'undefined') {
         this.results.push(result);
       }
+
+      this.cards[this.currentCardId].stopAudio();
 
       // On final card
       if (this.cardIds.length - this.getCurrentSelectionIndex() === 1) {

@@ -489,8 +489,22 @@ class Card {
    * Stop audio of card.
    */
   stopAudio() {
-    if (this.audio && this.audio.stop) {
-      this.audio.stop();
+    if (!this.audio || !this.audio.audio) {
+      return;
+    }
+
+    /*
+     * We need to reset the audio button to its initial visual state, but it
+     * doesn't have a function to to that -> force ended event and reload.
+     */
+    if (this.audio.audio.duration > 0) {
+      this.audio.audio.currentTime = this.audio.audio.duration;
+    }
+
+    if (this.audio.audio.load) {
+      setTimeout(() => {
+        this.audio.audio.load();
+      }, 100);
     }
   }
 
