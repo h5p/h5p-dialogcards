@@ -30,32 +30,57 @@
         "label": "질문",
         "fields": [
           {
-            "label": "텍스트",
-            "description": "대화의 첫 번째 부분에 대한 팁"
-          },
-          {
-            "label": "답",
-            "description": "대화의 두 번째 부분에 대한 팁"
-          },
-          {
-            "label": "이미지",
-            "description": "카드 이미지(선택사항). 카드는 이이지, 텍스트 혹은 둘다 사용가능"
-          },
-          {
-            "label": "이미지 대체 설명글"
-          },
-          {
-            "label": "오디오 파일"
-          },
-          {
-            "label": "팁",
+            "label": "Front",
             "fields": [
               {
-                "label": "팁을 위한 텍스트",
+                "label": "텍스트",
                 "description": "대화의 첫 번째 부분에 대한 팁"
               },
               {
-                "label": "답을 위한 팁",
+                "label": "이미지",
+                "description": "카드 이미지."
+              },
+              {
+                "label": "이미지 대체 설명글"
+              },
+              {
+                "label": "오디오 파일",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "팁을 위한 텍스트",
+                "description": "대화의 첫 번째 부분에 대한 팁"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "텍스트",
+                "description": "대화의 두 번째 부분에 대한 팁"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "이미지",
+                "description": "카드 이미지."
+              },
+              {
+                "label": "이미지 대체 설명글"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "오디오 파일",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "팁을 위한 텍스트",
                 "description": "대화의 두 번째 부분에 대한 팁"
               }
             ]

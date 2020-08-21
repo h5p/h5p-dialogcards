@@ -30,32 +30,57 @@
         "label": "Vraag",
         "fields": [
           {
-            "label": "Tekst",
-            "description": "Hint voor het eerste deel van de dialoog"
-          },
-          {
-            "label": "Antwoord",
-            "description": "Hint voor het tweede deel van de dialoog"
-          },
-          {
-            "label": "Afbeelding",
-            "description": "Optionele afbeelding voor de kaart. (De kaart mag alleen een afbeelding gebruiken, alleen een tekst of allebei)"
-          },
-          {
-            "label": "Alternatieve tekst voor de afbeelding"
-          },
-          {
-            "label": "Audiobestanden"
-          },
-          {
-            "label": "Tips",
+            "label": "Voorkant",
             "fields": [
+              {
+                "label": "Tekst",
+                "description": "Hint voor het eerste deel van het dialoog"
+              },
+              {
+                "label": "Afbeelding",
+                "description": "Optionele afbeelding voor de kaart."
+              },
+              {
+                "label": "Alternatieve tekst voor een afbeelding"
+              },
+              {
+                "label": "Audiobestanden",
+                "description": "Optional audio for the card."
+              },
               {
                 "label": "Tip voor de tekst",
                 "description": "Tip voor het eerste gedeelte van de dialoog"
+              }
+            ]
+          },
+          {
+            "label": "Terug",
+            "fields": [
+              {
+                "label": "Tekst",
+                "description": "Hint voor het tweede deel van het dialoog"
               },
               {
-                "label": "Tip voor het antwoord",
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Afbeelding",
+                "description": "Optionele afbeelding voor de kaart."
+              },
+              {
+                "label": "Alternatieve tekst voor een afbeelding"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Audio bestanden",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Tip voor de tekst",
                 "description": "Tip voor het tweede gedeelte van de dialoog"
               }
             ]

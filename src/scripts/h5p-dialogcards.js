@@ -25,8 +25,31 @@ class Dialogcards extends H5P.EventDispatcher {
     // Var progress stores current card index.
     this.contentData = contentData || {};
 
+    // Strip cards with empty sides
+    params.dialogs = params.dialogs || [];
+    params.dialogs = params.dialogs.filter(dialog => {
+      if (!dialog.front || !dialog.back) {
+        return false;
+      }
+
+      // Empty front?
+      if (!dialog.front.text && !dialog.front.image && !dialog.front.audio) {
+        return false;
+      }
+
+      // Empty back?
+      const noBackText = !dialog.back.text;
+      const noBackImage = ((dialog.back.useImageFromFront && !dialog.front.image) || (!dialog.back.useImageFromFront && !dialog.back.image));
+      const noBackAudio = ((dialog.back.useAudioFromFront && !dialog.front.audio) || (!dialog.back.useAudioFromFront && !dialog.back.audio));
+      if (noBackText && noBackImage && noBackAudio) {
+        return false;
+      }
+
+      return true;
+    });
+
     // Set default behavior.
-    this.params = $.extend({
+    this.params = $.extend(true, {
       title: '',
       mode: 'normal',
       description: '',
@@ -62,13 +85,25 @@ class Dialogcards extends H5P.EventDispatcher {
       },
       dialogs: [
         {
-          text: 'Horse',
-          answer: 'Hest',
+          front: {
+            text: 'Horse',
+          },
+          back: {
+            text: 'Hest',
+            useImageFromFront: true,
+            useAudioFromFront: false,
+          },
         },
-        {
-          text: 'Cow',
-          answer: 'Ku',
-        },
+        // {
+        //   front: {
+        //     text: 'Cow',
+        //   },
+        //   back: {
+        //     text: 'Ku',
+        //     useImageFromFront: true,
+        //     useAudioFromFront: false,
+        //   },
+        // },
       ],
       behaviour: {
         enableRetry: true,
@@ -79,6 +114,11 @@ class Dialogcards extends H5P.EventDispatcher {
         quickProgression: false,
       },
     }, params);
+
+    // Check for no texts at all
+    this.hasNoTexts = this.params.dialogs.every(dialog => dialog.front.text === '' && dialog.back.text === '');
+
+    // TODO: Translations
 
     this.cards = [];
 
@@ -196,6 +236,13 @@ class Dialogcards extends H5P.EventDispatcher {
           .append(this.nav)
           .appendTo(this.$inner);
 
+        // No card has texts
+        if (this.hasNoTexts) {
+          this.cards.forEach(card => {
+            card.setNoText();
+          });
+        }
+
         this.on('reset', function () {
           this.reset();
         });
@@ -270,14 +317,17 @@ class Dialogcards extends H5P.EventDispatcher {
       const $currentCardContent = this.cards[this.currentCardId].getDOM().find('.h5p-dialogcards-card-content');
 
       this.params.dialogs.forEach((dialog) => {
-        if (!dialog.image) {
-          return;
-        }
+        ['front', 'back'].forEach((side) => {
+          const { image } = dialog[side];
+          if (!image) {
+            return;
+          }
 
-        const imageHeight = dialog.image.height / dialog.image.width * $currentCardContent.get(0).offsetWidth;
-        if (imageHeight > height) {
-          height = imageHeight;
-        }
+          const imageHeight = image.height / image.width * $currentCardContent.get(0).offsetWidth;
+          if (imageHeight > height) {
+            height = imageHeight;
+          }
+        });
       });
 
       if (height > 0) {
@@ -286,7 +336,7 @@ class Dialogcards extends H5P.EventDispatcher {
           relativeImageHeight = relativeHeightCap;
         }
         this.cards.forEach((card) => {
-          card.getImage().parent().css('height', `${relativeImageHeight}em`);
+          card.setImageHeight(`${relativeImageHeight}em`);
         });
       }
     };

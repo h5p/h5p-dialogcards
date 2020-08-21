@@ -68,78 +68,159 @@
       "importance": "high",
       "fields": [
         {
-          "name": "text",
-          "type": "text",
-          "widget": "html",
-          "tags": [
-            "p",
-            "br",
-            "strong",
-            "em",
-            "code"
-          ],
-          "label": "Text",
-          "importance": "high",
-          "description": "Hint for the first part of the dialogue",
-          "default": "<p style=\"text-align: center;\"></p>"
-        },
-        {
-          "name": "answer",
-          "type": "text",
-          "widget": "html",
-          "tags": [
-            "p",
-            "br",
-            "strong",
-            "em",
-            "code"
-          ],
-          "label": "Answer",
-          "importance": "high",
-          "description": "Hint for the second part of the dialogue",
-          "default": "<p style=\"text-align: center;\"></p>"
-        },
-        {
-          "name": "image",
-          "type": "image",
-          "label": "Image",
-          "importance": "high",
-          "optional": true,
-          "description": "Optional image for the card. (The card may use just an image, just a text or both)"
-        },
-        {
-          "name": "imageAltText",
-          "type": "text",
-          "label": "Alternative text for the image",
-          "importance": "high",
-          "optional": true
-        },
-        {
-          "name": "audio",
-          "type": "audio",
-          "label": "Audio files",
-          "importance": "low",
-          "optional": true
-        },
-        {
-          "name": "tips",
+          "name": "front",
           "type": "group",
-          "label": "Tips",
-          "importance": "low",
+          "label": "Front",
+          "importance": "medium",
+          "expanded": true,
           "fields": [
             {
-              "name": "front",
+              "name": "text",
               "type": "text",
-              "label": "Tip for text",
-              "importance": "low",
+              "label": "Text",
+              "widget": "html",
+              "tags": [
+                "p",
+                "br",
+                "strong",
+                "em",
+                "code"
+              ],
+              "importance": "medium",
               "optional": true,
-              "description": "Tip for the first part of the dialogue"
+              "description": "Hint for the first part of the dialogue",
+              "default": "<p style=\"text-align: center;\"></p>"
             },
             {
-              "name": "back",
+              "name": "image",
+              "type": "image",
+              "label": "Image",
+              "importance": "medium",
+              "optional": true,
+              "description": "Optional image for the card."
+            },
+            {
+              "name": "imageAltText",
               "type": "text",
-              "label": "Tip for answer",
-              "importance": "low",
+              "label": "Alternative text for the image",
+              "importance": "medium",
+              "optional": true
+            },
+            {
+              "name": "audio",
+              "type": "audio",
+              "label": "Audio files",
+              "importance": "medium",
+              "optional": true,
+              "description": "Optional audio for the card."
+            },
+            {
+              "name": "tip",
+              "type": "text",
+              "label": "Tip for text",
+              "importance": "medium",
+              "optional": true,
+              "description": "Tip for the first part of the dialogue"
+            }
+          ]
+        },
+        {
+          "name": "back",
+          "type": "group",
+          "label": "Back",
+          "importance": "medium",
+          "expanded": true,
+          "fields": [
+            {
+              "name": "text",
+              "type": "text",
+              "label": "Text",
+              "widget": "html",
+              "tags": [
+                "p",
+                "br",
+                "strong",
+                "em",
+                "code"
+              ],
+              "importance": "medium",
+              "optional": true,
+              "description": "Hint for the second part of the dialogue",
+              "default": "<p style=\"text-align: center;\"></p>"
+            },
+            {
+              "name": "useImageFromFront",
+              "type": "boolean",
+              "label": "Use front image",
+              "importance": "medium",
+              "description": "If set, the card's back will use the same image as the card's front",
+              "optional": true,
+              "default": true
+            },
+            {
+              "name": "image",
+              "type": "image",
+              "label": "Image",
+              "importance": "medium",
+              "optional": true,
+              "description": "Optional image for the card.",
+              "widget": "showWhen",
+              "showWhen": {
+                "rules": [
+                  {
+                    "field": "useImageFromFront",
+                    "equals": false
+                  }
+                ]
+              }
+            },
+            {
+              "name": "imageAltText",
+              "type": "text",
+              "label": "Alternative text for the image",
+              "importance": "medium",
+              "optional": true,
+              "widget": "showWhen",
+              "showWhen": {
+                "rules": [
+                  {
+                    "field": "useImageFromFront",
+                    "equals": false
+                  }
+                ]
+              }
+            },
+            {
+              "name": "useAudioFromFront",
+              "type": "boolean",
+              "label": "Use front audio",
+              "importance": "medium",
+              "description": "If set, the card's back will use the same audio as the card's front",
+              "optional": true,
+              "default": false
+            },
+            {
+              "name": "audio",
+              "type": "audio",
+              "label": "Audio files",
+              "importance": "medium",
+              "optional": true,
+              "description": "Optional audio for the card.",
+              "widget": "showWhen",
+              "showWhen": {
+                "rules": [
+                  {
+                    "field": "useAudioFromFront",
+                    "equals": false
+                  }
+                ]
+              }
+            },
+            {
+              "name": "tip",
+              "type": "text",
+              "label": "Tip for text",
+              "importance": "medium",
               "optional": true,
               "description": "Tip for the second part of the dialogue"
             }

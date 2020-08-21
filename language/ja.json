@@ -30,32 +30,57 @@
         "label": "Question",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue"
-          },
-          {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue"
-          },
-          {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
-          },
-          {
-            "label": "Alternative text for the image"
-          },
-          {
-            "label": "Audio files"
-          },
-          {
-            "label": "Tips",
+            "label": "Front",
             "fields": [
+              {
+                "label": "Text",
+                "description": "Hint for the first part of the dialogue"
+              },
+              {
+                "label": "Image",
+                "description": "Optional image for the card."
+              },
+              {
+                "label": "Alternative text for the image"
+              },
+              {
+                "label": "Audio files",
+                "description": "Optional audio for the card."
+              },
               {
                 "label": "Tip for text",
                 "description": "Tip for the first part of the dialogue"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "Text",
+                "description": "Hint for the second part of the dialogue"
               },
               {
-                "label": "Tip for answer",
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Image",
+                "description": "Optional image for the card."
+              },
+              {
+                "label": "Alternative text for the image"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Audio files",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Tip for text",
                 "description": "Tip for the second part of the dialogue"
               }
             ]

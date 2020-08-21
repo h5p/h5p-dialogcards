@@ -30,32 +30,57 @@
         "label": "Küsimus",
         "fields": [
           {
-            "label": "Tekst",
-            "description": "Dialoogi esimese osa vihje"
-          },
-          {
-            "label": "Vastus",
-            "description": "Dialoogi teise osa vihje"
-          },
-          {
-            "label": "Pikt",
-            "description": "Mittekohustuslik pilt dialoogikaardile. (Kaardil võib olla vaid pilt, vaid tekst või mõlemad)"
-          },
-          {
-            "label": "Pildi alternatiivtekst"
-          },
-          {
-            "label": "Helifailid"
-          },
-          {
-            "label": "Vihjed",
+            "label": "Ees",
             "fields": [
               {
-                "label": "Teksti vihje",
+                "label": "Tekst",
                 "description": "Dialoogi esimese osa vihje"
               },
               {
-                "label": "Vastuse vihje",
+                "label": "Pikt",
+                "description": "Mittekohustuslik pilt dialoogikaardile."
+              },
+              {
+                "label": "Pildi alternatiivtekst"
+              },
+              {
+                "label": "Helifailid",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Teksti vihje",
+                "description": "Dialoogi esimese osa vihje"
+              }
+            ]
+          },
+          {
+            "label": "Tagasi",
+            "fields": [
+              {
+                "label": "Tekst",
+                "description": "Dialoogi teise osa vihje"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Pikt",
+                "description": "Mittekohustuslik pilt dialoogikaardile."
+              },
+              {
+                "label": "Pildi alternatiivtekst"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Helifailid",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Teksti vihje",
                 "description": "Dialoogi teise osa vihje"
               }
             ]

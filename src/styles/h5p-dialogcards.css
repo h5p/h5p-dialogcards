@@ -136,6 +136,14 @@
   transform: translate(-50%, -50%);
 }
 
+.h5p-dialogcards .h5p-dialogcards-card-content.h5p-dialogcards-turned .h5p-dialogcards-image-wrapper > .h5p-dialogcards-image-front {
+  display: none;
+}
+
+.h5p-dialogcards .h5p-dialogcards-card-content:not(.h5p-dialogcards-turned) .h5p-dialogcards-image-wrapper > .h5p-dialogcards-image-back {
+  display: none;
+}
+
 .h5p-dialogcards .h5p-audio-inner.hide {
   display: none;
 }
@@ -150,6 +158,11 @@
   height: calc(var(--h5p-theme-spacing-xl)*1.5)
 }
 
+/* None of the cards has text, shrink text area, leave space for audio */
+.h5p-dialogcards .h5p-dialogcards-cardwrap.h5p-no-text .h5p-dialogcards-card-text {
+  height: 0;
+}
+
 .h5p-dialogcards .h5p-dialogcards-audio-wrapper {
   display: block;
   margin: 0 auto;
@@ -157,6 +170,10 @@
   width: var(--h5p-theme-spacing-xl);
   height: var(--h5p-theme-spacing-xl);
   line-height: unset;
+}
+
+.h5p-dialogcards .h5p-dialogcards-audio-wrapper.h5p-no-text {
+  display: inline-block;
 }
 
 .h5p-dialogcards .h5p-dialogcards-audio-wrapper.h5p-audio-not-supported {
@@ -183,7 +200,19 @@
   background-image: url('../images/no-audio.svg');
 }
 
-.h5p-dialogcards .h5p-dialogcards-audio-wrapper.hide {
+.h5p-dialogcards .h5p-dialogcards-card-content .h5p-dialogcards-audio-wrapper.hide {
+  display: none;
+}
+
+.h5p-dialogcards .h5p-dialogcards-audio-wrapper.h5p-dialogcards-audio-placeholder {
+  visibility: hidden;
+}
+
+.h5p-dialogcards .h5p-dialogcards-card-content.h5p-dialogcards-turned .h5p-dialogcards-audio-wrapper-front {
+  display: none;
+}
+
+.h5p-dialogcards .h5p-dialogcards-card-content:not(.h5p-dialogcards-turned) .h5p-dialogcards-audio-wrapper-back {
   display: none;
 }
 

@@ -31,28 +31,53 @@
         "fields": [
           {
             "label": "Előoldal",
-            "description": "Segítség az első párbeszéd részéhez"
-          },
-          {
-            "label": "Hátoldal",
-            "description": "Segítség a párbeszéd második részéhez"
-          },
-          {
-            "label": "Kép",
-            "description": "Opcionális kép a kártyához. (A kártya csak képből, csak szövegből vagy mindkettőből állhat.)"
-          },
-          {
-            "label": "Alternatív szöveg a képhez (akadálymentesség)"
-          },
-          {
-            "label": "Hangfájlok"
-          },
-          {
-            "label": "Tippek",
             "fields": [
+              {
+                "label": "Text",
+                "description": "Segítség az első párbeszéd részéhez"
+              },
+              {
+                "label": "Kép",
+                "description": "Opcionális kép a kártyához."
+              },
+              {
+                "label": "Alternatív szöveg a képhez (akadálymentesség)"
+              },
+              {
+                "label": "Hangfájlok",
+                "description": "Optional audio for the card."
+              },
               {
                 "label": "Tipp az előoldalhoz",
                 "description": "Tipp a párbeszéd első részéhez"
+              }
+            ]
+          },
+          {
+            "label": "Hátoldal",
+            "fields": [
+              {
+                "label": "Text",
+                "description": "Segítség a párbeszéd második részéhez"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Kép",
+                "description": "Opcionális kép a kártyához."
+              },
+              {
+                "label": "Alternatív szöveg a képhez (akadálymentesség)"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Hangfájlok",
+                "description": "Optional audio for the card."
               },
               {
                 "label": "Tipp a hátoldalhoz",
