@@ -30,32 +30,57 @@
         "label": "Въпрос",
         "fields": [
           {
-            "label": "Текст",
-            "description": "Подсказка за лицевата страна на диалоговата карта"
-          },
-          {
-            "label": "Отговор",
-            "description": "Подсказка за обратната страна на диалоговата карта"
-          },
-          {
-            "label": "изображение",
-            "description": "Изображение по избор за картата. (Картата може да бъде онагледена само с изображение, само с текст или и с двете)"
-          },
-          {
-            "label": "Допълнителен текст за изображението"
-          },
-          {
-            "label": "Аудио файл"
-          },
-          {
-            "label": "Подсказки",
+            "label": "Преден",
             "fields": [
               {
-                "label": "Подсказка за текста",
+                "label": "Текст",
                 "description": "Подсказка за лицевата страна на диалоговата карта"
               },
               {
-                "label": "Подсказка за отговора",
+                "label": "изображение",
+                "description": "Изображение по избор за картата."
+              },
+              {
+                "label": "Допълнителен текст за изображението"
+              },
+              {
+                "label": "Аудио файл",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Подсказка за текста",
+                "description": "Подсказка за лицевата страна на диалоговата карта"
+              }
+            ]
+          },
+          {
+            "label": "Oбратно",
+            "fields": [
+              {
+                "label": "Текст",
+                "description": "Подсказка за обратната страна на диалоговата карта"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "изображение",
+                "description": "Изображение по избор за картата."
+              },
+              {
+                "label": "Допълнителен текст за изображението"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Аудио файл",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Подсказка за текста",
                 "description": "Подсказка за обратната страна на диалоговата карта"
               }
             ]

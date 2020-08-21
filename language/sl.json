@@ -30,32 +30,57 @@
         "label": "Vprašanje dialoga",
         "fields": [
           {
-            "label": "Vprašanje",
-            "description": "Besedilo za sprednjo stran kartice"
-          },
-          {
-            "label": "Odgovor",
-            "description": "Besedilo za zadnjo stran kartice"
-          },
-          {
-            "label": "Slika",
-            "description": "Neobvezna slika za kartico. (Na kartici je lahko samo slika, samo besedilo ali oboje)"
-          },
-          {
-            "label": "Nadomestno besedilo za sliko"
-          },
-          {
-            "label": "Zvočni posnetek"
-          },
-          {
-            "label": "Namigi",
+            "label": "Spredaj",
             "fields": [
               {
-                "label": "Namig za vprašanje",
-                "description": "Namig za sprednjo stran kartice"
+                "label": "Besedilo",
+                "description": "Besedilo za sprednjo stran kartice"
               },
               {
-                "label": "Namig za odgovor",
+                "label": "Slika",
+                "description": "Neobvezna slika za kartico."
+              },
+              {
+                "label": "Nadomestno besedilo za sliko"
+              },
+              {
+                "label": "Zvočni posnetek",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Namig",
+                "description": "Namig za sprednjo stran kartice"
+              }
+            ]
+          },
+          {
+            "label": "Nazaj",
+            "fields": [
+              {
+                "label": "Besedilo",
+                "description": "Besedilo za zadnjo stran kartice"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Slika",
+                "description": "Neobvezna slika za kartico."
+              },
+              {
+                "label": "Nadomestno besedilo za sliko"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Zvočni posnetek",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Namig",
                 "description": "Namig za zadnjo stran kartice"
               }
             ]

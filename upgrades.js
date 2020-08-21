@@ -69,6 +69,48 @@ H5PUpgrades['H5P.Dialogcards'] = (function () {
         }
 
         finished(null, parameters, extras);
+      },
+
+      /**
+       * Asynchronous content upgrade hook.
+       * Upgrades content parameters to use new structure. Moves existing values
+       * to separate property objects for front and back.
+       *
+       * @param {Object} parameters
+       * @param {function} finished
+       */
+      10: function (parameters, finished, extras) {
+        parameters.dialogs = parameters.dialogs || [];
+        parameters.dialogs = parameters.dialogs.map(function (dialog) {
+          const newDialog = {};
+
+          // Get copies of objects
+          const image = dialog.image ? JSON.parse(JSON.stringify(dialog.image)) : undefined;
+          const audio = dialog.audio ? JSON.parse(JSON.stringify(dialog.audio)) : undefined;
+
+          dialog.tips = dialog.tips || {};
+
+          // Move parameters
+          newDialog.front = {
+            text: dialog.text,
+            image: image,
+            imageAltText: dialog.imageAltText,
+            audio: audio,
+            tip: dialog.tips.front
+          };
+
+          // Keep previous logic: back has same image as front and no audio
+          newDialog.back = {
+            text: dialog.answer,
+            image: image,
+            imageAltText: dialog.imageAltText,
+            tip: dialog.tips.back
+          };
+
+          return newDialog;
+        });
+
+        finished(null, parameters, extras);
       }
     }
   };

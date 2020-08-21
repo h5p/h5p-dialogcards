@@ -30,32 +30,57 @@
         "label": "Pergunta",
         "fields": [
           {
-            "label": "Texto",
-            "description": "Texto da primeira parte do diálogo"
-          },
-          {
-            "label": "Resposta",
-            "description": "Texto da segunda parte do diálogo"
-          },
-          {
-            "label": "Imagem",
-            "description": "Imagem opcional para o cartão. (O cartão pode conter apenas uma imagem, apenas um texto ou ambos)"
-          },
-          {
-            "label": "Texto alternativo para a imagem"
-          },
-          {
-            "label": "Ficheiros de áudio"
-          },
-          {
-            "label": "Dicas",
+            "label": "Frente",
             "fields": [
               {
-                "label": "Dica para o texto",
+                "label": "Texto",
+                "description": "Texto da primeira parte do diálogo"
+              },
+              {
+                "label": "Imagem",
+                "description": "Imagem opcional para o cartão."
+              },
+              {
+                "label": "Alternative text for the image"
+              },
+              {
+                "label": "Arquivos de áudio",
                 "description": "Dica para a primeira parte do diálogo"
               },
               {
-                "label": "Dica para a resposta",
+                "label": "Dica para texto",
+                "description": "Tip for the first part of the dialogue"
+              }
+            ]
+          },
+          {
+            "label": "Costas",
+            "fields": [
+              {
+                "label": "Texto",
+                "description": "Texto da segunda parte do diálogo"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Imagem",
+                "description": "Imagem opcional para o cartão."
+              },
+              {
+                "label": "Alternative text for the image"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Arquivos de áudio",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Dica para texto",
                 "description": "Dica para a segunda parte do diálogo"
               }
             ]

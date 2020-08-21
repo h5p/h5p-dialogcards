@@ -30,32 +30,57 @@
         "label": "Dialogkort",
         "fields": [
           {
-            "label": "Tekst",
-            "description": "Nøkkelord til første delen av dialogen"
-          },
-          {
-            "label": "Svar",
-            "description": "Nøkkelord til neste delen av dialogen"
-          },
-          {
-            "label": "Bilete",
-            "description": "Valfritt bilete for kortet.(Korta kan bruka berre bilete, berre tekst, eller begge)"
-          },
-          {
-            "label": "Alternative text for the image"
-          },
-          {
-            "label": "Audio files"
-          },
-          {
-            "label": "Tips",
+            "label": "Front",
             "fields": [
+              {
+                "label": "Tekst",
+                "description": "Nøkkelord til første delen av dialogen"
+              },
+              {
+                "label": "Bilete",
+                "description": "Valfritt bilete for kortet."
+              },
+              {
+                "label": "Alternative text for the image"
+              },
+              {
+                "label": "Audio files",
+                "description": "Optional audio for the card."
+              },
               {
                 "label": "Tip for text",
                 "description": "Tip for the first part of the dialogue"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "Tekst",
+                "description": "Nøkkelord til neste delen av dialogen"
               },
               {
-                "label": "Tip for answer",
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Bilete",
+                "description": "Valfritt bilete for kortet."
+              },
+              {
+                "label": "Alternative text for the image"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Audio files",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Tip for text",
                 "description": "Tip for the second part of the dialogue"
               }
             ]

@@ -30,32 +30,57 @@
         "label": "שאלה",
         "fields": [
           {
-            "label": "שאלה",
-            "description": "רמז או שאלה, אשר יוצגו באופן ראשוני"
-          },
-          {
-            "label": "תשובה",
-            "description": "התשובה, אשר תוצג לאחר \"מהפך\" הכרטיס"
-          },
-          {
-            "label": "תמונה",
-            "description": "תמונת הכרטיס (ניתן להציג \"מלל\" או \"תמונה\" או \"מלל + תמונה\")"
-          },
-          {
-            "label": "תאור חלופי לתמונה"
-          },
-          {
-            "label": "קבצי קול"
-          },
-          {
-            "label": "עצות",
+            "label": "חֲזִית",
             "fields": [
               {
-                "label": "עצה עבור התוכן",
-                "description": "עצה או שאלה, המוצגת על גבי הכרטיס באופן ראשוני"
+                "label": "טֶקסט",
+                "description": "רמז או שאלה, אשר יוצגו באופן ראשוני"
               },
               {
-                "label": "עצה עבור התשובה",
+                "label": "תמונה",
+                "description": "Optional image for the card."
+              },
+              {
+                "label": "תאור חלופי לתמונה"
+              },
+              {
+                "label": "קבצי קול",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "עצה",
+                "description": "עצה או שאלה, המוצגת על גבי הכרטיס באופן ראשוני"
+              }
+            ]
+          },
+          {
+            "label": "חזור",
+            "fields": [
+              {
+                "label": "טֶקסט",
+                "description": "התשובה, אשר תוצג לאחר \"מהפך\" הכרטיס"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "תמונה",
+                "description": "Optional image for the card."
+              },
+              {
+                "label": "תאור חלופי לתמונה"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "קבצי קול",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "עצה",
                 "description": "עצה או תשובה, לאחר \"מהפך\" הכרטיס"
               }
             ]

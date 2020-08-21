@@ -30,32 +30,57 @@
         "label": "Ariketa",
         "fields": [
           {
-            "label": "Testua",
-            "description": "Elkarrizketaren lehenengo zatirako laguntza"
-          },
-          {
-            "label": "Erantzuna",
-            "description": "Elkarrizketaren bigarren zatirako laguntza"
-          },
-          {
-            "label": "Irudia",
-            "description": "Aukerazko irudia txartelerako. (Txartelak izan dezake irudi bat, testu bat edo biak)"
-          },
-          {
-            "label": "Irudiaren ordezko testua"
-          },
-          {
-            "label": "Audio fitxategiak"
-          },
-          {
-            "label": "Argibideak",
+            "label": "Aurrean",
             "fields": [
+              {
+                "label": "Testua",
+                "description": "Elkarrizketaren lehenengo zatirako laguntza"
+              },
+              {
+                "label": "Irudia",
+                "description": "Aukerazko irudia txartelerako."
+              },
+              {
+                "label": "Irudiaren ordezko testua"
+              },
+              {
+                "label": "Argibideak",
+                "description": "Optional audio for the card."
+              },
               {
                 "label": "Testurako aholkua",
                 "description": "Elkarrizketaren lehenengo zatirako argibidea"
+              }
+            ]
+          },
+          {
+            "label": "Atzera",
+            "fields": [
+              {
+                "label": "Testua",
+                "description": "Elkarrizketaren bigarren zatirako laguntza"
               },
               {
-                "label": "Erantzuteko argibidea",
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Irudia",
+                "description": "Aukerazko irudia txartelerako."
+              },
+              {
+                "label": "Irudiaren ordezko testua"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Argibideak",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Testurako aholkua",
                 "description": "Elkarrizketaren bigarren parterako argibidea"
               }
             ]
