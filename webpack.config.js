@@ -1,21 +1,13 @@
 const path = require('path');
-const webpack = require('webpack');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-
-const nodeEnv = process.env.NODE_ENV || 'development';
-const isDev = (nodeEnv !== 'production');
 
 const config = {
   mode: 'development',
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: isDev
-      }),
+      new TerserPlugin(),
       new OptimizeCSSAssetsPlugin({})
     ]
   },
@@ -36,8 +28,10 @@ const config = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        query: {
-          presets: ['es2015']
+        options: {
+          presets: [
+            "@babel/preset-env"
+          ]
         }
       },
       {

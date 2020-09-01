@@ -1,17 +1,17 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "Koptekst"
     },
     {
-      "label": "Mode",
-      "description": "Mode of presenting the dialog cards",
+      "label": "Manier",
+      "description": "Presentatiemanier voor de dialoogkaarten",
       "options": [
         {
-          "label": "Normal"
+          "label": "Normaal"
         },
         {
-          "label": "Repetition"
+          "label": "Herhaling"
         }
       ]
     },
@@ -81,11 +81,11 @@
           "description": "Schakel in om de kaarten in willekeurige volgorde te tonen."
         },
         {
-          "label": "Maximum proficiency level"
+          "label": "Maximaal bekwaamheidsniveau"
         },
         {
-          "label": "Allow quick progression",
-          "description": "If activated, learners can decide to indicate that they know a card without turning it"
+          "label": "Snelle voortgang toestaan",
+          "description": "Indien ingeschakeld kunnen gebruikers aangeven dat ze de kaart kennen zonder hem om te keren en verder gaan"
         }
       ]
     },
@@ -106,68 +106,68 @@
       "default": "Opnieuw"
     },
     {
-      "label": "Text for the \"correct answer\" button",
-      "default": "I got it right!"
+      "label": "Tekst voor de \"Juist antwoord\" knop",
+      "default": "Ik heb het goed!"
     },
     {
-      "label": "Text for the \"incorrect answer\" button",
-      "default": "I got it wrong"
+      "label": "Tekst voor de \"Onjuist antwoord\" knop",
+      "default": "Ik heb het fout"
     },
     {
-      "label": "Text for \"Round\" message below cards and on the summary screen",
-      "description": "@round will be replaced by the number of the current round",
-      "default": "Round @round"
+      "label": "Tekst voor \"Ronde\" bericht onder kaarten en op het samenvattingsscherm",
+      "description": "@round zal worden vervangen door het nummer van de huidige ronde",
+      "default": "Ronde @round"
     },
     {
-      "label": "Text for \"Cards left\" message",
-      "description": "@number will be replaced by the number of cards left in this round",
-      "default": "Cards left: @number"
+      "label": "Tekst voor \"Kaarten over\" bericht",
+      "description": "@number zal worden vervangen door het aantal kaarten dat over is in deze ronde",
+      "default": "Kaarten over: @number"
     },
     {
-      "label": "Text for the \"next round\" button",
-      "description": "@round will be replaced by the round number",
-      "default": "Proceed to round @round"
+      "label": "Tekst voor de \"Volgende ronde\" knop",
+      "description": "@round zal worden vervangen door het nummer van de ronde",
+      "default": "Doorgaan naar ronde @round"
     },
     {
-      "label": "Text for the \"Start over\" button",
-      "default": "Start over"
+      "label": "Tekst voor de \"Start opnieuw\" knop",
+      "default": "Start opnieuw"
     },
     {
-      "label": "Text for the \"show summary\" button",
-      "default": "Next"
+      "label": "Tekst voor de \"Toon samenvatting\" knop",
+      "default": "Volgende"
     },
     {
-      "label": "Title text for the summary page",
-      "default": "Summary"
+      "label": "Titeltekst voor de samenvattingspagina",
+      "default": "Samenvatting"
     },
     {
-      "label": "Text for \"Cards you got right:\"",
-      "default": "Cards you got right:"
+      "label": "Tekst voor \"Kaarten die je goed had:\"",
+      "default": "Kaarten die je goed had:"
     },
     {
-      "label": "Text for \"Cards you got wrong:\"",
-      "default": "Cards you got wrong:"
+      "label": "Text for \"Kaarten die je fout had:\"",
+      "default": "Kaarten die je fout had:"
     },
     {
-      "label": "Text for \"Cards not shown:\"",
-      "default": "Cards in pool not shown:"
+      "label": "Tekst voor \"Niet getoonde kaarten:\"",
+      "default": "Niet getoonde kaarten in voorraad:"
     },
     {
-      "label": "Text for \"Overall Score\"",
-      "default": "Overall Score"
+      "label": "Text for \"Totaalscore\"",
+      "default": "Totaalscore"
     },
     {
-      "label": "Text for \"Cards completed\"",
-      "default": "Cards you have completed learning:"
+      "label": "Tekst voor \"Kaarten voltooid\"",
+      "default": "Kaarten die je hebt voltooid:"
     },
     {
-      "label": "Text for \"Completed rounds:\"",
-      "default": "Completed rounds:"
+      "label": "Tekst voor \"Voltooide rondes:\"",
+      "default": "Voltooide rondes:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row!"
+      "label": "Bericht als alle kaarten bekwaam geleerd zijn",
+      "description": "@cards zal worden vervangen door het aantal kaarten in voorraad. @max zal worden vervangen door het maximale bekwaamheidsniveau - 1.",
+      "default": "Goed gedaan! Je hebt alle @cards kaarten juist @max keer achtereen!"
     },
     {
       "label": "Tekst bij voortgang",
@@ -193,23 +193,23 @@
       "default": "Je browser ondersteunt de audio niet"
     },
     {
-      "label": "Confirm starting over dialog",
+      "label": "Bevestigen opnieuw starten dialoog",
       "fields": [
         {
-          "label": "Header text",
-          "default": "Start over?"
+          "label": "Koptekst",
+          "default": "Start opnieuw?"
         },
         {
-          "label": "Body text",
-          "default": "All progress will be lost. Are you sure you want to start over?"
+          "label": "Tekstinhoud",
+          "default": "Alle voortgang zal verloren gaan. Weet je zeker dat je opnieuw wilt starten?"
         },
         {
-          "label": "Cancel button label",
-          "default": "Cancel"
+          "label": "Annuleren knop label",
+          "default": "Annuleren"
         },
         {
-          "label": "Confirm button label",
-          "default": "Start over"
+          "label": "Bevestigen knop label",
+          "default": "Start opnieuw"
         }
       ]
     }

@@ -16,7 +16,7 @@
       ]
     },
     {
-      "label": "Oppgåvetekst",
+      "label": "Task description",
       "default": ""
     },
     {
@@ -25,22 +25,25 @@
           "label": "Default"
         }
       ],
-      "label": "Dialogkort",
-      "entity": "dialogkort",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "Dialogkort",
+        "label": "Question",
         "fields": [
           {
-            "label": "Tekst",
-            "description": "Nøkkelord til første delen av dialogen"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue"
           },
           {
-            "label": "Svar",
-            "description": "Nøkkelord til neste delen av dialogen"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue"
           },
           {
-            "label": "Media",
-            "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+          },
+          {
+            "label": "Alternative text for the image"
           },
           {
             "label": "Audio files"
@@ -62,19 +65,19 @@
       }
     },
     {
-      "label": "Innstillinger for oppgave-oppførsel",
-      "description": "Disse instillingene lar deg bestemme hvordan oppgavetypen skal oppføre seg.",
+      "label": "Behavioural settings.",
+      "description": "These options will let you control how the task behaves.",
       "fields": [
         {
-          "label": "Aktiver \"Prøv igjen\"-knapp"
+          "label": "Enable \"Retry\" button"
         },
         {
-          "label": "Slå av tilbakenavigering",
-          "description": "Dette valget betyr at man bare kan navigere fremover"
+          "label": "Disable backwards navigation",
+          "description": "This option will only allow you to move forward with Dialog Cards"
         },
         {
-          "label": "Skaler teksten til å få pplass i kortet",
-          "description": "Når man slår av denne vil kortets størrelse endre seg iforhold til mengde tekst"
+          "label": "Scale the text to fit inside the card",
+          "description": "Unchecking this option will make the card adapt its size to the size of the text"
         },
         {
           "label": "Randomize cards",
@@ -90,126 +93,126 @@
       ]
     },
     {
-      "label": "Tekst til \"Snu\" knappen",
-      "default": "Snu"
+      "label": "Text for the turn button",
+      "default": "បង្វិល"
     },
     {
-      "label": "Tekst til \"Neste\" knappen",
-      "default": "Neste"
+      "label": "Text for the next button",
+      "default": "បន្ទាប់"
     },
     {
-      "label": "Tekst til \"Førre\" knappen",
-      "default": "Forrige"
+      "label": "Text for the previous button",
+      "default": "មុន"
     },
     {
-      "label": "Tekst til \"Omstart\" knappen",
-      "default": "Prøv igjen"
+      "label": "Text for the retry button",
+      "default": "សាកម្តងទៀត"
     },
     {
       "label": "Text for the \"correct answer\" button",
-      "default": "Eg fekk riktig!"
+      "default": "ខ្ញុំធ្វើវាត្រូវ!"
     },
     {
       "label": "Text for the \"incorrect answer\" button",
-      "default": "Eg fekk feil!"
+      "default": "ខ្ញុំធ្វើវាខុស"
     },
     {
       "label": "Text for \"Round\" message below cards and on the summary screen",
       "description": "@round will be replaced by the number of the current round",
-      "default": "Round @round"
+      "default": "ជុំ @round"
     },
     {
       "label": "Text for \"Cards left\" message",
       "description": "@number will be replaced by the number of cards left in this round",
-      "default": "Tal på kort igjen: @number"
+      "default": "កាតនៅសល់: @number"
     },
     {
       "label": "Text for the \"next round\" button",
       "description": "@round will be replaced by the round number",
-      "default": "Hald fram til runde @round"
+      "default": "បន្តទៅជុំ @round"
     },
     {
       "label": "Text for the \"Start over\" button",
-      "default": "Start på nytt"
+      "default": "ចាប់ផ្តើមជាថ្មី"
     },
     {
       "label": "Text for the \"show summary\" button",
-      "default": "Neste"
+      "default": "បន្ទាប់"
     },
     {
       "label": "Title text for the summary page",
-      "default": "Oppsummering"
+      "default": "សង្ខេប"
     },
     {
       "label": "Text for \"Cards you got right:\"",
-      "default": "Kort du fekk rett:"
+      "default": "កាតដែលអ្នកធ្វើត្រូវ:"
     },
     {
       "label": "Text for \"Cards you got wrong:\"",
-      "default": "Kort du fekk feil:"
+      "default": "កាតដែលអ្នកធ្វើខុស:"
     },
     {
       "label": "Text for \"Cards not shown:\"",
-      "default": "Kort som ikkje blir viste:"
+      "default": "កាតដែលមិនបានបង្ហាញ:"
     },
     {
       "label": "Text for \"Overall Score\"",
-      "default": "Total score"
+      "default": "ពិន្ទុរួម"
     },
     {
       "label": "Text for \"Cards completed\"",
-      "default": "Kort du har gjennomført:"
+      "default": "កាតដែលអ្នកបានបញ្ចប់:"
     },
     {
       "label": "Text for \"Completed rounds:\"",
-      "default": "Gjennomførte rundar:"
+      "default": "ជុំដែលបានបញ្ចប់:"
     },
     {
       "label": "Message when all cards have been learned proficiently",
       "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Bra jobba! Du fekk alle @cards korta rett @max gonger på rad!"
+      "default": "ល្អណាស់! អ្នកធ្វើត្រូវទាំង @cards កាត ចំនួន @max ដងបន្តបន្ទាប់គ្នា!"
     },
     {
-      "label": "Fremgangstekst",
-      "description": "Tilgjengelege variablar er @card og @total.",
-      "default": "Kort @card av @total"
+      "label": "Progress text",
+      "description": "Available variables are @card and @total.",
+      "default": "កាត @card ក្នុងចំណោម @total"
     },
     {
       "label": "Label for card text",
       "description": "Used for accessibility by assistive technologies",
-      "default": "Kort front"
+      "default": "មុខកាត"
     },
     {
       "label": "Label for card back",
       "description": "Used for accessibility by assistive technologies",
-      "default": "Kort bak"
+      "default": "ខ្នងកាត"
     },
     {
       "label": "Label for the show tip button",
-      "default": "Vis tips"
+      "default": "បង្ហាញគន្លឹះ"
     },
     {
       "label": "Audio not supported message",
-      "default": "Nettlesaren din støtter ikkje denne audioen"
+      "default": "កម្មវិធីរុករករបស់អ្នកមិនអាចបើកសម្លេងនេះទេ"
     },
     {
       "label": "Confirm starting over dialog",
       "fields": [
         {
           "label": "Header text",
-          "default": "Start på nytt?"
+          "default": "ចាប់ផ្តើមជាថ្មី?"
         },
         {
           "label": "Body text",
-          "default": "Alt du har gjort, vil forsvinne. Er du sikker på at du vil starte på nytt?"
+          "default": "វឌ្ឍនភាពទាំងអស់នឹងត្រូវបាត់បង់។ តើអ្នកប្រាកដជាចង់ចាប់ផ្តើមម្តងទៀតមែនទេ?"
         },
         {
           "label": "Cancel button label",
-          "default": "Avbryt"
+          "default": "បោះបង់"
         },
         {
           "label": "Confirm button label",
-          "default": "Start på nytt"
+          "default": "ចាប់ផ្តើមជាថ្មី"
         }
       ]
     }
