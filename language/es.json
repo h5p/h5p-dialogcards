@@ -22,7 +22,7 @@
     {
       "widgets": [
         {
-          "label": "Predterminado"
+          "label": "Predeterminado"
         }
       ],
       "label": "Diálogos",
@@ -43,7 +43,7 @@
             "description": "Imagen opcional para la tarjeta. (La tarjeta puede usar solo una imagen, solo un texto, o ambos)"
           },
           {
-            "label": "Texto alternativo par ala imagen"
+            "label": "Texto alternativo para la imagen"
           },
           {
             "label": "Archivos de audio"
@@ -87,7 +87,7 @@
           "label": "Nivel de máxima eficiencia"
         },
         {
-          "label": "Permitir progresión raápida",
+          "label": "Permitir progresión rápida",
           "description": "Si se activa, los estudiantes pueden decidir indicar que conocen una tarjeta sin voltearla"
         }
       ]
@@ -170,7 +170,7 @@
     {
       "label": "Mensaje cuando todas las cartas han sido aprendidas eficientemente",
       "description": "@cards será remplazado por el número de todas las cartas en el mazo. @max será remplazado por el número máximo del nivel de competencia - 1.",
-      "default": "¡Bien Hechoe! ¡Usted tuvo todas las @cards cartas correctas @max veces seguidas!"
+      "default": "¡Bien Hecho! ¡Usted tuvo todas las @cards cartas correctas @max veces seguidas!"
     },
     {
       "label": "Texto del Progreso",
@@ -188,7 +188,7 @@
       "default": "Revés de la Carta"
     },
     {
-      "label": "etiqueta para botón de Mostrar pista",
+      "label": "Etiqueta para botón de Mostrar pista",
       "default": "Mostrar pista"
     },
     {
@@ -196,7 +196,7 @@
       "default": "Su navegador no soporta este audio"
     },
     {
-      "label": "Diálogo para confirmar Comenzar de neuvo",
+      "label": "Diálogo para confirmar Comenzar de nuevo",
       "fields": [
         {
           "label": "Texto del encabezado",
