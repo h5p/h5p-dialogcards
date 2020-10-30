@@ -178,7 +178,7 @@
       "default": "총 @total 중 @card 카드"
     },
     {
-      "label": "카드 텍스트 라벨,
+      "label": "카드 텍스트 라벨",
       "description": "보조 기술에 의한 접근성에 사용",
       "default": "카드 앞면"
     },
