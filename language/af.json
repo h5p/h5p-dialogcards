@@ -30,7 +30,7 @@
         "label": "Vraag",
         "fields": [
           {
-            "label": "Front",
+            "label": "Voor",
             "fields": [
               {
                 "label": "Teks",
@@ -54,7 +54,7 @@
             ]
           },
           {
-            "label": "Back",
+            "label": "Terug",
             "fields": [
               {
                 "label": "Teks",

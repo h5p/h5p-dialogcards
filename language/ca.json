@@ -25,16 +25,16 @@
         }
       ],
       "label": "Diàlegs",
-      "entity": "diàleg",
+      "entity": "dialeg",
       "field": {
         "label": "Pregunta",
         "fields": [
           {
-            "label": "Front",
+            "label": "Frontal",
             "fields": [
               {
                 "label": "Text",
-                "description": "Pista per a la primera part de la targeta d’aprenentatge"
+                "description": "Pista per a la primera part del diàleg"
               },
               {
                 "label": "Imatge",
@@ -49,16 +49,16 @@
               },
               {
                 "label": "Pista per al text",
-                "description": "Pista per a la primera part del diàleg"
+                "description": "Consell per a la primera part del diàleg"
               }
             ]
           },
           {
-            "label": "Back",
+            "label": "Esquena",
             "fields": [
               {
                 "label": "Text",
-                "description": "Pista per a la segona part de la targeta d’aprenentatge"
+                "description": "Pista per a la segona part del diàleg"
               },
               {
                 "label": "Use front image",
@@ -81,7 +81,7 @@
               },
               {
                 "label": "Pista per al text",
-                "description": "Pista per a la segona part del diàleg"
+                "description": "Consell per a la segona part del diàleg"
               }
             ]
           }
