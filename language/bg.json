@@ -132,8 +132,8 @@
       "default": "Преминаване към @round"
     },
     {
-      "label": "Text for the \"Start over\" button",
-      "default": "Start over"
+      "label": "Текст на бутона \"Започни отначало\" ",
+      "default": "Започни отначало"
     },
     {
       "label": "Текст за бутона\"покажи обобщението\"",
@@ -196,23 +196,23 @@
       "default": "Вашият браузър не поддържа това аудио"
     },
     {
-      "label": "Confirm starting over dialog",
+      "label": "Потвърдете началния диалог",
       "fields": [
         {
-          "label": "Header text",
-          "default": "Start over?"
+          "label": "Заглавен текст",
+          "default": "Започни отначало?"
         },
         {
-          "label": "Body text",
-          "default": "All progress will be lost. Are you sure you want to start over?"
+          "label": "Основен текст",
+          "default": "Целият напредък ще бъде загубен. Наистина ли искате да започнете отначало?"
         },
         {
-          "label": "Cancel button label",
-          "default": "Cancel"
+          "label": "Етикет на бутона за отмяна",
+          "default": "Отмяна"
         },
         {
-          "label": "Confirm button label",
-          "default": "Start over"
+          "label": "Етикет на бутона потвърди",
+          "default": "Започни отначало"
         }
       ]
     }
