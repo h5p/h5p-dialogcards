@@ -144,11 +144,11 @@
       "default": "Sommario"
     },
     {
-      "label": "Testo per le risposte giuste:",
+      "label": "Testo per \"Schede con risposte giuste:\"",
       "default": "Risposte giuste:"
     },
     {
-      "label": "Testo per le risposte sbagliate:",
+      "label": "Testo per \"Schede con risposte sbagliate:\"",
       "default": "Risposte sbagliate:"
     },
     {
