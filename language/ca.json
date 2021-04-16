@@ -53,11 +53,11 @@
             "fields": [
               {
                 "label": "Pista per al text",
-                "description": "Consell per a la primera part del diàleg"
+                "description": "Pista per a la primera part del diàleg"
               },
               {
                 "label": "Pista per a la resposta",
-                "description": "Consell per a la segona part del diàleg"
+                "description": "Pista per a la segona part del diàleg"
               }
             ]
           }
@@ -69,7 +69,7 @@
       "description": "Aquestes opcions et permetran controlar com es comporta la tasca.",
       "fields": [
         {
-          "label": "Enable \"Retry\" button"
+          "label": "Activa el botó “Torna-ho a provar”"
         },
         {
           "label": "Desactiva la possibilitat de navegar enrere",
@@ -109,30 +109,30 @@
       "default": "Torna-ho a provar"
     },
     {
-      "label": "Text for the \"correct answer\" button",
-      "default": "Ho he fet bé"
+      "label": "Text del botó “Resposta correcta”",
+      "default": "Ho he fet bé!"
     },
     {
-      "label": "Text for the \"incorrect answer\" button",
+      "label": "Text del botó “Resposta incorrecta”",
       "default": "Ho he fet malament"
     },
     {
-      "label": "Text for \"Round\" message below cards and on the summary screen",
+      "label": "Text del missatge “Round” a sota de les targetes i a la pantalla de resum",
       "description": "@round se substituirà pel número de la ronda actual.",
       "default": "Ronda @round"
     },
     {
-      "label": "Text for \"Cards left\" message",
+      "label": "Text del missatge “Targetes restants”",
       "description": "@number se substituirà pel nombre de targetes que queden a la ronda",
       "default": "Targetes restants: @number"
     },
     {
-      "label": "Text for the \"next round\" button",
+      "label": "Text del botó “Ronda següent”",
       "description": "@round se substituirà pel número de la ronda",
       "default": "Continua a la ronda @round"
     },
     {
-      "label": "Text for the \"Start over\" button",
+      "label": "Text del botó “Torna a començar”",
       "default": "Torna a començar"
     },
     {
@@ -144,33 +144,33 @@
       "default": "Resum"
     },
     {
-      "label": "Text for \"Cards you got right:\"",
+      "label": "Text per a “Targetes correctes:”",
       "default": "Targetes que heu respost de manera correcta:"
     },
     {
-      "label": "Text for \"Cards you got wrong:\"",
+      "label": "Text per a “Targetes incorrectes:”",
       "default": "Targetes que heu respost de manera incorrecta:"
     },
     {
-      "label": "Text for \"Cards not shown:\"",
+      "label": "Text per a “Targetes no mostrades:”",
       "default": "Targetes agrupades que no es mostren:"
     },
     {
-      "label": "Text for \"Overall Score\"",
+      "label": "Text per a “Puntuació total”",
       "default": "Puntuació total"
     },
     {
-      "label": "Text for \"Cards completed\"",
+      "label": "Text per a “Targetes completades”",
       "default": "Targetes que heu après:"
     },
     {
-      "label": "Text for \"Completed rounds:\"",
+      "label": "Text per a “Rondes completades:”",
       "default": "Rondes completades:"
     },
     {
       "label": "Missatge per indicar que totes les cartes s’han aprés correctament",
       "description": "@cards se substituirà pel nombre de targetes del grup. @max se substituirà pel nivell màxim de competència - 1.",
-      "default": "L’enhorabona! Has contestat bé a les @cards targetes @max vegades seguides."
+      "default": "L'enhorabona! Has contestat bé a les @cards targetes @max vegades seguides."
     },
     {
       "label": "Text del progrés",
