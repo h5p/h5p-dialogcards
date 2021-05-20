@@ -69,7 +69,7 @@
       "description": "Dessa inställningar påverkar hur uppgiften beter sig.",
       "fields": [
         {
-          "label": "Aktivera  knappen \"Försök igen\""
+          "label": "Aktivera knappen \"Försök igen\""
         },
         {
           "label": "Disable backwards navigation",
