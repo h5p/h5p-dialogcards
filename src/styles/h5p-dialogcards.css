@@ -103,6 +103,10 @@
   justify-content: space-between;
 }
 
+.h5p-dialogcards .h5p-dialogcards-cardwrap.h5p-dialogcards-mode-normal .h5p-dialogcards-card-footer {
+  justify-content: center;
+}
+
 .h5p-dialogcards .h5p-dialogcards-image-wrapper {
   position: relative;
 }
