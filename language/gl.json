@@ -30,7 +30,7 @@
         "label": "Pregunta",
         "fields": [
           {
-            "label": "Front",
+            "label": "Diante",
             "fields": [
               {
                 "label": "Texto",
@@ -41,20 +41,20 @@
                 "description": "Imaxe opcional para a tarxeta."
               },
               {
-                "label": "Texto alternativo para a imaxe"
+                "label": "Texto alternativo para a imaxe."
               },
               {
                 "label": "Arquivos de audio",
                 "description": "Optional audio for the card."
               },
               {
-                "label": "Pista para o texto",
+                "label": "Pista para a resposta",
                 "description": "Pista para a primeira parte do diálogo"
               }
             ]
           },
           {
-            "label": "Back",
+            "label": "De volta",
             "fields": [
               {
                 "label": "Texto",
@@ -69,7 +69,7 @@
                 "description": "Imaxe opcional para a tarxeta."
               },
               {
-                "label": "Texto alternativo para a imaxe"
+                "label": "Texto alternativo para a imaxe."
               },
               {
                 "label": "Use front audio",
@@ -80,7 +80,7 @@
                 "description": "Optional audio for the card."
               },
               {
-                "label": "Pista para o texto",
+                "label": "Pista para a resposta",
                 "description": "Pista para a segunda parte do diálogo"
               }
             ]
