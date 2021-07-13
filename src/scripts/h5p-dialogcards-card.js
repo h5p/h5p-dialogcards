@@ -469,23 +469,6 @@ class Card {
   }
 
   /**
-   * Set focus to a given card.
-   * @param {boolean} force If true, don't wait for transition.
-   */
-  setCardFocus(force) {
-    if (force === true) {
-      this.$cardTextArea.focus();
-    }
-    else {
-      // Wait for transition, then set focus
-      const $card = this.getDOM();
-      $card.one('transitionend', () => {
-        $card.focus()
-      });
-    }
-  }
-
-  /**
    * Stop audio of card.
    */
   stopAudio() {
