@@ -66,7 +66,7 @@
     },
     {
       "label": "Impostazioni di esecuzione",
-      "description": "Queste opzioni permettono di controllare il comportamento del compito",
+      "description": "Queste opzioni permettono di controllare il comportamento dell'esercizio.",
       "fields": [
         {
           "label": "Attiva pulsante \"Riprova\""
@@ -204,7 +204,7 @@
         },
         {
           "label": "Corpo del testo",
-          "default": "Tutto il lavoro andrà perduto. Sei sicuro/a di di voler ricominciare?"
+          "default": "Tutto il lavoro andrà perduto. Sei sicuro/a  di voler ricominciare?"
         },
         {
           "label": "Etichetta del pulsante di annullamento",
