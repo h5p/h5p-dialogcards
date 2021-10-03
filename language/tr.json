@@ -1,17 +1,17 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "Başlık"
     },
     {
-      "label": "Mode",
-      "description": "Mode of presenting the dialog cards",
+      "label": "Mod",
+      "description": "Diyalog kartlarını sunma modu",
       "options": [
         {
           "label": "Normal"
         },
         {
-          "label": "Repetition"
+          "label": "Tekrarlama"
         }
       ]
     },
@@ -65,112 +65,112 @@
       }
     },
     {
-      "label": "Davranış ayarları.",
-      "description": "Bu seçenekler etkinliğin nasıl gerçekleşeceğini kontrol etmenizi sağlar.",
+      "label": "Etkinlik Ayarları",
+      "description": "Bu seçenekler, etkinliğin nasıl davranacağını kontrol etmenizi sağlar.",
       "fields": [
         {
-          "label": "Açık \"Yeniden dene\" düğmesi"
+          "label": "\"Yeniden Dene\" düğmesini etkinleştir"
         },
         {
           "label": "Geri dönüş gezinmesini kapat",
-          "description": "Bu seçenek Diyalog Kartlarında sadece ileri gidilmesini sağlar."
+          "description": "Bu seçenek diyalog kartlarında sadece ileri gidilmesini sağlar."
         },
         {
-          "label": "Metni karta sığacak şekilde boyutlandır",
-          "description": "Bu seçeneği kapatarak kartın boyutunun metne uygun şekilde değişmesini sağlayabilirsiniz."
+          "label": "Metni kartın içine sığacak şekilde ölçeklendirin",
+          "description": "Bu seçeneğin işaretini kaldırmak, kartın boyutunun metne uygun şekilde değişmesini sağlar."
         },
         {
           "label": "Kartları karıştır",
           "description": "Kartların gösterilme sırasının rasgele olmasını sağlar."
         },
         {
-          "label": "Maximum proficiency level"
+          "label": "Maksimum yeterlilik seviyesi"
         },
         {
-          "label": "Allow quick progression",
-          "description": "If activated, learners can decide to indicate that they know a card without turning it"
+          "label": "Hızlı ilerlemeye izin ver",
+          "description": "Etkinleştirilirse, öğrenciler kartı çevirmeden bildiklerini belirtmeye karar verebilirler."
         }
       ]
     },
     {
-      "label": "Döndür düğmesinin metni",
+      "label": "\"Döndür\" düğmesinin metni",
       "default": "Çevir"
     },
     {
-      "label": "sonraki düğmesinin metni",
+      "label": "\"Sonraki\" düğmesinin metni",
       "default": "Sonraki"
     },
     {
-      "label": "Önceki düğmesinin metni",
+      "label": "\"Önceki\" düğmesinin metni",
       "default": "Önceki"
     },
     {
-      "label": "Yeniden dene düğmesinin metni",
-      "default": "Yeniden dene"
+      "label": "\"Yeniden Dene\" düğmesinin metni",
+      "default": "Yeniden Dene"
     },
     {
-      "label": "Text for the \"correct answer\" button",
-      "default": "I got it right!"
+      "label": "\"Doğru Cevap\" düğmesi için metin",
+      "default": "Doğru Cevap"
     },
     {
-      "label": "Text for the \"incorrect answer\" button",
-      "default": "I got it wrong"
+      "label": "\"Yanlış Cevap\" düğmesi için metin",
+      "default": "Yanlış Cevap"
     },
     {
-      "label": "Text for \"Round\" message below cards and on the summary screen",
-      "description": "@round will be replaced by the number of the current round",
-      "default": "Round @round"
+      "label": "Kartların altında ve özet ekranında \"Tur\" mesajı için metin",
+      "description": "@round, geçerli turun numarası ile değiştirilecektir",
+      "default": "Tur @round"
     },
     {
-      "label": "Text for \"Cards left\" message",
-      "description": "@number will be replaced by the number of cards left in this round",
-      "default": "Cards left: @number"
+      "label": "\"Kart kaldı\" mesajı için metin",
+      "description": "@number, bu turda kalan kart sayısı ile değiştirilecektir",
+      "default": "Kalan kart: @number"
     },
     {
-      "label": "Text for the \"next round\" button",
-      "description": "@round will be replaced by the round number",
-      "default": "Proceed to round @round"
+      "label": "\"Sonraki tur\" düğmesi için metin",
+      "description": "@round, tur sayısı ile değiştirilecektir",
+      "default": "@round. tura devam edin"
     },
     {
-      "label": "Text for the \"Start over\" button",
-      "default": "Start over"
+      "label": "\"Baştan başla\" düğmesi için metin",
+      "default": "Baştan Başla"
     },
     {
-      "label": "Text for the \"show summary\" button",
-      "default": "Next"
+      "label": "\"Özeti Göster\" düğmesi için metin",
+      "default": "Özeti Göster"
     },
     {
-      "label": "Title text for the summary page",
-      "default": "Summary"
+      "label": "Özet sayfası için başlık metni",
+      "default": "Özet"
     },
     {
-      "label": "Text for \"Cards you got right:\"",
-      "default": "Cards you got right:"
+      "label": "\"Doğru olan kartlar\" için metin",
+      "default": "Doğru olan kartlar:"
     },
     {
-      "label": "Text for \"Cards you got wrong:\"",
-      "default": "Cards you got wrong:"
+      "label": "\"Yanlış olan kartlar\" için metin",
+      "default": "Yanlış olan kartlar:"
     },
     {
-      "label": "Text for \"Cards not shown:\"",
-      "default": "Cards in pool not shown:"
+      "label": "\"Kartlar gösterilmedi:\" metni",
+      "default": "Kartlar gösterilmedi:"
     },
     {
-      "label": "Text for \"Overall Score\"",
-      "default": "Overall Score"
+      "label": "\"Toplam Puan\" metni",
+      "default": "Toplam Puan"
     },
     {
-      "label": "Text for \"Cards completed\"",
-      "default": "Cards you have completed learning:"
+      "label": "\"Kartlar tamamlandı\" metni",
+      "default": "Öğrenmeyi tamamladığınız kartlar:"
     },
     {
-      "label": "Text for \"Completed rounds:\"",
-      "default": "Completed rounds:"
+      "label": "\"Tamamlanan turlar:\" metni",
+      "default": "Tamamlanan turlar:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row!"
+      "label": "Tüm kartlar ustaca öğrenildiğinde mesaj",
+      "description": "@cards, havuzdaki tüm kartların sayısı ile değiştirilecektir. @max, maksimum yeterlilik seviyesi - 1 ile değiştirilecektir.",
+      "default": "Tebrikler! @cards kartı arka arkaya @max kez doğru cevapladınız!"
     },
     {
       "label": "İlerleme metni",
@@ -196,23 +196,23 @@
       "default": "İnternet tarayıcınız bu sesi desteklemiyor"
     },
     {
-      "label": "Confirm starting over dialog",
+      "label": "Onay iletişim kutusunun kontrolü",
       "fields": [
         {
-          "label": "Header text",
-          "default": "Start over?"
+          "label": "Başlık metni",
+          "default": "Baştan Başla"
         },
         {
-          "label": "Body text",
-          "default": "All progress will be lost. Are you sure you want to start over?"
+          "label": "Gövde metni",
+          "default": "Tüm ilerleme kaybolacak. Yeniden başlamak istediğinizden emin misiniz?"
         },
         {
-          "label": "Cancel button label",
-          "default": "Cancel"
+          "label": "İptal düğmesi etiketi",
+          "default": "Hayır"
         },
         {
-          "label": "Confirm button label",
-          "default": "Start over"
+          "label": "Onaylama düğmesi etiketi",
+          "default": "Evet"
         }
       ]
     }
