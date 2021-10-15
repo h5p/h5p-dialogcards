@@ -1,7 +1,7 @@
 {
   "semantics": [
     {
-      "label": "Titulua"
+      "label": "Goiburua"
     },
     {
       "label": "Modua",
@@ -65,11 +65,11 @@
       }
     },
     {
-      "label": "Portaera ezarpenak.",
-      "description": "Aukera hauen bidez kontrolatu ahal izango duzu zereginaren portaera.",
+      "label": "Portaeraren ezarpenak",
+      "description": "Aukera hauek lanaren portaera kontrolatzea ahalbidetzen dizute.",
       "fields": [
         {
-          "label": "Aktibatu \"Saiatu berriro\" botoia"
+          "label": "Gaitu \"Berriz saiatu\" botoia"
         },
         {
           "label": "Desgaitu atzeranzko nabigazioa",
@@ -211,7 +211,7 @@
           "default": "Utzi"
         },
         {
-          "label": "Baieztatu botoiaren etiketa",
+          "label": "Berretsi botoiaren etiketa",
           "default": "Berriz hasi"
         }
       ]
