@@ -879,6 +879,11 @@ class Dialogcards extends H5P.EventDispatcher {
      * Save the current state to be restored later.
      */
     this.getCurrentState = () => {
+      // Not initialized
+      if (!this.cardManager) {
+        return;
+      }
+
       return {
         cardPiles: this.cardManager.getPiles(),
         cardIds: this.cardIds,
