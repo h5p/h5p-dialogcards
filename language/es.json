@@ -65,11 +65,11 @@
       }
     },
     {
-      "label": "Configuraciones de comportamiento.",
-      "description": "Estas opciones le permitirán controla como se comporta el trabajo.",
+      "label": "Configuraciones del comportamiento",
+      "description": "Estas opciones le permitirán controlar como se comporta el trabajo.",
       "fields": [
         {
-          "label": "Habilitar botón \"Reintentar\" "
+          "label": "Habilitar botón \"Reintentar\""
         },
         {
           "label": "Deshabilitar navegación hacia atrás",
@@ -93,27 +93,27 @@
       ]
     },
     {
-      "label": "Texto para botón para Voltear",
+      "label": "Texto para el botón Voltear",
       "default": "Voltear"
     },
     {
-      "label": "Texto para botón para Siguiente",
+      "label": "Texto para botón de Siguiente",
       "default": "Siguiente"
     },
     {
-      "label": "Texto para botón para Anterior",
+      "label": "Texto para botón de Anterior",
       "default": "Anterior"
     },
     {
-      "label": "Texto para botón para Reintentar",
+      "label": "Texto para botón de Reintentar",
       "default": "Reintentar"
     },
     {
-      "label": "Texto para botón de \"respuesta correcta\" ",
+      "label": "Texto para botón de \"respuesta correcta\"",
       "default": "¡La tuve buena!"
     },
     {
-      "label": "Texto para el botón de \"respuesta incorrecta\" ",
+      "label": "Texto para el botón de \"respuesta incorrecta\"",
       "default": "La tuve mala"
     },
     {
@@ -122,21 +122,21 @@
       "default": "Ronda @round"
     },
     {
-      "label": "Texto para mensaje de \"Cartas faltantes\" ",
+      "label": "Texto para mensaje de \"Cartas restantes\"",
       "description": "@number será remplazado por el número de cartas restantes en esta ronda",
       "default": "Cartas restantes: @number"
     },
     {
-      "label": "Texto para botón de \"siguiente ronda\" ",
+      "label": "Texto para botón de \"siguiente ronda\"",
       "description": "@round será remplazado por el número de ronda",
       "default": "Avanzar a ronda @round"
     },
     {
-      "label": "Texto para botón de \"Comenzar de nuevo\" ",
+      "label": "Texto para botón de \"Comenzar de nuevo\"",
       "default": "Comenzar de nuevo"
     },
     {
-      "label": "Texto para botón de \"mostrar resumen\" ",
+      "label": "Texto para botón de \"mostrar resumen\"",
       "default": "Siguiente"
     },
     {
@@ -145,7 +145,7 @@
     },
     {
       "label": "Texto para \"Cartas que tuvo correctas:\"",
-      "default": "Cartas que tuvoi correctas:"
+      "default": "Cartas que tuvo correctas:"
     },
     {
       "label": "Texto para \"Cartas que tuvo incorrectas:\"",

@@ -17,7 +17,7 @@
     },
     {
       "label": "Taakomskrywing",
-      "default": ""
+      "default": " "
     },
     {
       "widgets": [
@@ -184,7 +184,7 @@
     },
     {
       "label": "Etiket vir kaartjie agterkant",
-      "description": "",
+      "description": "Gebruik vir toeganklikheid vir hulptegnologieë",
       "default": "Kaartjie agterkant"
     },
     {
@@ -192,27 +192,27 @@
       "default": "Wys wenk"
     },
     {
-      "label": "",
-      "default": ""
+      "label": "Klank nie ondersteun nie boodskap",
+      "default": "Jou blaaier ondersteun nie hierdie klank nie"
     },
     {
-      "label": "",
+      "label": "Bevestig dat dialoog oor begin",
       "fields": [
         {
-          "label": "",
-          "default": ""
+          "label": "Hoofopskrifteks",
+          "default": "Begin weer?"
         },
         {
-          "label": "",
-          "default": ""
+          "label": "Lyfteks",
+          "default": "Alle vordering sal verloor word. Is jy seker jy wil oor begin?"
         },
         {
-          "label": "",
-          "default": ""
+          "label": "Kanselleer knoppie etiket",
+          "default": "Kanselleer"
         },
         {
-          "label": "",
-          "default": ""
+          "label": "Bevestig knoppie etiket",
+          "default": "Begin oor"
         }
       ]
     }
