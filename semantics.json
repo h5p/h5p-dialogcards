@@ -81,7 +81,8 @@
           ],
           "label": "Text",
           "importance": "high",
-          "description": "Hint for the first part of the dialogue"
+          "description": "Hint for the first part of the dialogue",
+          "default": "<p style=\"text-align: center;\"></p>"
         },
         {
           "name": "answer",
@@ -96,7 +97,8 @@
           ],
           "label": "Answer",
           "importance": "high",
-          "description": "Hint for the second part of the dialogue"
+          "description": "Hint for the second part of the dialogue",
+          "default": "<p style=\"text-align: center;\"></p>"
         },
         {
           "name": "image",
