@@ -65,7 +65,7 @@
       }
     },
     {
-      "label": "Configuraciones del comportamiento.",
+      "label": "Configuraciones del comportamiento",
       "description": "Estas opciones le permitirán controlar como se comporta el trabajo.",
       "fields": [
         {

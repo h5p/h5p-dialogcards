@@ -65,7 +65,7 @@
       }
     },
     {
-      "label": "Configuraciones del comportamiento.",
+      "label": "Configuraciones del comportamiento",
       "description": "Estas opciones le permitirán controlar como se comporta el trabajo.",
       "fields": [
         {
@@ -207,11 +207,11 @@
           "default": "Se perderá todo el progreso. ¿Está seguro de querer comenzar de nuevo?"
         },
         {
-          "label": "Etiqueta para botón Cancelar",
+          "label": "Etiqueta botón Cancelar",
           "default": "Cancelar"
         },
         {
-          "label": "Etiqueta para botón Confirmar",
+          "label": "Etiqueta del botón Confirmar",
           "default": "Comenzar de nuevo"
         }
       ]

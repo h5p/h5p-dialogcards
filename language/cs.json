@@ -69,7 +69,7 @@
       "description": "Tyto možnosti vám umožní řídit, jak se bude úloha chovat.",
       "fields": [
         {
-          "label": "Povolit tlačítko  \"Opakovat\" "
+          "label": "Povolit tlačítko \"Opakovat\""
         },
         {
           "label": "Zakázat navigaci zpět",
@@ -109,34 +109,34 @@
       "default": "Opakovat"
     },
     {
-      "label": "Text pro tlačítko \"správná odpověď\" ",
+      "label": "Text pro tlačítko \"správná odpověď\"",
       "default": "Mám to správně!"
     },
     {
-      "label": "Text pro tlačítko \"nesprávná odpověď\" ",
+      "label": "Text pro tlačítko \"nesprávná odpověď\"",
       "default": "Mám to špatně"
     },
     {
-      "label": "Text pro zprávu \"Round\" pod kartami a na souhrnné obrazovce",
+      "label": "Text pro zprávu \"Kolo\" pod kartami a na souhrnné obrazovce",
       "description": "@round bude nahrazeno číslem aktuálního kola",
       "default": "Kolo @round"
     },
     {
-      "label": "Text pro zprávu \"Zbývající karty\" ",
+      "label": "Text pro zprávu \"Zbývající karty\"",
       "description": "@number bude nahrazeno počtem karet zbývajících v tomto kole",
       "default": "Zbývající karty: @number"
     },
     {
-      "label": "Text pro tlačítko  \"další kolo\" ",
+      "label": "Text pro tlačítko \"další kolo\"",
       "description": "@round bude nahrazeno číslem kola",
       "default": "Pokračujte do kola @round"
     },
     {
-      "label": "Text pro tlačítko \"Začít znovu\" ",
+      "label": "Text pro tlačítko \"Začít znovu\"",
       "default": "Začít znovu"
     },
     {
-      "label": "Text pro tlačítko \"zobrazit souhrn\" ",
+      "label": "Text pro tlačítko \"zobrazit souhrn\"",
       "default": "Další"
     },
     {
@@ -144,12 +144,12 @@
       "default": "Souhrn"
     },
     {
-      "label": "Text pro \"Karty, které máš správně:\"",
-      "default": "Karty, které máš správně:"
+      "label": "Text pro \"Karty, které máte správně:\"",
+      "default": "Karty, které máte správně:"
     },
     {
-      "label": "Text pro \"Karty, které máš špatně:\"",
-      "default": "Karty, které máš špatně:"
+      "label": "Text pro \"Karty, které máte špatně:\"",
+      "default": "Karty, které máte špatně:"
     },
     {
       "label": "Text pro \"Nezobrazené karty:\"",

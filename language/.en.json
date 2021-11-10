@@ -65,7 +65,7 @@
       }
     },
     {
-      "label": "Behavioural settings.",
+      "label": "Behavioural settings",
       "description": "These options will let you control how the task behaves.",
       "fields": [
         {
