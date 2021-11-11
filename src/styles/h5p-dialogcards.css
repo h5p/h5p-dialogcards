@@ -94,7 +94,6 @@
 
 .h5p-dialogcards .h5p-dialogcards-cardholder {
   margin: auto;
-  text-align: center;
   max-width: 32em;
   height: 100%;
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
@@ -148,7 +147,6 @@
   position: relative;
   overflow: hidden;
   min-height: 12em;
-  text-align: center;
 }
 
 .h5p-dialogcards.h5p-text-scaling .h5p-dialogcards-card-text-wrapper {
@@ -220,6 +218,7 @@
   margin: 0.5em 0;
   height: 4.5em;
   line-height: 1.5;
+  width: 100%;
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-text.hide {
@@ -409,7 +408,6 @@
 
 .h5p-dialogcards .h5p-dialogcards-cardwrap-set {
   margin: auto;
-  text-align: center;
   max-width: 32em;
 }
 

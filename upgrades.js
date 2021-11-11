@@ -36,8 +36,41 @@ H5PUpgrades['H5P.Dialogcards'] = (function () {
 
         finished(null, parameters, extrasOut);
       },
+      9: function (parameters, finished, extras) {
+        if (parameters && parameters.dialogs && Array.isArray(parameters.dialogs)) {
+          /*
+           * Regardless of what alignment was set in the editor, the stylesheet
+           * would always center the text. For not breaking the view of existing
+           * content, set all text to be centered in params - can be changed by
+           * user in the editor after upgrade.
+           */
+          parameters.dialogs.forEach(function (dialog) {
+            // Update text on front
+            if (typeof dialog.text === 'string') {
+              if (dialog.text.substr(0, 2) !== '<p') {
+                dialog.text = '<p style="text-align: center;">' + dialog.text + '</p>'; // was plain text
+              }
+              else {
+                dialog.text = dialog.text.replace(/<p[^>]*>/g, '<p style="text-align: center;">');
+              }
+            }
 
-      8: function (parameters, finished, extras) {
+            // Update text on back
+            if (typeof dialog.answer === 'string') {
+              if (dialog.answer.substr(0, 2) !== '<p') {
+                dialog.answer = '<p style="text-align: center;">' + dialog.answer + '</p>'; // was plain text
+              }
+              else {
+                dialog.answer = dialog.answer.replace(/<p[^>]*>/g, '<p style="text-align: center;">');
+              }
+            }
+
+          });
+        }
+        finished(null, parameters, extras);
+      },
+      
+      10: function (parameters, finished, extras) {
 
         // Update image items
         if (parameters.dialogs) {
@@ -96,12 +129,7 @@ H5PUpgrades['H5P.Dialogcards'] = (function () {
             dialog.media = newImage;
 
             delete dialog.image;
-            delete dialog.imageAltText;
-          });
-        }
-
-        finished(null, parameters, extras);
-      }
+            delete dialog.imageAltText;      
     }
   };
 })();

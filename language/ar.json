@@ -1,22 +1,22 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "عنوان النص"
     },
     {
-      "label": "Mode",
-      "description": "Mode of presenting the dialog cards",
+      "label": "وضع",
+      "description": "وضع استعراض كروت المحادثه",
       "options": [
         {
-          "label": "Normal"
+          "label": "عادي"
         },
         {
-          "label": "Repetition"
+          "label": "اعاده"
         }
       ]
     },
     {
-      "label": "وصف النشاط",
+      "label": "وصف المهمه",
       "default": ""
     },
     {

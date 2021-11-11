@@ -1,17 +1,17 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "Başlık"
     },
     {
-      "label": "Mode",
-      "description": "Mode of presenting the dialog cards",
+      "label": "Mod",
+      "description": "Diyalog kartlarını sunma modu",
       "options": [
         {
           "label": "Normal"
         },
         {
-          "label": "Repetition"
+          "label": "Yineleme"
         }
       ]
     },
@@ -26,7 +26,7 @@
         }
       ],
       "label": "Diyaloglar",
-      "entity": "dialog",
+      "entity": "diyalog",
       "field": {
         "label": "Soru",
         "fields": [
@@ -49,7 +49,7 @@
             "label": "İpuçları",
             "fields": [
               {
-                "label": "İpucu metni",
+                "label": "Metin için ipucu",
                 "description": "Diyaloğun ilk bölümü için ipucu"
               },
               {
@@ -66,35 +66,35 @@
       "description": "Bu seçenekler etkinliğin nasıl gerçekleşeceğini kontrol etmenizi sağlar.",
       "fields": [
         {
-          "label": "Açık \"Yeniden dene\" düğmesi"
+          "label": "\"Yeniden dene\" düğmesi devrede"
         },
         {
           "label": "Geri dönüş gezinmesini kapat",
-          "description": "Bu seçenek Diyalog Kartlarında sadece ileri gidilmesini sağlar."
+          "description": "Bu seçenek Diyalog Kartlarında sadece ileri gidilmesini sağlar"
         },
         {
           "label": "Metni karta sığacak şekilde boyutlandır",
-          "description": "Bu seçeneği kapatarak kartın boyutunun metne uygun şekilde değişmesini sağlayabilirsiniz."
+          "description": "Bu seçeneği kapatarak kartın boyutunun metne uygun şekilde değişmesini sağlayabilirsiniz"
         },
         {
           "label": "Kartları karıştır",
           "description": "Kartların gösterilme sırasının rasgele olmasını sağlar."
         },
         {
-          "label": "Maximum proficiency level"
+          "label": "En üst yetkinlik düzeyi"
         },
         {
-          "label": "Allow quick progression",
-          "description": "If activated, learners can decide to indicate that they know a card without turning it"
+          "label": "Hızlı ilerlemeye izin ver",
+          "description": "Devreye sokulursa, kullanıcılar bir kartı çevirmeden de içeriği bildiklerini belirtmeyi seçebilir"
         }
       ]
     },
     {
-      "label": "Döndür düğmesinin metni",
+      "label": "Çevir düğmesinin metni",
       "default": "Çevir"
     },
     {
-      "label": "sonraki düğmesinin metni",
+      "label": "Sonraki düğmesinin metni",
       "default": "Sonraki"
     },
     {
@@ -106,12 +106,12 @@
       "default": "Yeniden dene"
     },
     {
-      "label": "Text for the \"correct answer\" button",
-      "default": "I got it right!"
+      "label": "\"Doğru yanıt\" düğmesinin metni",
+      "default": "Doğru bildim!"
     },
     {
-      "label": "Text for the \"incorrect answer\" button",
-      "default": "I got it wrong"
+      "label": "\"Yanlış yanıt\" düğmesinin metni",
+      "default": "Bilemedim"
     },
     {
       "label": "Text for \"Round\" message below cards and on the summary screen",

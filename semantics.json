@@ -83,6 +83,7 @@
           "importance": "high",
           "optional": true,
           "description": "Hint for the first part of the dialogue"
+          "default": "<p style=\"text-align: center;\"></p>"
         },
         {
           "name": "answer",
@@ -99,6 +100,7 @@
           "importance": "high",
           "optional": true,
           "description": "Hint for the second part of the dialogue"
+          "default": "<p style=\"text-align: center;\"></p>"
         },
         {
           "name": "media",
@@ -149,7 +151,7 @@
   {
     "name": "behaviour",
     "type": "group",
-    "label": "Behavioural settings.",
+    "label": "Behavioural settings",
     "importance": "low",
     "description": "These options will let you control how the task behaves.",
     "optional": true,

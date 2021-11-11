@@ -63,10 +63,10 @@
     },
     {
       "label": "Behavioural settings.",
-      "description": "These options will let you control how the task behaves.",
+      "description": "Denna inställningar påverkar hur uppgiften beter sig.",
       "fields": [
         {
-          "label": "Enable \"Retry\" button"
+          "label": "Aktivera knappen \"Försök igen\""
         },
         {
           "label": "Disable backwards navigation",

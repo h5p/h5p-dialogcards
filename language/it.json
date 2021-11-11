@@ -63,7 +63,7 @@
     },
     {
       "label": "Impostazioni di esecuzione",
-      "description": "Queste opzioni permettono di controllare il comportamento del compito",
+      "description": "Queste opzioni permettono di controllare il comportamento dell'esercizio.",
       "fields": [
         {
           "label": "Attiva pulsante \"Riprova\""
@@ -141,11 +141,11 @@
       "default": "Sommario"
     },
     {
-      "label": "Testo per le risposte giuste:",
+      "label": "Testo per \"Schede con risposte giuste:\"",
       "default": "Risposte giuste:"
     },
     {
-      "label": "Testo per le risposte sbagliate:",
+      "label": "Testo per \"Schede con risposte sbagliate:\"",
       "default": "Risposte sbagliate:"
     },
     {
@@ -201,7 +201,7 @@
         },
         {
           "label": "Corpo del testo",
-          "default": "Tutto il lavoro andrà perduto. Sei sicuro/a di di voler ricominciare?"
+          "default": "Tutto il lavoro andrà perduto. Sei sicuro/a  di voler ricominciare?"
         },
         {
           "label": "Etichetta del pulsante di annullamento",
