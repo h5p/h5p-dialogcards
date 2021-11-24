@@ -226,14 +226,14 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-progress {
-  color: #999;
+  color: #757575;
   text-align: center;
 }
 
 .h5p-dialogcards .h5p-dialogcards-round {
   float: left;
   margin-left: 1.5em;
-  color: #999999;
+  color: #757575;
   font-weight: 400;
   text-decoration: none solid rgb(153, 153, 153);
 }
@@ -241,7 +241,7 @@
 .h5p-dialogcards .h5p-dialogcards-cards-left {
   float: right;
   margin-right: 1.5em;
-  color: #999999;
+  color: #757575;
   font-weight: 400;
   text-decoration: none solid rgb(153, 153, 153);
 }
