@@ -211,11 +211,9 @@ class Dialogcards extends H5P.EventDispatcher {
         'role': 'navigation'
       });
 
-      const mouseEnter = function ($element, text, event) {
+      const mouseEnter = function ($element, text) {
         $($element).append('<span class="button-tooltip">' + text + '</span>');
-        const left = event.pageX - $($element).offset().left;
-        const top = event.pageY - $($element).offset().top;
-        $($element).find('.button-tooltip').css({left: left, top: top}).hide().fadeIn('fast');
+        $($element).find('.button-tooltip').hide().fadeIn('fast');
       };
 
       const mouseLeave = function ($element) {
@@ -230,7 +228,7 @@ class Dialogcards extends H5P.EventDispatcher {
         }).click(() => {
           this.prevCard();
         }).appendTo($footer);
-        this.$prev.hover(function (event) {mouseEnter(self.$prev, self.params.prev, event)}, function () {mouseLeave(self.$prev)});
+        this.$prev.hover(function (event) {mouseEnter(self.$prev, self.params.prev)}, function () {mouseLeave(self.$prev)});
 
         this.$next = JoubelUI.createButton({
           'class': 'h5p-dialogcards-footer-button h5p-dialogcards-next truncated',
@@ -238,7 +236,7 @@ class Dialogcards extends H5P.EventDispatcher {
         }).click(() => {
           this.nextCard();
         }).appendTo($footer);
-        this.$next.hover(function (event) {mouseEnter(self.$next, self.params.next, event)}, function () {mouseLeave(self.$next)});
+        this.$next.hover(function (event) {mouseEnter(self.$next, self.params.next)}, function () {mouseLeave(self.$next)});
 
         this.$retry = JoubelUI.createButton({
           'class': 'h5p-dialogcards-footer-button h5p-dialogcards-retry h5p-dialogcards-disabled',
@@ -246,7 +244,7 @@ class Dialogcards extends H5P.EventDispatcher {
         }).click(() => {
           this.trigger('reset');
         }).appendTo($footer);
-        this.$retry.hover(function (event) {mouseEnter(self.$retry, self.params.retry, event)}, function () {mouseLeave(self.$retry)});
+        this.$retry.hover(function (event) {mouseEnter(self.$retry, self.params.retry)}, function () {mouseLeave(self.$retry)});
 
         this.$progress = $('<div>', {
           'id': 'h5p-dialogcards-progress-' + Dialogcards.idCounter,

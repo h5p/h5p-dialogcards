@@ -549,4 +549,5 @@
   position: absolute;
   z-index: 1000;
   font-size: 12px;
+  transform: translate(-50%, -70%);
 }
