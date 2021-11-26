@@ -541,3 +541,13 @@
   display: none;
   visibility: hidden;
 }
+
+.button-tooltip {
+  background: #333e;
+  margin: auto;
+  padding: 5px;
+  position: absolute;
+  z-index: 1000;
+  font-size: 12px;
+  transform: translate(-50%, -70%);
+}
