@@ -30,32 +30,57 @@
         "label": "سؤال",
         "fields": [
           {
-            "label": "متن",
-            "description": "راهنما برای قسمت اول دیالوگ"
-          },
-          {
-            "label": "پاسخ",
-            "description": "راهنما برای قسمت دوم دیالوگ"
-          },
-          {
-            "label": "تصویر",
-            "description": "تصویر اختیاری برای کارت. (کارت می‌تواند فقط یک تصویر، فقط متن یا هر دو را داشته باشد)"
-          },
-          {
-            "label": "متن بدیل برای تصویر"
-          },
-          {
-            "label": "فایل‌های صدا"
-          },
-          {
-            "label": "نکات",
+            "label": "جلو",
             "fields": [
+              {
+                "label": "متن",
+                "description": "راهنما برای قسمت اول دیالوگ"
+              },
+              {
+                "label": "تصویر",
+                "description": "تصویر اختیاری برای کارت. "
+              },
+              {
+                "label": "متن بدیل برای تصویر"
+              },
+              {
+                "label": "فایل‌های صدا",
+                "description": "Optional audio for the card."
+              },
               {
                 "label": "نکته برای متن",
                 "description": "نکته برای قسمت اول دیالوگ"
+              }
+            ]
+          },
+          {
+            "label": "بازگشت",
+            "fields": [
+              {
+                "label": "متن",
+                "description": "راهنما برای قسمت دوم دیالوگ"
               },
               {
-                "label": "نکته برای پاسخ",
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "تصویر",
+                "description": "تصویر اختیاری برای کارت. "
+              },
+              {
+                "label": "متن بدیل برای تصویر"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "فایل‌های صدا",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "نکته برای متن",
                 "description": "نکته برای قسمت دوم دیالوگ"
               }
             ]
