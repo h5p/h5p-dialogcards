@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Descrición da tarefa",
-      "default": ""
+      "label": "Descrición da tarefa"
     },
     {
       "widgets": [

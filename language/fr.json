@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Consigne",
-      "default": ""
+      "label": "Consigne"
     },
     {
       "widgets": [

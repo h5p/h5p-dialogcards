@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "태스크 설명",
-      "default": ""
+      "label": "태스크 설명"
     },
     {
       "widgets": [
