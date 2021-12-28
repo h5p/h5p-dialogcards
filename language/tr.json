@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Etkinlik açıklaması",
-      "default": ""
+      "label": "Etkinlik açıklaması"
     },
     {
       "widgets": [

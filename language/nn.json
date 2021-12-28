@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Oppgåvetekst",
-      "default": ""
+      "label": "Oppgåvetekst"
     },
     {
       "widgets": [

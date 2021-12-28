@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "描述",
-      "default": ""
+      "label": "描述"
     },
     {
       "widgets": [

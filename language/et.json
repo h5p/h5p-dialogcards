@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Ülesande kirjeldus",
-      "default": ""
+      "label": "Ülesande kirjeldus"
     },
     {
       "widgets": [

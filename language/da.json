@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Opgavebeskrivelse",
-      "default": ""
+      "label": "Opgavebeskrivelse"
     },
     {
       "widgets": [
@@ -84,11 +83,11 @@
           "description": "Aktivér for at få en tilfældig rækkefølge i visningen af kortene."
         },
         {
-          "label": "Maximum proficiency level"
+          "label": "Maksimalt færdighedsniveau"
         },
         {
-          "label": "Allow quick progression",
-          "description": "If activated, learners can decide to indicate that they know a card without turning it"
+          "label": "Tillad spring over",
+          "description": "Hvis indstillingen er aktivieret kan bruger angive at de allerede kender svaret uden at vende kortet"
         }
       ]
     },
@@ -109,68 +108,68 @@
       "default": "Prøv igen"
     },
     {
-      "label": "Text for the \"correct answer\" button",
-      "default": "I got it right!"
+      "label": "Tekst på \"Rigtigt svar\" knap",
+      "default": "Jeg svarede rigtigt!"
     },
     {
-      "label": "Text for the \"incorrect answer\" button",
-      "default": "I got it wrong"
+      "label": "Tekt på  \"forkert svar\" knap",
+      "default": "Jeg svarede forkert"
     },
     {
-      "label": "Text for \"Round\" message below cards and on the summary screen",
-      "description": "@round will be replaced by the number of the current round",
-      "default": "Round @round"
+      "label": "Tekst på  \"Runde\" besked under kortene og på oversigtsvisningen",
+      "description": "@round bliver erstattet med et aktuelle rundenumemr",
+      "default": "Runde @round"
     },
     {
-      "label": "Text for \"Cards left\" message",
-      "description": "@number will be replaced by the number of cards left in this round",
-      "default": "Cards left: @number"
+      "label": "Tekst på \"Kort tilbage\" beskede",
+      "description": "@number bliver erstattet med antal kort tilbage i denne runde",
+      "default": "Kort tilbage: @number"
     },
     {
-      "label": "Text for the \"next round\" button",
-      "description": "@round will be replaced by the round number",
-      "default": "Proceed to round @round"
+      "label": "Tekst på \"Næste runde\" knap",
+      "description": "@round bliver erstattet med rundenummer",
+      "default": "Forsæt til runde @round"
     },
     {
-      "label": "Text for the \"Start over\" button",
-      "default": "Start over"
+      "label": "Tekst på  \"Start forfra\" knap",
+      "default": "Start forfra"
     },
     {
-      "label": "Text for the \"show summary\" button",
-      "default": "Next"
+      "label": "Tekst på \"Vis oversigt\" knap",
+      "default": "Næste"
     },
     {
-      "label": "Title text for the summary page",
-      "default": "Summary"
+      "label": "Titeltekst på oversigtssiden",
+      "default": "Oversigt"
     },
     {
-      "label": "Text for \"Cards you got right:\"",
-      "default": "Cards you got right:"
+      "label": "Tekst på \"Kort du fik rigtigt:\"",
+      "default": "Kort du fik rigtigt:"
     },
     {
-      "label": "Text for \"Cards you got wrong:\"",
-      "default": "Cards you got wrong:"
+      "label": "Tekst på \"Kort du fik forkert:\"",
+      "default": "Kort du fik forkert:"
     },
     {
-      "label": "Text for \"Cards not shown:\"",
-      "default": "Cards in pool not shown:"
+      "label": "Tekst på\"Kort som ikke blev vist:\"",
+      "default": "Kort som ikke blev vist:"
     },
     {
-      "label": "Text for \"Overall Score\"",
-      "default": "Overall Score"
+      "label": "Tekst på \"Samlet resultat\"",
+      "default": "Samlet resultat"
     },
     {
-      "label": "Text for \"Cards completed\"",
-      "default": "Cards you have completed learning:"
+      "label": "Tekst på \"Kort gennemfør\"",
+      "default": "Kort, hvor du har gennemført læring:"
     },
     {
-      "label": "Text for \"Completed rounds:\"",
-      "default": "Completed rounds:"
+      "label": "Tekst på  \"Gennemførte runder:\"",
+      "default": "Gennemførte runder:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row!"
+      "label": "Besked når alle kort er blev lært og færdighedsniveau opnået",
+      "description": "@cards  bliver erstattet med antallet af kort i puljen. @max bliver erstattet med det maksimale færdighedsniveau - 1.",
+      "default": "Godt klaret! Du fik alle @cards kort rigtigt  @max gange i træk!"
     },
     {
       "label": "Proces tekst",
@@ -188,31 +187,31 @@
       "default": "Bagside kort"
     },
     {
-      "label": "Label for the show tip button",
-      "default": "Show tip"
+      "label": "Tekst på Vis tip knappen",
+      "default": "Vis tip"
     },
     {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
+      "label": "Besked til ikke understøttet lyd",
+      "default": "Din browser understøtter ikke denne lyd"
     },
     {
-      "label": "Confirm starting over dialog",
+      "label": "Dialog sked til at starte forfra",
       "fields": [
         {
-          "label": "Header text",
-          "default": "Start over?"
+          "label": "Overskrift",
+          "default": "Start forfra?"
         },
         {
-          "label": "Body text",
-          "default": "All progress will be lost. Are you sure you want to start over?"
+          "label": "Brødteskt",
+          "default": "Al fremdrift går tabt. Er du sikker på at du vil starte forfra?"
         },
         {
-          "label": "Cancel button label",
-          "default": "Cancel"
+          "label": "Tekst på Fortryd knap",
+          "default": "Fortryd"
         },
         {
-          "label": "Confirm button label",
-          "default": "Start over"
+          "label": "Teskt på bekræft knap",
+          "default": "Start forfra"
         }
       ]
     }

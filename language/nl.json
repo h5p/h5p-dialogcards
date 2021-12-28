@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Beschrijving taak",
-      "default": ""
+      "label": "Beschrijving taak"
     },
     {
       "widgets": [

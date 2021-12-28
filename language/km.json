@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Task description",
-      "default": ""
+      "label": "Task description"
     },
     {
       "widgets": [

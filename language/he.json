@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "תאור",
-      "default": ""
+      "label": "תאור"
     },
     {
       "widgets": [
