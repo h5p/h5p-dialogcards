@@ -93,19 +93,19 @@
     },
     {
       "label": "Tekst på 'vend' knap",
-      "default": "Vend"
+      "default": "Vend kortet"
     },
     {
       "label": "Tekst på 'næste' knap",
-      "default": "Næste"
+      "default": "Næste kort"
     },
     {
       "label": "Tekst på 'forrige' knap.",
-      "default": "Forrige"
+      "default": "Forrige kort"
     },
     {
       "label": "Tekst på 'prøv igen' knap",
-      "default": "Prøv igen"
+      "default": "Start forfra"
     },
     {
       "label": "Tekst på \"Rigtigt svar\" knap",
@@ -118,17 +118,17 @@
     {
       "label": "Tekst på  \"Runde\" besked under kortene og på oversigtsvisningen",
       "description": "@round bliver erstattet med et aktuelle rundenumemr",
-      "default": "Runde @round"
+      "default": "Runde: @round"
     },
     {
       "label": "Tekst på \"Kort tilbage\" beskede",
       "description": "@number bliver erstattet med antal kort tilbage i denne runde",
-      "default": "Kort tilbage: @number"
+      "default": "Antal kort tilbage: @number"
     },
     {
       "label": "Tekst på \"Næste runde\" knap",
       "description": "@round bliver erstattet med rundenummer",
-      "default": "Forsæt til runde @round"
+      "default": "Forsæt til runde: @round"
     },
     {
       "label": "Tekst på  \"Start forfra\" knap",
@@ -136,31 +136,31 @@
     },
     {
       "label": "Tekst på \"Vis oversigt\" knap",
-      "default": "Næste"
+      "default": "Vis resultat"
     },
     {
       "label": "Titeltekst på oversigtssiden",
-      "default": "Oversigt"
+      "default": "Resultat"
     },
     {
       "label": "Tekst på \"Kort du fik rigtigt:\"",
-      "default": "Kort du fik rigtigt:"
+      "default": "Rigtige svar:"
     },
     {
       "label": "Tekst på \"Kort du fik forkert:\"",
-      "default": "Kort du fik forkert:"
+      "default": "Forkerte svar:"
     },
     {
       "label": "Tekst på\"Kort som ikke blev vist:\"",
-      "default": "Kort som ikke blev vist:"
+      "default": "Antal kort tilbage i bunken:"
     },
     {
       "label": "Tekst på \"Samlet resultat\"",
-      "default": "Samlet resultat"
+      "default": "Dine samlet point"
     },
     {
       "label": "Tekst på \"Kort gennemfør\"",
-      "default": "Kort, hvor du har gennemført læring:"
+      "default": "Antal kort du har lært:"
     },
     {
       "label": "Tekst på  \"Gennemførte runder:\"",
@@ -169,26 +169,26 @@
     {
       "label": "Besked når alle kort er blev lært og færdighedsniveau opnået",
       "description": "@cards  bliver erstattet med antallet af kort i puljen. @max bliver erstattet med det maksimale færdighedsniveau - 1.",
-      "default": "Godt klaret! Du fik alle @cards kort rigtigt  @max gange i træk!"
+      "default": "Godt klaret! Du har svaret rigtigt på alle @cards kort @max gange i træk."
     },
     {
       "label": "Proces tekst",
       "description": "Antal kort variationer @card og @total.",
-      "default": "Kort @card af @total"
+      "default": "Kort @card ud af @total"
     },
     {
       "label": "Label til tekst på kort",
       "description": "Vist for tilgængelighed ved støtte med teknologier.",
-      "default": "Forside kort"
+      "default": "Forside"
     },
     {
       "label": "Label til kort bagside",
       "description": "Vist for tilgængelighed ved støtte med teknologier",
-      "default": "Bagside kort"
+      "default": "Bagside"
     },
     {
       "label": "Tekst på Vis tip knappen",
-      "default": "Vis tip"
+      "default": "Vis ledetråd"
     },
     {
       "label": "Besked til ikke understøttet lyd",
@@ -199,11 +199,11 @@
       "fields": [
         {
           "label": "Overskrift",
-          "default": "Start forfra?"
+          "default": "Prøv igen"
         },
         {
           "label": "Brødteskt",
-          "default": "Al fremdrift går tabt. Er du sikker på at du vil starte forfra?"
+          "default": "Er du sikker? Alle dine svar forsvinder, hvis du prøver igen."
         },
         {
           "label": "Tekst på Fortryd knap",
@@ -211,7 +211,7 @@
         },
         {
           "label": "Teskt på bekræft knap",
-          "default": "Start forfra"
+          "default": "Prøv igen"
         }
       ]
     }
