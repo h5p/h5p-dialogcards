@@ -143,15 +143,15 @@
       "default": "Resumo"
     },
     {
-      "label": "Texto para cartões que acertou:",
+      "label": "Texto para \"cartões que você acertou:\"",
       "default": "Cartões que acertou:"
     },
     {
-      "label": "Texto para cartões que errou:",
+      "label": "Texto para \"Cartões que você errou:\"",
       "default": "Cartões que errou:"
     },
     {
-      "label": "Texto para cartões não mostrados:",
+      "label": "Texto para \"Cartões não exibidos:\"",
       "default": "Cartões não mostrados:"
     },
     {
@@ -163,7 +163,7 @@
       "default": "Cartões que concluiu a aprendizagem:"
     },
     {
-      "label": "Texto para rodadas concluídas:",
+      "label": "Texto para \"Rodadas concluídas:\"",
       "default": "Rodadas concluídas:"
     },
     {
