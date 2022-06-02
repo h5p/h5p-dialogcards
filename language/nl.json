@@ -4,8 +4,8 @@
       "label": "Koptekst"
     },
     {
-      "label": "Manier",
-      "description": "Presentatiemanier voor de dialoogkaarten",
+      "label": "Modus",
+      "description": "Presentatiemodus voor de dialoogkaarten",
       "options": [
         {
           "label": "Normaal"
@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Beschrijving taak",
-      "default": ""
+      "label": "Beschrijving taak"
     },
     {
       "widgets": [
@@ -32,18 +31,18 @@
         "fields": [
           {
             "label": "Tekst",
-            "description": "Hint voor het eerste deel van het dialoog"
+            "description": "Hint voor het eerste deel van de dialoog"
           },
           {
             "label": "Antwoord",
-            "description": "Hint voor het tweede deel van het dialoog"
+            "description": "Hint voor het tweede deel van de dialoog"
           },
           {
-            "label": "Media",
-            "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
+            "label": "Afbeelding",
+            "description": "Optionele afbeelding voor de kaart. (De kaart mag alleen een afbeelding gebruiken, alleen een tekst of allebei)"
           },
           {
-            "label": "Audio bestanden"
+            "label": "Audiobestanden"
           },
           {
             "label": "Tips",
@@ -62,14 +61,14 @@
       }
     },
     {
-      "label": "Gedragsinstellingen",
-      "description": "Met deze opties kun je instellen hoe de taak zich gedraagt.",
+      "label": "Gedragsinstelllingen",
+      "description": "Met deze opties kun je bepalen hoe de taak zich gedraagt.",
       "fields": [
         {
-          "label": "\"Opnieuw proberen\" knop inschakelen"
+          "label": "Schakel \"Opnieuw\"-knop in"
         },
         {
-          "label": "Achteruit navigeren uitschakelen",
+          "label": "Achterwaarts navigeren uitschakelen",
           "description": "Deze optie zorgt ervoor dat je alleen maar vooruit kunt bladeren met Dialoogkaarten"
         },
         {
@@ -85,55 +84,55 @@
         },
         {
           "label": "Snelle voortgang toestaan",
-          "description": "Indien ingeschakeld kunnen gebruikers aangeven dat ze de kaart kennen zonder hem om te keren en verder gaan"
+          "description": "Indien ingeschakeld kunnen gebruikers aangeven dat ze de kaart kennen en verder gaan zonder hem om te keren"
         }
       ]
     },
     {
-      "label": "Tekst knop Omdraaien",
+      "label": "Tekst voor \"Omdraaien\"-knop",
       "default": "Omdraaien"
     },
     {
-      "label": "Tekst voor de knop Volgende",
+      "label": "Tekst voor \"Volgende\"-knop",
       "default": "Volgende"
     },
     {
-      "label": "Tekst voor de knop Vorige",
+      "label": "Tekst voor \"Vorige\"-knop",
       "default": "Vorige"
     },
     {
-      "label": "Tekst voor de knop Opnieuw",
+      "label": "Tekst voor \"Opnieuw\"-knop",
       "default": "Opnieuw"
     },
     {
-      "label": "Tekst voor de \"Juist antwoord\" knop",
+      "label": "Tekst voor de \"Juist antwoord\"-knop",
       "default": "Ik heb het goed!"
     },
     {
-      "label": "Tekst voor de \"Onjuist antwoord\" knop",
+      "label": "Tekst voor de \"Onjuist antwoord\"-knop",
       "default": "Ik heb het fout"
     },
     {
-      "label": "Tekst voor \"Ronde\" bericht onder kaarten en op het samenvattingsscherm",
+      "label": "Tekst voor \"Ronde\"-bericht onder kaarten en op het samenvattingsscherm",
       "description": "@round zal worden vervangen door het nummer van de huidige ronde",
       "default": "Ronde @round"
     },
     {
-      "label": "Tekst voor \"Kaarten over\" bericht",
-      "description": "@number zal worden vervangen door het aantal kaarten dat over is in deze ronde",
-      "default": "Kaarten over: @number"
+      "label": "Tekst voor \"Kaarten resterend\"-bericht",
+      "description": "@number zal worden vervangen door het aantal kaarten dat in deze ronde resteert",
+      "default": "Kaarten resterend: @number"
     },
     {
-      "label": "Tekst voor de \"Volgende ronde\" knop",
+      "label": "Tekst voor de \"Volgende ronde\"-knop",
       "description": "@round zal worden vervangen door het nummer van de ronde",
       "default": "Doorgaan naar ronde @round"
     },
     {
-      "label": "Tekst voor de \"Start opnieuw\" knop",
+      "label": "Tekst voor de \"Start opnieuw\"-knop",
       "default": "Start opnieuw"
     },
     {
-      "label": "Tekst voor de \"Toon samenvatting\" knop",
+      "label": "Tekst voor de \"Toon samenvatting\"-knop",
       "default": "Volgende"
     },
     {
@@ -145,7 +144,7 @@
       "default": "Kaarten die je goed had:"
     },
     {
-      "label": "Text for \"Kaarten die je fout had:\"",
+      "label": "Tekst voor \"Kaarten die je fout had:\"",
       "default": "Kaarten die je fout had:"
     },
     {
@@ -153,7 +152,7 @@
       "default": "Niet getoonde kaarten in voorraad:"
     },
     {
-      "label": "Text for \"Totaalscore\"",
+      "label": "Tekst voor \"Totaalscore\"",
       "default": "Totaalscore"
     },
     {
@@ -165,27 +164,27 @@
       "default": "Voltooide rondes:"
     },
     {
-      "label": "Bericht als alle kaarten bekwaam geleerd zijn",
+      "label": "Bericht als alle kaarten beheerst worden",
       "description": "@cards zal worden vervangen door het aantal kaarten in voorraad. @max zal worden vervangen door het maximale bekwaamheidsniveau - 1.",
       "default": "Goed gedaan! Je hebt alle @cards kaarten juist @max keer achtereen!"
     },
     {
-      "label": "Tekst bij voortgang",
+      "label": "Tekst van voortgang",
       "description": "Beschikbare variabelen zijn @card en @total.",
       "default": "Kaart @card van @total"
     },
     {
-      "label": "Label voor de kaarttekst",
-      "description": "Dit wordt gebruikt voor de toegankelijkheid door ondersteunende technologieën",
+      "label": "Label voor kaarttekst",
+      "description": "Gebruikt voor toegankelijkheid door ondersteunende technologieën",
       "default": "Voorkant kaart"
     },
     {
-      "label": "Label voor de achterkant van de kaart",
-      "description": "Dit wordt gebruikt voor de toegankelijkheid door ondersteunende technologieën",
+      "label": "Label voor achterkant kaart",
+      "description": "Gebruikt voor toegankelijkheid door ondersteunende technologieën",
       "default": "Achterkant kaart"
     },
     {
-      "label": "Label voor de toon tip knop",
+      "label": "Label voor \"Toon tip\"-knop",
       "default": "Toon tip"
     },
     {
@@ -200,15 +199,15 @@
           "default": "Start opnieuw?"
         },
         {
-          "label": "Tekstinhoud",
+          "label": "Hoofdtekst",
           "default": "Alle voortgang zal verloren gaan. Weet je zeker dat je opnieuw wilt starten?"
         },
         {
-          "label": "Annuleren knop label",
-          "default": "Annuleren"
+          "label": "Label van \"Annuleer\"-knop",
+          "default": "Annuleer"
         },
         {
-          "label": "Bevestigen knop label",
+          "label": "Tekst van \"Bevestig\"-knop",
           "default": "Start opnieuw"
         }
       ]

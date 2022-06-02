@@ -232,30 +232,40 @@ class Dialogcards extends H5P.EventDispatcher {
         'role': 'navigation'
       });
 
+      const mouseEnter = function ($element, text) {
+        $($element).append('<span class="button-tooltip">' + text + '</span>');
+        $($element).find('.button-tooltip').hide().fadeIn('fast');
+      };
+
+      const mouseLeave = function ($element) {
+        $($element).find('.button-tooltip').remove();
+      };
+
       if (this.params.mode === 'normal') {
+        const self = this;
         this.$prev = JoubelUI.createButton({
           'class': 'h5p-dialogcards-footer-button h5p-dialogcards-prev truncated',
           'aria-label': this.params.prev,
-          'title': this.params.prev
         }).click(() => {
           this.prevCard();
         }).appendTo($footer);
+        this.$prev.hover(function (event) {mouseEnter(self.$prev, self.params.prev)}, function () {mouseLeave(self.$prev)});
 
         this.$next = JoubelUI.createButton({
           'class': 'h5p-dialogcards-footer-button h5p-dialogcards-next truncated',
           'aria-label': this.params.next,
-          'title': this.params.next
         }).click(() => {
           this.nextCard();
         }).appendTo($footer);
+        this.$next.hover(function (event) {mouseEnter(self.$next, self.params.next)}, function () {mouseLeave(self.$next)});
 
         this.$retry = JoubelUI.createButton({
           'class': 'h5p-dialogcards-footer-button h5p-dialogcards-retry h5p-dialogcards-disabled',
-          'title': this.params.retry,
-          'html': this.params.retry
+          'html': this.params.retry,
         }).click(() => {
           this.trigger('reset');
         }).appendTo($footer);
+        this.$retry.hover(function (event) {mouseEnter(self.$retry, self.params.retry)}, function () {mouseLeave(self.$retry)});
 
         this.$progress = $('<div>', {
           'id': 'h5p-dialogcards-progress-' + Dialogcards.idCounter,

@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Descripció de la tasca",
-      "default": ""
+      "label": "Descripció de la tasca"
     },
     {
       "widgets": [

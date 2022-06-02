@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Popis úlohy",
-      "default": ""
+      "label": "Popis úlohy"
     },
     {
       "widgets": [

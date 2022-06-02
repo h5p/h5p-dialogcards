@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Tehtävänkuvaus",
-      "default": ""
+      "label": "Tehtävänkuvaus"
     },
     {
       "widgets": [
@@ -63,7 +62,7 @@
     },
     {
       "label": "Yleisasetukset",
-      "description": "",
+      "description": "These options will let you control how the task behaves.",
       "fields": [
         {
           "label": "Salli \"Yritä uudelleen\" painike"

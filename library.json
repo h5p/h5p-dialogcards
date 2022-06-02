@@ -3,7 +3,7 @@
   "description": "Makes it possible to create learning tasks for your site visitors.",
   "majorVersion": 1,
   "minorVersion": 9,
-  "patchVersion": 0,
+  "patchVersion": 2,
   "runnable": 1,
   "author": "Joubel",
   "license": "MIT",
@@ -39,7 +39,7 @@
     {
       "machineName": "H5P.Audio",
       "majorVersion": 1,
-      "minorVersion": 4
+      "minorVersion": 5
     }
   ],
   "editorDependencies": [

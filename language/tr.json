@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Etkinlik açıklaması",
-      "default": ""
+      "label": "Etkinlik açıklaması"
     },
     {
       "widgets": [
@@ -62,11 +61,11 @@
       }
     },
     {
-      "label": "Davranış ayarları.",
-      "description": "Bu seçenekler etkinliğin nasıl gerçekleşeceğini kontrol etmenizi sağlar.",
+      "label": "Davranış yarları",
+      "description": "Bu seçenekler görevin nasıl davranması gerektiğini kontrol etmenizi sağlar.",
       "fields": [
         {
-          "label": "\"Yeniden dene\" düğmesi devrede"
+          "label": "\"Yeniden dene\" düğmesini devreye al"
         },
         {
           "label": "Geri dönüş gezinmesini kapat",

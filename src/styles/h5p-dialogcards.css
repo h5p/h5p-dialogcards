@@ -246,14 +246,14 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-progress {
-  color: #999;
+  color: #757575;
   text-align: center;
 }
 
 .h5p-dialogcards .h5p-dialogcards-round {
   float: left;
   margin-left: 1.5em;
-  color: #999999;
+  color: #757575;
   font-weight: 400;
   text-decoration: none solid rgb(153, 153, 153);
 }
@@ -261,7 +261,7 @@
 .h5p-dialogcards .h5p-dialogcards-cards-left {
   float: right;
   margin-right: 1.5em;
-  color: #999999;
+  color: #757575;
   font-weight: 400;
   text-decoration: none solid rgb(153, 153, 153);
 }
@@ -560,4 +560,14 @@
 .h5p-dialogcards-gone {
   display: none;
   visibility: hidden;
+}
+
+.button-tooltip {
+  background: #333e;
+  margin: auto;
+  padding: 5px;
+  position: absolute;
+  z-index: 1000;
+  font-size: 12px;
+  transform: translate(-50%, -70%);
 }

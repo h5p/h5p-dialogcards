@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Descrizione attività",
-      "default": ""
+      "label": "Descrizione attività"
     },
     {
       "widgets": [

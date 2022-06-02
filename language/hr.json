@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Opis zadatka",
-      "default": ""
+      "label": "Opis zadatka"
     },
     {
       "widgets": [

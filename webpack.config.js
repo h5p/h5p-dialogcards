@@ -1,15 +1,23 @@
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 
-const config = {
-  mode: 'development',
+const nodeEnv = process.env.NODE_ENV || 'development';
+const isProd = (nodeEnv === 'production');
+
+module.exports = {
+  mode: nodeEnv,
   optimization: {
+    minimize: isProd,
     minimizer: [
-      new TerserPlugin(),
-      new OptimizeCSSAssetsPlugin({})
-    ]
+      new TerserPlugin({
+        terserOptions: {
+          compress:{
+            drop_console: true,
+          }
+        }
+      }),
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -27,34 +35,32 @@ const config = {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            "@babel/preset-env"
-          ]
-        }
+        exclude: /node_modules/,
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader, 'css-loader'
-        ],
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: ''
+            }
+          },
+          { 
+            loader: "css-loader" 
+          }
+        ]
       },
       {
         test: /\.svg$/,
-        loader: 'url-loader'
+        include: path.join(__dirname, 'src/images'),
+        type: 'asset/resource'
       }
     ]
   },
   stats: {
     colors: true
-  }
+  },
+  devtool: (isProd) ? undefined : 'eval-cheap-module-source-map'
 };
-
-module.exports = (env, argv) => {
-  if (argv.mode === 'development') {
-    config.devtool = 'inline-source-map';
-  }
-
-  return config;
-}

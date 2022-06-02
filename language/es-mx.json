@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Descripción del trabajo",
-      "default": ""
+      "label": "Descripción del trabajo"
     },
     {
       "widgets": [

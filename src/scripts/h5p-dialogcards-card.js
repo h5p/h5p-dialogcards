@@ -534,8 +534,9 @@ class Card {
      * We need to reset the audio button to its initial visual state, but it
      * doesn't have a function to to that -> force ended event and reload.
      */
-    if (this.audio.audio.duration > 0) {
-      this.audio.audio.currentTime = this.audio.audio.duration;
+    const duration = this.audio.audio.duration;
+    if (duration > 0 && duration < Number.MAX_SAFE_INTEGER) {
+      this.audio.seekTo(duration);
     }
 
     if (this.audio.audio.load) {
