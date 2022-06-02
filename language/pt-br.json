@@ -38,11 +38,8 @@
             "description": "Dica para a segunda parte do diálogo"
           },
           {
-            "label": "Imagem",
-            "description": "Imagem opcional para o cartão. (O cartão pode conter apenas uma imagem, apenas um texto, ou ambos)"
-          },
-          {
-            "label": "Texto alternativo para a imagem"
+            "label": "Media",
+            "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
           },
           {
             "label": "Arquivos de áudio"

@@ -38,11 +38,8 @@
             "description": "Tekst za drugu stranicu kartice"
           },
           {
-            "label": "Slika",
-            "description": "Opcionalna slika na kartici. (Kartica može sadržavati samo sliku, samo tekst ili oboje.)"
-          },
-          {
-            "label": "Alternativni tekst za sliku (opis)"
+            "label": "Media",
+            "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
           },
           {
             "label": "Zvučne datoteke"

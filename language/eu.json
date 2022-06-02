@@ -38,11 +38,8 @@
             "description": "Elkarrizketaren bigarren zatirako laguntza"
           },
           {
-            "label": "Irudia",
-            "description": "Aukerazko irudia txartelerako. (Txartelak izan dezake irudi bat, testu bat edo biak)"
-          },
-          {
-            "label": "Irudiaren ordezko testua"
+            "label": "Media",
+            "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
           },
           {
             "label": "Audio fitxategiak"

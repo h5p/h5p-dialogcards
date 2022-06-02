@@ -81,6 +81,13 @@ class Dialogcards extends H5P.EventDispatcher {
       }
     }, params);
 
+    // Filter out empty cards (that don't have text and answer or at least one of both and media)
+    this.params.dialogs = this.params.dialogs.filter(dialog => {
+      const text = dialog.text && dialog.text.trim !== '';
+      const answer = dialog.answer && dialog.answer.trim() !== '';
+      return (dialog.media && (text || answer) || (text && answer));
+    });
+
     this.cards = [];
 
     this.currentCardId = 0;
@@ -93,6 +100,17 @@ class Dialogcards extends H5P.EventDispatcher {
      * @param {jQuery} $container Container.
      */
     this.attach = ($container) => {
+
+      // No cards
+      if (this.params.dialogs.length === 0) {
+        $container
+          .addClass('h5p-dialogcards')
+          .append('<div class="h5p-dialogcards h5p-dialogcards-warning">I really need at least one card with content :-)</div>');
+
+        this.trigger('resize');
+        return;
+      }
+
       this.$inner = $container.addClass('h5p-dialogcards');
       if (this.params.behaviour.scaleTextNotCard) {
         $container.addClass('h5p-text-scaling');
@@ -119,7 +137,10 @@ class Dialogcards extends H5P.EventDispatcher {
 
       this.cardManager = new CardManager(managerParams, this.id, {
         onCardTurned: this.handleCardTurned,
-        onNextCard: this.nextCard
+        onNextCard: this.nextCard,
+        onResize: () => {
+          this.trigger('resize');
+        } // Videos need to trigger resize
       });
 
       this.createDOM(this.round === 0);
@@ -269,31 +290,42 @@ class Dialogcards extends H5P.EventDispatcher {
     /**
      * Called when all cards has been loaded.
      */
-    this.updateImageSize = () => {
+    this.updateMediaSize = () => {
       // Find highest card content
       let relativeHeightCap = 15;
       let height = 0;
+      let mediaHeight = 0;
 
       const $currentCardContent = this.cards[this.currentCardId].getDOM().find('.h5p-dialogcards-card-content');
 
+      this.cards[this.currentCardId].resizeVideo();
+
       this.params.dialogs.forEach(dialog => {
-        if (!dialog.image) {
+        if (!dialog.media || !dialog.media.library) {
           return;
         }
 
-        const imageHeight = dialog.image.height / dialog.image.width * $currentCardContent.get(0).getBoundingClientRect().width;
-        if (imageHeight > height) {
-          height = imageHeight;
+        // Set media height depending on type
+        const type = dialog.media.library.split(' ')[0];
+        if (type === 'H5P.Image') {
+          mediaHeight = dialog.media.params.file.height / dialog.media.params.file.width * $currentCardContent.get(0).getBoundingClientRect().width;
+        }
+        else if (type === 'H5P.Video') {
+          mediaHeight = $currentCardContent.find('.h5p-dialogcards-video').height() || 0;
+        }
+
+        if (mediaHeight > height) {
+          height = mediaHeight;
         }
       });
 
       if (height > 0) {
-        let relativeImageHeight = height / parseFloat(this.$inner.css('font-size'));
-        if (relativeImageHeight > relativeHeightCap) {
-          relativeImageHeight = relativeHeightCap;
+        let relativeMediaHeight = height / parseFloat(this.$inner.css('font-size'));
+        if (relativeMediaHeight > relativeHeightCap) {
+          relativeMediaHeight = relativeHeightCap;
         }
         this.cards.forEach(card => {
-          card.getImage().parent().css('height', relativeImageHeight + 'em');
+          card.getMedia().parent().css('height', relativeMediaHeight + 'em');
         });
       }
     };
@@ -563,6 +595,7 @@ class Dialogcards extends H5P.EventDispatcher {
       // Stop action on current card
       const currentCard = this.cards[this.currentCardId];
       currentCard.stopAudio();
+      currentCard.stopVideo();
       currentCard.getDOM().removeClass('h5p-dialogcards-current');
 
       // Get card positions to check for being loaded
@@ -658,11 +691,21 @@ class Dialogcards extends H5P.EventDispatcher {
     };
 
     /**
+     * Stop videos and reset to 0:00.
+     */
+    this.resetVideos = () => {
+      this.cards.forEach(card => {
+        card.stopVideo(true);
+      });
+    };
+
+    /**
      * Reset the task so that the user can do it again.
      */
     this.reset = () => {
       this.results = [];
       this.cards[this.currentCardId].stopAudio(this.$current.index());
+      this.resetVideos();
 
       // Turn all cards to front
       this.cards.forEach(card => {
@@ -690,7 +733,8 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.resize = () => {
       let maxHeight = 0;
-      this.updateImageSize();
+      this.updateMediaSize();
+
       if (!this.params.behaviour.scaleTextNotCard && this.cardsShown !== false) {
         this.determineCardSizes();
       }

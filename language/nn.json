@@ -38,11 +38,8 @@
             "description": "Nøkkelord til neste delen av dialogen"
           },
           {
-            "label": "Bilete",
-            "description": "Valfritt bilete for kortet.(Korta kan bruka berre bilete, berre tekst, eller begge)"
-          },
-          {
-            "label": "Alternative text for the image"
+            "label": "Media",
+            "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
           },
           {
             "label": "Audio files"

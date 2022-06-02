@@ -38,11 +38,8 @@
             "description": "Hint for the second part of the dialogue"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
-          },
-          {
-            "label": "Alternative text for the image"
+            "label": "Media",
+            "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
           },
           {
             "label": "Audio files"

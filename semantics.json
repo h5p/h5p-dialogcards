@@ -80,7 +80,8 @@
           ],
           "label": "Text",
           "importance": "high",
-          "description": "Hint for the first part of the dialogue",
+          "optional": true,
+          "description": "Hint for the first part of the dialogue"
           "default": "<p style=\"text-align: center;\"></p>"
         },
         {
@@ -96,23 +97,21 @@
           ],
           "label": "Answer",
           "importance": "high",
-          "description": "Hint for the second part of the dialogue",
+          "optional": true,
+          "description": "Hint for the second part of the dialogue"
           "default": "<p style=\"text-align: center;\"></p>"
         },
         {
-          "name": "image",
-          "type": "image",
-          "label": "Image",
+          "name": "media",
+          "type": "library",
+          "label": "Media",
           "importance": "high",
+          "options": [
+            "H5P.Image 1.1",
+            "H5P.Video 1.5"
+          ],
           "optional": true,
-          "description": "Optional image for the card. (The card may use just an image, just a text or both)"
-        },
-        {
-          "name": "imageAltText",
-          "type": "text",
-          "label": "Alternative text for the image",
-          "importance": "high",
-          "optional": true
+          "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
         },
         {
           "name": "audio",

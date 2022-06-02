@@ -38,11 +38,8 @@
             "description": "Hinweis für den zweiten Teil des Dialogs"
           },
           {
-            "label": "Bild",
-            "description": "Optionales Bild für die Karte. (Die Karte kann nur aus einem Bild bestehen, Text oder beidem.)"
-          },
-          {
-            "label": "Alternativer Text zur Bildbeschreibung (Barrierefreiheit)"
+            "label": "Medien",
+            "description": "Optionale Medien für die Karte. (Die Karte kann ein Bild oder Video benutzen, Text oder beides.)"
           },
           {
             "label": "Audiodateien"

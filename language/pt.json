@@ -42,9 +42,6 @@
             "description": "Imagem opcional para o cartão. (O cartão pode conter apenas uma imagem, apenas um texto ou ambos)"
           },
           {
-            "label": "Texto alternativo para a imagem"
-          },
-          {
             "label": "Ficheiros de áudio"
           },
           {

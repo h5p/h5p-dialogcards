@@ -38,11 +38,8 @@
             "description": "卡片的背面"
           },
           {
-            "label": "圖像",
-            "description": "卡片上額外顯示的圖片（卡片可以只有文字或圖片，或兩個都有）"
-          },
-          {
-            "label": "替代文字"
+            "label": "Media",
+            "description": "Optional media for the card. (The card may use just an image or video, just a text or both)"
           },
           {
             "label": "音樂"

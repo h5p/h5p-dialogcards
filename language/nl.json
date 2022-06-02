@@ -42,9 +42,6 @@
             "description": "Optionele afbeelding voor de kaart. (De kaart mag alleen een afbeelding gebruiken, alleen een tekst of allebei)"
           },
           {
-            "label": "Alternatieve tekst voor de afbeelding"
-          },
-          {
             "label": "Audiobestanden"
           },
           {
