@@ -4,9 +4,12 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = (nodeEnv === 'production');
+const libraryName = process.env.npm_package_name;
 
 module.exports = {
   mode: nodeEnv,
+  context: path.resolve(__dirname, 'src'),
+  devtool: (isProd) ? undefined : 'eval-cheap-module-source-map',
   optimization: {
     minimize: isProd,
     minimizer: [
@@ -19,16 +22,11 @@ module.exports = {
       }),
     ],
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'h5p-dialogcards.css'
-    })
-  ],
   entry: {
-    dist: './src/entries/h5p-dialogcards.js'
+    dist: `./entries/${libraryName}.js`
   },
   output: {
-    filename: 'h5p-dialogcards.js',
+    filename: `${libraryName}.js`,
     path: path.resolve(__dirname, 'dist')
   },
   module: {
@@ -59,8 +57,13 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: `${libraryName}.css`
+    })
+  ],
   stats: {
     colors: true
-  },
-  devtool: (isProd) ? undefined : 'eval-cheap-module-source-map'
+  }
 };
+
