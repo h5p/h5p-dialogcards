@@ -30,7 +30,7 @@
         "label": "Jautājums",
         "fields": [
           {
-            "label": "Front",
+            "label": "Priekšā",
             "fields": [
               {
                 "label": "Teksts",
@@ -54,7 +54,7 @@
             ]
           },
           {
-            "label": "Back",
+            "label": "Atpakaļ",
             "fields": [
               {
                 "label": "Teksts",
