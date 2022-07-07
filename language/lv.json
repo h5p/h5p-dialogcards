@@ -30,32 +30,57 @@
         "label": "Jautājums",
         "fields": [
           {
-            "label": "Teksts",
-            "description": "Dialoga pirmās daļas padoms"
-          },
-          {
-            "label": "Atbilde",
-            "description": "Dialoga otrās daļas padoms"
-          },
-          {
-            "label": "Attēls",
-            "description": "Neobligāts kartītes attēls. (Kartīte var būt tikai attēls, tikai teksts vai abi)"
-          },
-          {
-            "label": "Attēla alternatīvais teksts"
-          },
-          {
-            "label": "Audio faili"
-          },
-          {
-            "label": "Padomi",
+            "label": "Priekšā",
             "fields": [
               {
-                "label": "Teksta padoms",
+                "label": "Teksts",
                 "description": "Dialoga pirmās daļas padoms"
               },
               {
-                "label": "Atbildes padoms",
+                "label": "Attēls",
+                "description": "Neobligāts kartītes attēls."
+              },
+              {
+                "label": "Attēla alternatīvais teksts"
+              },
+              {
+                "label": "Audio faili",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Teksta padoms",
+                "description": "Dialoga pirmās daļas padoms"
+              }
+            ]
+          },
+          {
+            "label": "Atpakaļ",
+            "fields": [
+              {
+                "label": "Teksts",
+                "description": "Dialoga otrās daļas padoms"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Attēls",
+                "description": "Neobligāts kartītes attēls."
+              },
+              {
+                "label": "Attēla alternatīvais teksts"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Audio faili",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Teksta padoms",
                 "description": "Dialoga otrās daļas padoms"
               }
             ]

@@ -30,33 +30,58 @@
         "label": "Асуулт",
         "fields": [
           {
-            "label": "Текст",
-            "description": "Харилцааны эхний хэсэгт зориулсан зөвлөмж"
-          },
-          {
-            "label": "Хариулт",
-            "description": "Харилцааны хоёр дахь хэсэгт зориулсан зөвлөмж"
-          },
-          {
-            "label": "Зураг",
-            "description": "Картын нэмэлт зураг. (Карт зөвхөн зураг, текст эсвэл хоёуланг нь хэрэглэж болно)"
-          },
-          {
-            "label": "Зургийн өөр текст"
-          },
-          {
-            "label": "Аудио файлууд"
-          },
-          {
-            "label": "Зөвлөмж",
+            "label": "Front",
             "fields": [
               {
-                "label": "Текстийн зөвлөгөө",
-                "description": "Ярилцлагын эхний хэсэгт зориулсан зөвлөгөө"
+                "label": "Текст",
+                "description": "Харилцааны эхний хэсэгт зориулсан зөвлөмж"
               },
               {
-                "label": "Хариултанд өгөх зөвлөмж",
-                "description": "Харилцааны хоёр дахь хэсэгт зориулсан зөвлөгөө"
+                "label": "Зураг",
+                "description": "Картын нэмэлт зураг."
+              },
+              {
+                "label": "Зурагт үзүүлэх сонголтод текст"
+              },
+              {
+                "label": "Аудио файлууд",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Текстэд өгөх зөвөлгөө",
+                "description": "Харилцан ярианы эхний хэсэгт өгөх зөвлөмж"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "Текст",
+                "description": "Хоёр дах харилцан ярианд өгөх дохио"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Зураг",
+                "description": "Картанд сонголтоор харуулах зураг."
+              },
+              {
+                "label": "Зурагт үзүүлэх сонголтод текст"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Аудио файлууд",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Текстэд өгөх зөвөлгөө",
+                "description": "Хоёр дах харилцан ярианд өгөх зөвлөмж"
               }
             ]
           }
