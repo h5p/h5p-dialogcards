@@ -16,9 +16,8 @@ class Dialogcards extends H5P.EventDispatcher {
    * @returns {DialogCards} self
    */
   constructor(params, id, contentData) {
-    Dialogcards.idCounter++;
     super();
-
+    this.idCounter = Dialogcards.idCounter++;
     this.contentId = this.id = id;
     this.previousState = contentData.previousState || {};
 
@@ -120,7 +119,7 @@ class Dialogcards extends H5P.EventDispatcher {
       this.cardManager = new CardManager(managerParams, this.id, {
         onCardTurned: this.handleCardTurned,
         onNextCard: this.nextCard
-      });
+      }, this.idCounter);
 
       this.createDOM(this.round === 0);
 
@@ -247,7 +246,7 @@ class Dialogcards extends H5P.EventDispatcher {
         this.$retry.hover(function (event) {mouseEnter(self.$retry, self.params.retry)}, function () {mouseLeave(self.$retry)});
 
         this.$progress = $('<div>', {
-          'id': 'h5p-dialogcards-progress-' + Dialogcards.idCounter,
+          'id': 'h5p-dialogcards-progress-' + this.idCounter,
           'class': 'h5p-dialogcards-progress',
           'aria-live': 'assertive'
         }).appendTo($footer);

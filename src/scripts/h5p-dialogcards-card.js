@@ -10,8 +10,9 @@ class Card {
    * @param {object} [callbacks] Callbacks.
    * @param {function} [callbacks.onCardSize] Call when card needs resize.
    * @param {function} [callbacks.onCardTurned] Call when card was turned.
+   * @param {number} idCounter
    */
-  constructor(card, params, id, contentId, callbacks={}) {
+  constructor(card, params, id, contentId, callbacks = {}, idCounter) {
     this.card = card;
     this.params = params || {};
     this.id = id;
@@ -24,7 +25,7 @@ class Card {
       'tabindex': '-1'
     });
     if (this.params.mode !== 'repetition') {
-      this.$cardWrapper.attr('aria-labelledby', 'h5p-dialogcards-progress-' + H5P.Dialogcards.idCounter)
+      this.$cardWrapper.attr('aria-labelledby', 'h5p-dialogcards-progress-' + idCounter);
     }
 
     this.$cardHolder = $('<div>', {'class': 'h5p-dialogcards-cardholder'})
