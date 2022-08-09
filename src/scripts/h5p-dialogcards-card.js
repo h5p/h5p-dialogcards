@@ -24,6 +24,9 @@ class Card {
       'role': 'group',
       'tabindex': '-1'
     });
+
+    this.$cardWrapper.addClass('h5p-dialogcards-mode-' + this.params.mode);
+
     if (this.params.mode !== 'repetition') {
       this.$cardWrapper.attr('aria-labelledby', 'h5p-dialogcards-progress-' + idCounter);
     }
@@ -175,26 +178,28 @@ class Card {
       'html': this.params.answer
     }).appendTo($cardFooter);
 
-    this.$buttonShowSummary = H5P.JoubelUI.createButton({
-      'class': 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone',
-      'html': this.params.showSummary
-    }).appendTo($cardFooter);
+    if (this.params.mode === 'repetition') {
+      this.$buttonShowSummary = H5P.JoubelUI.createButton({
+        'class': 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone',
+        'html': this.params.showSummary
+      }).appendTo($cardFooter);
 
-    this.$buttonIncorrect = H5P.JoubelUI.createButton({
-      'class': 'h5p-dialogcards-answer-button',
-      'html': this.params.incorrectAnswer
-    }).addClass('incorrect')
-      .addClass(classesRepetition)
-      .attr('tabindex', attributeTabindex)
-      .appendTo($cardFooter);
+      this.$buttonIncorrect = H5P.JoubelUI.createButton({
+        'class': 'h5p-dialogcards-answer-button',
+        'html': this.params.incorrectAnswer
+      }).addClass('incorrect')
+        .addClass(classesRepetition)
+        .attr('tabindex', attributeTabindex)
+        .appendTo($cardFooter);
 
-    this.$buttonCorrect = H5P.JoubelUI.createButton({
-      'class': 'h5p-dialogcards-answer-button',
-      'html': this.params.correctAnswer
-    }).addClass('correct')
-      .addClass(classesRepetition)
-      .attr('tabindex', attributeTabindex)
-      .appendTo($cardFooter);
+      this.$buttonCorrect = H5P.JoubelUI.createButton({
+        'class': 'h5p-dialogcards-answer-button',
+        'html': this.params.correctAnswer
+      }).addClass('correct')
+        .addClass(classesRepetition)
+        .attr('tabindex', attributeTabindex)
+        .appendTo($cardFooter);
+    }
 
     return $cardFooter;
   }
@@ -204,29 +209,31 @@ class Card {
    * Will be lost when the element is removed from DOM.
    */
   createButtonListeners() {
-    this.$buttonIncorrect
-      .unbind('click')
-      .click(event => {
-        if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
-          return;
-        }
-        this.callbacks.onNextCard({cardId: this.id, result: false});
-      });
-
     this.$buttonTurn
       .unbind('click')
       .click(() => {
         this.turnCard();
       });
 
-    this.$buttonCorrect
-      .unbind('click')
-      .click(event => {
-        if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
-          return;
-        }
-        this.callbacks.onNextCard({cardId: this.id, result: true});
-      });
+    if (this.params.mode === 'repetition') {
+      this.$buttonIncorrect
+        .unbind('click')
+        .click(event => {
+          if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
+            return;
+          }
+          this.callbacks.onNextCard({cardId: this.id, result: false});
+        });
+
+      this.$buttonCorrect
+        .unbind('click')
+        .click(event => {
+          if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
+            return;
+          }
+          this.callbacks.onNextCard({cardId: this.id, result: true});
+        });
+    }
   }
 
   /**
