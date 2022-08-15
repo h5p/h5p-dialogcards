@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "Voreinstellung"
+          "label": "Default"
         }
       ],
-      "label": "Dialoge",
-      "entity": "Dialog",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "Frage",
+        "label": "Question",
         "fields": [
           {
-            "label": "Vorderseite",
-            "description": "Hinweis für den ersten Teil des Dialogs"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Rückseite",
-            "description": "Hinweis für den zweiten Teil des Dialogs"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Bild",
-            "description": "Optionales Bild für die Karte. (Die Karte kann nur aus einem Bild bestehen, Text oder beidem.)"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Alternativer Text zur Bildbeschreibung (Barrierefreiheit)"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "Audiodateien"
+            "label": "Audio files"
           },
           {
-            "label": "Tipps",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Tipp zur Vorderseite",
-                "description": "Tipp für den ersten Teil des Dialogs"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Tipp zur Rückseite",
-                "description": "Tipp für den zweiten Teil des Dialogs"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "Abgeschlossene Runden:"
     },
     {
-      "label": "Nachricht, wenn alle Karten beherrscht werden",
-      "description": "@cards wird mit der Gesamtzahl der Karten ersetzt. @max wird mit dem \"maximalen Beherrschungsniveau\" - 1 ersetzt.",
-      "default": "Gut gemacht! Du hattest alle @cards Karten @max -mal hintereinander richtig!"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Text der Fortschrittsanzeige",

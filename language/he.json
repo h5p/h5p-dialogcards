@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "ברירת־מחדל"
+          "label": "Default"
         }
       ],
-      "label": "כרטיסים",
-      "entity": "כרטיס",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "שאלה",
+        "label": "Question",
         "fields": [
           {
-            "label": "שאלה",
-            "description": "רמז או שאלה, אשר יוצגו באופן ראשוני"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "תשובה",
-            "description": "התשובה, אשר תוצג לאחר \"מהפך\" הכרטיס"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "תמונה",
-            "description": "תמונת הכרטיס (ניתן להציג \"מלל\" או \"תמונה\" או \"מלל + תמונה\")"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "תאור חלופי לתמונה"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "קבצי קול"
+            "label": "Audio files"
           },
           {
-            "label": "עצות",
+            "label": "Tips",
             "fields": [
               {
-                "label": "עצה עבור התוכן",
-                "description": "עצה או שאלה, המוצגת על גבי הכרטיס באופן ראשוני"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "עצה עבור התשובה",
-                "description": "עצה או תשובה, לאחר \"מהפך\" הכרטיס"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "סיבובים שהסתיימו:"
     },
     {
-      "label": "הודעה כאשר כל הקלפים נלמדו במיומנות",
-      "description": "@cards יוחלף במספר כל הכרטיסים בחפיסה. @max יוחלף במספר ההצלחות ברצף 1-.",
-      "default": "כל הכבוד! הצלחת את כל @cards הכרטיסים @max פעמים ברציפות!"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "תאור התקדמות",

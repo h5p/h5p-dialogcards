@@ -397,9 +397,9 @@
     "name": "summaryAllDone",
     "type": "text",
     "label": "Message when all cards have been learned proficiently",
-    "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
+    "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
     "importance": "low",
-    "default": "Well done! You got all @cards cards correct @max times in a row!",
+    "default": "Well done! You have mastered all @cards cards by getting them correct @max times!",
     "common": true
   },
   {

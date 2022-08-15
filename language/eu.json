@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "Lehenetsia"
+          "label": "Default"
         }
       ],
-      "label": "Elkarrizketak",
-      "entity": "elkarrizketa",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "Ariketa",
+        "label": "Question",
         "fields": [
           {
-            "label": "Testua",
-            "description": "Elkarrizketaren lehenengo zatirako laguntza"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Erantzuna",
-            "description": "Elkarrizketaren bigarren zatirako laguntza"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Irudia",
-            "description": "Aukerazko irudia txartelerako. (Txartelak izan dezake irudi bat, testu bat edo biak)"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Irudiaren ordezko testua"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "Audio fitxategiak"
+            "label": "Audio files"
           },
           {
-            "label": "Argibideak",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Testurako aholkua",
-                "description": "Elkarrizketaren lehenengo zatirako argibidea"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Erantzuteko argibidea",
-                "description": "Elkarrizketaren bigarren parterako argibidea"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "Osatutako errondak:"
     },
     {
-      "label": "Txartel guztiak ondo ikasiz gero erakutsi beharreko mezua",
-      "description": "@cards bankuan dagoen txartel kopuruarekin ordezkatuko da. @max gehienezko gaitasun mailari 1 kenduta lortzen den emaitzarekin ordezkatuko da.",
-      "default": "Oso ondo! @cards txartel guztiak @max aldiz jarraian asmatu dituzu!"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Aurrerapena testua",

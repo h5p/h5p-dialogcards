@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "Opció predeterminada"
+          "label": "Default"
         }
       ],
-      "label": "Diàlegs",
-      "entity": "diàleg",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "Pregunta",
+        "label": "Question",
         "fields": [
           {
             "label": "Text",
-            "description": "Pista per a la primera part de la targeta d’aprenentatge"
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Resposta",
-            "description": "Pista per a la segona part de la targeta d’aprenentatge"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Imatge",
-            "description": "Imatge opcional de la fitxa. (La fitxa pot utilitzar només una imatge, només un text o ambdues)"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Text alternatiu per a la imatge"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "Fitxers d’àudio"
+            "label": "Audio files"
           },
           {
-            "label": "Pistes",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Pista per al text",
-                "description": "Pista per a la primera part del diàleg"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Pista per a la resposta",
-                "description": "Pista per a la segona part del diàleg"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "Rondes completades:"
     },
     {
-      "label": "Missatge per indicar que totes les cartes s’han aprés correctament",
-      "description": "@cards se substituirà pel nombre de targetes del grup. @max se substituirà pel nivell màxim de competència - 1.",
-      "default": "L'enhorabona! Has contestat bé a les @cards targetes @max vegades seguides."
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Text del progrés",

@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "Par défaut"
+          "label": "Default"
         }
       ],
-      "label": "Dialogue",
-      "entity": "dialogue",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
         "label": "Question",
         "fields": [
           {
-            "label": "Question",
-            "description": "Texte pour la face avant de la carte"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Réponse",
-            "description": "Texte pour le dos de la carte"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
             "label": "Image",
-            "description": "Image facultative pour la carte. (Une carte peut contenir une image seule, un texte seul ou les deux combinés)"
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Texte alternatif pour l'image"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "Fichiers audio"
+            "label": "Audio files"
           },
           {
-            "label": "Indices",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Indice pour la face avant",
-                "description": "Indice pour la face avant de la carte"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Indice pour le dos",
-                "description": "Indice pour le dos de la carte"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "Rounds complétés:"
     },
     {
-      "label": "Message lorsque toutes les cartes ont été apprises avec compétence",
-      "description": "@cards sera remplacé par le nombre de cartes dans la réserve. @max sera remplacé par le niveau de compétences maximal - 1.",
-      "default": "Bien joué! Vous avez réussi à avoir les @cards cartes correctes @max fois de suite!"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Texte de progression",

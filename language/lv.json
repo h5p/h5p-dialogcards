@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "Pēc noklusējuma"
+          "label": "Default"
         }
       ],
-      "label": "Dialogi",
-      "entity": "dialogs",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "Jautājums",
+        "label": "Question",
         "fields": [
           {
-            "label": "Teksts",
-            "description": "Dialoga pirmās daļas padoms"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Atbilde",
-            "description": "Dialoga otrās daļas padoms"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Attēls",
-            "description": "Neobligāts kartītes attēls. (Kartīte var būt tikai attēls, tikai teksts vai abi)"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Attēla alternatīvais teksts"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "Audio faili"
+            "label": "Audio files"
           },
           {
-            "label": "Padomi",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Teksta padoms",
-                "description": "Dialoga pirmās daļas padoms"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Atbildes padoms",
-                "description": "Dialoga otrās daļas padoms"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "Pabeigtie riņķi:"
     },
     {
-      "label": "Ziņa, kad visas kartītes apgūtas lietpratēja līmenī",
-      "description": "@cards tiks aizvietots ar kartīšu skaitu kopējā fondā. @max tiks aizvietots ar maksimālo lietpratības līmeni - 1.",
-      "default": "Ļoti labi! @cards kartītes atbildētas pareizi @max reizes pēc kārtas!"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Progresa teksts",
