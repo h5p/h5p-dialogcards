@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "Vaikimisi"
+          "label": "Default"
         }
       ],
-      "label": "Dialoogid",
-      "entity": "dialoog",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "Küsimus",
+        "label": "Question",
         "fields": [
           {
-            "label": "Tekst",
-            "description": "Dialoogi esimese osa vihje"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Vastus",
-            "description": "Dialoogi teise osa vihje"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Pikt",
-            "description": "Mittekohustuslik pilt dialoogikaardile. (Kaardil võib olla vaid pilt, vaid tekst või mõlemad)"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Pildi alternatiivtekst"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "Helifailid"
+            "label": "Audio files"
           },
           {
-            "label": "Vihjed",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Teksti vihje",
-                "description": "Dialoogi esimese osa vihje"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Vastuse vihje",
-                "description": "Dialoogi teise osa vihje"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "Täidetud katseid:"
     },
     {
-      "label": "Teade, kui kõigi kaartide sisu on omandatud",
-      "description": "@cards asendatakse loetelus olevate kaartide koguarvuga. @max asendatakse suurima asjatundlikkuse tasemega - 1.",
-      "default": "Tubli! Täitsid kõik @cards kaarti õigesti @max korda järjest!"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Edasijõudmise tekst",

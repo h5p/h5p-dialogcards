@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "Mặc định"
+          "label": "Default"
         }
       ],
-      "label": "Hội thoại",
-      "entity": "Hội thoại",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "Câu hỏi",
+        "label": "Question",
         "fields": [
           {
-            "label": "Văn bản",
-            "description": "Gợi ý cho phần đầu của hội thoại"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Trả lời",
-            "description": "Gợi ý cho phần thứ 2 của hội thoại"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Hình ảnh",
-            "description": "Hình ảnh tùy chọn cho thẻ. (Thẻ có thể sử dụng chỉ hình ảnh, chỉ văn bản, hoặc cả hai)"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Văn bản thay thế cho hình ảnh"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "File audion"
+            "label": "Audio files"
           },
           {
-            "label": "Gợi ý",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Gợi ý cho văn bản",
-                "description": "Gợi ý cho phần đầu hội thoại"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
                 "label": "Tip for answer",
-                "description": "Gợi ý cho phần thứ 2 hội thoại"
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "Vòng hoàn thành:"
     },
     {
-      "label": "Thông báo khi tất cả các thẻ đã được học thành thạo",
-      "description": "@cards sẽ được thay thế bằng số lượng tất cả các thẻ trong nhóm. @max sẽ được thay thế bằng mức độ thành thạo tối đa - 1.",
-      "default": "Làm tốt! Bạn có tất cả các thẻ @cards đúng lần @max liên tiếp!"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Văn bản tiến độ",

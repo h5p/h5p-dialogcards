@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "Oletus"
+          "label": "Default"
         }
       ],
-      "label": "Kysymys/vastaus -kortit",
-      "entity": "kortti",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "Kysymys",
+        "label": "Question",
         "fields": [
           {
-            "label": "Kysymys",
-            "description": "Tekstisisältö kortin etupuolelle"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Vastaus",
-            "description": "Tekstisisältö kortin kääntöpuolelle"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Kuva",
-            "description": "Valinnainen kuva kortille. Kortti voi olla vain kuva, tekstiä tai molemmat."
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Vaihtoehtoinen teksti kuvalle"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "Äänitiedostot"
+            "label": "Audio files"
           },
           {
-            "label": "Vinkit",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Vinkki kysymykselle",
-                "description": "Vinkki kortin etupuolelle"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Vinkki vastaukselle",
-                "description": "Vinkki kortin kääntöpuolelle"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "Suoritettuja kierroksia:"
     },
     {
-      "label": "Viesti kun kaikki kortit ovat opiskeltu oikein.",
-      "description": "@cards muuttuja korvataan kaikkien saatavilla olevien korttien lukumäärällä. @max muuttuja korvataan maksimiosaamistaso -1 luvulla.",
-      "default": "Hienosti tehty! Tiesit kaikki @cards korttia oikein @max kertaa peräkkäin!"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Edistymisteksti",

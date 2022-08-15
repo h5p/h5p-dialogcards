@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "Varsayılan"
+          "label": "Default"
         }
       ],
-      "label": "Diyaloglar",
-      "entity": "diyalog",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "Soru",
+        "label": "Question",
         "fields": [
           {
-            "label": "Metin",
-            "description": "Diyaloğun ilk bölümü için ipucu"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Cevap",
-            "description": "Diyaloğun ikinci bölümü için ipucu"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Görsel",
-            "description": "Kart için isteğe bağlı görsel. (Kart sadece bir görsel, sadece bir metin ya da ikisini birden içerebilir.)"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Görsel için alternatif metin"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "Ses dosyaları"
+            "label": "Audio files"
           },
           {
-            "label": "İpuçları",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Metin için ipucu",
-                "description": "Diyaloğun ilk bölümü için ipucu"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Cevap için ipucu",
-                "description": "Diyaloğun ikinci bölümü için ipucu"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -168,8 +170,8 @@
     },
     {
       "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row!"
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "İlerleme metni",

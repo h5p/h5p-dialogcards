@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "Predefinito"
+          "label": "Default"
         }
       ],
-      "label": "Dialoghi",
-      "entity": "dialogo",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "Domanda",
+        "label": "Question",
         "fields": [
           {
-            "label": "Testo",
-            "description": "Suggerimento per la prima parte del dialogo"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Risposta",
-            "description": "Suggerimento per la seconda parte del dialogo"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Immagine",
-            "description": "Immagine opzionale per la carta (la carta può usare solo un'immagine, solo un testo o entrambi)"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Testo alternativo per l'immagine"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "File audio"
+            "label": "Audio files"
           },
           {
-            "label": "Suggerimenti",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Suggerimento per il testo",
-                "description": "Suggerimento per la prima parte del dialogo"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Suggerimento per la risposta",
-                "description": "Suggerimento per la seconda parte del dialogo"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "Giocate completate:"
     },
     {
-      "label": "Messaggio per quando tutte le carte sono state imparate per bene",
-      "description": "@cards sarà sostituito dal numero di tutte le carte nel mazzo. @max sarà sostituito dal livello massimo di competenza - 1.",
-      "default": "Ottimo! Hai fatto @cards carte giuste @max volte di seguito!"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Testo di avanzamento",

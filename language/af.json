@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "Verstek"
+          "label": "Default"
         }
       ],
-      "label": "Dialoë",
-      "entity": "dialoog",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "Vraag",
+        "label": "Question",
         "fields": [
           {
-            "label": "Teks",
-            "description": "Wenk vir die eerste deel van die dialoog"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Antwoord",
-            "description": "Wenk vir die tweede deel van die dialoog"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Beeld",
-            "description": "Moontlike kaartjieprent (Die kaartjie kan 'n prent gebruik, of net teks of beide)"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Alternatiewe teks vir die prent"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "Klankleêrs"
+            "label": "Audio files"
           },
           {
-            "label": "Wenke",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Tekswenk",
-                "description": "Wenk vir die eerste deel van die dialoog"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Wenk vir antwoord",
-                "description": "Wenk vir die tweede deel van die dialoog"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "Voltooide rondtes:"
     },
     {
-      "label": "Boodskap wanneer alle kaartjies bemeester is",
-      "description": "@cards sal vervang word met die aantal kaartjies in die poel. @max sal vervang word met die maksimum vaardigheidsvlak - 1.",
-      "default": "Geluk! Jy het @cards kaartjies @max keer in 'n ry reggekry!"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Vorderingteks",

@@ -24,39 +24,41 @@
           "label": "Default"
         }
       ],
-      "label": "Dialog",
+      "label": "Dialogs",
       "entity": "dialog",
       "field": {
-        "label": "Spørgsmål",
+        "label": "Question",
         "fields": [
           {
-            "label": "Tekst",
-            "description": "Hint til første del af dialogen"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Svar",
-            "description": "Hint til anden del af dialogen"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Billede",
-            "description": "Valgfrit billede til kortet. (Kortet kan indeholde enten billede eller tekst, eller begge dele)."
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Alternativ tekst til billedet"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "Lydfiler"
+            "label": "Audio files"
           },
           {
             "label": "Tips",
             "fields": [
               {
-                "label": "Tip til tekst",
-                "description": "Tip til første del af dialogen"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Tip for svar",
-                "description": "Tip til anden del af dialogen."
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "Gennemførte runder:"
     },
     {
-      "label": "Besked når alle kort er blev lært og færdighedsniveau opnået",
-      "description": "@cards  bliver erstattet med antallet af kort i puljen. @max bliver erstattet med det maksimale færdighedsniveau - 1.",
-      "default": "Godt klaret! Du har svaret rigtigt på alle @cards kort @max gange i træk."
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Proces tekst",

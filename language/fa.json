@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "پیش‌فرض"
+          "label": "Default"
         }
       ],
-      "label": "دیالوگ‌ها",
-      "entity": "دیالوگ",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "سؤال",
+        "label": "Question",
         "fields": [
           {
-            "label": "متن",
-            "description": "راهنما برای قسمت اول دیالوگ"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "پاسخ",
-            "description": "راهنما برای قسمت دوم دیالوگ"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "تصویر",
-            "description": "تصویر اختیاری برای کارت. (کارت می‌تواند فقط یک تصویر، فقط متن یا هر دو را داشته باشد)"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "متن بدیل برای تصویر"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "فایل‌های صدا"
+            "label": "Audio files"
           },
           {
-            "label": "نکات",
+            "label": "Tips",
             "fields": [
               {
-                "label": "نکته برای متن",
-                "description": "نکته برای قسمت اول دیالوگ"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "نکته برای پاسخ",
-                "description": "نکته برای قسمت دوم دیالوگ"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "دورهای کامل شده:"
     },
     {
-      "label": "پیام وقتی همه کارت‌ها به شایستگی یادگرفته شده‌اند",
-      "description": "@cards با تعداد کارت‌ها در دسته جایگزین می‌شود. @max با سطح بیشینه مهارت - ۱ جایگزین می‌شود.",
-      "default": "آفرین! شما همه @cards کارت را @max بار پشت سر هم درست فهمیدید!"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "متن پیشروی",

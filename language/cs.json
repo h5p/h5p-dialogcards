@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "Výchozí"
+          "label": "Default"
         }
       ],
-      "label": "Dialogy",
+      "label": "Dialogs",
       "entity": "dialog",
       "field": {
-        "label": "Otázka",
+        "label": "Question",
         "fields": [
           {
             "label": "Text",
-            "description": "Nápověda pro první část dialogu"
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Odpověď",
-            "description": "Nápověda pro druhou část dialogu"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Obrázek",
-            "description": "Volitelný obrázek pro kartu. (Karta může používat pouze obrázek, pouze text nebo obojí)"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Alternativní text pro obrázek"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "Zvukové soubory"
+            "label": "Audio files"
           },
           {
-            "label": "Nápověda",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Text nápovědy",
-                "description": "Nápověda pro první část dialogu"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Nápověda pro odpověď",
-                "description": "Nápověda pro druhou část dialogu"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "Dokončená kola:"
     },
     {
-      "label": "Zpráva, když jste se naučili všechny karty dobře",
-      "description": "@cards bude nahrazen počtem všech karet v bance. @max bude nahrazena maximální úrovní odborné způsobilosti - 1.",
-      "default": "Výborně! Máte všechny karty @cards správně @max krát za sebou!"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Text pokroku",

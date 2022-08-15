@@ -21,42 +21,44 @@
     {
       "widgets": [
         {
-          "label": "По умолчанию"
+          "label": "Default"
         }
       ],
-      "label": "Диалоги",
-      "entity": "диалог",
+      "label": "Dialogs",
+      "entity": "dialog",
       "field": {
-        "label": "Вопрос",
+        "label": "Question",
         "fields": [
           {
-            "label": "Текст",
-            "description": "Подсказка для первой части диалога"
+            "label": "Text",
+            "description": "Hint for the first part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Ответ",
-            "description": "Подсказка для второй части диалога"
+            "label": "Answer",
+            "description": "Hint for the second part of the dialogue",
+            "default": "<p style=\"text-align: center;\"></p>"
           },
           {
-            "label": "Изображение",
-            "description": "Необязательное изображение для карточки.(На карточке может быть только картинка, только текст или оба одновременно)"
+            "label": "Image",
+            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
           },
           {
-            "label": "Альтернативный текст для изображения"
+            "label": "Alternative text for the image"
           },
           {
-            "label": "Аудио файлы"
+            "label": "Audio files"
           },
           {
-            "label": "Подсказки",
+            "label": "Tips",
             "fields": [
               {
-                "label": "Подсказка в тексте",
-                "description": "Подсказка для первой части диалога"
+                "label": "Tip for text",
+                "description": "Tip for the first part of the dialogue"
               },
               {
-                "label": "Подсказка для ответа",
-                "description": "Подсказка для второй части диалога"
+                "label": "Tip for answer",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
@@ -167,9 +169,9 @@
       "default": "Пройденные раунды:"
     },
     {
-      "label": "Сообщение в случае знания карточек на уровне профессионала",
-      "description": "@cards отображает количество всех карточек. @max будет заменено на максимальный уровень - 1.",
-      "default": "Отлично! Ты ответил @cards правильно @max раз подряд!"
+      "label": "Message when all cards have been learned proficiently",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Текст прогресса",
