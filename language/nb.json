@@ -24,24 +24,22 @@
           "label": "Default"
         }
       ],
-      "label": "Dialogs",
-      "entity": "dialog",
+      "label": "Dialogkort",
+      "entity": "dialogkort",
       "field": {
-        "label": "Question",
+        "label": "Dialogkort",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Tekst",
+            "description": "Nøkkelord til første del av dialogen"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Svar",
+            "description": "Nøkkelord til neste del av dialogen"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "Bilde",
+            "description": "Valgfritt bilde for kortet.(Kortet kan bruke kun bilde, kun tekst, eller begge)"
           },
           {
             "label": "Alternative text for the image"
@@ -170,8 +168,8 @@
     },
     {
       "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
+      "default": "Well done! You got all @cards cards correct @max times in a row!"
     },
     {
       "label": "Fremgangstekst",

@@ -21,44 +21,42 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Padrão"
         }
       ],
-      "label": "Dialogs",
-      "entity": "dialog",
+      "label": "Diálogos",
+      "entity": "diálogo",
       "field": {
-        "label": "Question",
+        "label": "Questão",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Texto",
+            "description": "Dica para a primeira parte do diálogo"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Resposta",
+            "description": "Dica para a segunda parte do diálogo"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "Imagem",
+            "description": "Imagem opcional para o cartão. (O cartão pode conter apenas uma imagem, apenas um texto, ou ambos)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Texto alternativo para a imagem"
           },
           {
-            "label": "Audio files"
+            "label": "Arquivos de áudio"
           },
           {
-            "label": "Tips",
+            "label": "Dicas",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Dica para o texto",
+                "description": "Dica para a primeira parte do diálogo"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Dica para a resposta",
+                "description": "Dica para a segunda parte do diálogo"
               }
             ]
           }
@@ -169,9 +167,9 @@
       "default": "Rodadas completadas:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "label": "Mensagem quando todos os cartões tiverem sido aprendidos proficientemente",
+      "description": "@cards será substituído pelo número de todos os cartões do acervo. @max será substituído pelo nível máximo de proficiência - 1.",
+      "default": "Muito bem! Você tem todos os cartões @cards corretos @max vezes seguidas!"
     },
     {
       "label": "Texto de progresso",

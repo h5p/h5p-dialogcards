@@ -21,44 +21,42 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Βασικό"
         }
       ],
-      "label": "Dialogs",
-      "entity": "dialog",
+      "label": "Διάλογος",
+      "entity": "διαλογου",
       "field": {
-        "label": "Question",
+        "label": "Ερώτηση",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Κείμενο",
+            "description": "Κείμενο για το πρώτο μέρος του διαλόγου"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Απάντηση",
+            "description": "Κείμενο για το δεύτερο μέρος του διαλόγου"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "Εικόνα",
+            "description": "Εικόνα για την κάρτα. Η κάρτα μπορεί να έχει μόνο εικόνα, μόνο κείμενο ή και τα δύο (προαιρετικό)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Εναλλακτικό κείμενο για την εικόνα"
           },
           {
-            "label": "Audio files"
+            "label": "Αρχεία ήχου"
           },
           {
-            "label": "Tips",
+            "label": "Επεξηγήσεις",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Επεξήγηση για το κείμενο",
+                "description": "Επεξήγηση για το πρώτο μέρος του διαλόγου"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Επεξήγηση για την απάντηση",
+                "description": "Επεξήγηση για το δεύτερο μέρος του διαλόγου "
               }
             ]
           }
@@ -169,9 +167,9 @@
       "default": "Γύροι που ολοκληρώθηκαν:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "label": "Μήνυμα που εμφανίζεται όταν η \"μάθηση\" όλων των καρτών έχει ολοκληρωθεί",
+      "description": "@cards θα αντικατασταθεί από τον συνολικό αριθμό των καρτών. @max θα αντικατασταθεί από τη μέγιστη επίδοση - 1.",
+      "default": "Συγχαρητήρια! Είχες όλες τις κάρτες (@cards) σωστά @max φορές στη σειρά!"
     },
     {
       "label": "Κείμενο προόδου",

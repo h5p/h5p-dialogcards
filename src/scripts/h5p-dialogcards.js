@@ -48,7 +48,7 @@ class Dialogcards extends H5P.EventDispatcher {
       summaryOverallScore: 'Overall Score',
       summaryCardsCompleted: 'Cards you have completed learning:',
       summaryCompletedRounds: 'Completed rounds:',
-      summaryAllDone: 'Well done! You have mastered all @cards cards by getting them correct @max times!',
+      summaryAllDone: 'Well done! You got all @cards cards correct @max times in a row each!',
       progressText: "Card @card of @total",
       cardFrontLabel: "Card front",
       cardBackLabel: "Card back",
@@ -446,7 +446,7 @@ class Dialogcards extends H5P.EventDispatcher {
         summary.done = true;
         summary.message = this.params.summaryAllDone
           .replace('@cards', this.cardPoolSize)
-          .replace('@max', this.params.behaviour.maxProficiency);
+          .replace('@max', this.params.behaviour.maxProficiency - 1);
       }
 
       this.summaryScreen.update(summary);

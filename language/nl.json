@@ -21,44 +21,42 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Standaard"
         }
       ],
-      "label": "Dialogs",
-      "entity": "dialog",
+      "label": "Dialogen",
+      "entity": "dialoog",
       "field": {
-        "label": "Question",
+        "label": "Vraag",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Tekst",
+            "description": "Hint voor het eerste deel van de dialoog"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Antwoord",
+            "description": "Hint voor het tweede deel van de dialoog"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "Afbeelding",
+            "description": "Optionele afbeelding voor de kaart. (De kaart mag alleen een afbeelding gebruiken, alleen een tekst of allebei)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Alternatieve tekst voor de afbeelding"
           },
           {
-            "label": "Audio files"
+            "label": "Audiobestanden"
           },
           {
             "label": "Tips",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Tip voor de tekst",
+                "description": "Tip voor het eerste gedeelte van de dialoog"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Tip voor het antwoord",
+                "description": "Tip voor het tweede gedeelte van de dialoog"
               }
             ]
           }
@@ -169,9 +167,9 @@
       "default": "Voltooide rondes:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "label": "Bericht als alle kaarten beheerst worden",
+      "description": "@cards zal worden vervangen door het aantal kaarten in voorraad. @max zal worden vervangen door het maximale bekwaamheidsniveau - 1.",
+      "default": "Goed gedaan! Je hebt alle @cards kaarten juist @max keer achtereen!"
     },
     {
       "label": "Tekst van voortgang",

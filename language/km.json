@@ -31,13 +31,11 @@
         "fields": [
           {
             "label": "Text",
-            "description": "Hint for the first part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "description": "Hint for the first part of the dialogue"
           },
           {
             "label": "Answer",
-            "description": "Hint for the second part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "description": "Hint for the second part of the dialogue"
           },
           {
             "label": "Image",
@@ -170,8 +168,8 @@
     },
     {
       "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
+      "default": "ល្អណាស់! អ្នកធ្វើត្រូវទាំង @cards កាត ចំនួន @max ដងបន្តបន្ទាប់គ្នា!"
     },
     {
       "label": "Progress text",
