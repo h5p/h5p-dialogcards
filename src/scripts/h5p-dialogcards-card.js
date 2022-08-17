@@ -276,7 +276,8 @@ class Card {
       .removeClass('h5p-dialogcards-button-gone');
 
     this.$buttonShowSummary
-      .addClass('h5p-dialogcards-button-gone');
+      .addClass('h5p-dialogcards-button-gone')
+      .off('click');
   }
 
   /**
