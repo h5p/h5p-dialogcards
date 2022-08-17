@@ -21,44 +21,42 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "기본값"
         }
       ],
-      "label": "Dialogs",
-      "entity": "dialog",
+      "label": "대화",
+      "entity": "대화",
       "field": {
-        "label": "Question",
+        "label": "질문",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "텍스트",
+            "description": "대화의 첫 번째 부분에 대한 팁"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "답",
+            "description": "대화의 두 번째 부분에 대한 팁"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "이미지",
+            "description": "카드 이미지(선택사항). 카드는 이이지, 텍스트 혹은 둘다 사용가능"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "이미지 대체 설명글"
           },
           {
-            "label": "Audio files"
+            "label": "오디오 파일"
           },
           {
-            "label": "Tips",
+            "label": "팁",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "팁을 위한 텍스트",
+                "description": "대화의 첫 번째 부분에 대한 팁"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "답을 위한 팁",
+                "description": "대화의 두 번째 부분에 대한 팁"
               }
             ]
           }
@@ -169,9 +167,9 @@
       "default": "완료 회차:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "label": "모든 카드가 능숙하게 학습되었을 때의 메시지",
+      "description": "@cards는 풀에 있는 모든 카드의 숫자로 대체될 것이다. @max는 최대 숙련도 레벨 - 1로 대체될 것이다.",
+      "default": "잘했습니다! @cards 카드를 연속해서 @max 회를 맞추었습니다!"
     },
     {
       "label": "학습진도에 대한 텍스트",

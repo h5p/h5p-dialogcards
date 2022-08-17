@@ -21,44 +21,42 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "По подразбиране"
         }
       ],
-      "label": "Dialogs",
-      "entity": "dialog",
+      "label": "Диалози",
+      "entity": "диалог",
       "field": {
-        "label": "Question",
+        "label": "Въпрос",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Текст",
+            "description": "Подсказка за лицевата страна на диалоговата карта"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Отговор",
+            "description": "Подсказка за обратната страна на диалоговата карта"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "изображение",
+            "description": "Изображение по избор за картата. (Картата може да бъде онагледена само с изображение, само с текст или и с двете)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Допълнителен текст за изображението"
           },
           {
-            "label": "Audio files"
+            "label": "Аудио файл"
           },
           {
-            "label": "Tips",
+            "label": "Подсказки",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Подсказка за текста",
+                "description": "Подсказка за лицевата страна на диалоговата карта"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Подсказка за отговора",
+                "description": "Подсказка за обратната страна на диалоговата карта"
               }
             ]
           }
@@ -169,9 +167,9 @@
       "default": "Завършени кръгове:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "label": "Съобщение, когато всичките карти са завършени професионално",
+      "description": "@cards ще бъде заменено с броя на всички карти в анкетата. @max ще бъде заменено с максималното ниво - 1.",
+      "default": "Отлична работа! Ти завърши всичките @cards карти успешно @max пъти подред!"
     },
     {
       "label": "Текст за напредъка",

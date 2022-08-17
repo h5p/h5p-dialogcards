@@ -21,44 +21,42 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "За замовчуванням"
         }
       ],
-      "label": "Dialogs",
-      "entity": "dialog",
+      "label": "Діалоги",
+      "entity": "діалог",
       "field": {
-        "label": "Question",
+        "label": "Питання",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Текст",
+            "description": "Підказка про першу частину діалогу"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Відповідь",
+            "description": "Підказка про другу частину діалогу"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "Зображення",
+            "description": "Необов’язкове зображення для картки. (На картці може бути використане лише зображення, лише текст або те й інше)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Альтернативний текст для зображення"
           },
           {
-            "label": "Audio files"
+            "label": "Аудіо файли"
           },
           {
-            "label": "Tips",
+            "label": "Поради",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Порада для тексту",
+                "description": "Порада для першої частини діалогу"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Порада для відповіді",
+                "description": "Порада для другої частини діалогу"
               }
             ]
           }
@@ -169,9 +167,9 @@
       "default": "Завершені раунди:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "label": "Повідомлення, коли всі картки використані правильно",
+      "description": "@cards буде замінено кількістю всіх карток у завданні. @max буде замінено максимальним рівнем знань - 1.",
+      "default": "Молодець! У вас є @cards правильних карток @max разів поспіль!"
     },
     {
       "label": "Текст прогресу",

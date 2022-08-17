@@ -21,44 +21,42 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "ნაგულისხმევი"
         }
       ],
-      "label": "Dialogs",
-      "entity": "dialog",
+      "label": "დიალოგები",
+      "entity": "დიალოგი",
       "field": {
-        "label": "Question",
+        "label": "კითხვა",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "ტექსტი",
+            "description": "რჩევა დიალოგის პირველი ნაწილისთვის"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "პასუხი",
+            "description": "რჩევა დიალოგის მეორე ნაწილისთვის"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "გამოსახულება",
+            "description": "ბარათისთვის არააუცილებელი გამოსახულება.(ბარათზე შესაძლოა იყოს მხოლოდ გამოსახულება, მხოლოდ ტექსტი ან ორივე ერთად)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "გამოსახულებისთვის ალტერნატიული ტექსტი"
           },
           {
-            "label": "Audio files"
+            "label": "აუდიო ფაილები"
           },
           {
-            "label": "Tips",
+            "label": "რჩევა",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "რჩევა ტექსტში",
+                "description": "რჩევა დიალოგის პირველი ნაწილისთვის"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "რჩევა პასუხისთვის",
+                "description": "რჩევა დიალოგის მეორე ნაწილისთვის"
               }
             ]
           }
@@ -169,9 +167,9 @@
       "default": "გავლილი რაუნდები:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "label": "შეტყობინება იმ შემთხვევაში, თუ ბარათები იცის პროფესიონალის დონეზე",
+      "description": "@cards აჩვენებს ბარათების საერთო რაოდენობას. @max ჩანაცვლდება მაქსიმალური დონით - 1.",
+      "default": "შესანიშნავია! შენ პასუხი გაეცი @cards ბარათებს სწორად @max-ჯერ ზედიზედ!"
     },
     {
       "label": "წინსვლის ტექსტი",

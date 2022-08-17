@@ -21,44 +21,42 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Zadano"
         }
       ],
-      "label": "Dialogs",
+      "label": "Kartice",
       "entity": "dialog",
       "field": {
-        "label": "Question",
+        "label": "Pitanje",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Tekst",
+            "description": "Tekst za prvu stranicu kartice"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Odgovor",
+            "description": "Tekst za drugu stranicu kartice"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "Slika",
+            "description": "Opcionalna slika na kartici. (Kartica može sadržavati samo sliku, samo tekst ili oboje.)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Alternativni tekst za sliku (opis)"
           },
           {
-            "label": "Audio files"
+            "label": "Zvučne datoteke"
           },
           {
-            "label": "Tips",
+            "label": "Savjeti",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Savjet za tekst",
+                "description": "Savjet za prvu stranicu kartice"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Savjet za odgovor",
+                "description": "Savjet za drugu stranicu kartice"
               }
             ]
           }
@@ -170,8 +168,8 @@
     },
     {
       "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
+      "default": "Well done! You got all @cards cards correct @max times in a row!"
     },
     {
       "label": "Tekst napretka kroz sadržaj",

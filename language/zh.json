@@ -21,44 +21,42 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "預設"
         }
       ],
-      "label": "Dialogs",
+      "label": "卡片",
       "entity": "dialog",
       "field": {
-        "label": "Question",
+        "label": "題目",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "問題",
+            "description": "卡片的正面"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "答案",
+            "description": "卡片的背面"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "圖像",
+            "description": "卡片上額外顯示的圖片（卡片可以只有文字或圖片，或兩個都有）"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "替代文字"
           },
           {
-            "label": "Audio files"
+            "label": "音樂"
           },
           {
-            "label": "Tips",
+            "label": "提示與註解",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "問題提示",
+                "description": "在卡片正面顯示的提示文字"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "答案註解",
+                "description": "在卡片背面顯示的註解文字"
               }
             ]
           }
@@ -170,8 +168,8 @@
     },
     {
       "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
+      "default": "Well done! You got all @cards cards correct @max times in a row!"
     },
     {
       "label": "進度訊息文字",

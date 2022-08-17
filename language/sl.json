@@ -21,44 +21,42 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Privzeto"
         }
       ],
-      "label": "Dialogs",
+      "label": "Dialogi",
       "entity": "dialog",
       "field": {
-        "label": "Question",
+        "label": "Vprašanje dialoga",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Vprašanje",
+            "description": "Besedilo za sprednjo stran kartice"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Odgovor",
+            "description": "Besedilo za zadnjo stran kartice"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "Slika",
+            "description": "Neobvezna slika za kartico. (Na kartici je lahko samo slika, samo besedilo ali oboje)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Nadomestno besedilo za sliko"
           },
           {
-            "label": "Audio files"
+            "label": "Zvočni posnetek"
           },
           {
-            "label": "Tips",
+            "label": "Namigi",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Namig za vprašanje",
+                "description": "Namig za sprednjo stran kartice"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Namig za odgovor",
+                "description": "Namig za zadnjo stran kartice"
               }
             ]
           }
@@ -169,9 +167,9 @@
       "default": "Dokončani nizi:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "label": "Sporočilo ob doseženi najvišji stopnji znanja",
+      "description": "@cards bo nadomeščen s številom vseh kratic v bazenu. @max bo nadomeščen s številom najvišje stopnje znanja - 1.",
+      "default": "Čestitke! Pravilnih je vseh @cards kartic - število ponovitev: @max."
     },
     {
       "label": "Besedilo o napredku",

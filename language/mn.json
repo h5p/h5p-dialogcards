@@ -1,5 +1,5 @@
 {
-  "semantics": [
+   "semantics": [
     {
       "label": "Гарчиг"
     },
@@ -21,44 +21,42 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Үндсэн"
         }
       ],
-      "label": "Dialogs",
-      "entity": "dialog",
+      "label": "Харилцан яриа",
+      "entity": "харилцан яриа",
       "field": {
-        "label": "Question",
+        "label": "Асуулт",
         "fields": [
           {
-            "label": "Text",
-            "description": "Hint for the first part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Текст",
+            "description": "Эхний харилцан ярианд өгөх дохио"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue",
-            "default": "<p style=\"text-align: center;\"></p>"
+            "label": "Хариулт",
+            "description": "Хоёр дах харилцан ярианд өгөх дохио"
           },
           {
-            "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "label": "Зураг",
+            "description": "Картанд сонголтоор харуулах зураг. (Карт зөвхөн зураг, текст эсвэл хоёуланг нь хэрэглэж болно)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Зурагт үзүүлэх сонголтод текст"
           },
           {
-            "label": "Audio files"
+            "label": "Аудио файлууд"
           },
           {
-            "label": "Tips",
+            "label": "Зөвөлгөө",
             "fields": [
               {
-                "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "label": "Текстэд өгөх зөвөлгөө",
+                "description": "Харилцан ярианы эхний хэсэгт өгөх зөвлөмж"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Хариултанд өгөх зөвлөмж",
+                "description": "Хоёр дах харилцан ярианд өгөх зөвлөмж"
               }
             ]
           }
@@ -169,9 +167,9 @@
       "default": "Гүйцэтгэсэн үеүүд:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "label": "Бүх картуудыг амжилттай судалсны дараа харуулах текст",
+      "description": "@картууд нь нийт картын тоогоор солигдоно. @макс нь чадварын хамгийн их түвшингээр солигдоно түвшин -1.",
+      "default": "Сайн байна! Та @макс аас @картууд картад зөв хариуллаа!"
     },
     {
       "label": "Явц",
