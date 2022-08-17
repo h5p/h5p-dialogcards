@@ -59,7 +59,7 @@ class CardManager {
     switch (this.params.mode) {
       case 'repetition':
         // Repetition mode
-        for (let i = 0; i < this.params.behaviour.maxProficiency; i++) {
+        for (let i = 0; i < this.params.behaviour.maxProficiency + 1; i++) {
           if (i === 0) {
             this.cardPiles.push(new CardPile(pool));
           }
