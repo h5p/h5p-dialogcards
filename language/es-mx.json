@@ -39,7 +39,7 @@
           },
           {
             "label": "Imagen",
-            "description": "Imagen opcional para la tarjeta. (La tarjeta puede usar solo una imagen, solo un texto, o ambos)"
+            "description": "Imagen opcional para la tarjeta. (La tarjeta podría usar solamente una imagen, solamente un texto, o ambos)"
           },
           {
             "label": "Texto alternativo para la imagen"
@@ -48,15 +48,15 @@
             "label": "Archivos de audio"
           },
           {
-            "label": "Pistas",
+            "label": "Sugerencias",
             "fields": [
               {
-                "label": "Pista para texto",
-                "description": "Pista para la primera parte del diálogo"
+                "label": "Sugerencias para el texto",
+                "description": "Sugerencia para la primera parte del diálogo"
               },
               {
-                "label": "Pista para respuesta",
-                "description": "Pista para la segunda parte del diálogo"
+                "label": "Sugerencia para respuesta",
+                "description": "Sugerencia para la segunda parte del diálogo"
               }
             ]
           }
@@ -167,9 +167,9 @@
       "default": "Rondas completadas:"
     },
     {
-      "label": "Mensaje cuando todas las cartas han sido aprendidas eficientemente",
-      "description": "@cards será remplazado por el número de todas las cartas en el mazo. @max será remplazado por el número máximo del nivel de competencia - 1.",
-      "default": "¡Bien Hecho! ¡Usted tuvo todas las @cards cartas correctas @max veces seguidas!"
+      "label": "Mensaje cuando todas las tarjetas han sido aprendidas eficientemente",
+      "description": "@cards será reemplazado por el número de todas las tarjetas en el mazo. @max será reemplazado por el nivel máximo de competencia.",
+      "default": "¡Bien hecho! ¡Usted ha dominado todas las @cards tarjetas al tenerlas correctas @max veces!"
     },
     {
       "label": "Texto del Progreso",
