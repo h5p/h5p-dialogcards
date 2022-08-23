@@ -168,7 +168,7 @@
     },
     {
       "label": "Ziņa, kad visas kartītes apgūtas lietpratēja līmenī",
-      "description": "@cards tiks aizvietots ar kartīšu skaitu kopējā fondā. @max tiks aizvietots ar maksimālo lietpratības līmeni - 1.",
+      "description": "@cards tiks aizvietots ar kartīšu skaitu kopējā fondā. @max tiks aizvietots ar maksimālo lietpratības līmeni.",
       "default": "Ļoti labi! @cards kartītes atbildētas pareizi @max reizes pēc kārtas!"
     },
     {

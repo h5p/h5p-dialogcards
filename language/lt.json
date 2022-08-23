@@ -168,7 +168,7 @@
     },
     {
       "label": "Pranešimas kai visos kortelės išmoktos",
-      "description": "@cards bus pakeista visų kortelių telkinyje skaičiumi. @max bus pakeista didžiausiu įgūdžių lygiu - 1.",
+      "description": "@cards bus pakeista visų kortelių telkinyje skaičiumi. @max bus pakeista didžiausiu įgūdžių lygiu.",
       "default": "Puiku! Jūs pažymėjote visas @cards korteles kaip teisingas @max kartus iš eilės!"
     },
     {

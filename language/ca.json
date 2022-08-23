@@ -168,7 +168,7 @@
     },
     {
       "label": "Missatge per indicar que totes les cartes s’han aprés correctament",
-      "description": "@cards se substituirà pel nombre de targetes del grup. @max se substituirà pel nivell màxim de competència - 1.",
+      "description": "@cards se substituirà pel nombre de targetes del grup. @max se substituirà pel nivell màxim de competència.",
       "default": "L'enhorabona! Has contestat bé a les @cards targetes @max vegades seguides."
     },
     {

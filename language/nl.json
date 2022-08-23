@@ -168,7 +168,7 @@
     },
     {
       "label": "Bericht als alle kaarten beheerst worden",
-      "description": "@cards zal worden vervangen door het aantal kaarten in voorraad. @max zal worden vervangen door het maximale bekwaamheidsniveau - 1.",
+      "description": "@cards zal worden vervangen door het aantal kaarten in voorraad. @max zal worden vervangen door het maximale bekwaamheidsniveau.",
       "default": "Goed gedaan! Je hebt alle @cards kaarten juist @max keer achtereen!"
     },
     {

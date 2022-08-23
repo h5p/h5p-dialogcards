@@ -168,7 +168,7 @@
     },
     {
       "label": "Mensagem quando todos os cartões tiverem sido aprendidos proficientemente",
-      "description": "@cards será substituído pelo número de todos os cartões do acervo. @max será substituído pelo nível máximo de proficiência - 1.",
+      "description": "@cards será substituído pelo número de todos os cartões do acervo. @max será substituído pelo nível máximo de proficiência.",
       "default": "Muito bem! Você tem todos os cartões @cards corretos @max vezes seguidas!"
     },
     {

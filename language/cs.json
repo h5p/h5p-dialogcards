@@ -168,7 +168,7 @@
     },
     {
       "label": "Zpráva, když jste se naučili všechny karty dobře",
-      "description": "@cards bude nahrazen počtem všech karet v bance. @max bude nahrazena maximální úrovní odborné způsobilosti - 1.",
+      "description": "@cards bude nahrazen počtem všech karet v bance. @max bude nahrazena maximální úrovní odborné způsobilosti.",
       "default": "Výborně! Máte všechny karty @cards správně @max krát za sebou!"
     },
     {
