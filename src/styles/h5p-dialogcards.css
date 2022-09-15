@@ -390,6 +390,13 @@
   font-size: 1.2em;
 }
 
+.h5p-dialogcards .joubel-tip-container::before {
+  left: auto;
+  right: 1.75em;
+  top: 0.25em;
+  transform: none;
+}
+
 .h5p-dialogcards .h5p-dialogcards-cardwrap-set {
   margin: auto;
   max-width: 32em;
