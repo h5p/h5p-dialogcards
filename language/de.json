@@ -168,7 +168,7 @@
     },
     {
       "label": "Nachricht, wenn alle Karten beherrscht werden",
-      "description": "@cards wird mit der Gesamtzahl der Karten ersetzt. @max wird mit dem \"maximalen Beherrschungsniveau\" - 1 ersetzt.",
+      "description": "@cards wird mit der Gesamtzahl der Karten ersetzt. @max wird mit dem \"maximalen Beherrschungsniveau\" ersetzt.",
       "default": "Gut gemacht! Du hattest alle @cards Karten @max -mal hintereinander richtig!"
     },
     {

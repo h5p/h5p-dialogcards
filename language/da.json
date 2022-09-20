@@ -168,7 +168,7 @@
     },
     {
       "label": "Besked når alle kort er blev lært og færdighedsniveau opnået",
-      "description": "@cards  bliver erstattet med antallet af kort i puljen. @max bliver erstattet med det maksimale færdighedsniveau - 1.",
+      "description": "@cards  bliver erstattet med antallet af kort i puljen. @max bliver erstattet med det maksimale færdighedsniveau.",
       "default": "Godt klaret! Du har svaret rigtigt på alle @cards kort @max gange i træk."
     },
     {

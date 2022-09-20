@@ -168,7 +168,7 @@
     },
     {
       "label": "Boodskap wanneer alle kaartjies bemeester is",
-      "description": "@cards sal vervang word met die aantal kaartjies in die poel. @max sal vervang word met die maksimum vaardigheidsvlak - 1.",
+      "description": "@cards sal vervang word met die aantal kaartjies in die poel. @max sal vervang word met die maksimum vaardigheidsvlak.",
       "default": "Geluk! Jy het @cards kaartjies @max keer in 'n ry reggekry!"
     },
     {

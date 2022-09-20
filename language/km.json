@@ -168,7 +168,7 @@
     },
     {
       "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
       "default": "ល្អណាស់! អ្នកធ្វើត្រូវទាំង @cards កាត ចំនួន @max ដងបន្តបន្ទាប់គ្នា!"
     },
     {
