@@ -175,8 +175,7 @@ class Dialogcards extends H5P.EventDispatcher {
         this.$cardSideAnnouncer = $('<div>', {
           html: this.params.cardFrontLabel,
           'class': 'h5p-dialogcards-card-side-announcer',
-          'aria-live': 'polite',
-          'aria-hidden': 'true'
+          'aria-live': 'polite'
         });
 
         this.$footer = this.createFooter();
