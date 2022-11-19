@@ -3,7 +3,7 @@
   "description": "Makes it possible to create learning tasks for your site visitors.",
   "majorVersion": 1,
   "minorVersion": 9,
-  "patchVersion": 6,
+  "patchVersion": 7,
   "runnable": 1,
   "author": "Joubel",
   "license": "MIT",
