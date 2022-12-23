@@ -64,7 +64,7 @@
       }
     },
     {
-      "label": "Options générales",
+      "label": "Paramètres comportementaux",
       "description": "Ces options vous permettent de paramétrer le déroulement de l'exercice.",
       "fields": [
         {
