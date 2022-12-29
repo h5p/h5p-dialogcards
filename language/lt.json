@@ -49,7 +49,7 @@
               },
               {
                 "label": "Patarimas tekstui",
-                "description": "Patarimas dialogo pirmajai daliai"
+                "description": "Patarimas pokalbio pirmajai daliai"
               }
             ]
           },
@@ -90,10 +90,10 @@
     },
     {
       "label": "Sąveikos nustatymai",
-      "description": "Šios parinktys leis jums valdyti, kaip veikia užduotis.",
+      "description": "Šios parinktys leidžia valdyti užduoties veikimą.",
       "fields": [
         {
-          "label": "Įjungti mygtuką „Bandyti dar kartą“"
+          "label": "Įjungti \"Bandyti dar kartą\" mygtuką"
         },
         {
           "label": "Išjungti naršymą atgal",
