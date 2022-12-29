@@ -30,32 +30,57 @@
         "label": "Klausimas",
         "fields": [
           {
-            "label": "Tekstas",
-            "description": "Užuomina dialogo pirmajai daliai"
-          },
-          {
-            "label": "Atsakymas",
-            "description": "Užuomina dialogo antrajai daliai"
-          },
-          {
-            "label": "Paveikslėlis",
-            "description": "Papildomas paveikslėlis kortelei. (Kortelėje gali būti naudojamas tik paveikslėlis, tik tekstas ar abu kartu)"
-          },
-          {
-            "label": "Alternatyvus paveikslėlio tekstas"
-          },
-          {
-            "label": "Garso failai"
-          },
-          {
-            "label": "Patarimai",
+            "label": "Front",
             "fields": [
               {
-                "label": "Patarimas tekstui",
-                "description": "Patarimas dialogo pirmajai daliai"
+                "label": "Tekstas",
+                "description": "Užuomina dialogo pirmajai daliai"
               },
               {
-                "label": "Patarimas atsakymui",
+                "label": "Paveikslėlis",
+                "description": "Papildomas paveikslėlis kortelei."
+              },
+              {
+                "label": "Alternatyvus paveikslėlio tekstas"
+              },
+              {
+                "label": "Garso failai",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Patarimas tekstui",
+                "description": "Patarimas pokalbio pirmajai daliai"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "Tekstas",
+                "description": "Užuomina dialogo antrajai daliai"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Paveikslėlis",
+                "description": "Papildomas paveikslėlis kortelei."
+              },
+              {
+                "label": "Alternatyvus paveikslėlio tekstas"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Garso failai",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Patarimas tekstui",
                 "description": "Užuomina dialogo antrajai daliai"
               }
             ]
