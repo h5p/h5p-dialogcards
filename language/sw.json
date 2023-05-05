@@ -30,32 +30,57 @@
         "label": "Swali",
         "fields": [
           {
-            "label": "Maandishi",
-            "description": "Kidokezo cha sehemu ya kwanza ya mazungumzo"
-          },
-          {
-            "label": "Jibu",
-            "description": "Kidokezo cha sehemu ya pili ya mazungumzo"
-          },
-          {
-            "label": "Picha",
-            "description": "Picha ya hiari ya kadi. (Kadi inaweza kutumia picha tu, maandishi tu au yote mawili)"
-          },
-          {
-            "label": "Maandishi mbadala kwa picha hiyo"
-          },
-          {
-            "label": "Faili za sauti"
-          },
-          {
-            "label": "Vidokezo",
+            "label": "Front",
             "fields": [
               {
-                "label": "Kidokezi kwa maandishi",
-                "description": "Kidokezo kwa sehemu ya kwanza ya mazungumzo"
+                "label": "Maandishi",
+                "description": "Kidokezo cha sehemu ya kwanza ya mazungumzo"
               },
               {
-                "label": "Kidokezi kwa jibu",
+                "label": "Picha",
+                "description": "Picha ya hiari ya kadi."
+              },
+              {
+                "label": "Maandishi mbadala kwa picha hiyo"
+              },
+              {
+                "label": "Faili za sauti",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Vidokezo",
+                "description": "Kidokezo kwa sehemu ya kwanza ya mazungumzo"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "Maandishi",
+                "description": "Kidokezo cha sehemu ya pili ya mazungumzo"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Picha",
+                "description": "Picha ya hiari ya kadi."
+              },
+              {
+                "label": "Maandishi mbadala kwa picha hiyo"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Faili za sauti",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Vidokezo",
                 "description": "Kidokezo kwa sehemu ya pili ya mazungumzo"
               }
             ]
