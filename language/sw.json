@@ -48,7 +48,7 @@
                 "description": "Optional audio for the card."
               },
               {
-                "label": "Kidokezi kwa maandishi",
+                "label": "Vidokezo",
                 "description": "Kidokezo kwa sehemu ya kwanza ya mazungumzo"
               }
             ]
@@ -80,7 +80,7 @@
                 "description": "Optional audio for the card."
               },
               {
-                "label": "Kidokezi kwa maandishi",
+                "label": "Vidokezo",
                 "description": "Kidokezo kwa sehemu ya pili ya mazungumzo"
               }
             ]
