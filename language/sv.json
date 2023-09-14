@@ -64,7 +64,7 @@
       }
     },
     {
-      "label": "Beteende-inställningar.",
+      "label": "Beteende-inställningar",
       "description": "Denna inställningar påverkar hur uppgiften beter sig.",
       "fields": [
         {
