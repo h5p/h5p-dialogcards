@@ -892,14 +892,35 @@ class Dialogcards extends H5P.EventDispatcher {
         return;
       }
 
-      return {
-        cardPiles: this.cardManager.getPiles(),
-        cardIds: this.cardIds,
-        round: this.round,
-        currentCardId: this.getCurrentSelectionIndex(),
-        results: this.results
-      };
+      return this.isProgressStarted()
+        ? {
+          cardPiles: this.cardManager.getPiles(),
+          cardIds: this.cardIds,
+          round: this.round,
+          currentCardId: this.getCurrentSelectionIndex(),
+          results: this.results
+        }
+        : undefined;
     };
+
+    /**
+     * Checks if progress on dialog cards has been started
+     * Note - does not consider whether the first card has been turned or not
+     * @returns {boolean} True if progress has been started, false otherwise.
+     */
+    this.isProgressStarted = () => {
+      return this.getCurrentSelectionIndex() !== 0
+          || this.results.length !== 0
+          || this.round !== 1;
+    }
+
+    /**
+     * Resets task to the initial state
+     */
+    this.resetTask = () => {
+      this.round = 0;
+      this.nextRound(); // Also calls reset(), which takes care about resetting everything else
+    }
   }
 }
 
