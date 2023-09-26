@@ -120,7 +120,7 @@ class Dialogcards extends H5P.EventDispatcher {
       this.cardManager = new CardManager(managerParams, this.id, {
         onCardTurned: this.handleCardTurned,
         onNextCard: this.nextCard
-      }, this.idCounter);
+      }, this.idCounter, this.turned);
 
       this.createDOM(this.round === 0);
 
@@ -928,7 +928,6 @@ class Dialogcards extends H5P.EventDispatcher {
 }
 
 Dialogcards.idCounter = 0;
-
 // Constants
 Dialogcards.SCALEINTERVAL = 0.2;
 Dialogcards.MAXSCALE = 16;
