@@ -87,7 +87,20 @@ class Card {
       .appendTo($cardTextWrapper);
 
     return $cardContent;
-  }
+  } 
+  /**
+   * Process HTML escaped string for use as attribute value,
+   * e.g. for alt text or title attributes.
+   *
+   * @param {string} value
+   * @return {string} WARNING! Do NOT use for innerHTML.
+   */
+  massageAttributeOutput(value) {
+    const dparser = new DOMParser().parseFromString(value, 'text/html');
+    const div = document.createElement('div');
+    div.innerHTML = dparser.documentElement.textContent;;
+    return div.textContent || div.innerText || '';
+  };
 
   /**
    * Create card image
@@ -106,7 +119,7 @@ class Card {
       this.$image = $('<img class="h5p-dialogcards-image" src="' + H5P.getPath(card.image.path, this.contentId) + '"/>');
 
       if (card.imageAltText) {
-        this.$image.attr('alt', card.imageAltText);
+        this.$image.attr('alt', this.massageAttributeOutput(card.imageAltText));
       }
     }
     else {
