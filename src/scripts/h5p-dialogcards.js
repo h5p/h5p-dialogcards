@@ -85,6 +85,7 @@ class Dialogcards extends H5P.EventDispatcher {
     this.currentCardId = 0;
     this.round = 0; // 0 indicates that DOM needs to be set up
     this.results = this.previousState.results || [];
+    this.turned = true;
 
     /**
      * Attach h5p inside the given container.
@@ -146,6 +147,7 @@ class Dialogcards extends H5P.EventDispatcher {
      * @param {boolean} firstCall Is first call?
      */
     this.createDOM = (firstCall) => {
+      console.log('createDOM');
       this.cardIds = (firstCall && this.previousState.cardIds) ?
         this.previousState.cardIds :
         this.cardManager.createSelection();
@@ -153,6 +155,7 @@ class Dialogcards extends H5P.EventDispatcher {
       this.cardPoolSize = this.cardPoolSize || this.cardManager.getSize();
 
       if (firstCall === true) {
+        console.log('firstCall');
         const title = $('<div>' + this.params.title + '</div>').text().trim();
         this.$header = $((title ? '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + this.params.title + '</div></div>' : '') +
           '<div class="h5p-dialogcards-description">' + this.params.description + '</div>');
@@ -161,6 +164,7 @@ class Dialogcards extends H5P.EventDispatcher {
       }
 
       if (firstCall === true) {
+        console.log('firstCall2');
         this.$cardwrapperSet = this.initCards(this.cardIds);
       }
       else {
@@ -173,7 +177,7 @@ class Dialogcards extends H5P.EventDispatcher {
 
       if (firstCall === true) {
         this.$cardSideAnnouncer = $('<div>', {
-          html: this.params.cardFrontLabel,
+          html: this.turned ? this.params.cardFrontLabel : this.params.cardBackLabel,
           'class': 'h5p-dialogcards-card-side-announcer',
           'aria-live': 'polite'
         });
@@ -348,6 +352,7 @@ class Dialogcards extends H5P.EventDispatcher {
      * @param {boolean} turned - True, if card is turned.
      */
     this.handleCardTurned = (turned) => {
+      this.turned = turned;
       // a11y notification
       this.$cardSideAnnouncer.html(turned ? this.params.cardFrontLabel : this.params.cardBackLabel);
 
@@ -897,7 +902,8 @@ class Dialogcards extends H5P.EventDispatcher {
         cardIds: this.cardIds,
         round: this.round,
         currentCardId: this.getCurrentSelectionIndex(),
-        results: this.results
+        results: this.results,
+        turned: this.turned
       };
     };
   }
