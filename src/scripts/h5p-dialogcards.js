@@ -85,7 +85,7 @@ class Dialogcards extends H5P.EventDispatcher {
     this.currentCardId = 0;
     this.round = 0; // 0 indicates that DOM needs to be set up
     this.results = this.previousState.results || [];
-    this.turned = true;
+    this.turned = this.previousState.turned || true;
 
     /**
      * Attach h5p inside the given container.
