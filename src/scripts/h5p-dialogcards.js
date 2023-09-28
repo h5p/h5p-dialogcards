@@ -918,8 +918,10 @@ class Dialogcards extends H5P.EventDispatcher {
      * Resets task to the initial state
      */
     this.resetTask = () => {
-      this.round = 0;
-      this.nextRound(); // Also calls reset(), which takes care about resetting everything else
+      if (this.cardManager) { // Check if initialized
+        this.round = 0;
+        this.nextRound(); // Also calls reset(), which takes care about resetting everything else
+      }
     }
   }
 }
