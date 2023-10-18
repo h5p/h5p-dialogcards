@@ -119,7 +119,8 @@
           "type": "audio",
           "label": "Audio files",
           "importance": "low",
-          "optional": true
+          "optional": true,
+          "widgetExtensions": ["AudioRecorder"]
         },
         {
           "name": "tips",
