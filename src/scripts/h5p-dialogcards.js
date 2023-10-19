@@ -16,9 +16,8 @@ class Dialogcards extends H5P.EventDispatcher {
    * @returns {DialogCards} self
    */
   constructor(params, id, contentData) {
-    Dialogcards.idCounter++;
     super();
-
+    this.idCounter = Dialogcards.idCounter++;
     this.contentId = this.id = id;
     this.previousState = contentData.previousState || {};
 
@@ -49,7 +48,7 @@ class Dialogcards extends H5P.EventDispatcher {
       summaryOverallScore: 'Overall Score',
       summaryCardsCompleted: 'Cards you have completed learning:',
       summaryCompletedRounds: 'Completed rounds:',
-      summaryAllDone: 'Well done! You got all @cards cards correct @max times in a row each!',
+      summaryAllDone: 'Well done! You have mastered all @cards cards by getting them correct @max times!',
       progressText: "Card @card of @total",
       cardFrontLabel: "Card front",
       cardBackLabel: "Card back",
@@ -120,7 +119,7 @@ class Dialogcards extends H5P.EventDispatcher {
       this.cardManager = new CardManager(managerParams, this.id, {
         onCardTurned: this.handleCardTurned,
         onNextCard: this.nextCard
-      });
+      }, this.idCounter);
 
       this.createDOM(this.round === 0);
 
@@ -176,8 +175,7 @@ class Dialogcards extends H5P.EventDispatcher {
         this.$cardSideAnnouncer = $('<div>', {
           html: this.params.cardFrontLabel,
           'class': 'h5p-dialogcards-card-side-announcer',
-          'aria-live': 'polite',
-          'aria-hidden': 'true'
+          'aria-live': 'polite'
         });
 
         this.$footer = this.createFooter();
@@ -211,33 +209,43 @@ class Dialogcards extends H5P.EventDispatcher {
         'role': 'navigation'
       });
 
+      const mouseEnter = function ($element, text) {
+        $($element).append('<span class="button-tooltip">' + text + '</span>');
+        $($element).find('.button-tooltip').hide().fadeIn('fast');
+      };
+
+      const mouseLeave = function ($element) {
+        $($element).find('.button-tooltip').remove();
+      };
+
       if (this.params.mode === 'normal') {
+        const self = this;
         this.$prev = JoubelUI.createButton({
           'class': 'h5p-dialogcards-footer-button h5p-dialogcards-prev truncated',
           'aria-label': this.params.prev,
-          'title': this.params.prev
         }).click(() => {
           this.prevCard();
         }).appendTo($footer);
+        this.$prev.hover(function (event) {mouseEnter(self.$prev, self.params.prev)}, function () {mouseLeave(self.$prev)});
 
         this.$next = JoubelUI.createButton({
           'class': 'h5p-dialogcards-footer-button h5p-dialogcards-next truncated',
           'aria-label': this.params.next,
-          'title': this.params.next
         }).click(() => {
           this.nextCard();
         }).appendTo($footer);
+        this.$next.hover(function (event) {mouseEnter(self.$next, self.params.next)}, function () {mouseLeave(self.$next)});
 
         this.$retry = JoubelUI.createButton({
           'class': 'h5p-dialogcards-footer-button h5p-dialogcards-retry h5p-dialogcards-disabled',
-          'title': this.params.retry,
-          'html': this.params.retry
+          'html': this.params.retry,
         }).click(() => {
           this.trigger('reset');
         }).appendTo($footer);
+        this.$retry.hover(function (event) {mouseEnter(self.$retry, self.params.retry)}, function () {mouseLeave(self.$retry)});
 
         this.$progress = $('<div>', {
-          'id': 'h5p-dialogcards-progress-' + Dialogcards.idCounter,
+          'id': 'h5p-dialogcards-progress-' + this.idCounter,
           'class': 'h5p-dialogcards-progress',
           'aria-live': 'assertive'
         }).appendTo($footer);
@@ -437,7 +445,7 @@ class Dialogcards extends H5P.EventDispatcher {
         summary.done = true;
         summary.message = this.params.summaryAllDone
           .replace('@cards', this.cardPoolSize)
-          .replace('@max', this.params.behaviour.maxProficiency - 1);
+          .replace('@max', this.params.behaviour.maxProficiency);
       }
 
       this.summaryScreen.update(summary);
@@ -884,14 +892,37 @@ class Dialogcards extends H5P.EventDispatcher {
         return;
       }
 
-      return {
-        cardPiles: this.cardManager.getPiles(),
-        cardIds: this.cardIds,
-        round: this.round,
-        currentCardId: this.getCurrentSelectionIndex(),
-        results: this.results
-      };
+      return this.isProgressStarted()
+        ? {
+          cardPiles: this.cardManager.getPiles(),
+          cardIds: this.cardIds,
+          round: this.round,
+          currentCardId: this.getCurrentSelectionIndex(),
+          results: this.results
+        }
+        : undefined;
     };
+
+    /**
+     * Checks if progress on dialog cards has been started
+     * Note - does not consider whether the first card has been turned or not
+     * @returns {boolean} True if progress has been started, false otherwise.
+     */
+    this.isProgressStarted = () => {
+      return this.getCurrentSelectionIndex() !== 0
+          || this.results.length !== 0
+          || this.round !== 1;
+    }
+
+    /**
+     * Resets task to the initial state
+     */
+    this.resetTask = () => {
+      if (this.cardManager) { // Check if initialized
+        this.round = 0;
+        this.nextRound(); // Also calls reset(), which takes care about resetting everything else
+      }
+    }
   }
 }
 

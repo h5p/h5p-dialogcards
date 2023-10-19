@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Descrizione attività",
-      "default": ""
+      "label": "Descrizione attività"
     },
     {
       "widgets": [
@@ -169,7 +168,7 @@
     },
     {
       "label": "Messaggio per quando tutte le carte sono state imparate per bene",
-      "description": "@cards sarà sostituito dal numero di tutte le carte nel mazzo. @max sarà sostituito dal livello massimo di competenza - 1.",
+      "description": "@cards sarà sostituito dal numero di tutte le carte nel mazzo. @max sarà sostituito dal livello massimo di competenza.",
       "default": "Ottimo! Hai fatto @cards carte giuste @max volte di seguito!"
     },
     {

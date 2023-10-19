@@ -10,8 +10,9 @@ class Card {
    * @param {object} [callbacks] Callbacks.
    * @param {function} [callbacks.onCardSize] Call when card needs resize.
    * @param {function} [callbacks.onCardTurned] Call when card was turned.
+   * @param {number} idCounter
    */
-  constructor(card, params, id, contentId, callbacks={}) {
+  constructor(card, params, id, contentId, callbacks = {}, idCounter) {
     this.card = card;
     this.params = params || {};
     this.id = id;
@@ -23,8 +24,11 @@ class Card {
       'role': 'group',
       'tabindex': '-1'
     });
+
+    this.$cardWrapper.addClass('h5p-dialogcards-mode-' + this.params.mode);
+
     if (this.params.mode !== 'repetition') {
-      this.$cardWrapper.attr('aria-labelledby', 'h5p-dialogcards-progress-' + H5P.Dialogcards.idCounter)
+      this.$cardWrapper.attr('aria-labelledby', 'h5p-dialogcards-progress-' + idCounter);
     }
 
     this.$cardHolder = $('<div>', {'class': 'h5p-dialogcards-cardholder'})
@@ -83,7 +87,20 @@ class Card {
       .appendTo($cardTextWrapper);
 
     return $cardContent;
-  }
+  } 
+  /**
+   * Process HTML escaped string for use as attribute value,
+   * e.g. for alt text or title attributes.
+   *
+   * @param {string} value
+   * @return {string} WARNING! Do NOT use for innerHTML.
+   */
+  massageAttributeOutput(value) {
+    const dparser = new DOMParser().parseFromString(value, 'text/html');
+    const div = document.createElement('div');
+    div.innerHTML = dparser.documentElement.textContent;;
+    return div.textContent || div.innerText || '';
+  };
 
   /**
    * Create card image
@@ -102,7 +119,7 @@ class Card {
       this.$image = $('<img class="h5p-dialogcards-image" src="' + H5P.getPath(card.image.path, this.contentId) + '"/>');
 
       if (card.imageAltText) {
-        this.$image.attr('alt', card.imageAltText);
+        this.$image.attr('alt', this.massageAttributeOutput(card.imageAltText));
       }
     }
     else {
@@ -174,26 +191,28 @@ class Card {
       'html': this.params.answer
     }).appendTo($cardFooter);
 
-    this.$buttonShowSummary = H5P.JoubelUI.createButton({
-      'class': 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone',
-      'html': this.params.showSummary
-    }).appendTo($cardFooter);
+    if (this.params.mode === 'repetition') {
+      this.$buttonShowSummary = H5P.JoubelUI.createButton({
+        'class': 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone',
+        'html': this.params.showSummary
+      }).appendTo($cardFooter);
 
-    this.$buttonIncorrect = H5P.JoubelUI.createButton({
-      'class': 'h5p-dialogcards-answer-button',
-      'html': this.params.incorrectAnswer
-    }).addClass('incorrect')
-      .addClass(classesRepetition)
-      .attr('tabindex', attributeTabindex)
-      .appendTo($cardFooter);
+      this.$buttonIncorrect = H5P.JoubelUI.createButton({
+        'class': 'h5p-dialogcards-answer-button',
+        'html': this.params.incorrectAnswer
+      }).addClass('incorrect')
+        .addClass(classesRepetition)
+        .attr('tabindex', attributeTabindex)
+        .appendTo($cardFooter);
 
-    this.$buttonCorrect = H5P.JoubelUI.createButton({
-      'class': 'h5p-dialogcards-answer-button',
-      'html': this.params.correctAnswer
-    }).addClass('correct')
-      .addClass(classesRepetition)
-      .attr('tabindex', attributeTabindex)
-      .appendTo($cardFooter);
+      this.$buttonCorrect = H5P.JoubelUI.createButton({
+        'class': 'h5p-dialogcards-answer-button',
+        'html': this.params.correctAnswer
+      }).addClass('correct')
+        .addClass(classesRepetition)
+        .attr('tabindex', attributeTabindex)
+        .appendTo($cardFooter);
+    }
 
     return $cardFooter;
   }
@@ -203,29 +222,31 @@ class Card {
    * Will be lost when the element is removed from DOM.
    */
   createButtonListeners() {
-    this.$buttonIncorrect
-      .unbind('click')
-      .click(event => {
-        if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
-          return;
-        }
-        this.callbacks.onNextCard({cardId: this.id, result: false});
-      });
-
     this.$buttonTurn
       .unbind('click')
       .click(() => {
         this.turnCard();
       });
 
-    this.$buttonCorrect
-      .unbind('click')
-      .click(event => {
-        if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
-          return;
-        }
-        this.callbacks.onNextCard({cardId: this.id, result: true});
-      });
+    if (this.params.mode === 'repetition') {
+      this.$buttonIncorrect
+        .unbind('click')
+        .click(event => {
+          if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
+            return;
+          }
+          this.callbacks.onNextCard({cardId: this.id, result: false});
+        });
+
+      this.$buttonCorrect
+        .unbind('click')
+        .click(event => {
+          if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
+            return;
+          }
+          this.callbacks.onNextCard({cardId: this.id, result: true});
+        });
+    }
   }
 
   /**
@@ -268,7 +289,8 @@ class Card {
       .removeClass('h5p-dialogcards-button-gone');
 
     this.$buttonShowSummary
-      .addClass('h5p-dialogcards-button-gone');
+      .addClass('h5p-dialogcards-button-gone')
+      .off('click');
   }
 
   /**
@@ -497,8 +519,9 @@ class Card {
      * We need to reset the audio button to its initial visual state, but it
      * doesn't have a function to to that -> force ended event and reload.
      */
-    if (this.audio.audio.duration > 0) {
-      this.audio.audio.currentTime = this.audio.audio.duration;
+    const duration = this.audio.audio.duration;
+    if (duration > 0 && duration < Number.MAX_SAFE_INTEGER) {
+      this.audio.seekTo(duration);
     }
 
     if (this.audio.audio.load) {

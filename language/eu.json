@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Zereginaren deskribapena",
-      "default": ""
+      "label": "Zereginaren deskribapena"
     },
     {
       "widgets": [
@@ -65,8 +64,8 @@
       }
     },
     {
-      "label": "Portaeraren ezarpenak",
-      "description": "Aukera hauek lanaren portaera kontrolatzea ahalbidetzen dizute.",
+      "label": "Portaera ezarpenak",
+      "description": "Aukera hauek portaera kontrolatzea ahalbidetzen dizute.",
       "fields": [
         {
           "label": "Gaitu \"Berriz saiatu\" botoia"
@@ -106,7 +105,7 @@
     },
     {
       "label": "Saiatu berriro botoiaren testua",
-      "default": "Saiatu berriro"
+      "default": "Berriz saiatu"
     },
     {
       "label": "\"erantzun zuzena\" botoiarentzako testua",
@@ -169,12 +168,12 @@
     },
     {
       "label": "Txartel guztiak ondo ikasiz gero erakutsi beharreko mezua",
-      "description": "@cards bankuan dagoen txartel kopuruarekin ordezkatuko da. @max gehienezko gaitasun mailari 1 kenduta lortzen den emaitzarekin ordezkatuko da.",
+      "description": "@cards bankuan dagoen txartel kopuruarekin ordezkatuko da. @max gehienezko gaitasun mailarekin ordezkatuko da.",
       "default": "Oso ondo! @cards txartel guztiak @max aldiz jarraian asmatu dituzu!"
     },
     {
       "label": "Aurrerapena testua",
-      "description": "Erabiltzen dituen aldagaiak dira @card eta @total.",
+      "description": "Eskuragarri dauden aldagaiak @card eta @total dira.",
       "default": "@total -tik @card . txartela"
     },
     {

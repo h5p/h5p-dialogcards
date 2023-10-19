@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Mô tả nhiệm vụ",
-      "default": ""
+      "label": "Mô tả nhiệm vụ"
     },
     {
       "widgets": [
@@ -169,7 +168,7 @@
     },
     {
       "label": "Thông báo khi tất cả các thẻ đã được học thành thạo",
-      "description": "@cards sẽ được thay thế bằng số lượng tất cả các thẻ trong nhóm. @max sẽ được thay thế bằng mức độ thành thạo tối đa - 1.",
+      "description": "@cards sẽ được thay thế bằng số lượng tất cả các thẻ trong nhóm. @max sẽ được thay thế bằng mức độ thành thạo tối đa.",
       "default": "Làm tốt! Bạn có tất cả các thẻ @cards đúng lần @max liên tiếp!"
     },
     {

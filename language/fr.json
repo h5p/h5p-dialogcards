@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Consigne",
-      "default": ""
+      "label": "Consigne"
     },
     {
       "widgets": [
@@ -65,7 +64,7 @@
       }
     },
     {
-      "label": "Options générales",
+      "label": "Paramètres comportementaux",
       "description": "Ces options vous permettent de paramétrer le déroulement de l'exercice.",
       "fields": [
         {
@@ -169,7 +168,7 @@
     },
     {
       "label": "Message lorsque toutes les cartes ont été apprises avec compétence",
-      "description": "@cards sera remplacé par le nombre de cartes dans la réserve. @max sera remplacé par le niveau de compétences maximal - 1.",
+      "description": "@cards sera remplacé par le nombre de cartes dans la réserve. @max sera remplacé par le niveau de compétences maximal.",
       "default": "Bien joué! Vous avez réussi à avoir les @cards cartes correctes @max fois de suite!"
     },
     {

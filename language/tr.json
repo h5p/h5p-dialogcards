@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Etkinlik açıklaması",
-      "default": ""
+      "label": "Etkinlik açıklaması"
     },
     {
       "widgets": [
@@ -65,11 +64,11 @@
       }
     },
     {
-      "label": "Davranış ayarları.",
-      "description": "Bu seçenekler etkinliğin nasıl gerçekleşeceğini kontrol etmenizi sağlar.",
+      "label": "Davranış yarları",
+      "description": "Bu seçenekler görevin nasıl davranması gerektiğini kontrol etmenizi sağlar.",
       "fields": [
         {
-          "label": "\"Yeniden dene\" düğmesi devrede"
+          "label": "\"Yeniden dene\" düğmesini devreye al"
         },
         {
           "label": "Geri dönüş gezinmesini kapat",
@@ -169,8 +168,8 @@
     },
     {
       "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row!"
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "İlerleme metni",

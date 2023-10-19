@@ -4,20 +4,19 @@
       "label": "Título"
     },
     {
-      "label": "Mode",
-      "description": "Mode of presenting the dialog cards",
+      "label": "Modo",
+      "description": "Modo de apresentação dos cartões de diálogo",
       "options": [
         {
           "label": "Normal"
         },
         {
-          "label": "Repetition"
+          "label": "Repetição"
         }
       ]
     },
     {
-      "label": "Descrição da tarefa",
-      "default": ""
+      "label": "Descrição da atividade"
     },
     {
       "widgets": [
@@ -26,9 +25,9 @@
         }
       ],
       "label": "Diálogos",
-      "entity": "dialog",
+      "entity": "diálogo",
       "field": {
-        "label": "Questão",
+        "label": "Pergunta",
         "fields": [
           {
             "label": "Texto",
@@ -40,23 +39,23 @@
           },
           {
             "label": "Imagem",
-            "description": "Imagem opcional para o cartão. (O cartão pode conter apenas uma imagem, apenas um texto, ou ambos)"
+            "description": "Imagem opcional para o cartão. (O cartão pode conter apenas uma imagem, apenas um texto ou ambos)"
           },
           {
             "label": "Texto alternativo para a imagem"
           },
           {
-            "label": "Arquivos de áudio"
+            "label": "Ficheiros de áudio"
           },
           {
             "label": "Dicas",
             "fields": [
               {
-                "label": "Dica para texto",
+                "label": "Dica para o texto",
                 "description": "Dica para a primeira parte do diálogo"
               },
               {
-                "label": "Dica para resposta",
+                "label": "Dica para a resposta",
                 "description": "Dica para a segunda parte do diálogo"
               }
             ]
@@ -65,30 +64,30 @@
       }
     },
     {
-      "label": "Configurações comportamentais.",
-      "description": "stas opções permitirão que você controle como a tarefa se comporta.",
+      "label": "Configurações gerais",
+      "description": "Estas opções permitem que controle o comportamento da atividade.",
       "fields": [
         {
-          "label": "Habilitar botão \"Tentar novamente\""
+          "label": "Ativar o botão \"Tentar novamente\""
         },
         {
-          "label": "Desabilitar navegação para trás",
-          "description": "Esta opção permitirá apenas que você navegue para frente nos cartões de diálogo"
+          "label": "Desativar navegação para trás",
+          "description": "Esta opção permitirá apenas que navegue para a frente nos cartões de diálogo"
         },
         {
           "label": "Dimensionar o texto para ajustar-se dentro do cartão",
-          "description": "Desmarcar esta opção fará com que o cartão adapte seu tamanho ao tamanho do texto"
+          "description": "Desmarcar esta opção fará com que o cartão adapte o seu tamanho ao tamanho do texto"
         },
         {
-          "label": "Aleatorizar cartões",
-          "description": "Habilite para aleatorizar a ordem em que os cartões são exibidos."
+          "label": "Cartões aleatórios",
+          "description": "Esta opção torna aleatória a ordem em que os cartões são exibidos."
         },
         {
-          "label": "Maximum proficiency level"
+          "label": "Nível máximo de proficiência"
         },
         {
-          "label": "Allow quick progression",
-          "description": "If activated, learners can decide to indicate that they know a card without turning it"
+          "label": "Permitir progressão rápida",
+          "description": "Se ativado, os alunos podem decidir indicar que conhecem um cartão sem virá-lo"
         }
       ]
     },
@@ -97,8 +96,8 @@
       "default": "Virar"
     },
     {
-      "label": "Texto para o botão de próximo",
-      "default": "Próximo"
+      "label": "Texto para o botão de seguinte",
+      "default": "Seguinte"
     },
     {
       "label": "Texto para o botão de anterior",
@@ -109,72 +108,72 @@
       "default": "Tentar novamente"
     },
     {
-      "label": "Text for the \"correct answer\" button",
-      "default": "I got it right!"
+      "label": "Texto para o botão de resposta correta",
+      "default": "Acertei!"
     },
     {
-      "label": "Text for the \"incorrect answer\" button",
-      "default": "I got it wrong"
+      "label": "Texto para o botão de resposta incorreta",
+      "default": "Errei"
     },
     {
-      "label": "Text for \"Round\" message below cards and on the summary screen",
-      "description": "@round will be replaced by the number of the current round",
-      "default": "Round @round"
+      "label": "Texto para a mensagem \"Rodada\" abaixo dos cartões e no resumo",
+      "description": "@round será substituído pelo número da rodada atual",
+      "default": "Rodada @round"
     },
     {
-      "label": "Text for \"Cards left\" message",
-      "description": "@number will be replaced by the number of cards left in this round",
-      "default": "Cards left: @number"
+      "label": "Texto para a mensagem de cartões restantes",
+      "description": "@number será substituído pelo número de cartões restantes nesta rodada",
+      "default": "Cartões restantes: @number"
     },
     {
-      "label": "Text for the \"next round\" button",
-      "description": "@round will be replaced by the round number",
-      "default": "Proceed to round @round"
+      "label": "Texto para o botão de próxima rodada",
+      "description": "@round será substituído pelo número da rodada",
+      "default": "Prosseguir para a rodada @round"
     },
     {
-      "label": "Text for the \"Start over\" button",
-      "default": "Start over"
+      "label": "Texto para o botão de recomeçar",
+      "default": "Recomeçar"
     },
     {
-      "label": "Text for the \"show summary\" button",
-      "default": "Next"
+      "label": "Texto para o botão de mostrar resumo",
+      "default": "Seguinte"
     },
     {
-      "label": "Title text for the summary page",
-      "default": "Summary"
+      "label": "Texto do título da página de resumo",
+      "default": "Resumo"
     },
     {
-      "label": "Text for \"Cards you got right:\"",
-      "default": "Cards you got right:"
+      "label": "Texto para \"cartões que você acertou:\"",
+      "default": "Cartões que acertou:"
     },
     {
-      "label": "Text for \"Cards you got wrong:\"",
-      "default": "Cards you got wrong:"
+      "label": "Texto para \"Cartões que você errou:\"",
+      "default": "Cartões que errou:"
     },
     {
-      "label": "Text for \"Cards not shown:\"",
-      "default": "Cards in pool not shown:"
+      "label": "Texto para \"Cartões não exibidos:\"",
+      "default": "Cartões não mostrados:"
     },
     {
-      "label": "Text for \"Overall Score\"",
-      "default": "Overall Score"
+      "label": "Texto para pontuação global",
+      "default": "Pontuação global"
     },
     {
-      "label": "Text for \"Cards completed\"",
-      "default": "Cards you have completed learning:"
+      "label": "Texto para cartões concluídos",
+      "default": "Cartões que concluiu a aprendizagem:"
     },
     {
-      "label": "Text for \"Completed rounds:\"",
-      "default": "Completed rounds:"
+      "label": "Texto para \"Rodadas concluídas:\"",
+      "default": "Rodadas concluídas:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row!"
+      "label": "Mensagem quando todos os cartões forem aprendidos com proficiência",
+      "description": "@cards será substituído pelo número total de cartões. @max será substituído pelo nível máximo de proficiência.",
+      "default": "Excelente! Acertou em todos os @card cartões @max vezes consecutivamente!"
     },
     {
       "label": "Texto de progresso",
-      "description": "Variáveis disponíveis são @card e @total.",
+      "description": "As variáveis disponíveis são @card e @total.",
       "default": "Cartão @card de @total"
     },
     {
@@ -183,7 +182,7 @@
       "default": "Frente do cartão"
     },
     {
-      "label": "Rótulo para verso do cartão",
+      "label": "Rótulo para o verso do cartão",
       "description": "Usado para acessibilidade por tecnologias assistivas",
       "default": "Verso do cartão"
     },
@@ -192,27 +191,27 @@
       "default": "Mostrar dica"
     },
     {
-      "label": "Mensagem de áudio não suportado",
-      "default": "Seu navegador não suporta este áudio"
+      "label": "Mensagem para áudio não suportado",
+      "default": "O seu navegador não suporta este áudio"
     },
     {
-      "label": "Confirm starting over dialog",
+      "label": "Diálogo para confirmar o recomeço",
       "fields": [
         {
-          "label": "Header text",
-          "default": "Start over?"
+          "label": "Texto do cabeçalho",
+          "default": "Recomeçar?"
         },
         {
-          "label": "Body text",
-          "default": "All progress will be lost. Are you sure you want to start over?"
+          "label": "Texto do corpo",
+          "default": "Todo o progresso será perdido. Tem a certeza de que pretende recomeçar?"
         },
         {
-          "label": "Cancel button label",
-          "default": "Cancel"
+          "label": "Rótulo para botão cancelar",
+          "default": "Cancelar"
         },
         {
-          "label": "Confirm button label",
-          "default": "Start over"
+          "label": "Rótulo para botão confirmar",
+          "default": "Recomeçar"
         }
       ]
     }

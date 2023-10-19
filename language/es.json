@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Descripción del trabajo",
-      "default": ""
+      "label": "Descripción del trabajo"
     },
     {
       "widgets": [
@@ -169,7 +168,7 @@
     },
     {
       "label": "Mensaje cuando todas las cartas han sido aprendidas eficientemente",
-      "description": "@cards será remplazado por el número de todas las cartas en el mazo. @max será remplazado por el número máximo del nivel de competencia - 1.",
+      "description": "@cards será remplazado por el número de todas las cartas en el mazo. @max será remplazado por el número máximo del nivel de competencia.",
       "default": "¡Bien Hecho! ¡Usted tuvo todas las @cards cartas correctas @max veces seguidas!"
     },
     {

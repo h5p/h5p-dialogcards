@@ -8,10 +8,11 @@ class CardManager {
    * @param {object} params Parameters from content type.
    * @param {number} contentId Id of content.
    * @param {object} callbacks Callbacks to parent.
+   * @param {number} idCounter
    */
-  constructor(params, contentId, callbacks) {
+  constructor(params, contentId, callbacks, idCounter) {
     this.params = params;
-    this.cardPool = new CardPool(params, contentId, callbacks);
+    this.cardPool = new CardPool(params, contentId, callbacks, idCounter);
 
     this.reset(params.cardPiles);
 
@@ -58,7 +59,7 @@ class CardManager {
     switch (this.params.mode) {
       case 'repetition':
         // Repetition mode
-        for (let i = 0; i < this.params.behaviour.maxProficiency; i++) {
+        for (let i = 0; i < this.params.behaviour.maxProficiency + 1; i++) {
           if (i === 0) {
             this.cardPiles.push(new CardPile(pool));
           }

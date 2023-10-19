@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Aufgabenbeschreibung",
-      "default": ""
+      "label": "Aufgabenbeschreibung"
     },
     {
       "widgets": [
@@ -66,7 +65,7 @@
     },
     {
       "label": "Verhaltenseinstellungen",
-      "description": "Diese Optionen legen fest, wie die Aufgabe im Detail funktioniert.",
+      "description": "Diese Optionen kontrollieren, wie sich die Aufgabe verhält.",
       "fields": [
         {
           "label": "\"Wiederholen\"-Button anzeigen"
@@ -169,7 +168,7 @@
     },
     {
       "label": "Nachricht, wenn alle Karten beherrscht werden",
-      "description": "@cards wird mit der Gesamtzahl der Karten ersetzt. @max wird mit dem \"maximalen Beherrschungsniveau\" - 1 ersetzt.",
+      "description": "@cards wird mit der Gesamtzahl der Karten ersetzt. @max wird mit dem \"maximalen Beherrschungsniveau\" ersetzt.",
       "default": "Gut gemacht! Du hattest alle @cards Karten @max -mal hintereinander richtig!"
     },
     {

@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Ülesande kirjeldus",
-      "default": ""
+      "label": "Ülesande kirjeldus"
     },
     {
       "widgets": [
@@ -169,7 +168,7 @@
     },
     {
       "label": "Teade, kui kõigi kaartide sisu on omandatud",
-      "description": "@cards asendatakse loetelus olevate kaartide koguarvuga. @max asendatakse suurima asjatundlikkuse tasemega - 1.",
+      "description": "@cards asendatakse loetelus olevate kaartide koguarvuga. @max asendatakse suurima asjatundlikkuse tasemega.",
       "default": "Tubli! Täitsid kõik @cards kaarti õigesti @max korda järjest!"
     },
     {

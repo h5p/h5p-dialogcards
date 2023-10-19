@@ -1,7 +1,7 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "Overskrift"
     },
     {
       "label": "Mode",
@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Oppgavetekst",
-      "default": ""
+      "label": "Oppgavetekst"
     },
     {
       "widgets": [
@@ -65,11 +64,11 @@
       }
     },
     {
-      "label": "Innstillinger for oppgave-oppførsel",
-      "description": "Disse instillingene lar deg bestemme hvordan oppgavetypen skal oppføre seg.",
+      "label": "Oppgaveinnstillinger",
+      "description": "Disse valga lar deg styre ulike funksjoner i oppgava.",
       "fields": [
         {
-          "label": "Aktiver \"Prøv igjen\"-knapp"
+          "label": "Enable \"Retry\" button"
         },
         {
           "label": "Slå av tilbakenavigering",
@@ -169,8 +168,8 @@
     },
     {
       "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level - 1.",
-      "default": "Well done! You got all @cards cards correct @max times in a row!"
+      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
+      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
     },
     {
       "label": "Fremgangstekst",

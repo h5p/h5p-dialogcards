@@ -1,60 +1,69 @@
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 
-const config = {
-  mode: 'development',
+const nodeEnv = process.env.NODE_ENV || 'development';
+const isProd = (nodeEnv === 'production');
+const libraryName = process.env.npm_package_name;
+
+module.exports = {
+  mode: nodeEnv,
+  context: path.resolve(__dirname, 'src'),
+  devtool: (isProd) ? undefined : 'eval-cheap-module-source-map',
   optimization: {
+    minimize: isProd,
     minimizer: [
-      new TerserPlugin(),
-      new OptimizeCSSAssetsPlugin({})
-    ]
+      new TerserPlugin({
+        terserOptions: {
+          compress:{
+            drop_console: true,
+          }
+        }
+      }),
+    ],
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'h5p-dialogcards.css'
-    })
-  ],
   entry: {
-    dist: './src/entries/h5p-dialogcards.js'
+    dist: `./entries/${libraryName}.js`
   },
   output: {
-    filename: 'h5p-dialogcards.js',
+    filename: `${libraryName}.js`,
     path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            "@babel/preset-env"
-          ]
-        }
+        exclude: /node_modules/,
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader, 'css-loader'
-        ],
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: ''
+            }
+          },
+          { 
+            loader: "css-loader" 
+          }
+        ]
       },
       {
         test: /\.svg$/,
-        loader: 'url-loader'
+        include: path.join(__dirname, 'src/images'),
+        type: 'asset/resource'
       }
     ]
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: `${libraryName}.css`
+    })
+  ],
   stats: {
     colors: true
   }
 };
 
-module.exports = (env, argv) => {
-  if (argv.mode === 'development') {
-    config.devtool = 'inline-source-map';
-  }
-
-  return config;
-}

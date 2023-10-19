@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Descrición da tarefa",
-      "default": ""
+      "label": "Descrición da tarefa"
     },
     {
       "widgets": [
@@ -65,11 +64,11 @@
       }
     },
     {
-      "label": "Configuración do comportamento.",
+      "label": "Configuración do comportamento",
       "description": "Estas opcións permitiranche controlar o comportamento da tarefa.",
       "fields": [
         {
-          "label": "Activar o botón \"Reintentar\""
+          "label": "Activar o botón \"Tentar de novo\""
         },
         {
           "label": "Desactivar a navegación cara atrás",
@@ -106,7 +105,7 @@
     },
     {
       "label": "Texto para o botón reintentar",
-      "default": "Reintentar"
+      "default": "Tentar de novo"
     },
     {
       "label": "Texto para o botón \"resposta correcta\"",
@@ -169,7 +168,7 @@
     },
     {
       "label": "Mensaxe para cando o usuario aprende todas as tarxetas perfectamente",
-      "description": "Substituirase @cards polo número total de tarxetas. Substituirase @max polo nivel máximo de perfección - 1.",
+      "description": "Substituirase @cards polo número total de tarxetas. Substituirase @max polo nivel máximo de perfección.",
       "default": "Ben feito! Acertaches todas as tarxetas @max veces seguidas!"
     },
     {

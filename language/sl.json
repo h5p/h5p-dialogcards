@@ -16,8 +16,7 @@
       ]
     },
     {
-      "label": "Navodilo udeležencem",
-      "default": ""
+      "label": "Navodilo udeležencem"
     },
     {
       "widgets": [
@@ -169,7 +168,7 @@
     },
     {
       "label": "Sporočilo ob doseženi najvišji stopnji znanja",
-      "description": "@cards bo nadomeščen s številom vseh kratic v bazenu. @max bo nadomeščen s številom najvišje stopnje znanja - 1.",
+      "description": "@cards bo nadomeščen s številom vseh kratic v bazenu. @max bo nadomeščen s številom najvišje stopnje znanja.",
       "default": "Čestitke! Pravilnih je vseh @cards kartic - število ponovitev: @max."
     },
     {
