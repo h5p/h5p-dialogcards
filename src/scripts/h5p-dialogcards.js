@@ -650,7 +650,9 @@ class Dialogcards extends H5P.EventDispatcher {
       this.createDOM();
 
       this.updateNavigation();
-      this.cards[this.currentCardId].setCardFocus(true);
+      if (this.isRoot()) {
+        this.cards[this.currentCardId].setCardFocus(true);
+      }
 
       this.trigger('resize');
     };
