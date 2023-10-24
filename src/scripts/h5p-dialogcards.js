@@ -641,7 +641,11 @@ class Dialogcards extends H5P.EventDispatcher {
       this.nextRound();
     };
 
-    this.nextRound = () => {
+    /**
+     * Start next round
+     * @param {boolean} moveFocus True to set focus on card
+     */
+    this.nextRound = (moveFocus = true) => {
       this.round++;
       this.summaryScreen.hide();
       this.showCards();
@@ -650,7 +654,7 @@ class Dialogcards extends H5P.EventDispatcher {
       this.createDOM();
 
       this.updateNavigation();
-      if (this.isRoot()) {
+      if (this.isRoot() || moveFocus) {
         this.cards[this.currentCardId].setCardFocus(true);
       }
 
@@ -918,11 +922,13 @@ class Dialogcards extends H5P.EventDispatcher {
 
     /**
      * Resets task to the initial state
+     * @param {boolean} moveFocus True to move the focus
+     * This prevents loss of focus if reset from within content
      */
-    this.resetTask = () => {
+    this.resetTask = (moveFocus = false) => {
       if (this.cardManager) { // Check if initialized
         this.round = 0;
-        this.nextRound(); // Also calls reset(), which takes care about resetting everything else
+        this.nextRound(moveFocus); // Also calls reset(), which takes care about resetting everything else
       }
     }
   }
