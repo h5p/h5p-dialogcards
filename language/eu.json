@@ -168,7 +168,7 @@
     },
     {
       "label": "Txartel guztiak ondo ikasiz gero erakutsi beharreko mezua",
-      "description": "@cards bankuan dagoen txartel kopuruarekin ordezkatuko da. @max gehienezko gaitasun mailari 1 kenduta lortzen den emaitzarekin ordezkatuko da.",
+      "description": "@cards bankuan dagoen txartel kopuruarekin ordezkatuko da. @max gehienezko gaitasun mailarekin ordezkatuko da.",
       "default": "Oso ondo! @cards txartel guztiak @max aldiz jarraian asmatu dituzu!"
     },
     {

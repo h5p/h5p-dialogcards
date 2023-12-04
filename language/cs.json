@@ -178,12 +178,12 @@
     },
     {
       "label": "Popisek pro text karty",
-      "description": "Používá se pro přístup pomocí asistenčních technologií",
+      "description": "Používá se pro přístup pomocí podpůrné technologie",
       "default": "Přední strana karty"
     },
     {
       "label": "Popisek pro zadní stranu karty",
-      "description": "Používá se pro přístup pomocí asistenčních technologií",
+      "description": "Používá se pro přístup pomocí podpůrné technologie",
       "default": "Zadní strana karty"
     },
     {

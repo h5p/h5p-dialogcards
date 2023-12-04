@@ -1,11 +1,11 @@
 {
   "semantics": [
     {
-      "label": "Heading"
+      "label": "Rubrik"
     },
     {
       "label": "Mode",
-      "description": "Mode of presenting the dialog cards",
+      "description": "Inställning för hur dialogkort presenteras",
       "options": [
         {
           "label": "Normal"
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "label": "Task description"
+      "label": "Beskrivning av uppgift"
     },
     {
       "widgets": [
@@ -24,25 +24,25 @@
           "label": "Default"
         }
       ],
-      "label": "Dialogs",
+      "label": "Dialoger",
       "entity": "dialog",
       "field": {
         "label": "Question",
         "fields": [
           {
             "label": "Text",
-            "description": "Hint for the first part of the dialogue"
+            "description": "Ledtråd för den första delen av dialogen"
           },
           {
-            "label": "Answer",
-            "description": "Hint for the second part of the dialogue"
+            "label": "Svar",
+            "description": "Ledtråd för den andra delen av dialogen"
           },
           {
             "label": "Image",
-            "description": "Optional image for the card. (The card may use just an image, just a text or both)"
+            "description": "Valfri bild för kortet. (Kortet kan bestå av enbart en bild, enbart text, eller båda två.)"
           },
           {
-            "label": "Alternative text for the image"
+            "label": "Alternativ text för bilden"
           },
           {
             "label": "Audio files"
@@ -52,11 +52,11 @@
             "fields": [
               {
                 "label": "Tip for text",
-                "description": "Tip for the first part of the dialogue"
+                "description": "Tips för första delen av dialogen"
               },
               {
-                "label": "Tip for answer",
-                "description": "Tip for the second part of the dialogue"
+                "label": "Tips för svar",
+                "description": "Tips för den andra delen av dialogen"
               }
             ]
           }
@@ -64,154 +64,154 @@
       }
     },
     {
-      "label": "Behavioural settings.",
+      "label": "Beteende-inställningar",
       "description": "Denna inställningar påverkar hur uppgiften beter sig.",
       "fields": [
         {
           "label": "Aktivera knappen \"Försök igen\""
         },
         {
-          "label": "Disable backwards navigation",
-          "description": "This option will only allow you to move forward with Dialog Cards"
+          "label": "Inaktivera bakåt-navigering",
+          "description": "Denna inställning gör det endast möjligt att navigera framåt med dialogkorten"
         },
         {
-          "label": "Scale the text to fit inside the card",
-          "description": "Unchecking this option will make the card adapt its size to the size of the text"
+          "label": "Skala texten för att passa in inuti kortet",
+          "description": "Om du bockar ur denna inställning så kommer kortet anpassas till storleken på texten"
         },
         {
-          "label": "Randomize cards",
-          "description": "Enable to randomize the order of cards on display."
+          "label": "Slumpa kort",
+          "description": "Aktivera för att få slumpmässig ordning för visning av korten."
         },
         {
-          "label": "Maximum proficiency level"
+          "label": "Maximal färdighetsnivå"
         },
         {
-          "label": "Allow quick progression",
-          "description": "If activated, learners can decide to indicate that they know a card without turning it"
+          "label": "Tillåt snabbspolning",
+          "description": "Om aktiverat, så kan deltagare välja att ange att de redan kan ett kort, utan att vända på det"
         }
       ]
     },
     {
-      "label": "Text for the turn button",
-      "default": "Turn"
+      "label": "Text för vänd-knappen",
+      "default": "Vänd"
     },
     {
-      "label": "Text for the next button",
+      "label": "Text för nästa-knappen",
       "default": "Next"
     },
     {
-      "label": "Text for the previous button",
-      "default": "Previous"
+      "label": "Text för föregående-knappen",
+      "default": "Föregående"
     },
     {
-      "label": "Text for the retry button",
-      "default": "Retry"
+      "label": "Text för knappen \"försök igen\"",
+      "default": "Försök igen"
     },
     {
-      "label": "Text for the \"correct answer\" button",
-      "default": "I got it right!"
+      "label": "Text för knappen \"korrekt svar\"",
+      "default": "Jag fick rätt!"
     },
     {
-      "label": "Text for the \"incorrect answer\" button",
-      "default": "I got it wrong"
+      "label": "Text för knappen\"felaktigt svar\"",
+      "default": "Jag hade fel"
     },
     {
-      "label": "Text for \"Round\" message below cards and on the summary screen",
-      "description": "@round will be replaced by the number of the current round",
-      "default": "Round @round"
+      "label": "Text för meddelandet \"Runda\" under kort och på översiktsvyn",
+      "description": "@round kommer att ersättas med siffran för den aktuella rundan",
+      "default": "Runda @round"
     },
     {
-      "label": "Text for \"Cards left\" message",
-      "description": "@number will be replaced by the number of cards left in this round",
-      "default": "Cards left: @number"
+      "label": "Text för meddelandet \"Återstående kort\"",
+      "description": "@number kommer att ersättas med antalet återstående kort i denna runda",
+      "default": "Återstående kort: @number"
     },
     {
-      "label": "Text for the \"next round\" button",
-      "description": "@round will be replaced by the round number",
-      "default": "Proceed to round @round"
+      "label": "Text för knappen \"nästa runda\"",
+      "description": "@round kommer att ersättas med numret för rundan",
+      "default": "Fortsätt till runda @round"
     },
     {
-      "label": "Text for the \"Start over\" button",
-      "default": "Start over"
+      "label": "Text för knappen \"Börja om\"",
+      "default": "Börja om"
     },
     {
-      "label": "Text for the \"show summary\" button",
+      "label": "Text för knappen \"visa översikt\"",
       "default": "Next"
     },
     {
-      "label": "Title text for the summary page",
-      "default": "Summary"
+      "label": "Rubriktext för översiktssidan",
+      "default": "Översikt"
     },
     {
-      "label": "Text for \"Cards you got right:\"",
-      "default": "Cards you got right:"
+      "label": "Text för \"Kort som du svarade rätt på:\"",
+      "default": "Kort som du svarade rätt på:"
     },
     {
-      "label": "Text for \"Cards you got wrong:\"",
-      "default": "Cards you got wrong:"
+      "label": "Text för \"Kort som du svarade fel på:\"",
+      "default": "Kort som du svarade fel på:"
     },
     {
-      "label": "Text for \"Cards not shown:\"",
-      "default": "Cards in pool not shown:"
+      "label": "Text för \"Kort som inte visades:\"",
+      "default": "Kort som inte visades:"
     },
     {
-      "label": "Text for \"Overall Score\"",
-      "default": "Overall Score"
+      "label": "Text för \"Samlad poäng\"",
+      "default": "Samlad poäng"
     },
     {
-      "label": "Text for \"Cards completed\"",
-      "default": "Cards you have completed learning:"
+      "label": "Text för \"Genomförda kort\"",
+      "default": "Kort som du har genomfört:"
     },
     {
-      "label": "Text for \"Completed rounds:\"",
-      "default": "Completed rounds:"
+      "label": "Text för \"Genomförda rundor:\"",
+      "default": "Genomförda rundor:"
     },
     {
-      "label": "Message when all cards have been learned proficiently",
-      "description": "@cards will be replaced by the number of all cards in the pool. @max will be replaced by the maximum proficiency level.",
-      "default": "Well done! You have mastered all @cards cards by getting them correct @max times!"
+      "label": "Meddelande när alla kort har lästs och färdighetsnivå uppnåtts",
+      "description": "@cards kommer att ersättas med alla tillgängliga kort. @max kommer att ersättas med maximal färdighetsnivå.",
+      "default": "Bra jobbat! Du har svarat rätt på alla @cards kort @max gånger i rad!"
     },
     {
       "label": "Progress text",
-      "description": "Available variables are @card and @total.",
-      "default": "Card @card of @total"
+      "description": "Tillgängliga variabler är @card och @total.",
+      "default": "Kort @card av @total"
     },
     {
-      "label": "Label for card text",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card front"
+      "label": "Etikett för text på kort",
+      "description": "Används av tillgänglighetshjälpmedel",
+      "default": "Framsida på kort"
     },
     {
-      "label": "Label for card back",
-      "description": "Used for accessibility by assistive technologies",
-      "default": "Card back"
+      "label": "Etikett för baksida på kort",
+      "description": "Används av tillgänglighetshjälpmedel",
+      "default": "Baksida på kort"
     },
     {
-      "label": "Label for the show tip button",
-      "default": "Show tip"
+      "label": "Etikett för knappen visa tips",
+      "default": "Visa tips"
     },
     {
-      "label": "Audio not supported message",
-      "default": "Your browser does not support this audio"
+      "label": "Meddelande om att ljud ej stöds",
+      "default": "Din webbläsare stödjer inte detta ljudformat"
     },
     {
-      "label": "Confirm starting over dialog",
+      "label": "Dialog för att bekräfta att börja om",
       "fields": [
         {
-          "label": "Header text",
-          "default": "Start over?"
+          "label": "Rubriktext",
+          "default": "Börja om?"
         },
         {
-          "label": "Body text",
-          "default": "All progress will be lost. Are you sure you want to start over?"
+          "label": "Text",
+          "default": "Alla dina svar kommer att försvinna. Är du säker på att du vill börja om?"
         },
         {
-          "label": "Cancel button label",
-          "default": "Cancel"
+          "label": "Etikett för knappen \"avbryt\"",
+          "default": "Avbryt"
         },
         {
-          "label": "Confirm button label",
-          "default": "Start over"
+          "label": "Etikett för knappen \"bekräfta\"",
+          "default": "Börja om"
         }
       ]
     }
