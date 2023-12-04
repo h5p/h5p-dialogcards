@@ -11,13 +11,15 @@ class Card {
    * @param {function} [callbacks.onCardSize] Call when card needs resize.
    * @param {function} [callbacks.onCardTurned] Call when card was turned.
    * @param {number} idCounter
+   * @param {boolean} turned
    */
-  constructor(card, params, id, contentId, callbacks = {}, idCounter) {
+  constructor(card, params, id, contentId, callbacks = {}, idCounter, turned) {
     this.card = card;
     this.params = params || {};
     this.id = id;
     this.contentId = contentId;
     this.callbacks = callbacks;
+    this.turned = turned;
 
     this.$cardWrapper = $('<div>', {
       'class': 'h5p-dialogcards-cardwrap',
@@ -303,18 +305,15 @@ class Card {
 
     // Removes tip, since it destroys the animation:
     $c.find('.joubel-tip-container').remove();
-
-    // Check if card has been turned before
-    const turned = $c.hasClass('h5p-dialogcards-turned');
-
+    this.turned = !this.turned;
     // Update HTML class for card
-    $c.toggleClass('h5p-dialogcards-turned', !turned);
+    $c.toggleClass('h5p-dialogcards-turned', !this.turned);
 
     setTimeout(() => {
       $ch.removeClass('h5p-dialogcards-collapse');
-      this.changeText(turned ? this.getText() : this.getAnswer());
+      this.changeText(this.turned ? this.getText() : this.getAnswer());
 
-      if (turned) {
+      if (this.turned) {
         $ch.find('.h5p-audio-inner').removeClass('hide');
       }
       else {
@@ -336,10 +335,10 @@ class Card {
       // Add backside tip
       // Had to wait a little, if not Chrome will displace tip icon
       setTimeout(() => {
-        this.addTipToCard($c, turned ? 'front' : 'back');
+        this.addTipToCard($c, this.turned ? 'front' : 'back');
 
         if (typeof this.callbacks.onCardTurned === 'function') {
-          this.callbacks.onCardTurned(turned);
+          this.callbacks.onCardTurned(this.turned);
         }
       }, 200);
 

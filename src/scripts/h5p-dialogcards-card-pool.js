@@ -9,12 +9,13 @@ class CardPool {
    * @param {object} callbacks Callbacks to main component.
    * @param {number} idCounter
    */
-  constructor(params, contentId, callbacks, idCounter) {
+  constructor(params, contentId, callbacks, idCounter, turned) {
     this.params = params;
     this.contentId = contentId;
     this.callbacks = callbacks;
     this.idCounter = idCounter;
     this.cards = [];
+    this.turned = turned;
 
     this.params.dialogs.forEach((dialog, index) => {
       dialog.id = index;
@@ -68,8 +69,10 @@ class CardPool {
         id,
         this.contentId,
         this.callbacks,
-        this.idCounter);
+        this.idCounter,
+        this.turned);
     }
+
   }
 
 }
