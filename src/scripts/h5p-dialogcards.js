@@ -915,7 +915,8 @@ class Dialogcards extends H5P.EventDispatcher {
      * @returns {boolean} True if progress has been started, false otherwise.
      */
     this.isProgressStarted = () => {
-      return this.getCurrentSelectionIndex() !== 0
+      return !H5P.isEmpty(this.previousState)
+          || this.getCurrentSelectionIndex() !== 0
           || this.results.length !== 0
           || this.round !== 1;
     }
@@ -927,6 +928,7 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.resetTask = (moveFocus = false) => {
       if (this.cardManager) { // Check if initialized
+        this.previousState = {};
         this.round = 0;
         this.nextRound(moveFocus); // Also calls reset(), which takes care about resetting everything else
       }
