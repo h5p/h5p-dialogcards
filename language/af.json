@@ -30,32 +30,57 @@
         "label": "Vraag",
         "fields": [
           {
-            "label": "Teks",
-            "description": "Wenk vir die eerste deel van die dialoog"
-          },
-          {
-            "label": "Antwoord",
-            "description": "Wenk vir die tweede deel van die dialoog"
-          },
-          {
-            "label": "Beeld",
-            "description": "Moontlike kaartjieprent (Die kaartjie kan 'n prent gebruik, of net teks of beide)"
-          },
-          {
-            "label": "Alternatiewe teks vir die prent"
-          },
-          {
-            "label": "Klankleêrs"
-          },
-          {
-            "label": "Wenke",
+            "label": "Voor",
             "fields": [
               {
-                "label": "Tekswenk",
+                "label": "Teks",
                 "description": "Wenk vir die eerste deel van die dialoog"
               },
               {
-                "label": "Wenk vir antwoord",
+                "label": "Beeld",
+                "description": "Moontlike kaartjieprent."
+              },
+              {
+                "label": "Alternatiewe teks vir die prent"
+              },
+              {
+                "label": "Klankleêrs",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Tekswenk",
+                "description": "Wenk vir die eerste deel van die dialoog"
+              }
+            ]
+          },
+          {
+            "label": "Terug",
+            "fields": [
+              {
+                "label": "Teks",
+                "description": "Wenk vir die tweede deel van die dialoog"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Beeld",
+                "description": "Moontlike kaartjieprent."
+              },
+              {
+                "label": "Alternatiewe teks vir die prent"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Klankleêrs",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Tekswenk",
                 "description": "Wenk vir die tweede deel van die dialoog"
               }
             ]

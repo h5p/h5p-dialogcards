@@ -123,6 +123,14 @@
   transform: translate(-50%, -50%);
 }
 
+.h5p-dialogcards .h5p-dialogcards-card-content.h5p-dialogcards-turned .h5p-dialogcards-image-wrapper > .h5p-dialogcards-image-front {
+  display: none;
+}
+
+.h5p-dialogcards .h5p-dialogcards-card-content:not(.h5p-dialogcards-turned) .h5p-dialogcards-image-wrapper > .h5p-dialogcards-image-back {
+  display: none;
+}
+
 .h5p-dialogcards .h5p-audio-inner.hide {
   display: none;
 }
@@ -133,7 +141,11 @@
   min-height: 12em;
 }
 
-.h5p-dialogcards.h5p-text-scaling .h5p-dialogcards-card-text-wrapper {
+.h5p-dialogcards .h5p-dialogcards-cardwrap.h5p-no-text .h5p-dialogcards-card-text-wrapper {
+  min-height: inherit;
+}
+
+.h5p-dialogcards.h5p-text-scaling .h5p-dialogcards-cardwrap:not(.h5p-no-text) .h5p-dialogcards-card-text-wrapper {
   height: 12em;
 }
 
@@ -145,6 +157,10 @@
   margin-bottom: 0.5em;
   width: 1.5em;
   height: 1.5em;
+}
+
+.h5p-dialogcards .h5p-dialogcards-audio-wrapper.h5p-no-text {
+  display: inline-block;
 }
 
 .h5p-dialogcards .h5p-dialogcards-audio-wrapper.h5p-audio-not-supported {
@@ -171,7 +187,15 @@
   background-image: url('../images/no-audio.svg');
 }
 
-.h5p-dialogcards .h5p-dialogcards-audio-wrapper.hide {
+.h5p-dialogcards .h5p-dialogcards-card-content .h5p-dialogcards-audio-wrapper.hide {
+  display: none;
+}
+
+.h5p-dialogcards .h5p-dialogcards-card-content.h5p-dialogcards-turned .h5p-dialogcards-audio-wrapper-front {
+  display: none;
+}
+
+.h5p-dialogcards .h5p-dialogcards-card-content:not(.h5p-dialogcards-turned) .h5p-dialogcards-audio-wrapper-back {
   display: none;
 }
 

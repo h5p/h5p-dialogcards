@@ -30,32 +30,57 @@
         "label": "Dialogkort",
         "fields": [
           {
-            "label": "Tekst",
-            "description": "Nøkkelord til første del av dialogen"
-          },
-          {
-            "label": "Svar",
-            "description": "Nøkkelord til neste del av dialogen"
-          },
-          {
-            "label": "Bilde",
-            "description": "Valgfritt bilde for kortet.(Kortet kan bruke kun bilde, kun tekst, eller begge)"
-          },
-          {
-            "label": "Alternative text for the image"
-          },
-          {
-            "label": "Audio files"
-          },
-          {
-            "label": "Tips",
+            "label": "Forside",
             "fields": [
+              {
+                "label": "Tekst",
+                "description": "Nøkkelord til første del av dialogen"
+              },
+              {
+                "label": "Bilde",
+                "description": "Valgfritt bilde for kortet."
+              },
+              {
+                "label": "Alternative text for the image"
+              },
+              {
+                "label": "Lydfiler",
+                "description": "Optional audio for the card."
+              },
               {
                 "label": "Tip for text",
                 "description": "Tip for the first part of the dialogue"
+              }
+            ]
+          },
+          {
+            "label": "Bakside",
+            "fields": [
+              {
+                "label": "Tekst",
+                "description": "Nøkkelord til neste del av dialogen"
               },
               {
-                "label": "Tip for answer",
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Bilde",
+                "description": "Valgfritt bilde for kortet."
+              },
+              {
+                "label": "Alternative text for the image"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Lydfiler",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Tip for text",
                 "description": "Tip for the second part of the dialogue"
               }
             ]

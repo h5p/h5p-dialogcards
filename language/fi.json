@@ -30,32 +30,57 @@
         "label": "Kysymys",
         "fields": [
           {
-            "label": "Kysymys",
-            "description": "Tekstisisältö kortin etupuolelle"
-          },
-          {
-            "label": "Vastaus",
-            "description": "Tekstisisältö kortin kääntöpuolelle"
-          },
-          {
-            "label": "Kuva",
-            "description": "Valinnainen kuva kortille. Kortti voi olla vain kuva, tekstiä tai molemmat."
-          },
-          {
-            "label": "Vaihtoehtoinen teksti kuvalle"
-          },
-          {
-            "label": "Äänitiedostot"
-          },
-          {
-            "label": "Vinkit",
+            "label": "Front",
             "fields": [
               {
-                "label": "Vinkki kysymykselle",
-                "description": "Vinkki kortin etupuolelle"
+                "label": "Teksti",
+                "description": "Tekstisisältö kortin etupuolelle"
               },
               {
-                "label": "Vinkki vastaukselle",
+                "label": "Kuva",
+                "description": "Valinnainen kuva kortille."
+              },
+              {
+                "label": "Vaihtoehtoinen teksti kuvalle"
+              },
+              {
+                "label": "Äänitiedostot",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Vinkit",
+                "description": "Vinkki kortin etupuolelle"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "Texti",
+                "description": "Tekstisisältö kortin kääntöpuolelle"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Kuva",
+                "description": "Valinnainen kuva kortille."
+              },
+              {
+                "label": "Vaihtoehtoinen teksti kuvalle"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Äänitiedostot",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Vinkit",
                 "description": "Vinkki kortin kääntöpuolelle"
               }
             ]

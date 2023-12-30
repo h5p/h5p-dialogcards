@@ -30,32 +30,57 @@
         "label": "Питання",
         "fields": [
           {
-            "label": "Текст",
-            "description": "Підказка про першу частину діалогу"
-          },
-          {
-            "label": "Відповідь",
-            "description": "Підказка про другу частину діалогу"
-          },
-          {
-            "label": "Зображення",
-            "description": "Необов’язкове зображення для картки. (На картці може бути використане лише зображення, лише текст або те й інше)"
-          },
-          {
-            "label": "Альтернативний текст для зображення"
-          },
-          {
-            "label": "Аудіо файли"
-          },
-          {
-            "label": "Поради",
+            "label": "Front",
             "fields": [
+              {
+                "label": "Текст",
+                "description": "Підказка про першу частину діалогу"
+              },
+              {
+                "label": "Зображення",
+                "description": "Необов’язкове зображення для картки."
+              },
+              {
+                "label": "Альтернативний текст для зображення"
+              },
+              {
+                "label": "Аудіо файли",
+                "description": "Optional audio for the card."
+              },
               {
                 "label": "Порада для тексту",
                 "description": "Порада для першої частини діалогу"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "Текст",
+                "description": "Підказка про другу частину діалогу"
               },
               {
-                "label": "Порада для відповіді",
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Зображення",
+                "description": "Необов’язкове зображення для картки."
+              },
+              {
+                "label": "Альтернативний текст для зображення"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Аудіо файли",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Порада для тексту",
                 "description": "Порада для другої частини діалогу"
               }
             ]
