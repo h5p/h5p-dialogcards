@@ -10,7 +10,7 @@
   "machineName": "H5P.Dialogcards",
   "coreApi": {
     "majorVersion": 1,
-    "minorVersion": 15
+    "minorVersion": 26
   },
   "embedTypes": [
     "iframe"

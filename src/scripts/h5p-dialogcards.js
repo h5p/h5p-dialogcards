@@ -698,7 +698,11 @@ class Dialogcards extends H5P.EventDispatcher {
       this.nextRound();
     };
 
-    this.nextRound = () => {
+    /**
+     * Start next round
+     * @param {boolean} moveFocus True to set focus on card
+     */
+    this.nextRound = (moveFocus = true) => {
       this.round++;
       this.summaryScreen.hide();
       this.showCards();
@@ -707,7 +711,9 @@ class Dialogcards extends H5P.EventDispatcher {
       this.createDOM();
 
       this.updateNavigation();
-      this.cards[this.currentCardId].setCardFocus(true);
+      if (this.isRoot() || moveFocus) {
+        this.cards[this.currentCardId].setCardFocus(true);
+      }
 
       this.trigger('resize');
     };
@@ -956,14 +962,41 @@ class Dialogcards extends H5P.EventDispatcher {
         return;
       }
 
-      return {
-        cardPiles: this.cardManager.getPiles(),
-        cardIds: this.cardIds,
-        round: this.round,
-        currentCardId: this.getCurrentSelectionIndex(),
-        results: this.results
-      };
+      return this.isProgressStarted()
+        ? {
+          cardPiles: this.cardManager.getPiles(),
+          cardIds: this.cardIds,
+          round: this.round,
+          currentCardId: this.getCurrentSelectionIndex(),
+          results: this.results
+        }
+        : undefined;
     };
+
+    /**
+     * Checks if progress on dialog cards has been started
+     * Note - does not consider whether the first card has been turned or not
+     * @returns {boolean} True if progress has been started, false otherwise.
+     */
+    this.isProgressStarted = () => {
+      return !H5P.isEmpty(this.previousState)
+          || this.getCurrentSelectionIndex() !== 0
+          || this.results.length !== 0
+          || this.round !== 1;
+    }
+
+    /**
+     * Resets task to the initial state
+     * @param {boolean} moveFocus True to move the focus
+     * This prevents loss of focus if reset from within content
+     */
+    this.resetTask = (moveFocus = false) => {
+      if (this.cardManager) { // Check if initialized
+        this.previousState = {};
+        this.round = 0;
+        this.nextRound(moveFocus); // Also calls reset(), which takes care about resetting everything else
+      }
+    }
   }
 }
 

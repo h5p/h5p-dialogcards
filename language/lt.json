@@ -90,10 +90,10 @@
     },
     {
       "label": "Sąveikos nustatymai",
-      "description": "Šios parinktys leidžia valdyti užduoties veikimą.",
+      "description": "Šios parinktys leis jums valdyti, kaip veikia užduotis.",
       "fields": [
         {
-          "label": "Įjungti \"Bandyti dar kartą\" mygtuką"
+          "label": "Įjungti mygtuką „Bandyti dar kartą“"
         },
         {
           "label": "Išjungti naršymą atgal",
