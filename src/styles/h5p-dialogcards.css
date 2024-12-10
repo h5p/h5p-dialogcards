@@ -56,6 +56,9 @@
   padding: 1em;
   max-width: 32em;
   position: relative;
+
+  container-type: inline-size;
+  container-name: h5p-navigation;
 }
 
 .h5p-dialogcards .h5p-dialogcards-cardwrap {
@@ -96,7 +99,6 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-footer {
-  height: 2.25em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -248,18 +250,6 @@
   color: #757575;
   font-weight: 400;
   text-decoration: none solid rgb(153, 153, 153);
-}
-
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-turn {
-  margin: 0;
-  font-weight: normal;
-  line-height: 1;
-  order: 1;
-}
-
-.h5p-dialogcards .h5p-dialogcards-turn:before {
-  font-family: 'H5PFontAwesome4';
-  content: "\f021";
 }
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-show-summary {

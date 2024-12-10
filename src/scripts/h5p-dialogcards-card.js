@@ -187,14 +187,14 @@ class Card {
     }
 
     this.$buttonTurn = H5P.JoubelUI.createButton({
-      'class': 'h5p-dialogcards-turn',
-      'html': this.params.answer
+      'class': 'h5p-theme-primary-cta',
+      'html': '<span class="h5p-theme-label">' + this.params.answer + '</span>',
     }).appendTo($cardFooter);
 
     if (this.params.mode === 'repetition') {
       this.$buttonShowSummary = H5P.JoubelUI.createButton({
-        'class': 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone',
-        'html': this.params.showSummary
+        'class': 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone h5p-theme-secondary-cta h5p-theme-show-results',
+        'html': '<span>' + this.params.showSummary + '</span>',
       }).appendTo($cardFooter);
 
       this.$buttonIncorrect = H5P.JoubelUI.createButton({
