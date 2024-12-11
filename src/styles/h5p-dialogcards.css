@@ -25,40 +25,32 @@
 
 .h5p-no-frame .h5p-dialogcards .h5p-dialogcards-title,
 .h5p-transparent .h5p-dialogcards .h5p-dialogcards-title {
-  padding: 0 0 0.375em 0;
 }
 
 .h5p-dialogcards .h5p-dialogcards-title {
-  padding: 1em 1em 0.375em;
-}
-
-.h5p-dialogcards .h5p-dialogcards-title-inner {
-  font-size: 1.125em;
 }
 
 .h5p-no-frame .h5p-dialogcards .h5p-dialogcards-description,
 .h5p-transparent .h5p-dialogcards .h5p-dialogcards-description {
-  margin: 0 0 1em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-description {
-  margin: 0 1em 1em;
 }
 
 .h5p-dialogcards .h5p-dialogcards-description > p {
   margin: 0;
+  color: var(--h5p-theme-text-secondary);
 }
 
 .h5p-dialogcards .h5p-dialogcards-footer {
-  margin: auto;
   overflow: hidden;
-  line-height: 2.35em;
-  padding: 1em;
-  max-width: 32em;
   position: relative;
-
   container-type: inline-size;
   container-name: h5p-navigation;
+  padding: var(--h5p-theme-spacing-m);
+  background-color: var(--h5p-theme-ui-base);
+  border-top: 1px solid var(--h5p-theme-stroke-1);
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.05);
 }
 
 .h5p-dialogcards .h5p-dialogcards-cardwrap {
@@ -76,7 +68,8 @@
 .h5p-dialogcards .h5p-dialogcards-cardwrap.h5p-dialogcards-current {
   visibility: visible;
   left: 0;
-
+  background-color: var(--h5p-theme-background);
+  padding: var(--h5p-theme-spacing-l);
   -webkit-transition: left 300ms;
   transition: left 300ms;
 }
@@ -93,9 +86,12 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-content {
-  background: #FFF;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.30);
-  padding: 1em;
+  padding: var(--h5p-theme-spacing-l);
+}
+
+.h5p-dialogcards .h5p-joubelui-button:first-child:last-child{
+  margin-bottom: 0;
+  
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-footer {
@@ -143,10 +139,10 @@
   display: block;
   margin: 0 auto;
   vertical-align: baseline;
-  font-size: 1.5em;
   margin-bottom: 0.5em;
-  width: 1.5em;
-  height: 1.5em;
+  width: var(--h5p-theme-spacing-xl);
+  height: var(--h5p-theme-spacing-xl);
+  line-height: unset;
 }
 
 .h5p-dialogcards .h5p-dialogcards-audio-wrapper.h5p-audio-not-supported {
@@ -205,6 +201,7 @@
   height: 4.5em;
   line-height: 1.5;
   width: 100%;
+  color: var(--h5p-theme-text-primary);
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-text.hide {
@@ -232,8 +229,8 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-progress {
-  color: #757575;
   text-align: center;
+  margin: 0 auto;
 }
 
 .h5p-dialogcards .h5p-dialogcards-round {
@@ -338,39 +335,39 @@
   background-color: #d95354;
 }
 
+.h5p-dialogcards .h5p-dialogcards-title-container{
+  padding: var(--h5p-theme-spacing-m);
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--h5p-theme-stroke-1);
+  background-color: var(--h5p-theme-ui-base);
+  z-index: 1000;
+  position: relative;
+}
+
+.h5p-column-content.h5p-dialogcards .h5p-dialogcards-title-container{
+  margin: calc(-1*var(--h5p-theme-spacing-s)) calc(-1*var(--h5p-theme-spacing-s)) 0 calc(-1*var(--h5p-theme-spacing-s));
+}
+.h5p-column-content.h5p-dialogcards .h5p-dialogcards-footer{
+  margin: 0 calc(-1*var(--h5p-theme-spacing-s)) calc(-1*var(--h5p-theme-spacing-s)) calc(-1*var(--h5p-theme-spacing-s));
+}
+
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-footer-button {
   position: absolute;
   display: inline-block;
   margin: 0;
+  line-height: normal;
 }
 
 .h5p-dialogcards .h5p-dialogcards-prev {
-  left: 1em;
-}
-
-.h5p-dialogcards .h5p-dialogcards-prev:before {
-  font-family: 'H5PFontAwesome4';
-  content: "\f053";
-  margin-right: 0.2em;
+  left: var(--h5p-theme-spacing-m);
 }
 
 .h5p-dialogcards .h5p-dialogcards-next {
-  right: 1em;
+  right: var(--h5p-theme-spacing-m);
 }
 
 .h5p-dialogcards .h5p-dialogcards-retry {
-  right: 1em;
-}
-
-.h5p-dialogcards .h5p-dialogcards-retry:before {
-  font-family: 'H5PFontAwesome4';
-  content: "\f01e";
-}
-
-.h5p-dialogcards .h5p-dialogcards-next:after {
-  font-family: 'H5PFontAwesome4';
-  content: "\f054";
-  margin-left: 0.2em;
+  right: var(--h5p-theme-spacing-m);
 }
 
 .h5p-dialogcards .joubel-tip-container {
@@ -393,13 +390,13 @@
 /*TODO: Make Audio use JoubelUI button */
 .h5p-dialogcards .h5p-audio-minimal-button {
   border: none;
-  background: #1a73d9;
+  background: var(--h5p-theme-main-cta-base);
+  color: var(--h5p-theme-contrast-cta);
   font-weight: normal;
-  padding: 0;
-  font-size: 1em;
-  width: 1.5em;
-  height: 1.5em;
-  line-height: 1.5em;
+  font-size: var(--h5p-theme-font-size-xl);
+  width: var(--h5p-theme-spacing-xl);
+  height: var(--h5p-theme-spacing-xl);
+  line-height: unset;
 }
 
 .h5p-dialogcards .h5p-audio-minimal-button:before {

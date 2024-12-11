@@ -31,7 +31,7 @@ class Card {
       this.$cardWrapper.attr('aria-labelledby', 'h5p-dialogcards-progress-' + idCounter);
     }
 
-    this.$cardHolder = $('<div>', {'class': 'h5p-dialogcards-cardholder'})
+    this.$cardHolder = $('<div>', {'class': 'h5p-dialogcards-cardholder h5p-cardholder'})
       .appendTo(this.$cardWrapper);
 
     this.createCardContent(card)
@@ -187,7 +187,7 @@ class Card {
     }
 
     this.$buttonTurn = H5P.JoubelUI.createButton({
-      'class': 'h5p-theme-primary-cta',
+      'class': 'h5p-theme-primary-cta h5p-theme-flip',
       'html': '<span class="h5p-theme-label">' + this.params.answer + '</span>',
     }).appendTo($cardFooter);
 

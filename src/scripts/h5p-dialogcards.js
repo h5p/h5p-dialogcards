@@ -154,8 +154,8 @@ class Dialogcards extends H5P.EventDispatcher {
 
       if (firstCall === true) {
         const title = $('<div>' + this.params.title + '</div>').text().trim();
-        this.$header = $((title ? '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner">' + this.params.title + '</div></div>' : '') +
-          '<div class="h5p-dialogcards-description">' + this.params.description + '</div>');
+        this.$header = $((title ? '<div class="h5p-dialogcards-title-container"><div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner h5p-theme-question-description">' + this.params.title + '</div></div>' : '') +
+          '<div class="h5p-dialogcards-description">' + this.params.description + '</div></div>');
 
         this.summaryScreen = new SummaryScreen(this.params, {nextRound: this.nextRound, retry: this.restartRepetition});
       }
@@ -248,7 +248,7 @@ class Dialogcards extends H5P.EventDispatcher {
 
         this.$progress = $('<div>', {
           'id': 'h5p-dialogcards-progress-' + this.idCounter,
-          'class': 'h5p-dialogcards-progress',
+          'class': 'h5p-dialogcards-progress h5p-theme-progress',
           'aria-live': 'assertive'
         }).appendTo($footer);
       }
