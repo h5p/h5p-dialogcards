@@ -347,7 +347,7 @@
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid var(--h5p-theme-stroke-1);
   background-color: var(--h5p-theme-ui-base);
-  z-index: 1000;
+  z-index: 1;
   position: relative;
 }
 
@@ -391,33 +391,6 @@
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-disabled {
   display: none;
-}
-
-/* Audio button styling */
-/*TODO: Make Audio use JoubelUI button */
-.h5p-dialogcards .h5p-audio-minimal-button {
-  border: none;
-  background: var(--h5p-theme-main-cta-base);
-  color: var(--h5p-theme-contrast-cta);
-  font-weight: normal;
-  font-size: var(--h5p-theme-font-size-xl);
-  width: var(--h5p-theme-spacing-xl);
-  height: var(--h5p-theme-spacing-xl);
-  line-height: unset;
-}
-
-.h5p-dialogcards .h5p-audio-minimal-button:before {
-  font-size: 0.8em;
-  vertical-align: bottom;
-}
-
-.h5p-dialogcards .h5p-audio-minimal-button.h5p-audio-minimal-pause:before {
-  font-size: 0.6em;
-}
-
-.h5p-dialogcards .h5p-audio-minimal-button:focus,
-.h5p-dialogcards .h5p-audio-minimal-button:hover {
-  background: #1356a3;
 }
 
 .h5p-course-presentation .h5p-element .h5p-dialogcards-outer-element .h5p-element-inner.h5p-dialogcards.h5p-text-scaling {
