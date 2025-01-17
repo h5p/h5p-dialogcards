@@ -56,11 +56,12 @@
 .h5p-dialogcards .h5p-dialogcards-cardwrap {
   position: absolute;
   left: 100%;
-  width: 100%;
-  padding: 0 0.5em;
-  box-sizing: border-box;
   visibility: hidden;
+  width: 100%;
   height: inherit;
+  box-sizing: border-box;
+  padding: var(--h5p-theme-spacing-l);
+  background-color: var(--h5p-theme-background);
 
   -webkit-transition: visibility 0s 0.3s, left 300ms;
   transition: visibility 0s 0.3s, left 300ms;
@@ -68,8 +69,6 @@
 .h5p-dialogcards .h5p-dialogcards-cardwrap.h5p-dialogcards-current {
   visibility: visible;
   left: 0;
-  background-color: var(--h5p-theme-background);
-  padding: var(--h5p-theme-spacing-l);
   -webkit-transition: left 300ms;
   transition: left 300ms;
 }
@@ -78,9 +77,9 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-cardholder {
+  height: 100%;
   margin: auto;
   max-width: 32em;
-  height: 100%;
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
 }
