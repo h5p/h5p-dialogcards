@@ -12,7 +12,7 @@
   font-size: inherit;
   line-height: inherit;
   margin: inherit;
-}
+}.h5p-dialogcards .h5p-dialogcards-cardholder
 
 .h5p-dialogcards-card-text-area {
   outline: 0;
@@ -21,6 +21,7 @@
 .h5p-dialogcards {
   overflow: hidden;
   position: relative;
+  background-color: var(--h5p-theme-ui-base);
 }
 
 .h5p-no-frame .h5p-dialogcards .h5p-dialogcards-title,
@@ -127,11 +128,11 @@
 .h5p-dialogcards .h5p-dialogcards-card-text-wrapper {
   position: relative;
   overflow: hidden;
-  min-height: 12em;
+ /* min-height: 12em;*/
 }
 
 .h5p-dialogcards.h5p-text-scaling .h5p-dialogcards-card-text-wrapper {
-  height: 12em;
+ /* height: 12em;*/
 }
 
 .h5p-dialogcards .h5p-dialogcards-audio-wrapper {
@@ -175,7 +176,7 @@
 .h5p-dialogcards .h5p-dialogcards-card-text-inner {
   position: relative;
   height: calc(100% - calc(2*(var(--h5p-theme-spacing-m))));
-  padding: 1em 1.5em;
+  padding: var(--h5p-theme-spacing-s) var(--h5p-theme-spacing-m);
 }
 
 .h5p-dialogcards.h5p-text-scaling .h5p-dialogcards-card-text-inner {
@@ -234,16 +235,14 @@
 
 .h5p-dialogcards .h5p-dialogcards-round {
   float: left;
-  margin-left: 1.5em;
-  color: #757575;
+  color: var(--h5p-theme-text-secondary);
   font-weight: 400;
   text-decoration: none solid rgb(153, 153, 153);
 }
 
 .h5p-dialogcards .h5p-dialogcards-cards-left {
   float: right;
-  margin-right: 1.5em;
-  color: #757575;
+  color: var(--h5p-theme-text-secondary);
   font-weight: 400;
   text-decoration: none solid rgb(153, 153, 153);
 }
@@ -264,7 +263,7 @@
   margin: 0;
   border: 2px solid #ffffff;
   border-radius: var(--h5p-theme-border-radius-small);
-  background-color: #ffffff;
+  background-color: var(--h5p-theme-ui-base);
   background-size: cover;
   color: #b3b3b3;
   font-weight: bold;
@@ -316,7 +315,7 @@
 }
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.correct.h5p-dialogcards-quick-progression:hover {
-  color: #fff;
+  color: var(--h5p-theme-feedback-correct-secondary);
   background-color: var(--h5p-theme-feedback-correct-main);
 }
 
@@ -331,13 +330,24 @@
 }
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.incorrect.h5p-dialogcards-quick-progression {
-  border: 2px solid var(--h5p-theme-feedback-incorrect-main);
+  border: 3px solid var(--h5p-theme-feedback-incorrect-main);
   color: var(--h5p-theme-feedback-incorrect-main);
   text-decoration: none solid var(--h5p-theme-feedback-incorrect-main);
+
 }
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button{
+  padding: var(--h5p-theme-spacing-xs) calc(var(--h5p-theme-spacing-l));
+  border-radius: var(--h5p-theme-border-radius-medium);
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1;
+  font-size: var(--h5p-theme-font-size-l);
+  transition: all 0.1s linear 0s;
+  transition-property: text-indent, padding;
+  }
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.incorrect.h5p-dialogcards-quick-progression:hover {
-  color: #fff;
+  color: var(--h5p-theme-feedback-incorrect-secondary);
   background-color: var(--h5p-theme-feedback-incorrect-main);
 }
 
@@ -410,7 +420,16 @@
   flex-direction: column;
   align-items: center;
   padding: 1em;
+  background-color: var(--h5p-theme-ui-base);
 }
+
+
+/* Hide question on the "summary" screen */
+.h5p-dialogcards-cardwrap-set:has(.h5p-dialogcards-summary-screen:not(.h5p-dialogcards-gone)) .h5p-dialogcards .h5p-dialogcards-title-container {
+    display: none;
+}
+
+
 
 .h5p-dialogcards-summary-screen .h5p-dialogcards-summary-container {
   width: 100%;

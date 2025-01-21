@@ -44,7 +44,7 @@ class SummaryScreen {
 
     // Button to start over including confirmation dialog
     const buttonStartOver = H5P.JoubelUI.createButton({
-      'class': 'h5p-dialogcards-button-restart',
+      'class': 'h5p-dialogcards-button-restart h5p-theme-secondary-cta',
       'title': this.params.startOver,
       'html': this.params.startOver
     }).get(0);
@@ -188,6 +188,7 @@ class SummaryScreen {
       this.fields['buttonStartOver'].classList.remove('h5p-dialogcards-button-gone');
 
       this.fields['button'].classList.add('h5p-dialogcards-button-next-round');
+      this.fields['button'].classList.add('h5p-theme-secondary-cta');
       this.fields['button'].classList.remove('h5p-dialogcards-button-restart');
       this.fields['button'].innerHTML = this.params.nextRound;
       this.fields['button'].title = this.params.nextRound;
