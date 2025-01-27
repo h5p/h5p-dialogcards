@@ -13,8 +13,27 @@ class SummaryScreen {
     this.container = document.createElement('div');
     this.container.classList.add('h5p-dialogcards-summary-screen');
 
-    const containerRound = this.createContainerDOM(params.summary);
-    this.fields['round'] = containerRound.getElementsByClassName('h5p-dialogcards-summary-subheader')[0];
+    // Make title banner
+    const banner = document.createElement('div');
+    banner.classList.add('h5p-theme-results-banner');
+
+    const bannerPattern = document.createElement('div');
+    bannerPattern.classList.add('h5p-theme-pattern');
+
+    const bannerTitle = document.createElement('div');
+    bannerTitle.classList.add('h5p-theme-results-title');
+    bannerTitle.innerText = params.summary;
+
+    const bannerRound = document.createElement('div');
+    bannerRound.classList.add('h5p-theme-results-score');
+    bannerRound.innerText = params.summary;
+    this.fields['round'] = bannerRound;
+
+    banner.append(bannerPattern, bannerTitle, bannerRound)
+    this.container.append(banner);
+
+    // Populate the tables
+    const containerRound = this.createContainerDOM();
 
     this.fields['h5p-dialogcards-round-cards-right'] = this.addTableRow(
       containerRound, {category: this.params.summaryCardsRight, symbol: 'h5p-dialogcards-check'});
@@ -96,25 +115,26 @@ class SummaryScreen {
   /**
    * Create container DOM.
    * @param {string} headerText Header text.
-   * @param {string} [subheaderText=''] Sub-Header text.
    * @return {object} Container DOM.
    */
-  createContainerDOM(headerText, subheaderText = '') {
+  createContainerDOM(headerText = '') {
     const container = document.createElement('div');
     container.classList.add('h5p-dialogcards-summary-container');
+    container.classList.add('h5p-theme-results-list-container');
 
-    const header = document.createElement('div');
-    header.classList.add('h5p-dialogcards-summary-header');
-    header.innerHTML = headerText;
-    container.appendChild(header);
+    if (headerText) {
+      const headerContainer = document.createElement('div');
+      headerContainer.classList.add('h5p-theme-results-list-heading');
 
-    const subheader = document.createElement('div');
-    subheader.classList.add('h5p-dialogcards-summary-subheader');
-    subheader.innerHTML = subheaderText;
-    container.appendChild(subheader);
+      const header = document.createElement('h3');
+      header.innerText = headerText;
+      headerContainer.append(header);
+      container.append(headerContainer);
+    }
 
-    const table = document.createElement('table');
+    const table = document.createElement('ul');
     table.classList.add('h5p-dialogcards-summary-table');
+    table.classList.add('h5p-theme-results-list');
     container.appendChild(table);
 
     return container;
@@ -134,23 +154,33 @@ class SummaryScreen {
   addTableRow(container, cols) {
     const table = container.getElementsByClassName('h5p-dialogcards-summary-table')[0];
 
-    const row = document.createElement('tr');
+    const row = document.createElement('li');
+    row.classList.add('h5p-theme-results-list-item');
 
-    const category = document.createElement('td');
+    const questionContainer = document.createElement('div');
+    questionContainer.classList.add('h5p-theme-results-question-container');
+    row.appendChild(questionContainer);
+
+    const category = document.createElement('div');
     category.classList.add('h5p-dialogcards-summary-table-row-category');
+    category.classList.add('h5p-theme-results-question');
     category.innerHTML = cols.category;
-    row.appendChild(category);
+    questionContainer.appendChild(category);
 
-    const symbol = document.createElement('td');
+    const scoreContainer = document.createElement('div');
+    scoreContainer.classList.add('h5p-theme-results-points');
+    row.appendChild(scoreContainer);
+
+    const symbol = document.createElement('div');
     symbol.classList.add('h5p-dialogcards-summary-table-row-symbol');
     if (cols.symbol !== undefined && cols.symbol !== '') {
       symbol.classList.add(cols.symbol);
     }
-    row.appendChild(symbol);
+    scoreContainer.appendChild(symbol);
 
-    const score = document.createElement('td');
+    const score = document.createElement('div');
     score.classList.add('h5p-dialogcards-summary-table-row-score');
-    row.appendChild(score);
+    scoreContainer.appendChild(score);
 
     table.appendChild(row);
 

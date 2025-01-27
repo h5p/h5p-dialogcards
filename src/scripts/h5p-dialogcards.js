@@ -154,8 +154,16 @@ class Dialogcards extends H5P.EventDispatcher {
 
       if (firstCall === true) {
         const title = $('<div>' + this.params.title + '</div>').text().trim();
-        this.$header = $((title ? '<div class="h5p-dialogcards-title-container"><div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner h5p-theme-question-description">' + this.params.title + '</div></div>' : '') +
-          '<div class="h5p-dialogcards-description">' + this.params.description + '</div></div>');
+        this.$header = $((title ? '<div class="h5p-dialogcards-title-container"><div><div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner h5p-theme-question-description">' + this.params.title + '</div></div>' : '') +
+          '<div class="h5p-dialogcards-description">' + this.params.description + '</div></div></div>');
+
+        if (this.params.mode === 'normal') {
+          this.$progress = $('<div>', {
+            'id': 'h5p-dialogcards-progress-' + this.idCounter,
+            'class': 'h5p-dialogcards-progress h5p-theme-progress',
+            'aria-live': 'assertive'
+          }).appendTo(this.$header);
+        }
 
         this.summaryScreen = new SummaryScreen(this.params, {nextRound: this.nextRound, retry: this.restartRepetition});
       }
@@ -245,12 +253,6 @@ class Dialogcards extends H5P.EventDispatcher {
           this.trigger('reset');
         }).appendTo($footer);
         this.$retry.hover(function (event) {mouseEnter(self.$retry, self.params.retry)}, function () {mouseLeave(self.$retry)});
-
-        this.$progress = $('<div>', {
-          'id': 'h5p-dialogcards-progress-' + this.idCounter,
-          'class': 'h5p-dialogcards-progress h5p-theme-progress',
-          'aria-live': 'assertive'
-        }).appendTo($footer);
       }
       else {
         this.$round = $('<div>', {
