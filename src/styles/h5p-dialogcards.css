@@ -12,7 +12,7 @@
   font-size: inherit;
   line-height: inherit;
   margin: inherit;
-}.h5p-dialogcards .h5p-dialogcards-cardholder
+}
 
 .h5p-dialogcards .h5p-dialogcards-progress {
   height: var(--h5p-theme-spacing-m);
@@ -32,27 +32,14 @@
   background-color: var(--h5p-theme-ui-base);
 }
 
-.h5p-no-frame .h5p-dialogcards .h5p-dialogcards-title,
-.h5p-transparent .h5p-dialogcards .h5p-dialogcards-title {
-}
-
-.h5p-dialogcards .h5p-dialogcards-title {
-}
-
-.h5p-no-frame .h5p-dialogcards .h5p-dialogcards-description,
-.h5p-transparent .h5p-dialogcards .h5p-dialogcards-description {
-}
-
-.h5p-dialogcards .h5p-dialogcards-description {
-}
-
 .h5p-dialogcards .h5p-dialogcards-description > p {
   margin: 0;
   color: var(--h5p-theme-text-secondary);
 }
 
 .h5p-dialogcards .h5p-dialogcards-footer {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
   overflow: hidden;
   position: relative;
   container-type: inline-size;
@@ -238,14 +225,6 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-round {
-  float: left;
-  color: var(--h5p-theme-text-secondary);
-  font-weight: 400;
-  text-decoration: none solid rgb(153, 153, 153);
-}
-
-.h5p-dialogcards .h5p-dialogcards-cards-left {
-  float: right;
   color: var(--h5p-theme-text-secondary);
   font-weight: 400;
   text-decoration: none solid rgb(153, 153, 153);
@@ -367,7 +346,7 @@
 }
 
 /* Don't show on summary screen */
-.h5p-dialogcards:has(.h5p-dialogcards-summary-screen) .h5p-dialogcards-title-container {
+.h5p-dialogcards:has(.h5p-dialogcards-summary-screen:not(.h5p-dialogcards-gone)) .h5p-dialogcards-title-container {
   display: none;
 }
 
@@ -429,9 +408,8 @@
   background-color: var(--h5p-theme-ui-base);
 }
 
-
 /* Hide question on the "summary" screen */
-.h5p-dialogcards-cardwrap-set:has(.h5p-dialogcards-summary-screen:not(.h5p-dialogcards-gone)) .h5p-dialogcards .h5p-dialogcards-title-container {
+.h5p-dialogcards:has(.h5p-dialogcards-summary-screen:not(.h5p-dialogcards-gone)) .h5p-dialogcards-title-container {
   display: none;
 }
 

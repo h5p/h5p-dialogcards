@@ -260,7 +260,7 @@ class Dialogcards extends H5P.EventDispatcher {
         }).appendTo($footer);
 
         this.$progress = $('<div>', {
-          'class': 'h5p-dialogcards-cards-left',
+          'class': 'h5p-dialogcards-round',
           'aria-live': 'assertive'
         }).appendTo($footer);
       }
@@ -698,6 +698,7 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.resize = () => {
       let maxHeight = 0;
+
       this.updateImageSize();
       if (!this.params.behaviour.scaleTextNotCard && this.cardsShown !== false) {
         this.determineCardSizes();
@@ -706,18 +707,28 @@ class Dialogcards extends H5P.EventDispatcher {
       // Reset card-wrapper-set height
       this.$cardwrapperSet.css('height', 'auto');
 
-      //Find max required height for the current card
-      const $currentCardWrapper = this.cards[this.currentCardId].getDOM();
-      const wrapperHeight = $currentCardWrapper.css('height', 'initial').outerHeight();
-      $currentCardWrapper.css('height', '');
+      // Summary screen showing
+      const $summaryScreen = this.$cardwrapperSet.children('.h5p-dialogcards-summary-screen:not(.h5p-dialogcards-gone)');
+      if ($summaryScreen.length) {
+        const summaryHeight = $summaryScreen.css('height', 'initial').outerHeight();
+        $summaryScreen.css('height', '');
 
-      maxHeight = wrapperHeight > maxHeight ? wrapperHeight : maxHeight;
+        maxHeight = summaryHeight > maxHeight ? summaryHeight : maxHeight;
+      }
+      else {
+        //Find max required height for the current card
+        const $currentCardWrapper = this.cards[this.currentCardId].getDOM();
+        const wrapperHeight = $currentCardWrapper.css('height', 'initial').outerHeight();
+        $currentCardWrapper.css('height', '');
 
-      // Check height
-      if (!$currentCardWrapper.next('.h5p-dialogcards-cardwrap').length) {
-        const initialHeight = $currentCardWrapper.find('.h5p-dialogcards-cardholder').css('height', 'initial').outerHeight();
-        maxHeight = initialHeight > maxHeight ? initialHeight : maxHeight;
-        $currentCardWrapper.find('.h5p-dialogcards-cardholder').css('height', '');
+        maxHeight = wrapperHeight > maxHeight ? wrapperHeight : maxHeight;
+
+        // Check height
+        if (!$currentCardWrapper.next('.h5p-dialogcards-cardwrap').length) {
+          const initialHeight = $currentCardWrapper.find('.h5p-dialogcards-cardholder').css('height', 'initial').outerHeight();
+          maxHeight = initialHeight > maxHeight ? initialHeight : maxHeight;
+          $currentCardWrapper.find('.h5p-dialogcards-cardholder').css('height', '');
+        }
       }
 
       const relativeMaxHeight = maxHeight / parseFloat(this.$cardwrapperSet.css('font-size'));
