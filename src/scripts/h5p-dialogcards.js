@@ -29,7 +29,7 @@ class Dialogcards extends H5P.EventDispatcher {
     this.params = $.extend({
       title: '',
       mode: 'normal',
-      description: "Sit in pairs and make up sentences where you include the expressions below.<br/>Example: I should have said yes, HOWEVER I kept my mouth shut.",
+      description: '',
       next: "Next",
       prev: "Previous",
       retry: "Retry",
