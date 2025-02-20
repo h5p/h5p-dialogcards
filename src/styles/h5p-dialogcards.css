@@ -230,31 +230,20 @@
   text-decoration: none solid rgb(153, 153, 153);
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-show-summary {
-  margin: 0;
-  font-weight: normal;
-  line-height: 1;
-  order: 1;
-}
 
-.h5p-dialogcards .h5p-dialogcards-show-summary:before {
-  font-family: 'H5PFontAwesome4';
-  content: "\f0ca";
-}
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button {
-  margin: 0;
-  border: 2px solid #ffffff;
+  
+  
   border-radius: var(--h5p-theme-border-radius-small);
-  background-color: var(--h5p-theme-ui-base);
+  
   background-size: cover;
-  color: #b3b3b3;
+  
   font-weight: bold;
   text-decoration: none solid rgb(179, 179, 179);
   line-height: 1;
   cursor: inherit;
-  font-size: 0.75em;
-  padding: var(--h5p-theme-spacing-xs) calc(var(--h5p-theme-spacing-l) - 0.75em);
+  margin: 0 0.5em 1em 0;
 }
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-button-hidden {
@@ -267,7 +256,7 @@
 }
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button:active {
-  background-color: #ffffff;
+  background-color: var(--h5p-theme-ui-base);
   box-shadow: none;
 }
 
@@ -319,12 +308,10 @@
 
 }
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button{
-  padding: var(--h5p-theme-spacing-xs) calc(var(--h5p-theme-spacing-l));
   border-radius: var(--h5p-theme-border-radius-medium);
   font-weight: 600;
   cursor: pointer;
   line-height: 1;
-  font-size: var(--h5p-theme-font-size-l);
   transition: all 0.1s linear 0s;
   transition-property: text-indent, padding;
   }
@@ -419,16 +406,16 @@
 
 .h5p-dialogcards-summary-screen .h5p-dialogcards-summary-message {
   width: 100%;
-  font-size: 1.2em;
-  margin-top: 1em;
+  margin-top: var(--h5p-theme-spacing-s);
   text-align: center;
   font-weight: bold;
-  color: #1a73d9;
+  color: var(--h5p-theme-text-primary);
+  font-size: var(--h5p-theme-font-size-l);
 }
 
 .h5p-dialogcards-summary-screen .h5p-dialogcards-summary-footer {
   width: 100%;
-  margin-top: 2em;
+  margin-top: var(--h5p-theme-spacing-l);
   display: flex;
   flex-direction: row;
   justify-content: center;
