@@ -116,11 +116,10 @@
 .h5p-dialogcards .h5p-dialogcards-card-text-wrapper {
   position: relative;
   overflow: hidden;
- /* min-height: 12em;*/
 }
 
-.h5p-dialogcards.h5p-text-scaling .h5p-dialogcards-card-text-wrapper {
- /* height: 12em;*/
+.h5p-dialogcards.h5p-text-scaling .h5p-dialogcards-card-text {
+  height: calc(var(--h5p-theme-spacing-xl)*1.5)
 }
 
 .h5p-dialogcards .h5p-dialogcards-audio-wrapper {
@@ -172,12 +171,6 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-text-inner-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   width: 100%;
   padding: 0 1em;
   box-sizing: border-box;
