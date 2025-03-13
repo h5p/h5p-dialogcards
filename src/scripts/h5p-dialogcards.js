@@ -165,7 +165,7 @@ class Dialogcards extends H5P.EventDispatcher {
           }).appendTo(this.$header);
         }
 
-        this.summaryScreen = new SummaryScreen(this.params, {nextRound: this.nextRound, retry: this.restartRepetition});
+        this.summaryScreen = new SummaryScreen(this.params, {nextRound: this.nextRound, retry: this.restartRepetition}, this.contentId);
       }
 
       if (firstCall === true) {

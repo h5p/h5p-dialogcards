@@ -2,9 +2,10 @@ class SummaryScreen {
   /**
    * @constructor
    */
-  constructor(params, callbacks) {
+  constructor(params, callbacks, contentId) {
     this.params = params;
     this.callbacks = callbacks;
+    this.contentId = contentId
 
     this.currentCallback = callbacks.nextRound;
 
@@ -282,7 +283,8 @@ class SummaryScreen {
       headerText: options.l10n.header,
       dialogText: options.l10n.body,
       cancelText: options.l10n.cancelLabel,
-      confirmText: options.l10n.confirmLabel
+      confirmText: options.l10n.confirmLabel,
+      theme: true
     });
 
     confirmationDialog.on('confirmed', () => {
@@ -299,7 +301,7 @@ class SummaryScreen {
    * @return {HTMLElement} Container to attach dialogs to.
    */
   getContainer() {
-    const $content = H5P.jQuery('[data-content-id="' + self.contentId + '"].h5p-content');
+    const $content = H5P.jQuery('[data-content-id="' + this.contentId + '"].h5p-content');
     const $containerParents = $content.parents('.h5p-container');
 
     let $container;
