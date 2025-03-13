@@ -38,8 +38,7 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-footer {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   overflow: hidden;
   position: relative;
   container-type: inline-size;
@@ -234,7 +233,6 @@
   margin: 0;
   font-weight: normal;
   line-height: 1;
-  order: 1;
 }
 
 .h5p-dialogcards .h5p-dialogcards-show-summary:before {
@@ -284,7 +282,9 @@
   content: "\e903";
   font-weight: normal;
 }
-.h5p-dialogcards .h5p-theme-primary-cta.h5p-theme-flip{
+.h5p-dialogcards .h5p-theme-flip, 
+.h5p-dialogcards .h5p-theme-show-results {
+  white-space: nowrap;
   order: 2;
 }
 .h5p-dialogcards .h5p-theme-primary-cta.h5p-theme-flip .h5p-theme-label{
