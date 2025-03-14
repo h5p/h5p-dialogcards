@@ -165,7 +165,7 @@ class Dialogcards extends H5P.EventDispatcher {
           }).appendTo(this.$header);
         }
 
-        this.summaryScreen = new SummaryScreen(this.params, {nextRound: this.nextRound, retry: this.restartRepetition});
+        this.summaryScreen = new SummaryScreen(this.params, {nextRound: this.nextRound, retry: this.restartRepetition}, this.contentId);
       }
 
       if (firstCall === true) {
@@ -213,7 +213,7 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.createFooter = () => {
       const $footer = $('<nav>', {
-        'class': 'h5p-dialogcards-footer',
+        'class': 'h5p-navigation',
         'role': 'navigation'
       });
 
@@ -247,7 +247,7 @@ class Dialogcards extends H5P.EventDispatcher {
         this.$next.hover(function (event) {mouseEnter(self.$next, self.params.next)}, function () {mouseLeave(self.$next)});
 
         this.$retry = JoubelUI.createButton({
-          'class': 'h5p-dialogcards-footer-button h5p-dialogcards-retry h5p-dialogcards-disabled h5p-theme-secondary-cta h5p-theme-retry',
+          'class': 'h5p-dialogcards-footer-button h5p-dialogcards-disabled h5p-theme-secondary-cta h5p-theme-retry',
           'html': '<span class="h5p-theme-label">' + this.params.retry + '</span>',
         }).click(() => {
           this.trigger('reset');
