@@ -230,7 +230,8 @@
   font-weight: bold;
   line-height: 1;
   cursor: default;
-  margin: 0 0.5em 1em 0;
+  margin: 0;
+  opacity: 0.4;
 
   transition: all 0.1s linear 0s;
   transition-property: text-indent, padding;
@@ -243,6 +244,10 @@
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-button-gone {
   display: none;
   visibility: hidden;
+}
+
+.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button:hover {
+  background-color: unset;
 }
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button:active {
@@ -281,7 +286,8 @@
   display: inline;
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.correct.h5p-dialogcards-quick-progression:hover {
+.h5p-dialogcards .h5p-dialogcards-answer-button.correct.h5p-dialogcards-quick-progression:hover,
+.h5p-dialogcards .h5p-dialogcards-answer-button.correct.h5p-dialogcards-quick-progression:focus {
   color: var(--h5p-theme-feedback-correct-secondary);
   background-color: var(--h5p-theme-feedback-correct-main);
 }
@@ -299,7 +305,8 @@
   font-weight: normal;
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.incorrect.h5p-dialogcards-quick-progression:hover {
+.h5p-dialogcards .h5p-dialogcards-answer-button.incorrect.h5p-dialogcards-quick-progression:hover,
+.h5p-dialogcards .h5p-dialogcards-answer-button.incorrect.h5p-dialogcards-quick-progression:focus {
   color: var(--h5p-theme-feedback-incorrect-secondary);
   background-color: var(--h5p-theme-feedback-incorrect-main);
 }

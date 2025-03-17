@@ -198,18 +198,18 @@ class Card {
       }).appendTo($cardFooter);
 
       this.$buttonIncorrect = H5P.JoubelUI.createButton({
-        'class': 'h5p-dialogcards-answer-button h5p-theme-secondary-cta',
-        'html': this.params.incorrectAnswer
-      }).addClass('incorrect')
-        .addClass(classesRepetition)
+        'class': 'h5p-dialogcards-answer-button h5p-theme-secondary-cta incorrect',
+        'html': this.params.incorrectAnswer,
+        'disabled': !this.params.behaviour.quickProgression,
+      }).addClass(classesRepetition)
         .attr('tabindex', attributeTabindex)
         .appendTo($cardFooter);
 
       this.$buttonCorrect = H5P.JoubelUI.createButton({
-        'class': 'h5p-dialogcards-answer-button h5p-theme-secondary-cta',
-        'html': this.params.correctAnswer
-      }).addClass('correct')
-        .addClass(classesRepetition)
+        'class': 'h5p-dialogcards-answer-button h5p-theme-secondary-cta correct',
+        'html': this.params.correctAnswer,
+        'disabled': !this.params.behaviour.quickProgression,
+      }).addClass(classesRepetition)
         .attr('tabindex', attributeTabindex)
         .appendTo($cardFooter);
     }
@@ -329,7 +329,8 @@ class Card {
         if ($answerButtons.hasClass('h5p-dialogcards-quick-progression') === false) {
           $answerButtons
             .addClass('h5p-dialogcards-quick-progression')
-            .attr('tabindex', 0);
+            .attr('tabindex', 0)
+            .attr('disabled', false);
         }
       }
 
