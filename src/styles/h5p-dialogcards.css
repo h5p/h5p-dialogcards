@@ -224,28 +224,13 @@
   grid-column: 3;
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-show-summary {
-  margin: 0;
-  font-weight: normal;
-  line-height: 1;
-}
-
-.h5p-dialogcards .h5p-dialogcards-show-summary:before {
-  font-family: 'H5PFontAwesome4';
-  content: "\f0ca";
-}
-
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button {
-  margin: 0;
   border-radius: var(--h5p-theme-border-radius-medium);
-  background-color: var(--h5p-theme-ui-base);
   background-size: cover;
+  font-weight: bold;
   line-height: 1;
-  font-size: var(--h5p-theme-font-size-l);
-  font-weight: 600;
-  padding: var(--h5p-theme-spacing-xs) calc(var(--h5p-theme-spacing-l));
-  opacity: 0.4;
   cursor: default;
+  margin: 0 0.5em 1em 0;
 
   transition: all 0.1s linear 0s;
   transition-property: text-indent, padding;
@@ -261,7 +246,7 @@
 }
 
 .h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button:active {
-  background-color: #ffffff;
+  background-color: var(--h5p-theme-ui-base);
   box-shadow: none;
 }
 
@@ -400,16 +385,16 @@
 
 .h5p-dialogcards-summary-screen .h5p-dialogcards-summary-message {
   width: 100%;
-  font-size: 1.2em;
-  margin-top: 1em;
+  margin-top: var(--h5p-theme-spacing-s);
   text-align: center;
   font-weight: bold;
-  color: #1a73d9;
+  color: var(--h5p-theme-text-primary);
+  font-size: var(--h5p-theme-font-size-l);
 }
 
 .h5p-dialogcards-summary-screen .h5p-dialogcards-summary-footer {
   width: 100%;
-  margin-top: 2em;
+  margin-top: var(--h5p-theme-spacing-l);
   display: flex;
   flex-direction: row;
   justify-content: center;

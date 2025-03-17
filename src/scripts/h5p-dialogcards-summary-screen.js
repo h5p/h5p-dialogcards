@@ -55,7 +55,7 @@ class SummaryScreen {
     this.fields['message'] = message;
 
     const buttonNextRound = H5P.JoubelUI.createButton({
-      'class': 'h5p-dialogcards-buttonNextRound',
+      'class': 'h5p-dialogcards-buttonNextRound h5p-theme-secondary-cta',
       'title': this.params.nextRound.replace('@round', 2),
       'html': this.params.nextRound.replace('@round', 2)
     }).click(this.currentCallback).get(0);
