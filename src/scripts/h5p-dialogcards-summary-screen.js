@@ -11,43 +11,48 @@ class SummaryScreen {
 
     this.fields = [];
 
+    this.tableRows = [
+      {
+        title: this.params.summaryCardsRight,
+        symbol: 'check'
+      },
+      {
+        title: this.params.summaryCardsWrong,
+        symbol: 'times'
+      },
+      {
+        title: this.params.summaryCardsNotShown
+      }
+    ];
+
+    this.overallTableRows = [
+      {
+        title: this.params.summaryCardsCompleted,
+        symbol: 'check'
+      },
+      {
+        title: this.params.summaryCompletedRounds,
+      }
+    ];
+
     this.container = document.createElement('div');
     this.container.classList.add('h5p-dialogcards-summary-screen');
-
-    // Make title banner
-    const banner = document.createElement('div');
-    banner.classList.add('h5p-theme-results-banner');
-
-    const bannerPattern = document.createElement('div');
-    bannerPattern.classList.add('h5p-theme-pattern');
-
-    const bannerTitle = document.createElement('div');
-    bannerTitle.classList.add('h5p-theme-results-title');
-    bannerTitle.innerText = params.summary;
-
-    const bannerRound = document.createElement('div');
-    bannerRound.classList.add('h5p-theme-results-score');
-    bannerRound.innerText = params.summary;
-    this.fields['round'] = bannerRound;
-
-    banner.append(bannerPattern, bannerTitle, bannerRound)
-    this.container.append(banner);
 
     // Populate the tables
     const containerRound = this.createContainerDOM();
 
-    this.fields['h5p-dialogcards-round-cards-right'] = this.addTableRow(
-      containerRound, {category: this.params.summaryCardsRight, symbol: 'h5p-dialogcards-check'});
-    this.fields['h5p-dialogcards-round-cards-wrong'] = this.addTableRow(
-      containerRound, {category: this.params.summaryCardsWrong, symbol: 'h5p-dialogcards-times'});
-    this.fields['h5p-dialogcards-round-cards-not-shown'] = this.addTableRow(
-      containerRound, {category: this.params.summaryCardsNotShown});
+    // this.fields['h5p-dialogcards-round-cards-right'] = this.addTableRow(
+    //   containerRound, {category: this.params.summaryCardsRight, symbol: 'h5p-dialogcards-check'});
+    // this.fields['h5p-dialogcards-round-cards-wrong'] = this.addTableRow(
+    //   containerRound, {category: this.params.summaryCardsWrong, symbol: 'h5p-dialogcards-times'});
+    // this.fields['h5p-dialogcards-round-cards-not-shown'] = this.addTableRow(
+    //   containerRound, {category: this.params.summaryCardsNotShown});
 
-    const containerOverall = this.createContainerDOM(params.summaryOverallScore);
-    this.fields['h5p-dialogcards-overall-cards-completed'] = this.addTableRow(
-      containerOverall, {category: this.params.summaryCardsCompleted, symbol: 'h5p-dialogcards-check'});
-    this.fields['h5p-dialogcards-overall-completed-rounds'] = this.addTableRow(
-      containerOverall, {category: this.params.summaryCompletedRounds, symbol: ''});
+    // const containerOverall = this.createContainerDOM(params.summaryOverallScore);
+    // this.fields['h5p-dialogcards-overall-cards-completed'] = this.addTableRow(
+    //   containerOverall, {category: this.params.summaryCardsCompleted, symbol: 'h5p-dialogcards-check'});
+    // this.fields['h5p-dialogcards-overall-completed-rounds'] = this.addTableRow(
+    //   containerOverall, {category: this.params.summaryCompletedRounds, symbol: ''});
 
     const message = document.createElement('div');
     message.classList.add('h5p-dialogcards-summary-message');
@@ -113,33 +118,33 @@ class SummaryScreen {
     return this.container;
   }
 
-  /**
-   * Create container DOM.
-   * @param {string} headerText Header text.
-   * @return {object} Container DOM.
-   */
-  createContainerDOM(headerText = '') {
-    const container = document.createElement('div');
-    container.classList.add('h5p-dialogcards-summary-container');
-    container.classList.add('h5p-theme-results-list-container');
+  // /**
+  //  * Create container DOM.
+  //  * @param {string} headerText Header text.
+  //  * @return {object} Container DOM.
+  //  */
+  // createContainerDOM(headerText = '') {
+  //   const container = document.createElement('div');
+  //   container.classList.add('h5p-dialogcards-summary-container');
+  //   container.classList.add('h5p-theme-results-list-container');
 
-    if (headerText) {
-      const headerContainer = document.createElement('div');
-      headerContainer.classList.add('h5p-theme-results-list-heading');
+  //   if (headerText) {
+  //     const headerContainer = document.createElement('div');
+  //     headerContainer.classList.add('h5p-theme-results-list-heading');
 
-      const header = document.createElement('h3');
-      header.innerText = headerText;
-      headerContainer.append(header);
-      container.append(headerContainer);
-    }
+  //     const header = document.createElement('h3');
+  //     header.innerText = headerText;
+  //     headerContainer.append(header);
+  //     container.append(headerContainer);
+  //   }
 
-    const table = document.createElement('ul');
-    table.classList.add('h5p-dialogcards-summary-table');
-    table.classList.add('h5p-theme-results-list');
-    container.appendChild(table);
+  //   const table = document.createElement('ul');
+  //   table.classList.add('h5p-dialogcards-summary-table');
+  //   table.classList.add('h5p-theme-results-list');
+  //   container.appendChild(table);
 
-    return container;
-  }
+  //   return container;
+  // }
 
   /**
    * Add row to a table.
@@ -189,6 +194,37 @@ class SummaryScreen {
   }
 
   /**
+   * Create the score element to send to the ResultScreen component
+   * @param {string} [symbol] Which 
+   * @param {number} score Which score the user got
+   * @param {number} [scoreMax] What the max score is
+   */
+  createScoreElement({symbol, score, scoreMax = '0'}) {
+    return  (symbol ?
+              '<div class="h5p-dialogcards-summary-table-row-symbol ' + symbol + '"></div>'
+              : ''
+            ) +
+            '<div class="h5p-dialogcards-summary-table-row-score">' +
+              score +
+              (scoreMax ?
+                ' <span class="h5p-dialogcards-summary-table-row-score-divider">/</span> ' + scoreMax
+                : ''
+              ) +
+            '</div>';
+  }
+
+  /**
+   * Create the question array for the ResultScreen component based on user results
+   * @param {object[]} results The list of scores
+   * @param {string} results.field Which field to update
+   * @param {number} results.score How the user did
+   * @param {number} [results.maxScore] What the max score is
+   */
+  createQuestions(results) {
+    // TODO: use consts to make the two different lists 
+  }
+
+  /**
    * Update fields.
    * @param {object} [args] Arguments.
    * @param {boolean} [args.done] If true, learner is done.
@@ -201,6 +237,53 @@ class SummaryScreen {
    * @param {number} [args.results.score.max] Score max value for field.
    */
   update({done = false, round = undefined, message = undefined, results = []} = {}) {
+    H5P.Components.ResultScreen(this.container, {
+      header: params.summary,
+      scoreHeader: this.params.round.replace('@round', round),
+      // listHeaders: [this.options.cardsHeader, this.options.scoreHeader],
+      // questions: [
+      //   {
+      //     title: this.params.summaryCardsRight,
+      //     score: createScoreElement({
+      //       symbol: 'h5p-dialogcards-check',
+      //       score: results[0].score.value,
+      //       scoreMax: results[0].score.max
+      //     }),
+      //   },
+      //   {
+      //     title: this.params.summaryCardsWrong,
+      //     score: createScoreElement({
+      //       symbol: 'h5p-dialogcards-times',
+      //       score: results[1].score.value,
+      //       scoreMax: results[1].score.max
+      //     }),
+      //   },
+      //   {
+      //     title: this.params.summaryCardsNotShown,
+      //     score: createScoreElement({
+      //       score: results[2].score.value,
+      //     }),
+      //   },
+      //   {
+      //     group: true,
+      //     title: this.params.summaryOverallScore,
+      //     questions: [
+      //       {
+      //         title: this.params.summaryCardsCompleted,
+      //         score: createScoreElement({
+      //           symbol: 'h5p-dialogcards-check',
+      //           score: results[3].score.value,
+      //           scoreMax: results[3].score.max
+      //         }),
+      //       },
+      //       {
+      //         title: this.params.summaryCompletedRounds,
+      //       },
+      //     ]
+      //   }
+      // ],
+    });
+
     if (done === true) {
       this.fields['buttonStartOver'].classList.add('h5p-dialogcards-button-gone');
 
@@ -227,7 +310,7 @@ class SummaryScreen {
     }
     H5P.jQuery(this.fields['button']).unbind('click').click(this.currentCallback);
 
-    this.fields['round'].innerHTML = this.params.round.replace('@round', round);
+    // this.fields['round'].innerHTML = this.params.round.replace('@round', round);
 
     if (!done && round !== undefined) {
       this.fields['button'].innerHTML = this.params.nextRound.replace('@round', round + 1);
@@ -242,13 +325,13 @@ class SummaryScreen {
       this.fields['message'].classList.add('h5p-dialogcards-gone');
     }
 
-    results.forEach(result => {
-      let scoreHTML = (result.score.value !== undefined) ? result.score.value : '';
-      if (result.score.max !== undefined) {
-        scoreHTML = `${scoreHTML}&nbsp;<span class="h5p-dialogcards-summary-table-row-score-divider">/</span>&nbsp;${result.score.max}`;
-      }
-      this.fields[result.field].innerHTML = scoreHTML;
-    });
+    // results.forEach(result => {
+    //   let scoreHTML = (result.score.value !== undefined) ? result.score.value : '';
+    //   if (result.score.max !== undefined) {
+    //     scoreHTML = `${scoreHTML}&nbsp;<span class="h5p-dialogcards-summary-table-row-score-divider">/</span>&nbsp;${result.score.max}`;
+    //   }
+    //   this.fields[result.field].innerHTML = scoreHTML;
+    // });
   }
 
   /**
