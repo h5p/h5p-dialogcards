@@ -38,22 +38,6 @@ class SummaryScreen {
     this.container = document.createElement('div');
     this.container.classList.add('h5p-dialogcards-summary-screen');
 
-    // Populate the tables
-    // const containerRound = this.createContainerDOM();
-
-    // this.fields['h5p-dialogcards-round-cards-right'] = this.addTableRow(
-    //   containerRound, {category: this.params.summaryCardsRight, symbol: 'h5p-dialogcards-check'});
-    // this.fields['h5p-dialogcards-round-cards-wrong'] = this.addTableRow(
-    //   containerRound, {category: this.params.summaryCardsWrong, symbol: 'h5p-dialogcards-times'});
-    // this.fields['h5p-dialogcards-round-cards-not-shown'] = this.addTableRow(
-    //   containerRound, {category: this.params.summaryCardsNotShown});
-
-    // const containerOverall = this.createContainerDOM(params.summaryOverallScore);
-    // this.fields['h5p-dialogcards-overall-cards-completed'] = this.addTableRow(
-    //   containerOverall, {category: this.params.summaryCardsCompleted, symbol: 'h5p-dialogcards-check'});
-    // this.fields['h5p-dialogcards-overall-completed-rounds'] = this.addTableRow(
-    //   containerOverall, {category: this.params.summaryCompletedRounds, symbol: ''});
-
     const message = document.createElement('div');
     message.classList.add('h5p-dialogcards-summary-message');
 
@@ -100,8 +84,6 @@ class SummaryScreen {
     footer.appendChild(buttonStartOver);
     footer.appendChild(buttonNextRound);
 
-    // this.container.appendChild(containerRound);
-    // this.container.appendChild(containerOverall);
     this.container.appendChild(message);
     this.container.appendChild(footer);
 
@@ -118,81 +100,6 @@ class SummaryScreen {
     return this.container;
   }
 
-  // /**
-  //  * Create container DOM.
-  //  * @param {string} headerText Header text.
-  //  * @return {object} Container DOM.
-  //  */
-  // createContainerDOM(headerText = '') {
-  //   const container = document.createElement('div');
-  //   container.classList.add('h5p-dialogcards-summary-container');
-  //   container.classList.add('h5p-theme-results-list-container');
-
-  //   if (headerText) {
-  //     const headerContainer = document.createElement('div');
-  //     headerContainer.classList.add('h5p-theme-results-list-heading');
-
-  //     const header = document.createElement('h3');
-  //     header.innerText = headerText;
-  //     headerContainer.append(header);
-  //     container.append(headerContainer);
-  //   }
-
-  //   const table = document.createElement('ul');
-  //   table.classList.add('h5p-dialogcards-summary-table');
-  //   table.classList.add('h5p-theme-results-list');
-  //   container.appendChild(table);
-
-  //   return container;
-  // }
-
-  /**
-   * Add row to a table.
-   * @param {object} container Container to add table to.
-   * @param {object} cols Columns.
-   * @param {string} cols.category Category text.
-   * @param {string} [cols.symbol=''] Symbol.
-   * @param {object} [cols.score] Score value and maximum value.
-   * @param {number|string} [cols.score.value=''] Value.
-   * @param {number|string} [cols.score.max] Maximum value.
-   * @return {object} Score field for updating later.
-   */
-  addTableRow(container, cols) {
-    const table = container.getElementsByClassName('h5p-dialogcards-summary-table')[0];
-
-    const row = document.createElement('li');
-    row.classList.add('h5p-theme-results-list-item');
-
-    const questionContainer = document.createElement('div');
-    questionContainer.classList.add('h5p-theme-results-question-container');
-    row.appendChild(questionContainer);
-
-    const category = document.createElement('div');
-    category.classList.add('h5p-dialogcards-summary-table-row-category');
-    category.classList.add('h5p-theme-results-question');
-    category.innerHTML = cols.category;
-    questionContainer.appendChild(category);
-
-    const scoreContainer = document.createElement('div');
-    scoreContainer.classList.add('h5p-theme-results-points');
-    row.appendChild(scoreContainer);
-
-    const symbol = document.createElement('div');
-    symbol.classList.add('h5p-dialogcards-summary-table-row-symbol');
-    if (cols.symbol !== undefined && cols.symbol !== '') {
-      symbol.classList.add(cols.symbol);
-    }
-    scoreContainer.appendChild(symbol);
-
-    const score = document.createElement('div');
-    score.classList.add('h5p-dialogcards-summary-table-row-score');
-    scoreContainer.appendChild(score);
-
-    table.appendChild(row);
-
-    return score;
-  }
-
   /**
    * Create the score element to send to the ResultScreen component
    * @param {string} [symbol] Which 
@@ -207,10 +114,10 @@ class SummaryScreen {
     }
 
     if (score !== undefined) {
-      element += `<div class="h5p-dialogcards-summary-table-row-score">${score.toString()}`; 
+      element += `<div>${score.toString()}`; 
 
       if (maxScore) {
-        element +=  ` <span class="h5p-dialogcards-summary-table-row-score-divider">/</span> ${maxScore}`;
+        element +=  ` <span>/</span> ${maxScore}`;
       }
 
       element += '</div>';
