@@ -11,35 +11,35 @@ class SummaryScreen {
 
     this.fields = [];
 
-    this.tableRows = [
-      {
+    this.tableRows = {
+      right: {
         title: this.params.summaryCardsRight,
         symbol: 'check'
       },
-      {
+      wrong: {
         title: this.params.summaryCardsWrong,
         symbol: 'times'
       },
-      {
+      'not-shown': {
         title: this.params.summaryCardsNotShown
       }
-    ];
+    };
 
-    this.overallTableRows = [
-      {
+    this.overallTableRows = {
+      'cards-completed': {
         title: this.params.summaryCardsCompleted,
         symbol: 'check'
       },
-      {
+      'completed-rounds': {
         title: this.params.summaryCompletedRounds,
       }
-    ];
+    };
 
     this.container = document.createElement('div');
     this.container.classList.add('h5p-dialogcards-summary-screen');
 
     // Populate the tables
-    const containerRound = this.createContainerDOM();
+    // const containerRound = this.createContainerDOM();
 
     // this.fields['h5p-dialogcards-round-cards-right'] = this.addTableRow(
     //   containerRound, {category: this.params.summaryCardsRight, symbol: 'h5p-dialogcards-check'});
@@ -100,8 +100,8 @@ class SummaryScreen {
     footer.appendChild(buttonStartOver);
     footer.appendChild(buttonNextRound);
 
-    this.container.appendChild(containerRound);
-    this.container.appendChild(containerOverall);
+    // this.container.appendChild(containerRound);
+    // this.container.appendChild(containerOverall);
     this.container.appendChild(message);
     this.container.appendChild(footer);
 
@@ -197,31 +197,73 @@ class SummaryScreen {
    * Create the score element to send to the ResultScreen component
    * @param {string} [symbol] Which 
    * @param {number} score Which score the user got
-   * @param {number} [scoreMax] What the max score is
+   * @param {number} [maxScore] What the max score is
    */
-  createScoreElement({symbol, score, scoreMax = '0'}) {
-    return  (symbol ?
-              '<div class="h5p-dialogcards-summary-table-row-symbol ' + symbol + '"></div>'
-              : ''
-            ) +
-            '<div class="h5p-dialogcards-summary-table-row-score">' +
-              score +
-              (scoreMax ?
-                ' <span class="h5p-dialogcards-summary-table-row-score-divider">/</span> ' + scoreMax
-                : ''
-              ) +
-            '</div>';
+  createScoreElement({symbol, score, maxScore}) {
+    let element = '';
+
+    if (symbol) {
+      element += `<div class="h5p-dialogcards-summary-table-row-symbol h5p-dialogcards-${symbol}"></div>`
+    }
+
+    if (score !== undefined) {
+      element += `<div class="h5p-dialogcards-summary-table-row-score">${score.toString()}`; 
+
+      if (maxScore) {
+        element +=  ` <span class="h5p-dialogcards-summary-table-row-score-divider">/</span> ${maxScore}`;
+      }
+
+      element += '</div>';
+    }
+
+    return  element;
   }
 
   /**
    * Create the question array for the ResultScreen component based on user results
    * @param {object[]} results The list of scores
    * @param {string} results.field Which field to update
-   * @param {number} results.score How the user did
-   * @param {number} [results.maxScore] What the max score is
+   * @param {number} results.score.value How the user did
+   * @param {number} [results.score.max] What the max score is
    */
   createQuestions(results) {
-    // TODO: use consts to make the two different lists 
+    const questions = [];
+    const overallQuestions = [];
+
+    results.forEach((result) => {
+      let field = result.field.split('h5p-dialogcards-round-cards-');
+      let data = this.tableRows[field[1]];
+      let overallGroup = false;
+
+      if(!data) {
+        data = this.overallTableRows[result.field.split('h5p-dialogcards-overall-')[1]];
+        overallGroup = true;
+      }
+
+      const question = {
+        title: data.title,
+        points: this.createScoreElement({
+          symbol: data.symbol,
+          score: result.score.value,
+          maxScore: result.score.max,
+        }),
+      };
+
+      if (overallGroup) {
+        overallQuestions.push(question);
+      }
+      else {
+        questions.push(question);
+      }
+    });
+
+    return [
+      { questions: questions },
+      {
+        listHeaders: [ this.params.summaryOverallScore ],
+        questions: overallQuestions,
+      }
+    ];
   }
 
   /**
@@ -237,52 +279,18 @@ class SummaryScreen {
    * @param {number} [args.results.score.max] Score max value for field.
    */
   update({done = false, round = undefined, message = undefined, results = []} = {}) {
-    H5P.Components.ResultScreen(this.container, {
-      header: params.summary,
+    // Remove the old one
+    if (this.resultScreen) {
+      this.resultScreen.remove();
+    }
+
+    this.resultScreen = H5P.Components.ResultScreen({
+      header: this.params.summary,
       scoreHeader: this.params.round.replace('@round', round),
-      // listHeaders: [this.options.cardsHeader, this.options.scoreHeader],
-      // questions: [
-      //   {
-      //     title: this.params.summaryCardsRight,
-      //     score: createScoreElement({
-      //       symbol: 'h5p-dialogcards-check',
-      //       score: results[0].score.value,
-      //       scoreMax: results[0].score.max
-      //     }),
-      //   },
-      //   {
-      //     title: this.params.summaryCardsWrong,
-      //     score: createScoreElement({
-      //       symbol: 'h5p-dialogcards-times',
-      //       score: results[1].score.value,
-      //       scoreMax: results[1].score.max
-      //     }),
-      //   },
-      //   {
-      //     title: this.params.summaryCardsNotShown,
-      //     score: createScoreElement({
-      //       score: results[2].score.value,
-      //     }),
-      //   },
-      //   {
-      //     group: true,
-      //     title: this.params.summaryOverallScore,
-      //     questions: [
-      //       {
-      //         title: this.params.summaryCardsCompleted,
-      //         score: createScoreElement({
-      //           symbol: 'h5p-dialogcards-check',
-      //           score: results[3].score.value,
-      //           scoreMax: results[3].score.max
-      //         }),
-      //       },
-      //       {
-      //         title: this.params.summaryCompletedRounds,
-      //       },
-      //     ]
-      //   }
-      // ],
+      questionGroups: this.createQuestions(results),
     });
+
+    this.container.prepend(this.resultScreen);
 
     if (done === true) {
       this.fields['buttonStartOver'].classList.add('h5p-dialogcards-button-gone');
@@ -324,14 +332,6 @@ class SummaryScreen {
     else {
       this.fields['message'].classList.add('h5p-dialogcards-gone');
     }
-
-    // results.forEach(result => {
-    //   let scoreHTML = (result.score.value !== undefined) ? result.score.value : '';
-    //   if (result.score.max !== undefined) {
-    //     scoreHTML = `${scoreHTML}&nbsp;<span class="h5p-dialogcards-summary-table-row-score-divider">/</span>&nbsp;${result.score.max}`;
-    //   }
-    //   this.fields[result.field].innerHTML = scoreHTML;
-    // });
   }
 
   /**
