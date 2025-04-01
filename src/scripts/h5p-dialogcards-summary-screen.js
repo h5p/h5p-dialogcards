@@ -225,8 +225,6 @@ class SummaryScreen {
     }
     H5P.jQuery(this.fields['button']).unbind('click').click(this.currentCallback);
 
-    // this.fields['round'].innerHTML = this.params.round.replace('@round', round);
-
     if (!done && round !== undefined) {
       this.fields['button'].innerHTML = this.params.nextRound.replace('@round', round + 1);
       this.fields['button'].title = this.params.nextRound.replace('@round', round + 1);
