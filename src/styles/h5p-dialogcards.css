@@ -320,6 +320,23 @@
   border-bottom: 1px solid var(--h5p-theme-stroke-1);
   background-color: var(--h5p-theme-ui-base);
   z-index: 1;
+  flex-direction: row;
+  flex: 2 1;
+}
+
+.h5p-dialogcards-title-inner .h5p-theme-question-description{
+  padding-left: var(--h5p-theme-spacing-m);
+}
+
+@media only screen and (max-width: 600px) {
+  .h5p-dialogcards .h5p-dialogcards-title-container {
+    flex-direction: column;
+  }
+  .h5p-dialogcards .h5p-dialogcards-progress{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: var(--h5p-theme-spacing-m);
+  }
 }
 
 /* Don't show on summary screen */
