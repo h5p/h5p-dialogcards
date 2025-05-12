@@ -228,28 +228,26 @@ class Dialogcards extends H5P.EventDispatcher {
 
       if (this.params.mode === 'normal') {
         const self = this;
-        this.$prev = JoubelUI.createButton({
-          'class': 'h5p-dialogcards-footer-button h5p-dialogcards-prev h5p-theme-previous h5p-theme-nav-button',
-          'aria-label': this.params.prev,
-          'html': '<span class="h5p-theme-label">' + this.params.prev + '</span>',
-        }).click(() => {
+        this.$prev = $(H5P.Components.Button({
+          classes: 'h5p-dialogcards-footer-button h5p-dialogcards-prev h5p-theme-previous h5p-theme-nav-button',
+          label: this.params.prev,
+        })).click(() => {
           this.prevCard();
         }).appendTo($footer);
         this.$prev.hover(function (event) {mouseEnter(self.$prev, self.params.prev)}, function () {mouseLeave(self.$prev)});
 
-        this.$next = JoubelUI.createButton({
-          'class': 'h5p-dialogcards-footer-button h5p-dialogcards-next h5p-theme-next h5p-theme-nav-button',
-          'aria-label': this.params.next,
-          'html': '<span class="h5p-theme-label">' + this.params.next + '</span>',
-        }).click(() => {
+        this.$next = $(H5P.Components.Button({
+          classes: 'h5p-dialogcards-footer-button h5p-dialogcards-next h5p-theme-next h5p-theme-nav-button',
+          label: this.params.next,
+        })).click(() => {
           this.nextCard();
         }).appendTo($footer);
         this.$next.hover(function (event) {mouseEnter(self.$next, self.params.next)}, function () {mouseLeave(self.$next)});
 
-        this.$retry = JoubelUI.createButton({
-          'class': 'h5p-dialogcards-footer-button h5p-dialogcards-disabled h5p-theme-secondary-cta h5p-theme-retry',
-          'html': '<span class="h5p-theme-label">' + this.params.retry + '</span>',
-        }).click(() => {
+        this.$retry = $(H5P.Components.Button({
+          classes: 'h5p-dialogcards-footer-button h5p-dialogcards-disabled h5p-theme-secondary-cta h5p-theme-retry',
+          label: this.params.retry,
+        })).click(() => {
           this.trigger('reset');
         }).appendTo($footer);
         this.$retry.hover(function (event) {mouseEnter(self.$retry, self.params.retry)}, function () {mouseLeave(self.$retry)});

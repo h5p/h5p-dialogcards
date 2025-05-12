@@ -186,32 +186,30 @@ class Card {
       }
     }
 
-    this.$buttonTurn = H5P.JoubelUI.createButton({
-      'class': 'h5p-theme-primary-cta h5p-theme-flip',
-      'html': '<span class="h5p-theme-label">' + this.params.answer + '</span>',
-    }).appendTo($cardFooter);
+    this.$buttonTurn = $(H5P.Components.Button({
+      label: this.params.answer,
+      classes: 'h5p-theme-primary-cta h5p-theme-flip',
+    })).appendTo($cardFooter);
 
     if (this.params.mode === 'repetition') {
-      this.$buttonShowSummary = H5P.JoubelUI.createButton({
-        'class': 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone h5p-theme-show-results h5p-theme-secondary-cta',
-        'html': '<span>' + this.params.showSummary + '</span>',
-      }).appendTo($cardFooter);
+      this.$buttonShowSummary = $(H5P.Components.Button({
+        classes: 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone h5p-theme-show-results h5p-theme-secondary-cta',
+        label: this.params.showSummary,
+      })).appendTo($cardFooter);
 
-      this.$buttonIncorrect = H5P.JoubelUI.createButton({
-        'class': 'h5p-dialogcards-answer-button h5p-theme-secondary-cta incorrect',
-        'html': this.params.incorrectAnswer,
-        'disabled': !this.params.behaviour.quickProgression,
-      }).addClass(classesRepetition)
-        .attr('tabindex', attributeTabindex)
-        .appendTo($cardFooter);
+      this.$buttonIncorrect = $(H5P.Components.Button({
+        classes: `h5p-dialogcards-answer-button h5p-theme-secondary-cta incorrect ${classesRepetition}`,
+        label: this.params.incorrectAnswer,
+        disabled: !this.params.behaviour.quickProgression,
+        tabIndex: attributeTabindex
+      })).appendTo($cardFooter);
 
-      this.$buttonCorrect = H5P.JoubelUI.createButton({
-        'class': 'h5p-dialogcards-answer-button h5p-theme-secondary-cta correct',
-        'html': this.params.correctAnswer,
-        'disabled': !this.params.behaviour.quickProgression,
-      }).addClass(classesRepetition)
-        .attr('tabindex', attributeTabindex)
-        .appendTo($cardFooter);
+      this.$buttonCorrect = $(H5P.Components.Button({
+        classes: `h5p-dialogcards-answer-button h5p-theme-secondary-cta correct ${classesRepetition}`,
+        label: this.params.correctAnswer,
+        disabled: !this.params.behaviour.quickProgression,
+        tabIndex: attributeTabindex
+      })).appendTo($cardFooter);
     }
 
     return $cardFooter;
