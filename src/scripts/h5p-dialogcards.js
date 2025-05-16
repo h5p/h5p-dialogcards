@@ -154,8 +154,7 @@ class Dialogcards extends H5P.EventDispatcher {
 
       if (firstCall === true) {
         const title = $('<div>' + this.params.title + '</div>').text().trim();
-        this.$header = $((title ? '<div class="h5p-dialogcards-title-container"><div><div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner h5p-theme-question-description">' + this.params.title + '</div></div>' : '') +
-          '<div class="h5p-dialogcards-description">' + this.params.description + '</div></div></div>');
+        this.$header = $('<div class="h5p-dialogcards-title-container"><div>' + (title ? '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner h5p-theme-question-description">' + this.params.title + '</div></div>' : '') + '<div class="h5p-dialogcards-description">' + this.params.description + '</div></div></div>');
 
         if (this.params.mode === 'normal') {
           this.$progress = $('<div>', {
