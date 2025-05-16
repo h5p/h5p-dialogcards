@@ -97,8 +97,19 @@
   justify-content: center;
 }
 
-.h5p-dialogcards .h5p-dialogcards-image-wrapper {
-  position: relative;
+@media screen and (max-width: 800px) {
+  .h5p-dialogcards .h5p-dialogcards-card-footer {
+    gap: var(--h5p-theme-spacing-xs);
+    flex-direction: column;
+    width: 100%;
+    margin: var(--h5p-theme-spacing-m);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .h5p-dialogcards .h5p-dialogcards-card-footer > .h5p-joubelui-button {
+    width: 100%;
+  }
 }
 
 .h5p-dialogcards .h5p-dialogcards-image-wrapper > .h5p-dialogcards-image {
