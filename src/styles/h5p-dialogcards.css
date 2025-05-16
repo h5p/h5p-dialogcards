@@ -87,6 +87,7 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-footer {
+  margin-top: var(--h5p-theme-spacing-l);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
