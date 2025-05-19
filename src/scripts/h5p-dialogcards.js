@@ -236,9 +236,10 @@ class Dialogcards extends H5P.EventDispatcher {
         }).appendTo($footer);
 
         this.$retry = $(H5P.Components.Button({
-          classes: 'h5p-dialogcards-footer-button h5p-dialogcards-disabled h5p-theme-retry',
+          classes: 'h5p-dialogcards-footer-button h5p-dialogcards-disabled',
           styleType: 'secondary',
           label: this.params.retry,
+          icon: 'retry',
         })).click(() => {
           this.trigger('reset');
         }).appendTo($footer);
