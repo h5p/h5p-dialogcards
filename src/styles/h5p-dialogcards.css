@@ -114,6 +114,10 @@
   .h5p-dialogcards .h5p-dialogcards-card-footer > .h5p-joubelui-button {
     width: 100%;
   }
+
+  .h5p-dialogcards .h5p-dialogcards-card-footer > .h5p-joubelui-button:first-of-type {
+    order: 1;
+  }
 }
 
 .h5p-dialogcards .h5p-dialogcards-image-wrapper > .h5p-dialogcards-image {
