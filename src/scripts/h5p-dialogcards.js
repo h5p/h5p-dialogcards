@@ -154,8 +154,7 @@ class Dialogcards extends H5P.EventDispatcher {
 
       if (firstCall === true) {
         const title = $('<div>' + this.params.title + '</div>').text().trim();
-        this.$header = $((title ? '<div class="h5p-dialogcards-title-container"><div><div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner h5p-theme-question-description">' + this.params.title + '</div></div>' : '') +
-          '<div class="h5p-dialogcards-description">' + this.params.description + '</div></div></div>');
+        this.$header = $('<div class="h5p-dialogcards-title-container"><div>' + (title ? '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner h5p-theme-question-description">' + this.params.title + '</div></div>' : '') + '<div class="h5p-dialogcards-description">' + this.params.description + '</div></div></div>');
 
         if (this.params.mode === 'normal') {
           this.$progress = $('<div>', {
@@ -749,35 +748,9 @@ class Dialogcards extends H5P.EventDispatcher {
         }
         self.cardSizeDetermined.push(cardId);
 
-        // Here "this" references the jQuery object
-        const $content = $('.h5p-dialogcards-card-content', this);
-        const $text = $('.h5p-dialogcards-card-text-inner-content', $content);
-
-        // Grab size with text
-        const textHeight = $text[0].getBoundingClientRect().height;
-
         // Change to answer
         const currentCard = self.cards[i];
         currentCard.changeText(currentCard.getAnswer());
-
-        // Grab size with answer
-        const answerHeight = $text[0].getBoundingClientRect().height;
-
-        // Use highest
-        let useHeight = (textHeight > answerHeight ? textHeight : answerHeight);
-
-        // Min. limit
-        const minHeight = parseFloat($text.parent().parent().css('minHeight'));
-        if (useHeight < minHeight) {
-          useHeight =  minHeight;
-        }
-
-        // Convert to em
-        const fontSize = parseFloat($content.css('fontSize'));
-        useHeight /= fontSize;
-
-        // Set height
-        $text.parent().css('height', useHeight + 'em');
 
         // Change back to text
         currentCard.changeText(currentCard.getText());
