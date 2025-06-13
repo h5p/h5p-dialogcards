@@ -425,6 +425,10 @@
 
 .h5p-dialogcards .h5p-theme-results-list-container {
   width: calc(100% - 2 * var(--h5p-theme-spacing-xl));
+
+  @media only screen and (max-width: 576px) {
+    width: initial;
+  }
 }
 
 .h5p-dialogcards-summary-screen .h5p-dialogcards-summary-message {
