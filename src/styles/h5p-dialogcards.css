@@ -473,6 +473,11 @@
 .h5p-dialogcards-summary-screen .h5p-theme-results-points {
   display: flex;
   gap: var(--h5p-theme-spacing-s);
+  justify-self: flex-end;
+
+  .h5p-dialogcards-summary-table-row-score {
+    display: inherit;
+  }
 }
 
 .h5p-dialogcards-gone {
