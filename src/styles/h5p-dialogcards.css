@@ -410,14 +410,6 @@
   overflow: hidden;
 }
 
-.h5p-dialogcards-summary-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1em;
-  background-color: var(--h5p-theme-ui-base);
-}
-
 /* Hide question on the "summary" screen */
 .h5p-dialogcards:has(.h5p-dialogcards-summary-screen:not(.h5p-dialogcards-gone)) .h5p-dialogcards-title-container {
   display: none;
