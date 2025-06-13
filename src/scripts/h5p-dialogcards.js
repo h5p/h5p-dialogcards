@@ -693,6 +693,16 @@ class Dialogcards extends H5P.EventDispatcher {
      * Update the dimensions of the task when resizing the task.
      */
     this.resize = () => {
+      if (this.cards[this.currentCardId].isInTransition || this.resizeTimeout) {
+        // Do not resize while the current card is being turend/animated as we'll most likely get incorrect values.
+        // Most likely the resize should have ran before the animation but then we need to refactor to render the backside before turning the card.
+        this.resizeTimeout = setTimeout(() => {
+          delete this.resizeTimeout;
+          this.resize();
+        }, 400);
+        return;
+      }
+
       let maxHeight = 0;
       this.updateImageSize();
       if (!this.params.behaviour.scaleTextNotCard && this.cardsShown !== false) {
