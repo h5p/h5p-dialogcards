@@ -87,7 +87,7 @@ class Card {
       .appendTo($cardTextWrapper);
 
     return $cardContent;
-  } 
+  }
   /**
    * Process HTML escaped string for use as attribute value,
    * e.g. for alt text or title attributes.
@@ -310,6 +310,7 @@ class Card {
     // Update HTML class for card
     $c.toggleClass('h5p-dialogcards-turned', !turned);
 
+    this.isInTransition = true;
     setTimeout(() => {
       $ch.removeClass('h5p-dialogcards-collapse');
       this.changeText(turned ? this.getText() : this.getAnswer());
@@ -336,6 +337,7 @@ class Card {
       // Add backside tip
       // Had to wait a little, if not Chrome will displace tip icon
       setTimeout(() => {
+        this.isInTransition = false;
         this.addTipToCard($c, turned ? 'front' : 'back');
 
         if (typeof this.callbacks.onCardTurned === 'function') {
