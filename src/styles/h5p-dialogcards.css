@@ -244,7 +244,7 @@
   grid-column: 3;
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button {
+.h5p-dialogcards .h5p-dialogcards-answer-button {
   border-radius: var(--h5p-theme-border-radius-medium);
   background-size: cover;
   font-weight: bold;
@@ -257,37 +257,37 @@
   transition-property: text-indent, padding;
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-button-hidden {
+.h5p-dialogcards .h5p-dialogcards-button-hidden {
   visibility: hidden;
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-button-gone {
+.h5p-dialogcards .h5p-dialogcards-button-gone {
   display: none;
   visibility: hidden;
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button:hover {
+.h5p-dialogcards .h5p-dialogcards-answer-button:hover {
   background-color: unset;
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button:active {
+.h5p-dialogcards .h5p-dialogcards-answer-button:active {
   background-color: var(--h5p-theme-ui-base);
   box-shadow: none;
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.h5p-dialogcards-quick-progression {
+.h5p-dialogcards .h5p-dialogcards-answer-button.h5p-dialogcards-quick-progression {
   cursor: pointer;
   opacity: 1;
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.correct {
+.h5p-dialogcards .h5p-dialogcards-answer-button.correct {
   order: 3;
   border: 2px solid var(--h5p-theme-feedback-correct-main);
   color: var(--h5p-theme-feedback-correct-main);
   text-decoration: none solid var(--h5p-theme-feedback-correct-main);
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.correct:before {
+.h5p-dialogcards .h5p-dialogcards-answer-button.correct:before {
   font-family: 'h5p-theme';
   content: "\e903";
   font-weight: normal;
@@ -312,14 +312,14 @@
   background-color: var(--h5p-theme-feedback-correct-main);
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.incorrect {
+.h5p-dialogcards .h5p-dialogcards-answer-button.incorrect {
   order: 1;
   border: 3px solid var(--h5p-theme-feedback-incorrect-main);
   color: var(--h5p-theme-feedback-incorrect-main);
   text-decoration: none solid var(--h5p-theme-feedback-incorrect-main);
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-answer-button.incorrect:before {
+.h5p-dialogcards .h5p-dialogcards-answer-button.incorrect:before {
   font-family: 'h5p-theme';
   content: "\e902";
   font-weight: normal;
@@ -393,7 +393,7 @@
   max-width: unset;
 }
 
-.h5p-dialogcards .h5p-joubelui-button.h5p-dialogcards-disabled {
+.h5p-dialogcards .h5p-dialogcards-disabled {
   display: none;
 }
 
@@ -438,6 +438,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: var(--h5p-theme-spacing-s);
 }
 
 .h5p-dialogcards-summary-screen .h5p-dialogcards-button-next-round:before {
