@@ -115,7 +115,7 @@ class SummaryScreen {
     }
 
     if (score !== undefined) {
-      element += `<div>${score.toString()}`; 
+      element += `<div class="h5p-dialogcards-summary-table-row-score">${score.toString()}`; 
 
       if (maxScore) {
         element +=  ` <span>/</span> ${maxScore}`;
