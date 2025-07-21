@@ -92,27 +92,27 @@
       ]
     },
     {
-      "label": "Navn på \"Snu\"-knapp",
+      "label": "Tekst på \"Snu\"-knapp",
       "default": "Snu"
     },
     {
-      "label": "Navn på \"Neste\"-knapp",
+      "label": "Tekst på \"Neste\"-knapp",
       "default": "Neste"
     },
     {
-      "label": "Navn på \"Forrige\"-knapp",
+      "label": "Tekst på \"Forrige\"-knapp",
       "default": "Forrige"
     },
     {
-      "label": "Navn på \"Prøv igjen\"-knapp",
+      "label": "Tekst på \"Prøv igjen\"-knapp",
       "default": "Prøv igjen"
     },
     {
-      "label": "Navn på \"Riktig svar\"-knapp",
+      "label": "Tekst på \"Riktig svar\"-knapp",
       "default": "Jeg svarte rett"
     },
     {
-      "label": "Navn på \"Feil svar\"-knapp",
+      "label": "Tekst på \"Feil svar\"-knapp",
       "default": "Jeg svarte feil"
     },
     {
@@ -131,11 +131,11 @@
       "default": "Fortsett til runde @round"
     },
     {
-      "label": "Navn på \"Start forfra\"-knapp",
+      "label": "Tekst på \"Start forfra\"-knapp",
       "default": "Start forfra"
     },
     {
-      "label": "Navn på \"Vis oppsummering\"-knapp",
+      "label": "Tekst på \"Vis oppsummering\"-knapp",
       "default": "Neste"
     },
     {
@@ -206,11 +206,11 @@
           "default": "Alt du har gjort til nå, vil bli sletta. Er du sikker på at du vil starte på nytt?"
         },
         {
-          "label": "Navn på \"Avbryt\"-knapp",
+          "label": "Tekst på \"Avbryt\"-knapp",
           "default": "Avbryt"
         },
         {
-          "label": "Navn på bekreftelsesknapp",
+          "label": "Tekst på bekreftelsesknapp",
           "default": "Start forfra"
         }
       ]
