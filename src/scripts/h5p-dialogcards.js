@@ -129,6 +129,7 @@ class Dialogcards extends H5P.EventDispatcher {
        * reviewed starting with the front.
        */
       if (this.previousState.currentCardId !== undefined) {
+        this.nav.setCurrentIndex(this.previousState.currentCardId);
         this.gotoCard(this.previousState.currentCardId);
 
         // Show summary if previous round was completed but next round not started.
@@ -185,13 +186,13 @@ class Dialogcards extends H5P.EventDispatcher {
           'aria-live': 'polite'
         });
 
-        this.$footer = this.createFooter();
+        this.nav = this.createFooter();
 
         this.$mainContent = $('<div>')
           .append(this.$header)
           .append(this.$cardwrapperSet)
           .append(this.$cardSideAnnouncer)
-          .append(this.$footer)
+          .append(this.nav)
           .appendTo(this.$inner);
 
         this.on('reset', function () {
@@ -211,28 +212,20 @@ class Dialogcards extends H5P.EventDispatcher {
      * @returns {*|jQuery|HTMLElement} Footer element
      */
     this.createFooter = () => {
-      const $footer = $('<nav>', {
-        'class': 'h5p-navigation',
-        'role': 'navigation'
-      });
+      let nav;
 
       if (this.params.mode === 'normal') {
-        const self = this;
-        this.$prev = $(H5P.Components.Button({
-          classes: 'h5p-dialogcards-footer-button h5p-dialogcards-prev h5p-theme-previous',
-          styleType: 'nav',
-          label: this.params.prev,
-        })).click(() => {
-          this.prevCard();
-        }).appendTo($footer);
-
-        this.$next = $(H5P.Components.Button({
-          classes: 'h5p-dialogcards-footer-button h5p-dialogcards-next h5p-theme-next',
-          styleType: 'nav',
-          label: this.params.next,
-        })).click(() => {
-          this.nextCard();
-        }).appendTo($footer);
+        nav = H5P.Components.Navigation({
+          index: this.currentCardId,
+          variant: '2-split-spread',
+          navigationLength: this.cardIds.length,
+          handlePrevious: this.prevCard.bind(this),
+          handleNext: this.nextCard.bind(this),
+          texts: {
+            previousButton: this.params.prev,
+            nextButton: this.params.next,
+          }
+        });
 
         this.$retry = $(H5P.Components.Button({
           classes: 'h5p-dialogcards-footer-button h5p-dialogcards-disabled',
@@ -240,21 +233,24 @@ class Dialogcards extends H5P.EventDispatcher {
           label: this.params.retry,
           icon: 'retry',
         })).click(() => {
+          this.nav.setCurrentIndex(0);
           this.trigger('reset');
-        }).appendTo($footer);
+        }).appendTo(nav);
       }
       else {
+        nav = H5P.Components.Navigation();
+
         this.$round = $('<div>', {
           'class': 'h5p-dialogcards-round'
-        }).appendTo($footer);
+        }).appendTo(nav);
 
         this.$progress = $('<div>', {
           'class': 'h5p-dialogcards-round',
           'aria-live': 'assertive'
-        }).appendTo($footer);
+        }).appendTo(nav);
       }
 
-      return $footer;
+      return nav;
     };
 
     /**
@@ -360,19 +356,7 @@ class Dialogcards extends H5P.EventDispatcher {
       if (this.params.mode === 'normal') {
         // Final card
         if (this.getCurrentSelectionIndex() < this.cardIds.length - 1) {
-          this.$next.removeClass('h5p-dialogcards-disabled');
-          this.$retry.addClass('h5p-dialogcards-disabled');
-        }
-        else {
-          this.$next.addClass('h5p-dialogcards-disabled');
-        }
-
-        // First card
-        if (this.currentCardId > 0 && !this.params.behaviour.disableBackwardsNavigation) {
-          this.$prev.removeClass('h5p-dialogcards-disabled');
-        }
-        else {
-          this.$prev.addClass('h5p-dialogcards-disabled');
+          this.$retry.addClass('h5p-hidden');
         }
 
         this.$progress.text(this.params.progressText
@@ -453,7 +437,6 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.showCards = () => {
       this.$cardwrapperSet.find('.h5p-dialogcards-cardwrap').removeClass('h5p-dialogcards-gone');
-      this.$footer.removeClass('h5p-dialogcards-gone');
       this.cardsShown = true;
     };
 
@@ -462,7 +445,6 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.hideCards = () => {
       this.$cardwrapperSet.find('.h5p-dialogcards-cardwrap').addClass('h5p-dialogcards-gone');
-      this.$footer.addClass('h5p-dialogcards-gone');
       this.cardsShown = false;
     };
 
@@ -907,6 +889,7 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.resetTask = (moveFocus = false) => {
       if (this.cardManager) { // Check if initialized
+        this.nav.setCurrentIndex(0);
         this.previousState = {};
         this.round = 0;
         this.nextRound(moveFocus); // Also calls reset(), which takes care about resetting everything else
