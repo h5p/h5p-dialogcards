@@ -474,6 +474,10 @@
   visibility: hidden;
 }
 
+.h5p-dialogcards-visibility-hidden {
+  visibility: hidden;
+}
+
 .button-tooltip {
   background: #333e;
   margin: auto;
