@@ -87,7 +87,7 @@ class Card {
       .appendTo($cardTextWrapper);
 
     return $cardContent;
-  } 
+  }
   /**
    * Process HTML escaped string for use as attribute value,
    * e.g. for alt text or title attributes.
@@ -193,7 +193,7 @@ class Card {
 
     if (this.params.mode === 'repetition') {
       this.$buttonShowSummary = $(H5P.Components.Button({
-        classes: 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone h5p-theme-show-results',
+        classes: 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone h5p-results',
         styleType: 'secondary',
         label: this.params.showSummary,
       })).appendTo($cardFooter);
