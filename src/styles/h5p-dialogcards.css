@@ -289,15 +289,9 @@
   font-weight: normal;
 }
 .h5p-dialogcards .h5p-theme-flip,
-.h5p-dialogcards .h5p-theme-show-results {
+.h5p-dialogcards .h5p-theme-results {
   white-space: nowrap;
   order: 2;
-}
-
-.h5p-dialogcards .h5p-results::before {
-  content: "\e904";
-  font-family: 'h5p-theme';
-  font-weight: normal;
 }
 
 .h5p-dialogcards .h5p-theme-flip {

@@ -193,7 +193,7 @@ class Card {
 
     if (this.params.mode === 'repetition') {
       this.$buttonShowSummary = $(H5P.Components.Button({
-        classes: 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone h5p-results',
+        classes: 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone h5p-theme-results',
         styleType: 'secondary',
         label: this.params.showSummary,
       })).appendTo($cardFooter);
