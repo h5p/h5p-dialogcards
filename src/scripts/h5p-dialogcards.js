@@ -227,6 +227,11 @@ class Dialogcards extends H5P.EventDispatcher {
           }
         });
 
+        if (this.params.behaviour.disableBackwardsNavigation) {
+          const previousButton = nav.querySelector('.h5p-theme-nav-button.h5p-theme-previous');
+          previousButton?.classList.add('h5p-dialogcards-visibility-hidden');
+        }
+
         this.$retry = $(H5P.Components.Button({
           classes: 'h5p-dialogcards-footer-button h5p-dialogcards-disabled',
           styleType: 'secondary',
