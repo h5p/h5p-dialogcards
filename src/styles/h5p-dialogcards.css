@@ -338,6 +338,11 @@
   z-index: 1;
   flex-direction: row;
   flex: 2 1;
+  column-gap: var(--h5p-theme-spacing-m);
+}
+
+.h5p-dialogcards .h5p-dialogcards-title-wrapper {
+  flex: 1;
 }
 
 .h5p-dialogcards-title-inner .h5p-theme-question-description{
