@@ -77,6 +77,10 @@
   max-width: 40em;
 }
 
+.h5p-dialogcards .h5p-dialogcards-card-content {
+  padding: var(--h5p-theme-spacing-l);
+  padding-bottom: 0;
+}
 
 .h5p-dialogcards .h5p-dialogcards-card-footer {
   margin-top: var(--h5p-theme-spacing-l);
