@@ -77,9 +77,6 @@
   max-width: 40em;
 }
 
-.h5p-dialogcards .h5p-dialogcards-card-content {
-  padding: var(--h5p-theme-spacing-l);
-}
 
 .h5p-dialogcards .h5p-dialogcards-card-footer {
   margin-top: var(--h5p-theme-spacing-l);
@@ -136,6 +133,7 @@
 .h5p-dialogcards .h5p-dialogcards-card-text-wrapper {
   position: relative;
   overflow: hidden;
+  padding-bottom: var(--h5p-theme-spacing-l);
 }
 
 .h5p-dialogcards.h5p-text-scaling .h5p-dialogcards-card-text {
