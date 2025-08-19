@@ -78,7 +78,7 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-content {
-  padding-top: var(--h5p-theme-spacing-l) 0 0;
+  padding: var(--h5p-theme-spacing-l) 0 0;
 }
 
 .h5p-dialogcards .h5p-dialogcards-card-footer {
