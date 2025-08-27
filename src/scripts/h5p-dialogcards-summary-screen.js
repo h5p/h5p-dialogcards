@@ -45,7 +45,7 @@ class SummaryScreen {
 
     const buttonNextRound = H5P.Components.Button({
       classes: 'h5p-dialogcards-button-next-round',
-      styleType: 'secondary',
+      styleType: 'primary',
       label: this.params.nextRound.replace('@round', 2),
       onClick: this.currentCallback
     });
@@ -218,13 +218,12 @@ class SummaryScreen {
       this.fields['buttonStartOver'].classList.remove('h5p-dialogcards-button-gone');
 
       this.fields['button'].classList.add('h5p-dialogcards-button-next-round');
-      this.fields['button'].classList.add('h5p-theme-secondary-cta');
+      this.fields['button'].classList.add('h5p-theme-primary-cta');
       this.fields['button'].classList.remove('h5p-dialogcards-button-restart');
       this.fields['button'].innerHTML = this.params.nextRound;
       this.fields['button'].title = this.params.nextRound;
       this.currentCallback = this.callbacks.nextRound;
     }
-    H5P.jQuery(this.fields['button']).unbind('click').click(this.currentCallback);
 
     if (!done && round !== undefined) {
       this.fields['button'].innerHTML = this.params.nextRound.replace('@round', round + 1);
