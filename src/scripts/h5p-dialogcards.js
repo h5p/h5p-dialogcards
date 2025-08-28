@@ -442,6 +442,7 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.showCards = () => {
       this.$cardwrapperSet.find('.h5p-dialogcards-cardwrap').removeClass('h5p-dialogcards-gone');
+      this.nav.style.display = 'grid';
       this.cardsShown = true;
     };
 
@@ -450,6 +451,7 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.hideCards = () => {
       this.$cardwrapperSet.find('.h5p-dialogcards-cardwrap').addClass('h5p-dialogcards-gone');
+      this.nav.style.display = 'none';
       this.cardsShown = false;
     };
 

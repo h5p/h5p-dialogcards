@@ -437,6 +437,7 @@
 .h5p-dialogcards-summary-screen .h5p-dialogcards-summary-footer {
   width: 100%;
   margin-top: var(--h5p-theme-spacing-l);
+  padding-bottom: var(--h5p-theme-spacing-l);
   display: flex;
   flex-direction: row;
   justify-content: center;
