@@ -47,7 +47,7 @@ class SummaryScreen {
       classes: 'h5p-dialogcards-button-next-round',
       styleType: 'primary',
       label: this.params.nextRound.replace('@round', 2),
-      onClick: this.currentCallback
+      onClick: () => { this.currentCallback(); }
     });
 
     this.fields['button'] = buttonNextRound;
