@@ -47,7 +47,7 @@ class SummaryScreen {
       classes: 'h5p-dialogcards-button-next-round',
       styleType: 'primary',
       label: this.params.nextRound.replace('@round', 2),
-      onClick: this.currentCallback
+      onClick: () => { this.currentCallback(); }
     });
 
     this.fields['button'] = buttonNextRound;
@@ -174,6 +174,12 @@ class SummaryScreen {
     ];
   }
 
+  setButtonLabel(button, label) {
+    button.textContent = label;
+    button.title = label;
+    button.setAttribute('aria-label', label);
+  }
+
   /**
    * Update fields.
    * @param {object} [args] Arguments.
@@ -208,6 +214,7 @@ class SummaryScreen {
         this.fields['button'].classList.add('h5p-dialogcards-button-restart');
         this.fields['button'].innerHTML = this.params.retry;
         this.fields['button'].title = this.params.retry;
+        this.setButtonLabel(this.fields['button'], this.params.retry);
         this.currentCallback = this.callbacks.retry;
       }
       else {
@@ -222,12 +229,13 @@ class SummaryScreen {
       this.fields['button'].classList.remove('h5p-dialogcards-button-restart');
       this.fields['button'].innerHTML = this.params.nextRound;
       this.fields['button'].title = this.params.nextRound;
+      this.setButtonLabel(this.fields['button'], this.params.nextRound);
       this.currentCallback = this.callbacks.nextRound;
     }
 
     if (!done && round !== undefined) {
-      this.fields['button'].innerHTML = this.params.nextRound.replace('@round', round + 1);
-      this.fields['button'].title = this.params.nextRound.replace('@round', round + 1);
+      const label = this.params.nextRound.replace('@round', round + 1);
+      this.setButtonLabel(this.fields['button'], label);
     }
 
     if (done && message !== undefined && message !== '') {
