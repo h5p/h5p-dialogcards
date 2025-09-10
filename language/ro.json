@@ -30,7 +30,7 @@
         "label": "Întrebare",
         "fields": [
           {
-            "label": "Front",
+            "label": "Partea frontală",
             "fields": [
               {
                 "label": "Text",
@@ -48,13 +48,13 @@
                 "description": "Optional audio for the card."
               },
               {
-                "label": "Sfat pentru text",
+                "label": "Svat pentru text",
                 "description": "Sfat pentru prima parte a dialogului"
               }
             ]
           },
           {
-            "label": "Back",
+            "label": "Partea din spate",
             "fields": [
               {
                 "label": "Text",

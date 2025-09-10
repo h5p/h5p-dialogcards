@@ -48,7 +48,7 @@
                 "description": "Optional audio for the card."
               },
               {
-                "label": "Tipp az előoldalhoz",
+                "label": "Tipp",
                 "description": "Tipp a párbeszéd első részéhez"
               }
             ]
@@ -80,7 +80,7 @@
                 "description": "Optional audio for the card."
               },
               {
-                "label": "Tipp a hátoldalhoz",
+                "label": "Tipp",
                 "description": "Tipp a párbeszéd második részéhez"
               }
             ]
