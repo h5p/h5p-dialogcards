@@ -30,29 +30,54 @@
         "label": "Question",
         "fields": [
           {
-            "label": "Text",
-            "description": "Ledtråd för den första delen av dialogen"
-          },
-          {
-            "label": "Svar",
-            "description": "Ledtråd för den andra delen av dialogen"
-          },
-          {
-            "label": "Image",
-            "description": "Valfri bild för kortet. (Kortet kan bestå av enbart en bild, enbart text, eller båda två.)"
-          },
-          {
-            "label": "Alternativ text för bilden"
-          },
-          {
-            "label": "Audio files"
-          },
-          {
-            "label": "Tips",
+            "label": "Front",
             "fields": [
               {
-                "label": "Tip for text",
+                "label": "Text",
+                "description": "Ledtråd för den första delen av dialogen"
+              },
+              {
+                "label": "Image",
+                "description": "Valfri bild för kortet."
+              },
+              {
+                "label": "Alternativ text för bilden"
+              },
+              {
+                "label": "Audio files",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Tips",
                 "description": "Tips för första delen av dialogen"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "Text",
+                "description": "Ledtråd för den andra delen av dialogen"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Image",
+                "description": "Valfri bild för kortet."
+              },
+              {
+                "label": "Alternativ text för bilden"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Audio files",
+                "description": "Optional audio for the card."
               },
               {
                 "label": "Tips för svar",

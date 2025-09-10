@@ -30,32 +30,57 @@
         "label": "題目",
         "fields": [
           {
-            "label": "問題",
-            "description": "卡片的正面"
-          },
-          {
-            "label": "答案",
-            "description": "卡片的背面"
-          },
-          {
-            "label": "圖像",
-            "description": "卡片上額外顯示的圖片（卡片可以只有文字或圖片，或兩個都有）"
-          },
-          {
-            "label": "替代文字"
-          },
-          {
-            "label": "音樂"
-          },
-          {
-            "label": "提示與註解",
+            "label": "Front",
             "fields": [
               {
-                "label": "問題提示",
-                "description": "在卡片正面顯示的提示文字"
+                "label": "Text",
+                "description": "卡片的正面"
               },
               {
-                "label": "答案註解",
+                "label": "圖像",
+                "description": "卡片上額外顯示的圖片"
+              },
+              {
+                "label": "替代文字"
+              },
+              {
+                "label": "音樂",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Tip for text",
+                "description": "在卡片正面顯示的提示文字"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "Text",
+                "description": "卡片的背面"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "圖像",
+                "description": "卡片上額外顯示的圖片"
+              },
+              {
+                "label": "替代文字"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "音樂",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Tip for text",
                 "description": "在卡片背面顯示的註解文字"
               }
             ]

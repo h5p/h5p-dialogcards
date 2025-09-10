@@ -30,33 +30,58 @@
         "label": "Pregunta",
         "fields": [
           {
-            "label": "Texto",
-            "description": "Pista para la primera parte del diálogo"
-          },
-          {
-            "label": "Respuesta",
-            "description": "Pista para la segunda parte del diálogo"
-          },
-          {
-            "label": "Imagen",
-            "description": "Imagen opcional para la tarjeta. (La tarjeta podría usar solamente una imagen, solamente un texto, o ambos)"
-          },
-          {
-            "label": "Texto alternativo para la imagen"
-          },
-          {
-            "label": "Archivos de audio"
-          },
-          {
-            "label": "Sugerencias",
+            "label": "Frente",
             "fields": [
               {
-                "label": "Sugerencias para el texto",
-                "description": "Sugerencia para la primera parte del diálogo"
+                "label": "Texto",
+                "description": "Pista para la primera parte del diálogo"
               },
               {
-                "label": "Sugerencia para respuesta",
-                "description": "Sugerencia para la segunda parte del diálogo"
+                "label": "Imagen",
+                "description": "Imagen opcional para la tarjeta."
+              },
+              {
+                "label": "Texto alternativo para la imagen"
+              },
+              {
+                "label": "Archivos de audio",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Pista para texto",
+                "description": "Pista para la primera parte del diálogo"
+              }
+            ]
+          },
+          {
+            "label": "Espalda",
+            "fields": [
+              {
+                "label": "Texto",
+                "description": "Pista para la segunda parte del diálogo"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Imagen",
+                "description": "Imagen opcional para la tarjeta."
+              },
+              {
+                "label": "Texto alternativo para la imagen"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Archivos de audio",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Pista para texto",
+                "description": "Pista para la segunda parte del diálogo"
               }
             ]
           }

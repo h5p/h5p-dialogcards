@@ -30,32 +30,57 @@
         "label": "Pitanje",
         "fields": [
           {
-            "label": "Tekst",
-            "description": "Tekst za prvu stranicu kartice"
-          },
-          {
-            "label": "Odgovor",
-            "description": "Tekst za drugu stranicu kartice"
-          },
-          {
-            "label": "Slika",
-            "description": "Opcionalna slika na kartici. (Kartica može sadržavati samo sliku, samo tekst ili oboje.)"
-          },
-          {
-            "label": "Alternativni tekst za sliku (opis)"
-          },
-          {
-            "label": "Zvučne datoteke"
-          },
-          {
-            "label": "Savjeti",
+            "label": "Front",
             "fields": [
+              {
+                "label": "Tekst",
+                "description": "Tekst za prvu stranicu kartice"
+              },
+              {
+                "label": "Slika",
+                "description": "Opcionalna slika na kartici."
+              },
+              {
+                "label": "Alternativni tekst za sliku (opis)"
+              },
+              {
+                "label": "Zvučne datoteke",
+                "description": "Optional audio for the card."
+              },
               {
                 "label": "Savjet za tekst",
                 "description": "Savjet za prvu stranicu kartice"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "Tekst",
+                "description": "Tekst za drugu stranicu kartice"
               },
               {
-                "label": "Savjet za odgovor",
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Slika",
+                "description": "Opcionalna slika na kartici."
+              },
+              {
+                "label": "Alternativni tekst za sliku (opis)"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Zvučne datoteke",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Savjet za tekst",
                 "description": "Savjet za drugu stranicu kartice"
               }
             ]

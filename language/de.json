@@ -31,31 +31,56 @@
         "fields": [
           {
             "label": "Vorderseite",
-            "description": "Hinweis für den ersten Teil des Dialogs"
+            "fields": [
+              {
+                "label": "Text",
+                "description": "Hinweis für den ersten Teil des Dialogs"
+              },
+              {
+                "label": "Bild",
+                "description": "Optionales Bild für die Karte."
+              },
+              {
+                "label": "Alternativer Text zur Bildbeschreibung (Barrierefreiheit)"
+              },
+              {
+                "label": "Audiodateien",
+                "description": "Optionale Audiodateien für die Karte."
+              },
+              {
+                "label": "Tipp zum Text",
+                "description": "Tipp für den ersten Teil des Dialogs"
+              }
+            ]
           },
           {
             "label": "Rückseite",
-            "description": "Hinweis für den zweiten Teil des Dialogs"
-          },
-          {
-            "label": "Bild",
-            "description": "Optionales Bild für die Karte. (Die Karte kann nur aus einem Bild bestehen, Text oder beidem.)"
-          },
-          {
-            "label": "Alternativer Text zur Bildbeschreibung (Barrierefreiheit)"
-          },
-          {
-            "label": "Audiodateien"
-          },
-          {
-            "label": "Tipps",
             "fields": [
               {
-                "label": "Tipp zur Vorderseite",
-                "description": "Tipp für den ersten Teil des Dialogs"
+                "label": "Text",
+                "description": "Hinweis für den zweiten Teil des Dialogs"
               },
               {
-                "label": "Tipp zur Rückseite",
+                "label": "Nutze Bild von Vorderseite",
+                "description": "Wenn angewählt, wird für die Rückseite der Karte das Bild der Vorderseite genutzt."
+              },
+              {
+                "label": "Bild",
+                "description": "Optionales Bild für die Karte."
+              },
+              {
+                "label": "Alternativer Text zur Bildbeschreibung (Barrierefreiheit)"
+              },
+              {
+                "label": "Nutze Audiodatei von der Vorderseite",
+                "description": "Wenn angewählt, wird für die Rückseite der Karte die Audiodatei der Vorderseite genutzt."
+              },
+              {
+                "label": "Audiodateien",
+                "description": "Optionale Audiodateien für die Karte."
+              },
+              {
+                "label": "Tipp zum Text",
                 "description": "Tipp für den zweiten Teil des Dialogs"
               }
             ]

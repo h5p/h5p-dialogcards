@@ -30,32 +30,57 @@
         "label": "Soru",
         "fields": [
           {
-            "label": "Metin",
-            "description": "Diyaloğun ilk bölümü için ipucu"
-          },
-          {
-            "label": "Cevap",
-            "description": "Diyaloğun ikinci bölümü için ipucu"
-          },
-          {
-            "label": "Görsel",
-            "description": "Kart için isteğe bağlı görsel. (Kart sadece bir görsel, sadece bir metin ya da ikisini birden içerebilir.)"
-          },
-          {
-            "label": "Görsel için alternatif metin"
-          },
-          {
-            "label": "Ses dosyaları"
-          },
-          {
-            "label": "İpuçları",
+            "label": "Front",
             "fields": [
               {
-                "label": "Metin için ipucu",
+                "label": "Text",
                 "description": "Diyaloğun ilk bölümü için ipucu"
               },
               {
-                "label": "Cevap için ipucu",
+                "label": "Görsel",
+                "description": "Kart için isteğe bağlı görsel."
+              },
+              {
+                "label": "Görsel için alternatif metin"
+              },
+              {
+                "label": "Ses dosyaları",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Metin için ipucu",
+                "description": "Diyaloğun ilk bölümü için ipucu"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "Text",
+                "description": "Diyaloğun ikinci bölümü için ipucu"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Görsel",
+                "description": "Kart için isteğe bağlı görsel."
+              },
+              {
+                "label": "Görsel için alternatif metin"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Ses dosyaları",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Metin için ipucu",
                 "description": "Diyaloğun ikinci bölümü için ipucu"
               }
             ]

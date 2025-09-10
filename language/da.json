@@ -30,32 +30,57 @@
         "label": "Spørgsmål",
         "fields": [
           {
-            "label": "Tekst",
-            "description": "Hint til første del af dialogen"
-          },
-          {
-            "label": "Svar",
-            "description": "Hint til anden del af dialogen"
-          },
-          {
-            "label": "Billede",
-            "description": "Valgfrit billede til kortet. (Kortet kan indeholde enten billede eller tekst, eller begge dele)."
-          },
-          {
-            "label": "Alternativ tekst til billedet"
-          },
-          {
-            "label": "Lydfiler"
-          },
-          {
-            "label": "Tips",
+            "label": "Foran",
             "fields": [
+              {
+                "label": "Tekst",
+                "description": "Hint til første del af dialogen"
+              },
+              {
+                "label": "Billede",
+                "description": "Valgfrit billede til kortet."
+              },
+              {
+                "label": "Alternativ tekst til billedet"
+              },
+              {
+                "label": "Lydfiler",
+                "description": "Valgfrit lyd til kortet."
+              },
               {
                 "label": "Tip til tekst",
                 "description": "Tip til første del af dialogen"
+              }
+            ]
+          },
+          {
+            "label": "Tilbage",
+            "fields": [
+              {
+                "label": "Tekst",
+                "description": "Hint til anden del af dialogen"
               },
               {
-                "label": "Tip for svar",
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Billede",
+                "description": "Valgfrit billede til kortet."
+              },
+              {
+                "label": "Alternativ tekst til billedet"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Lydfiler",
+                "description": "Valgfrit lyd til kortet."
+              },
+              {
+                "label": "Tip til tekst",
                 "description": "Tip til anden del af dialogen."
               }
             ]

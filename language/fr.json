@@ -30,32 +30,57 @@
         "label": "Question",
         "fields": [
           {
-            "label": "Question",
-            "description": "Texte pour la face avant de la carte"
-          },
-          {
-            "label": "Réponse",
-            "description": "Texte pour le dos de la carte"
-          },
-          {
-            "label": "Image",
-            "description": "Image facultative pour la carte. (Une carte peut contenir une image seule, un texte seul ou les deux combinés)"
-          },
-          {
-            "label": "Texte alternatif pour l'image"
-          },
-          {
-            "label": "Fichiers audio"
-          },
-          {
-            "label": "Indices",
+            "label": "Face avant",
             "fields": [
               {
-                "label": "Indice pour la face avant",
-                "description": "Indice pour la face avant de la carte"
+                "label": "Texte",
+                "description": "Texte pour la face avant de la carte"
               },
               {
-                "label": "Indice pour le dos",
+                "label": "Image",
+                "description": "Image facultative pour la carte."
+              },
+              {
+                "label": "Texte alternatif pour l'image"
+              },
+              {
+                "label": "Fichiers audio",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Indice",
+                "description": "Indice pour la face avant de la carte"
+              }
+            ]
+          },
+          {
+            "label": "Dos",
+            "fields": [
+              {
+                "label": "Texte",
+                "description": "Texte pour le dos de la carte"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Image",
+                "description": "Image facultative pour la carte."
+              },
+              {
+                "label": "Texte alternatif pour l'image"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Fichiers audio",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Indice",
                 "description": "Indice pour le dos de la carte"
               }
             ]

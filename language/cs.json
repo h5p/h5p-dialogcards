@@ -30,32 +30,57 @@
         "label": "Otázka",
         "fields": [
           {
-            "label": "Text",
-            "description": "Nápověda pro první část dialogu"
-          },
-          {
-            "label": "Odpověď",
-            "description": "Nápověda pro druhou část dialogu"
-          },
-          {
-            "label": "Obrázek",
-            "description": "Volitelný obrázek pro kartu. (Karta může používat pouze obrázek, pouze text nebo obojí)"
-          },
-          {
-            "label": "Alternativní text pro obrázek"
-          },
-          {
-            "label": "Zvukové soubory"
-          },
-          {
-            "label": "Nápověda",
+            "label": "Přední",
             "fields": [
               {
-                "label": "Text nápovědy",
+                "label": "Text",
                 "description": "Nápověda pro první část dialogu"
               },
               {
-                "label": "Nápověda pro odpověď",
+                "label": "Obrázek",
+                "description": "Volitelný obrázek pro kartu."
+              },
+              {
+                "label": "Alternativní text pro obrázek"
+              },
+              {
+                "label": "Zvukové soubory",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Text nápovědy",
+                "description": "Nápověda pro první část dialogu"
+              }
+            ]
+          },
+          {
+            "label": "Zadní",
+            "fields": [
+              {
+                "label": "Text",
+                "description": "Nápověda pro druhou část dialogu"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Obrázek",
+                "description": "Volitelný obrázek pro kartu."
+              },
+              {
+                "label": "Alternativní text pro obrázek"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Zvukové soubory",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Text nápovědy",
                 "description": "Nápověda pro druhou část dialogu"
               }
             ]

@@ -30,33 +30,58 @@
         "label": "Ερώτηση",
         "fields": [
           {
-            "label": "Κείμενο",
-            "description": "Κείμενο για το πρώτο μέρος του διαλόγου"
-          },
-          {
-            "label": "Απάντηση",
-            "description": "Κείμενο για το δεύτερο μέρος του διαλόγου"
-          },
-          {
-            "label": "Εικόνα",
-            "description": "Εικόνα για την κάρτα. Η κάρτα μπορεί να έχει μόνο εικόνα, μόνο κείμενο ή και τα δύο (προαιρετικό)"
-          },
-          {
-            "label": "Εναλλακτικό κείμενο για την εικόνα"
-          },
-          {
-            "label": "Αρχεία ήχου"
-          },
-          {
-            "label": "Επεξηγήσεις",
+            "label": "Eμπρός",
             "fields": [
+              {
+                "label": "Κείμενο",
+                "description": "Κείμενο για το πρώτο μέρος του διαλόγου"
+              },
+              {
+                "label": "Εικόνα",
+                "description": "Εικόνα για την κάρτα."
+              },
+              {
+                "label": "Εναλλακτικό κείμενο για την εικόνα"
+              },
+              {
+                "label": "Αρχεία ήχου",
+                "description": "Optional audio for the card."
+              },
               {
                 "label": "Επεξήγηση για το κείμενο",
                 "description": "Επεξήγηση για το πρώτο μέρος του διαλόγου"
+              }
+            ]
+          },
+          {
+            "label": "Πίσω",
+            "fields": [
+              {
+                "label": "Κείμενο",
+                "description": "Κείμενο για το δεύτερο μέρος του διαλόγου"
               },
               {
-                "label": "Επεξήγηση για την απάντηση",
-                "description": "Επεξήγηση για το δεύτερο μέρος του διαλόγου "
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Εικόνα",
+                "description": "Εικόνα για την κάρτα."
+              },
+              {
+                "label": "Εναλλακτικό κείμενο για την εικόνα"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Αρχεία ήχου",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Επεξήγηση για το κείμενο",
+                "description": "Επεξήγηση για το δεύτερο μέρος του διαλόγου"
               }
             ]
           }

@@ -31,32 +31,57 @@
         "fields": [
           {
             "label": "Framside",
-            "description": "Tipstekst på framsida"
+            "fields": [
+              {
+                "label": "Tekst",
+                "description": "Nøkkelord til første delen av dialogen"
+              },
+              {
+                "label": "Bilete",
+                "description": "Valfritt bilete for kortet."
+              },
+              {
+                "label": "Alternativ tekst for biletet"
+              },
+              {
+                "label": "Audio files",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Tipstekst",
+                "description": "Tip for the first part of the dialogue"
+              }
+            ]
           },
           {
             "label": "Bakside",
-            "description": "Tipstekst på baksida"
-          },
-          {
-            "label": "Bilete",
-            "description": "Valfritt bilete på kortet. Kortet kan ha berre bilete, berre tekst eller både bilete og tekst."
-          },
-          {
-            "label": "Alternativ tekst for biletet"
-          },
-          {
-            "label": "Lydfiler"
-          },
-          {
-            "label": "Tips",
             "fields": [
               {
-                "label": "Tips til framsida",
-                "description": "Til dømes nøkkelord, gloser, setningsstartarar osv."
+                "label": "Tekst",
+                "description": "Nøkkelord til neste delen av dialogen"
               },
               {
-                "label": "Tips til baksida",
-                "description": "Til dømes forklaringar, kommentarar, tilleggsinformasjon"
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Bilete",
+                "description": "Valfritt bilete for kortet."
+              },
+              {
+                "label": "Alternativ tekst for biletet"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Audio files",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Tipstekst",
+                "description": "Tip for the second part of the dialogue"
               }
             ]
           }
