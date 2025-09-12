@@ -196,6 +196,7 @@ class Card {
         classes: 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone h5p-theme-results',
         styleType: 'secondary',
         label: this.params.showSummary,
+        icon: 'show-results',
       })).appendTo($cardFooter);
 
       this.$buttonIncorrect = $(H5P.Components.Button({
