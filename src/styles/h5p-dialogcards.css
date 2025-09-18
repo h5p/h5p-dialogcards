@@ -304,7 +304,7 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-answer-button.correct.h5p-dialogcards-quick-progression:hover,
-.h5p-dialogcards .h5p-dialogcards-answer-button.correct.h5p-dialogcards-quick-progression:focus {
+.h5p-dialogcards .h5p-dialogcards-answer-button.correct.h5p-dialogcards-quick-progression:focus-visible {
   color: var(--h5p-theme-feedback-correct-secondary);
   background-color: var(--h5p-theme-feedback-correct-main);
 }
@@ -323,7 +323,7 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-answer-button.incorrect.h5p-dialogcards-quick-progression:hover,
-.h5p-dialogcards .h5p-dialogcards-answer-button.incorrect.h5p-dialogcards-quick-progression:focus {
+.h5p-dialogcards .h5p-dialogcards-answer-button.incorrect.h5p-dialogcards-quick-progression:focus-visible {
   color: var(--h5p-theme-feedback-incorrect-secondary);
   background-color: var(--h5p-theme-feedback-incorrect-main);
 }
