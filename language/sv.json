@@ -4,7 +4,7 @@
       "label": "Rubrik"
     },
     {
-      "label": "Mode",
+      "label": "Visningsläge",
       "description": "Inställning för hur dialogkort presenteras",
       "options": [
         {
@@ -21,13 +21,13 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Standardinställning"
         }
       ],
-      "label": "Dialoger",
-      "entity": "dialog",
+      "label": "Dialogkort",
+      "entity": "Dialog",
       "field": {
-        "label": "Question",
+        "label": "Fråga",
         "fields": [
           {
             "label": "Text",
@@ -38,24 +38,24 @@
             "description": "Ledtråd för den andra delen av dialogen"
           },
           {
-            "label": "Image",
+            "label": "Bild",
             "description": "Valfri bild för kortet. (Kortet kan bestå av enbart en bild, enbart text, eller båda två.)"
           },
           {
             "label": "Alternativ text för bilden"
           },
           {
-            "label": "Audio files"
+            "label": "Ljudfiler"
           },
           {
             "label": "Tips",
             "fields": [
               {
-                "label": "Tip for text",
+                "label": "Tips för framsida",
                 "description": "Tips för första delen av dialogen"
               },
               {
-                "label": "Tips för svar",
+                "label": "Tips för baksida",
                 "description": "Tips för den andra delen av dialogen"
               }
             ]
@@ -65,7 +65,7 @@
     },
     {
       "label": "Beteende-inställningar",
-      "description": "Denna inställningar påverkar hur uppgiften beter sig.",
+      "description": "Dessa inställningar påverkar hur uppgiften beter sig.",
       "fields": [
         {
           "label": "Aktivera knappen \"Försök igen\""
@@ -97,7 +97,7 @@
     },
     {
       "label": "Text för nästa-knappen",
-      "default": "Next"
+      "default": "Nästa"
     },
     {
       "label": "Text för föregående-knappen",
@@ -136,7 +136,7 @@
     },
     {
       "label": "Text för knappen \"visa översikt\"",
-      "default": "Next"
+      "default": "Visa översikt"
     },
     {
       "label": "Rubriktext för översiktssidan",
