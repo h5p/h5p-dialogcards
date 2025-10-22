@@ -352,6 +352,8 @@ class Dialogcards extends H5P.EventDispatcher {
           this.truncateRetryButton();
         }
       }
+
+      this.trigger('resize');
     };
 
     /**
