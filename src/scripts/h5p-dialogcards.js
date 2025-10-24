@@ -117,6 +117,7 @@ class Dialogcards extends H5P.EventDispatcher {
       };
 
       this.cardManager = new CardManager(managerParams, this.id, {
+        onCardSize: () => this.trigger('resize'),
         onCardTurned: this.handleCardTurned,
         onNextCard: this.nextCard
       }, this.idCounter);
@@ -273,7 +274,7 @@ class Dialogcards extends H5P.EventDispatcher {
           return;
         }
 
-        const imageHeight = dialog.image.height / dialog.image.width * $currentCardContent.get(0).getBoundingClientRect().width;
+        const imageHeight = dialog.image.height / dialog.image.width * $currentCardContent.get(0).offsetWidth;
         if (imageHeight > height) {
           height = imageHeight;
         }

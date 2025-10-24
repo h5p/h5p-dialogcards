@@ -340,6 +340,10 @@ class Card {
 
       this.resizeOverflowingText();
 
+      if (!this.params.behaviour.scaleTextNotCard) {
+        this.callbacks.onCardSize();
+      }
+
       // Focus text
       this.$cardTextArea.focus();
     }, 200);
