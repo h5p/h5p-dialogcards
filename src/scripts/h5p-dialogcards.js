@@ -117,6 +117,7 @@ class Dialogcards extends H5P.EventDispatcher {
       };
 
       this.cardManager = new CardManager(managerParams, this.id, {
+        onCardSize: () => this.trigger('resize'),
         onCardTurned: this.handleCardTurned,
         onNextCard: this.nextCard
       }, this.idCounter);
@@ -352,8 +353,6 @@ class Dialogcards extends H5P.EventDispatcher {
           this.truncateRetryButton();
         }
       }
-
-      this.trigger('resize');
     };
 
     /**

@@ -8,6 +8,7 @@ class Card {
    * @param {object} params Parent's params
    * @param {number} id Card number in order of appearance
    * @param {object} [callbacks] Callbacks.
+   * @param {function} [callbacks.onCardSize] Call when card needs resize.
    * @param {function} [callbacks.onCardTurned] Call when card was turned.
    * @param {number} idCounter
    */
@@ -338,6 +339,10 @@ class Card {
       }, 200);
 
       this.resizeOverflowingText();
+
+      if (!this.params.behaviour.scaleTextNotCard) {
+        this.callbacks.onCardSize();
+      }
 
       // Focus text
       this.$cardTextArea.focus();
