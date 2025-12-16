@@ -110,10 +110,6 @@
     width: 100%;
     justify-content: center;
   }
-
-  .h5p-dialogcards .h5p-dialogcards-card-footer > .h5p-theme-primary-cta:before {
-    text-indent: calc(-1 * var(--h5p-theme-spacing-xl));
-  }
 }
 
 .h5p-dialogcards .h5p-dialogcards-image-wrapper > .h5p-dialogcards-image {
@@ -374,9 +370,7 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-footer-button {
-  display: inline-block;
-  margin: 0;
-  line-height: normal;
+  display: flex;
 }
 
 .h5p-dialogcards .joubel-tip-container {
