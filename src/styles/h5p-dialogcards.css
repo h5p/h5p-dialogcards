@@ -51,14 +51,11 @@
   box-sizing: border-box;
   padding: var(--h5p-theme-spacing-l);
   background-color: var(--h5p-theme-background);
-
-  -webkit-transition: visibility 0s 0.3s, left 300ms;
   transition: visibility 0s 0.3s, left 300ms;
 }
 .h5p-dialogcards .h5p-dialogcards-cardwrap.h5p-dialogcards-current {
   visibility: visible;
   left: 0;
-  -webkit-transition: left 300ms;
   transition: left 300ms;
 }
 .h5p-dialogcards .h5p-dialogcards-cardwrap.h5p-dialogcards-previous {
@@ -69,7 +66,6 @@
   height: 100%;
   margin: auto;
   max-width: 32em;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -110,6 +106,10 @@
     width: 100%;
     justify-content: center;
   }
+
+  .h5p-dialogcards .h5p-dialogcards-card-footer > .h5p-theme-primary-cta:before {
+    text-indent: calc(-1 * var(--h5p-theme-spacing-xl));
+  }
 }
 
 .h5p-dialogcards .h5p-dialogcards-image-wrapper > .h5p-dialogcards-image {
@@ -120,8 +120,6 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
@@ -142,7 +140,6 @@
 .h5p-dialogcards .h5p-dialogcards-audio-wrapper {
   display: block;
   margin: 0 auto;
-  vertical-align: baseline;
   margin-bottom: 0.5em;
   width: var(--h5p-theme-spacing-xl);
   height: var(--h5p-theme-spacing-xl);
@@ -207,8 +204,6 @@
 }
 
 .h5p-dialogcards .h5p-dialogcards-collapse {
-  -webkit-transform: scale(0,1);
-  -ms-transform: scale(0,1);
   transform: scale(0,1);
 }
 
