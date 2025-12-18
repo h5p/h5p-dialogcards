@@ -195,9 +195,6 @@ class SummaryScreen {
    * @param {number} [args.results.score.max] Score max value for field.
    */
   update({done = false, round = undefined, message = undefined, results = []} = {}) {
-    console.log('done true', this.params.behaviour.enableRetry);
-    debugger;
-
     // Remove the old one
     if (this.resultScreen) {
       this.resultScreen.remove();
@@ -213,7 +210,7 @@ class SummaryScreen {
 
     if (done === true) {
       this.fields['buttonStartOver'].classList.add('h5p-dialogcards-button-gone');
-      console.log('done true', this.params.behaviour.enableRetry);
+
       if (this.params.behaviour.enableRetry) {
         this.fields['button'].classList.remove('h5p-dialogcards-button-next-round');
         this.fields['button'].classList.add('h5p-dialogcards-button-restart');
