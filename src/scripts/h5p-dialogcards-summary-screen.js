@@ -46,6 +46,7 @@ class SummaryScreen {
     const buttonNextRound = H5P.Components.Button({
       classes: 'h5p-dialogcards-button-next-round',
       styleType: 'primary',
+      icon: 'continue',
       label: this.params.nextRound.replace('@round', 2),
       onClick: () => { this.currentCallback(); }
     });
@@ -57,6 +58,7 @@ class SummaryScreen {
       classes: 'h5p-dialogcards-button-restart',
       styleType: 'secondary',
       label: this.params.startOver,
+      icon: 'retry',
     });
 
     const confirmationDialog = this.createConfirmationDialog({
@@ -175,7 +177,7 @@ class SummaryScreen {
   }
 
   setButtonLabel(button, label) {
-    button.textContent = label;
+    button.innerHTML = `<span class="h5p-theme-label">${label}</span>`;
     button.title = label;
     button.setAttribute('aria-label', label);
   }
@@ -193,6 +195,9 @@ class SummaryScreen {
    * @param {number} [args.results.score.max] Score max value for field.
    */
   update({done = false, round = undefined, message = undefined, results = []} = {}) {
+    console.log('done true', this.params.behaviour.enableRetry);
+    debugger;
+
     // Remove the old one
     if (this.resultScreen) {
       this.resultScreen.remove();
@@ -208,12 +213,10 @@ class SummaryScreen {
 
     if (done === true) {
       this.fields['buttonStartOver'].classList.add('h5p-dialogcards-button-gone');
-
+      console.log('done true', this.params.behaviour.enableRetry);
       if (this.params.behaviour.enableRetry) {
         this.fields['button'].classList.remove('h5p-dialogcards-button-next-round');
         this.fields['button'].classList.add('h5p-dialogcards-button-restart');
-        this.fields['button'].innerHTML = this.params.retry;
-        this.fields['button'].title = this.params.retry;
         this.setButtonLabel(this.fields['button'], this.params.retry);
         this.currentCallback = this.callbacks.retry;
       }
@@ -223,12 +226,8 @@ class SummaryScreen {
     }
     else {
       this.fields['buttonStartOver'].classList.remove('h5p-dialogcards-button-gone');
-
       this.fields['button'].classList.add('h5p-dialogcards-button-next-round');
-      this.fields['button'].classList.add('h5p-theme-primary-cta');
       this.fields['button'].classList.remove('h5p-dialogcards-button-restart');
-      this.fields['button'].innerHTML = this.params.nextRound;
-      this.fields['button'].title = this.params.nextRound;
       this.setButtonLabel(this.fields['button'], this.params.nextRound);
       this.currentCallback = this.callbacks.nextRound;
     }
