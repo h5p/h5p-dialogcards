@@ -4,7 +4,7 @@ class CardPile {
    *
    * @params {object[]} cards Card Ids.
    */
-  constructor(cards=[]) {
+  constructor(cards = []) {
     // Only use unique values
     this.cards = cards.filter((item, index) => cards.indexOf(item) >= index);
 
@@ -24,7 +24,7 @@ class CardPile {
    * @param {number|string} position Position to peek at.
    * @param {number} [amount=1] Number of cards to peek at.
    */
-  peek(position, amount=1) {
+  peek(position, amount = 1) {
     amount = Math.max(0, amount);
     if (position === 'top') {
       position = 0;
@@ -32,7 +32,7 @@ class CardPile {
     if (position === 'bottom') {
       position = this.cards.length - amount;
     }
-    if (position < 0 || position > this.cards.length -1) {
+    if (position < 0 || position > this.cards.length - 1) {
       return [];
     }
 
@@ -45,12 +45,12 @@ class CardPile {
    * @param {number|object[]} ids Id or array of card ids to be added.
    * @param {number|string} [position='top'] Position to add cards to (top|bottom), can be amended.
    */
-  add(ids, position='top') {
+  add(ids, position = 'top') {
     if (typeof ids === 'number') {
       ids = [ids];
     }
 
-    ids.forEach(id => {
+    ids.forEach((id) => {
       if (this.cards.indexOf(id) !== -1) {
         return;
       }
@@ -84,7 +84,7 @@ class CardPile {
    * @param {number} [amount=1] Amount of cards to be pulled.
    * @param {number|string} [position='top'] Position to take cards from. Default top.
    */
-  pull(amount=1, position='top') {
+  pull(amount = 1, position = 'top') {
     amount = Math.max(1, Math.min(amount, this.cards.length));
 
     if (position === 'top') {
@@ -93,7 +93,7 @@ class CardPile {
     if (position === 'bottom') {
       position = -amount;
     }
-    position = Math.max(0, Math.min(position, this.cards.length-1));
+    position = Math.max(0, Math.min(position, this.cards.length - 1));
 
     return this.cards.splice(position, amount);
   }
@@ -108,7 +108,7 @@ class CardPile {
       ids = [ids];
     }
 
-    ids.forEach(id => {
+    ids.forEach((id) => {
       const position = this.cards.indexOf(id);
       if (position > -1) {
         this.cards.splice(position, 1);
