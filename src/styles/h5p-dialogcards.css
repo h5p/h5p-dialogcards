@@ -108,8 +108,12 @@
     justify-content: center;
   }
 
-  .h5p-dialogcards .h5p-dialogcards-card-footer > .h5p-theme-primary-cta:before {
-    text-indent: calc(-1 * var(--h5p-theme-spacing-xl));
+  .h5p-dialogcards .h5p-dialogcards-card-footer > .h5p-theme-primary-cta::before {
+    text-indent: calc(-0.5 * var(--h5p-theme-spacing-s));
+  }
+
+  .h5p-dialogcards .h5p-dialogcards-card-footer > .h5p-theme-primary-cta:hover::before {
+    text-indent: calc(-0.5 * var(--h5p-theme-spacing-s));
   }
 }
 
