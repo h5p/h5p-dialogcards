@@ -109,11 +109,11 @@
   }
 
   .h5p-dialogcards .h5p-dialogcards-card-footer > .h5p-theme-primary-cta::before {
-    text-indent: calc(-0.5 * var(--h5p-theme-spacing-s));
+    text-indent: calc(-0.5 * var(--h5p-theme-spacing-xs));
   }
 
   .h5p-dialogcards .h5p-dialogcards-card-footer > .h5p-theme-primary-cta:hover::before {
-    text-indent: calc(-0.5 * var(--h5p-theme-spacing-s));
+    text-indent: calc(-0.5 * var(--h5p-theme-spacing-xs));
   }
 }
 
@@ -293,10 +293,6 @@
 
 .h5p-dialogcards .h5p-theme-flip {
   margin: 0;
-}
-
-.h5p-dialogcards .h5p-theme-flip .h5p-theme-label {
-  display: inline;
 }
 
 .h5p-dialogcards .h5p-dialogcards-answer-button.correct.h5p-dialogcards-quick-progression:hover,

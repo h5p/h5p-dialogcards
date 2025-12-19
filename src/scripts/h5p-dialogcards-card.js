@@ -189,7 +189,7 @@ class Card {
 
     this.$buttonTurn = $(H5P.Components.Button({
       label: this.params.answer,
-      classes: 'h5p-theme-flip',
+      icon: 'flip',
     })).appendTo($cardFooter);
 
     if (this.params.mode === 'repetition') {
