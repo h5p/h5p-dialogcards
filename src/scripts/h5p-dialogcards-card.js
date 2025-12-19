@@ -201,7 +201,7 @@ class Card {
       })).appendTo($cardFooter);
 
       this.$buttonIncorrect = $(H5P.Components.Button({
-        classes: `h5p-dialogcards-answer-button h5p-theme-secondary-cta incorrect ${classesRepetition}`,
+        classes: `h5p-dialogcards-answer-button incorrect ${classesRepetition}`,
         label: this.params.incorrectAnswer,
         disabled: !this.params.behaviour.quickProgression,
         tabIndex: attributeTabindex,
@@ -212,7 +212,7 @@ class Card {
       })).appendTo($cardFooter);
 
       this.$buttonCorrect = $(H5P.Components.Button({
-        classes: `h5p-dialogcards-answer-button h5p-theme-secondary-cta correct ${classesRepetition}`,
+        classes: `h5p-dialogcards-answer-button correct ${classesRepetition}`,
         label: this.params.correctAnswer,
         disabled: !this.params.behaviour.quickProgression,
         tabIndex: attributeTabindex,
