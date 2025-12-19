@@ -46,9 +46,7 @@ class CardManager {
    */
   createPiles(cardPiles) {
     if (cardPiles) {
-      this.cardPiles = cardPiles.map(cardPile => {
-        return new CardPile(cardPile.cards);
-      });
+      this.cardPiles = cardPiles.map((cardPile) => new CardPile(cardPile.cards));
 
       return;
     }
@@ -86,7 +84,7 @@ class CardManager {
    * @return {number[]} Card pile sizes.
    */
   updatePiles(results) {
-    results.forEach(result => {
+    results.forEach((result) => {
       // Find card in pile
       const pileId = this.find(result.cardId);
       if (pileId === -1) {
@@ -168,7 +166,7 @@ class CardManager {
       if (found !== -1) {
         return found;
       }
-      if (cardPile.contains(id))  {
+      if (cardPile.contains(id)) {
         found = index;
       }
     });
@@ -213,7 +211,7 @@ class CardManager {
    * @return {object[]} Pile sizes.
    */
   getPileSizes() {
-    return this.cardPiles.map(pile => pile.length());
+    return this.cardPiles.map((pile) => pile.length());
   }
 }
 

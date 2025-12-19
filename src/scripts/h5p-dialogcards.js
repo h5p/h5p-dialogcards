@@ -2,7 +2,7 @@ import CardManager from './h5p-dialogcards-card-manager';
 import SummaryScreen from './h5p-dialogcards-summary-screen';
 
 const $ = H5P.jQuery;
-const JoubelUI = H5P.JoubelUI;
+const { JoubelUI } = H5P;
 
 class Dialogcards extends H5P.EventDispatcher {
   /**
@@ -30,10 +30,10 @@ class Dialogcards extends H5P.EventDispatcher {
       title: '',
       mode: 'normal',
       description: '',
-      next: "Next",
-      prev: "Previous",
-      retry: "Retry",
-      answer: "Turn",
+      next: 'Next',
+      prev: 'Previous',
+      retry: 'Retry',
+      answer: 'Turn',
       correctAnswer: 'I got it right!',
       incorrectAnswer: 'I got it wrong',
       round: 'Round @round',
@@ -49,26 +49,26 @@ class Dialogcards extends H5P.EventDispatcher {
       summaryCardsCompleted: 'Cards you have completed learning:',
       summaryCompletedRounds: 'Completed rounds:',
       summaryAllDone: 'Well done! You have mastered all @cards cards by getting them correct @max times!',
-      progressText: "Card @card of @total",
-      cardFrontLabel: "Card front",
-      cardBackLabel: "Card back",
+      progressText: 'Card @card of @total',
+      cardFrontLabel: 'Card front',
+      cardBackLabel: 'Card back',
       tipButtonLabel: 'Show tip',
       audioNotSupported: 'Your browser does not support this audio',
       confirmStartingOver: {
         header: 'Start over?',
         body: 'All progress will be lost. Are you sure you want to start over?',
         cancelLabel: 'Cancel',
-        confirmLabel: 'Start over'
+        confirmLabel: 'Start over',
       },
       dialogs: [
         {
           text: 'Horse',
-          answer: 'Hest'
+          answer: 'Hest',
         },
         {
           text: 'Cow',
-          answer: 'Ku'
-        }
+          answer: 'Ku',
+        },
       ],
       behaviour: {
         enableRetry: true,
@@ -76,8 +76,8 @@ class Dialogcards extends H5P.EventDispatcher {
         scaleTextNotCard: false,
         randomCards: false,
         maxProficiency: 5,
-        quickProgression: false
-      }
+        quickProgression: false,
+      },
     }, params);
 
     this.cards = [];
@@ -111,15 +111,15 @@ class Dialogcards extends H5P.EventDispatcher {
         behaviour: {
           scaleTextNotCard: this.params.behaviour.scaleTextNotCard,
           maxProficiency: this.params.behaviour.maxProficiency,
-          quickProgression: this.params.behaviour.quickProgression
+          quickProgression: this.params.behaviour.quickProgression,
         },
-        cardPiles: this.previousState.cardPiles
+        cardPiles: this.previousState.cardPiles,
       };
 
       this.cardManager = new CardManager(managerParams, this.id, {
         onCardSize: () => this.trigger('resize'),
         onCardTurned: this.handleCardTurned,
-        onNextCard: this.nextCard
+        onNextCard: this.nextCard,
       }, this.idCounter);
 
       this.createDOM(this.round === 0);
@@ -148,25 +148,25 @@ class Dialogcards extends H5P.EventDispatcher {
      * @param {boolean} firstCall Is first call?
      */
     this.createDOM = (firstCall) => {
-      this.cardIds = (firstCall && this.previousState.cardIds) ?
-        this.previousState.cardIds :
-        this.cardManager.createSelection();
+      this.cardIds = (firstCall && this.previousState.cardIds)
+        ? this.previousState.cardIds
+        : this.cardManager.createSelection();
 
       this.cardPoolSize = this.cardPoolSize || this.cardManager.getSize();
 
       if (firstCall === true) {
-        const title = $('<div>' + this.params.title + '</div>').text().trim();
-        this.$header = $('<div class="h5p-dialogcards-title-container"><div class="h5p-dialogcards-title-wrapper">' + (title ? '<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner h5p-theme-question-description">' + this.params.title + '</div></div>' : '') + '<div class="h5p-dialogcards-description">' + this.params.description + '</div></div></div>');
+        const title = $(`<div>${this.params.title}</div>`).text().trim();
+        this.$header = $(`<div class="h5p-dialogcards-title-container"><div class="h5p-dialogcards-title-wrapper">${title ? `<div class="h5p-dialogcards-title"><div class="h5p-dialogcards-title-inner h5p-theme-question-description">${this.params.title}</div></div>` : ''}<div class="h5p-dialogcards-description">${this.params.description}</div></div></div>`);
 
         if (this.params.mode === 'normal') {
           this.$progress = $('<div>', {
-            'id': 'h5p-dialogcards-progress-' + this.idCounter,
-            'class': 'h5p-dialogcards-progress h5p-theme-progress',
-            'aria-live': 'assertive'
+            id: `h5p-dialogcards-progress-${this.idCounter}`,
+            class: 'h5p-dialogcards-progress h5p-theme-progress',
+            'aria-live': 'assertive',
           }).appendTo(this.$header);
         }
 
-        this.summaryScreen = new SummaryScreen(this.params, {nextRound: this.nextRound, retry: this.restartRepetition}, this.contentId);
+        this.summaryScreen = new SummaryScreen(this.params, { nextRound: this.nextRound, retry: this.restartRepetition }, this.contentId);
       }
 
       if (firstCall === true) {
@@ -183,8 +183,8 @@ class Dialogcards extends H5P.EventDispatcher {
       if (firstCall === true) {
         this.$cardSideAnnouncer = $('<div>', {
           html: this.params.cardFrontLabel,
-          'class': 'h5p-dialogcards-card-side-announcer',
-          'aria-live': 'polite'
+          class: 'h5p-dialogcards-card-side-announcer',
+          'aria-live': 'polite',
         });
 
         this.nav = this.createFooter();
@@ -225,7 +225,7 @@ class Dialogcards extends H5P.EventDispatcher {
           texts: {
             previousButton: this.params.prev,
             nextButton: this.params.next,
-          }
+          },
         });
 
         if (this.params.behaviour.disableBackwardsNavigation) {
@@ -247,12 +247,12 @@ class Dialogcards extends H5P.EventDispatcher {
         nav = H5P.Components.Navigation();
 
         this.$round = $('<div>', {
-          'class': 'h5p-dialogcards-round'
+          class: 'h5p-dialogcards-round',
         }).appendTo(nav);
 
         this.$progress = $('<div>', {
-          'class': 'h5p-dialogcards-round',
-          'aria-live': 'assertive'
+          class: 'h5p-dialogcards-round',
+          'aria-live': 'assertive',
         }).appendTo(nav);
       }
 
@@ -264,12 +264,12 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.updateImageSize = () => {
       // Find highest card content
-      let relativeHeightCap = 15;
+      const relativeHeightCap = 15;
       let height = 0;
 
       const $currentCardContent = this.cards[this.currentCardId].getDOM().find('.h5p-dialogcards-card-content');
 
-      this.params.dialogs.forEach(dialog => {
+      this.params.dialogs.forEach((dialog) => {
         if (!dialog.image) {
           return;
         }
@@ -285,8 +285,8 @@ class Dialogcards extends H5P.EventDispatcher {
         if (relativeImageHeight > relativeHeightCap) {
           relativeImageHeight = relativeHeightCap;
         }
-        this.cards.forEach(card => {
-          card.getImage().parent().css('height', relativeImageHeight + 'em');
+        this.cards.forEach((card) => {
+          card.getImage().parent().css('height', `${relativeImageHeight}em`);
         });
       }
     };
@@ -308,7 +308,7 @@ class Dialogcards extends H5P.EventDispatcher {
       }
 
       const $cardwrapperSet = $('<div>', {
-        'class': 'h5p-dialogcards-cardwrap-set'
+        class: 'h5p-dialogcards-cardwrap-set',
       });
 
       for (let i = 0; i < cardIds.length; i++) {
@@ -367,8 +367,7 @@ class Dialogcards extends H5P.EventDispatcher {
 
         this.$progress.text(this.params.progressText
           .replace('@card', this.getCurrentSelectionIndex() + 1)
-          .replace('@total', this.cardIds.length)
-        );
+          .replace('@total', this.cardIds.length));
 
         // Looks strange, but the Ids get mixed up elsewhere
         this.cards[this.findCardPosition(this.cards[this.currentCardId].id)].resizeOverflowingText();
@@ -388,11 +387,11 @@ class Dialogcards extends H5P.EventDispatcher {
      */
     this.showSummary = (previousState = false) => {
       // Update piles and retrieve the new pile sizes
-      const newPileSizes = (previousState) ?
-        this.cardManager.getPileSizes() :
-        this.cardManager.updatePiles(this.results);
+      const newPileSizes = (previousState)
+        ? this.cardManager.getPileSizes()
+        : this.cardManager.updatePiles(this.results);
 
-      const right = this.results.filter(result => result.result === true).length;
+      const right = this.results.filter((result) => result.result === true).length;
       const wrong = this.results.length - right;
       const notShown = this.cardPoolSize - right - wrong;
       const completed = newPileSizes.slice(-1)[0];
@@ -403,25 +402,25 @@ class Dialogcards extends H5P.EventDispatcher {
         results: [
           {
             field: 'h5p-dialogcards-round-cards-right',
-            score: {value: right, max: wrong + right}
+            score: { value: right, max: wrong + right },
           },
           {
             field: 'h5p-dialogcards-round-cards-wrong',
-            score: {value: wrong, max: wrong + right}
+            score: { value: wrong, max: wrong + right },
           },
           {
             field: 'h5p-dialogcards-round-cards-not-shown',
-            score: {value: notShown}
+            score: { value: notShown },
           },
           {
             field: 'h5p-dialogcards-overall-cards-completed',
-            score: {value: completed, max: this.cardPoolSize}
+            score: { value: completed, max: this.cardPoolSize },
           },
           {
             field: 'h5p-dialogcards-overall-completed-rounds',
-            score: {value: this.round}
-          }
-        ]
+            score: { value: this.round },
+          },
+        ],
       };
 
       if (done) {
@@ -462,7 +461,7 @@ class Dialogcards extends H5P.EventDispatcher {
      * @param {object} [result] Optional result of repetition mode.
      */
     this.nextCard = (result) => {
-      if (typeof(result) !== 'undefined') {
+      if (typeof (result) !== 'undefined') {
         this.results.push(result);
       }
 
@@ -557,10 +556,9 @@ class Dialogcards extends H5P.EventDispatcher {
       }
 
       // Load and insert target card, predecessor and successor if required.
-      checkLoaded.forEach(position => {
+      checkLoaded.forEach((position) => {
         const loadedPosition = this.findCardPosition(this.cardIds[position]);
         if (loadedPosition === undefined) {
-
           // Card has not been loaded. Load now.
           const card = this.getCard(this.cardIds[position]);
           card.setProgressText(position + 1, this.cardIds.length);
@@ -652,7 +650,7 @@ class Dialogcards extends H5P.EventDispatcher {
       this.cards[this.currentCardId].stopAudio(this.$current.index());
 
       // Turn all cards to front
-      this.cards.forEach(card => {
+      this.cards.forEach((card) => {
         card.reset();
       });
 
@@ -695,7 +693,7 @@ class Dialogcards extends H5P.EventDispatcher {
         maxHeight = summaryHeight > maxHeight ? summaryHeight : maxHeight;
       }
       else {
-        //Find max required height for the current card
+        // Find max required height for the current card
         const $currentCardWrapper = this.cards[this.currentCardId].getDOM();
         const wrapperHeight = $currentCardWrapper.css('height', 'initial').outerHeight();
         $currentCardWrapper.css('height', '');
@@ -711,7 +709,7 @@ class Dialogcards extends H5P.EventDispatcher {
       }
 
       const relativeMaxHeight = maxHeight / parseFloat(this.$cardwrapperSet.css('font-size'));
-      this.$cardwrapperSet.css('height', relativeMaxHeight + 'em');
+      this.$cardwrapperSet.css('height', `${relativeMaxHeight}em`);
       this.scaleToFitHeight();
       this.truncateRetryButton();
 
@@ -730,7 +728,7 @@ class Dialogcards extends H5P.EventDispatcher {
       }
 
       // Go through each card
-      this.$cardwrapperSet.children(':visible').each(function (i) {
+      this.$cardwrapperSet.children(':visible').each((i) => {
         const cardId = self.cards[i].id;
 
         if (self.cardSizeDetermined.indexOf(cardId) !== -1) {
@@ -767,8 +765,8 @@ class Dialogcards extends H5P.EventDispatcher {
           this.$inner.children().each(function () {
             // Here "this" references the jQuery object
             const $child = $(this);
-            contentHeight += this.getBoundingClientRect().height +
-            parseFloat($child.css('margin-top')) + parseFloat($child.css('margin-bottom'));
+            contentHeight += this.getBoundingClientRect().height
+            + parseFloat($child.css('margin-top')) + parseFloat($child.css('margin-bottom'));
           });
           return contentHeight;
         };
@@ -787,7 +785,7 @@ class Dialogcards extends H5P.EventDispatcher {
             }
 
             // Set relative font size to scale with full screen.
-            this.$inner.css('font-size', (newFontSize / parentFontSize) + 'em');
+            this.$inner.css('font-size', `${newFontSize / parentFontSize}em`);
             contentHeight = getContentHeight();
           }
         }
@@ -804,12 +802,12 @@ class Dialogcards extends H5P.EventDispatcher {
 
             // Set relative font size to scale with full screen.
             let relativeFontSize = newFontSize / parentFontSize;
-            this.$inner.css('font-size', relativeFontSize + 'em');
+            this.$inner.css('font-size', `${relativeFontSize}em`);
             contentHeight = getContentHeight();
             if (containerHeight <= contentHeight) {
               increaseFontSize = false;
               relativeFontSize = (newFontSize - Dialogcards.SCALEINTERVAL) / parentFontSize;
-              this.$inner.css('font-size', relativeFontSize + 'em');
+              this.$inner.css('font-size', `${relativeFontSize}em`);
             }
           }
         }
@@ -833,8 +831,8 @@ class Dialogcards extends H5P.EventDispatcher {
 
       // Measure button
       const maxWidthPercentages = 0.3;
-      const retryWidth = this.$retry.get(0).getBoundingClientRect().width +
-          parseFloat(this.$retry.css('margin-left')) + parseFloat(this.$retry.css('margin-right'));
+      const retryWidth = this.$retry.get(0).getBoundingClientRect().width
+          + parseFloat(this.$retry.css('margin-left')) + parseFloat(this.$retry.css('margin-right'));
       const retryWidthPercentage = retryWidth / this.$retry.parent().get(0).getBoundingClientRect().width;
 
       // Truncate button
@@ -854,9 +852,7 @@ class Dialogcards extends H5P.EventDispatcher {
      *
      * @return {string} title.
      */
-    this.getTitle = () => {
-      return H5P.createTitle((this.contentData && this.contentData.metadata && this.contentData.metadata.title) ? this.contentData.metadata.title : 'Dialog Cards');
-    };
+    this.getTitle = () => H5P.createTitle((this.contentData && this.contentData.metadata && this.contentData.metadata.title) ? this.contentData.metadata.title : 'Dialog Cards');
 
     /**
      * Save the current state to be restored later.
@@ -873,7 +869,7 @@ class Dialogcards extends H5P.EventDispatcher {
           cardIds: this.cardIds,
           round: this.round,
           currentCardId: this.getCurrentSelectionIndex(),
-          results: this.results
+          results: this.results,
         }
         : undefined;
     };
@@ -883,12 +879,10 @@ class Dialogcards extends H5P.EventDispatcher {
      * Note - does not consider whether the first card has been turned or not
      * @returns {boolean} True if progress has been started, false otherwise.
      */
-    this.isProgressStarted = () => {
-      return !H5P.isEmpty(this.previousState)
+    this.isProgressStarted = () => !H5P.isEmpty(this.previousState)
           || this.getCurrentSelectionIndex() !== 0
           || this.results.length !== 0
           || this.round !== 1;
-    }
 
     /**
      * Resets task to the initial state
@@ -902,7 +896,7 @@ class Dialogcards extends H5P.EventDispatcher {
         this.round = 0;
         this.nextRound(moveFocus); // Also calls reset(), which takes care about resetting everything else
       }
-    }
+    };
   }
 }
 

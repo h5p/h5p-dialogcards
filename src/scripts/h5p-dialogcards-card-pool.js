@@ -47,7 +47,7 @@ class CardPool {
    *
    * @return {object[]} Card ids.
    */
-  getCardIds()  {
+  getCardIds() {
     return this.cards.map((card, index) => index);
   }
 
@@ -68,10 +68,10 @@ class CardPool {
         id,
         this.contentId,
         this.callbacks,
-        this.idCounter);
+        this.idCounter,
+      );
     }
   }
-
 }
 
 export default CardPool;

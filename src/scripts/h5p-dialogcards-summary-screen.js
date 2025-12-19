@@ -5,7 +5,7 @@ class SummaryScreen {
   constructor(params, callbacks, contentId) {
     this.params = params;
     this.callbacks = callbacks;
-    this.contentId = contentId
+    this.contentId = contentId;
 
     this.currentCallback = callbacks.nextRound;
 
@@ -14,25 +14,25 @@ class SummaryScreen {
     this.tableRows = {
       right: {
         title: this.params.summaryCardsRight,
-        symbol: 'check'
+        symbol: 'check',
       },
       wrong: {
         title: this.params.summaryCardsWrong,
-        symbol: 'times'
+        symbol: 'times',
       },
       'not-shown': {
-        title: this.params.summaryCardsNotShown
-      }
+        title: this.params.summaryCardsNotShown,
+      },
     };
 
     this.overallTableRows = {
       'cards-completed': {
         title: this.params.summaryCardsCompleted,
-        symbol: 'check'
+        symbol: 'check',
       },
       'completed-rounds': {
         title: this.params.summaryCompletedRounds,
-      }
+      },
     };
 
     this.container = document.createElement('div');
@@ -41,27 +41,31 @@ class SummaryScreen {
     const message = document.createElement('div');
     message.classList.add('h5p-dialogcards-summary-message');
 
-    this.fields['message'] = message;
+    this.fields.message = message;
 
     const buttonNextRound = H5P.Components.Button({
       classes: 'h5p-dialogcards-button-next-round',
       styleType: 'primary',
+      icon: 'continue',
       label: this.params.nextRound.replace('@round', 2),
-      onClick: () => { this.currentCallback(); }
+      onClick: () => {
+        this.currentCallback();
+      },
     });
 
-    this.fields['button'] = buttonNextRound;
+    this.fields.button = buttonNextRound;
 
     // Button to start over including confirmation dialog
     const buttonStartOver = H5P.Components.Button({
       classes: 'h5p-dialogcards-button-restart',
       styleType: 'secondary',
       label: this.params.startOver,
+      icon: 'retry',
     });
 
     const confirmationDialog = this.createConfirmationDialog({
       l10n: this.params.confirmStartingOver,
-      instance: this
+      instance: this,
     }, () => {
       // Stop interference with confirm dialog animation and goto animation
       setTimeout(() => {
@@ -77,7 +81,7 @@ class SummaryScreen {
       confirmationDialog.show(event.target.offsetTop);
     });
 
-    this.fields['buttonStartOver'] = buttonStartOver;
+    this.fields.buttonStartOver = buttonStartOver;
 
     // Footer
     const footer = document.createElement('div');
@@ -103,28 +107,28 @@ class SummaryScreen {
 
   /**
    * Create the score element to send to the ResultScreen component
-   * @param {string} [symbol] Which 
+   * @param {string} [symbol] Which
    * @param {number} score Which score the user got
    * @param {number} [maxScore] What the max score is
    */
-  createScoreElement({symbol, score, maxScore}) {
+  createScoreElement({ symbol, score, maxScore }) {
     let element = '';
 
     if (symbol) {
-      element += `<div class="h5p-dialogcards-summary-table-row-symbol h5p-dialogcards-${symbol}"></div>`
+      element += `<div class="h5p-dialogcards-summary-table-row-symbol h5p-dialogcards-${symbol}"></div>`;
     }
 
     if (score !== undefined) {
-      element += `<div class="h5p-dialogcards-summary-table-row-score">${score.toString()}`; 
+      element += `<div class="h5p-dialogcards-summary-table-row-score">${score.toString()}`;
 
       if (maxScore) {
-        element +=  ` <span>/</span> ${maxScore}`;
+        element += ` <span>/</span> ${maxScore}`;
       }
 
       element += '</div>';
     }
 
-    return  element;
+    return element;
   }
 
   /**
@@ -139,11 +143,11 @@ class SummaryScreen {
     const overallQuestions = [];
 
     results.forEach((result) => {
-      let field = result.field.split('h5p-dialogcards-round-cards-');
+      const field = result.field.split('h5p-dialogcards-round-cards-');
       let data = this.tableRows[field[1]];
       let overallGroup = false;
 
-      if(!data) {
+      if (!data) {
         data = this.overallTableRows[result.field.split('h5p-dialogcards-overall-')[1]];
         overallGroup = true;
       }
@@ -166,16 +170,16 @@ class SummaryScreen {
     });
 
     return [
-      { questions: questions },
+      { questions },
       {
-        listHeaders: [ this.params.summaryOverallScore ],
+        listHeaders: [this.params.summaryOverallScore],
         questions: overallQuestions,
-      }
+      },
     ];
   }
 
   setButtonLabel(button, label) {
-    button.textContent = label;
+    button.innerHTML = `<span class="h5p-theme-label">${label}</span>`;
     button.title = label;
     button.setAttribute('aria-label', label);
   }
@@ -192,7 +196,9 @@ class SummaryScreen {
    * @param {number} [args.results.score.value] Score value for field.
    * @param {number} [args.results.score.max] Score max value for field.
    */
-  update({done = false, round = undefined, message = undefined, results = []} = {}) {
+  update({
+    done = false, round = undefined, message = undefined, results = [],
+  } = {}) {
     // Remove the old one
     if (this.resultScreen) {
       this.resultScreen.remove();
@@ -207,43 +213,37 @@ class SummaryScreen {
     this.container.prepend(this.resultScreen);
 
     if (done === true) {
-      this.fields['buttonStartOver'].classList.add('h5p-dialogcards-button-gone');
+      this.fields.buttonStartOver.classList.add('h5p-dialogcards-button-gone');
 
       if (this.params.behaviour.enableRetry) {
-        this.fields['button'].classList.remove('h5p-dialogcards-button-next-round');
-        this.fields['button'].classList.add('h5p-dialogcards-button-restart');
-        this.fields['button'].innerHTML = this.params.retry;
-        this.fields['button'].title = this.params.retry;
-        this.setButtonLabel(this.fields['button'], this.params.retry);
+        this.fields.button.classList.remove('h5p-dialogcards-button-next-round');
+        this.fields.button.classList.add('h5p-dialogcards-button-restart');
+        this.setButtonLabel(this.fields.button, this.params.retry);
         this.currentCallback = this.callbacks.retry;
       }
       else {
-        this.fields['button'].classList.add('h5p-dialogcards-button-gone');
+        this.fields.button.classList.add('h5p-dialogcards-button-gone');
       }
     }
     else {
-      this.fields['buttonStartOver'].classList.remove('h5p-dialogcards-button-gone');
-
-      this.fields['button'].classList.add('h5p-dialogcards-button-next-round');
-      this.fields['button'].classList.add('h5p-theme-primary-cta');
-      this.fields['button'].classList.remove('h5p-dialogcards-button-restart');
-      this.fields['button'].innerHTML = this.params.nextRound;
-      this.fields['button'].title = this.params.nextRound;
-      this.setButtonLabel(this.fields['button'], this.params.nextRound);
+      this.fields.buttonStartOver.classList.remove('h5p-dialogcards-button-gone');
+      this.fields.button.classList.add('h5p-dialogcards-button-next-round');
+      this.fields.button.classList.remove('h5p-dialogcards-button-restart');
+      this.setButtonLabel(this.fields.button, this.params.nextRound);
       this.currentCallback = this.callbacks.nextRound;
     }
 
     if (!done && round !== undefined) {
       const label = this.params.nextRound.replace('@round', round + 1);
-      this.setButtonLabel(this.fields['button'], label);
+      this.setButtonLabel(this.fields.button, label);
     }
 
     if (done && message !== undefined && message !== '') {
-      this.fields['message'].classList.remove('h5p-dialogcards-gone');
-      this.fields['message'].innerHTML = message;
+      this.fields.message.classList.remove('h5p-dialogcards-gone');
+      this.fields.message.innerHTML = message;
     }
     else {
-      this.fields['message'].classList.add('h5p-dialogcards-gone');
+      this.fields.message.classList.add('h5p-dialogcards-gone');
     }
   }
 
@@ -254,7 +254,7 @@ class SummaryScreen {
     this.container.classList.remove('h5p-dialogcards-gone');
     // iOS13 requires DOM to be visible to focus
     setTimeout(() => {
-      this.fields['button'].focus();
+      this.fields.button.focus();
     }, 0);
   }
 
@@ -274,13 +274,13 @@ class SummaryScreen {
   createConfirmationDialog(options, clicked) {
     options = options || {};
 
-    var confirmationDialog = new H5P.ConfirmationDialog({
+    const confirmationDialog = new H5P.ConfirmationDialog({
       instance: options.instance,
       headerText: options.l10n.header,
       dialogText: options.l10n.body,
       cancelText: options.l10n.cancelLabel,
       confirmText: options.l10n.confirmLabel,
-      theme: true
+      theme: true,
     });
 
     confirmationDialog.on('confirmed', () => {
@@ -297,7 +297,7 @@ class SummaryScreen {
    * @return {HTMLElement} Container to attach dialogs to.
    */
   getContainer() {
-    const $content = H5P.jQuery('[data-content-id="' + this.contentId + '"].h5p-content');
+    const $content = H5P.jQuery(`[data-content-id="${this.contentId}"].h5p-content`);
     const $containerParents = $content.parents('.h5p-container');
 
     let $container;
