@@ -1,0 +1,219 @@
+{
+  "semantics": [
+    {
+      "label": "Cím"
+    },
+    {
+      "label": "Mód",
+      "description": "A dialóguskártyák megjelenítésének módja",
+      "options": [
+        {
+          "label": "Normál (sorrendben)"
+        },
+        {
+          "label": "Nem megtanult kártyák ismétlése"
+        }
+      ]
+    },
+    {
+      "label": "Feladatleírás"
+    },
+    {
+      "label": "Párbeszédek",
+      "widgets": [
+        {
+          "label": "Alapbeállítás"
+        }
+      ],
+      "entity": "Párbeszéd",
+      "field": {
+        "label": "Kérdés",
+        "fields": [
+          {
+            "label": "Előoldal",
+            "description": "Segítség az első párbeszéd részéhez"
+          },
+          {
+            "label": "Hátoldal",
+            "description": "Segítség a párbeszéd második részéhez"
+          },
+          {
+            "label": "Kép",
+            "description": "Opcionális kép a kártyához. (A kártya csak képből, csak szövegből vagy mindkettőből állhat.)"
+          },
+          {
+            "label": "Alternatív szöveg a képhez (akadálymentesség)"
+          },
+          {
+            "label": "Hangfájlok"
+          },
+          {
+            "label": "Tippek",
+            "fields": [
+              {
+                "label": "Tipp az előoldalhoz",
+                "description": "Tipp a párbeszéd első részéhez"
+              },
+              {
+                "label": "Tipp a hátoldalhoz",
+                "description": "Tipp a párbeszéd második részéhez"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "Viselkedési beállítások",
+      "description": "Ezek a beállítások szabályozzák a feladat viselkedését.",
+      "fields": [
+        {
+          "label": "\"Ismétlés\" gomb megjelenítése"
+        },
+        {
+          "label": "Visszalépés tiltása",
+          "description": "Ez az opció csak előre haladást tesz lehetővé a párbeszédkártyák között"
+        },
+        {
+          "label": "Szöveg automatikus kicsinyítése, ha nem fér a kártyára",
+          "description": "Ha ez az opció nincs kiválasztva, a kártya mérete a szöveg méretéhez igazodik"
+        },
+        {
+          "label": "Kártyák keverése",
+          "description": "Jelöld be a kártyák véletlenszerű sorrendjéhez."
+        },
+        {
+          "label": "Ismétlések száma, amely után egy kártya megtanultnak számít"
+        },
+        {
+          "label": "Gyors válasz engedélyezése",
+          "description": "Ha aktiválva van, a tanulók jelezhetik, hogy ismerik a kártyát anélkül, hogy megfordítanák azt"
+        }
+      ]
+    },
+    {
+      "label": "\"Megfordítás\" gomb felirata",
+      "default": "Megfordítás"
+    },
+    {
+      "label": "\"Tovább\" gomb felirata",
+      "default": "Tovább"
+    },
+    {
+      "label": "\"Vissza\" gomb felirata",
+      "default": "Vissza"
+    },
+    {
+      "label": "\"Ismétlés\" gomb felirata",
+      "default": "Ismétlés"
+    },
+    {
+      "label": "\"Helyes válasz\" gomb felirata",
+      "default": "Jól tudtam!"
+    },
+    {
+      "label": "\"Helytelen válasz\" gomb felirata",
+      "default": "Rossz volt!"
+    },
+    {
+      "label": "A körszám szövege a kártyák alatt és az összefoglalóban",
+      "description": "@round az aktuális kör számával helyettesítve",
+      "default": "Kör @round"
+    },
+    {
+      "label": "A hátralévő kártyák számát bemutató szöveg",
+      "description": "@number az adott körben még hátralévő kártyák számával helyettesítve",
+      "default": "Hátralévő kártyák: @number"
+    },
+    {
+      "label": "\"Következő kör\" gomb felirata",
+      "description": "@round a kör számával helyettesítve",
+      "default": "Tovább a(z) @round. körre"
+    },
+    {
+      "label": "\"Újrakezdés\" gomb felirata",
+      "default": "Újrakezdés"
+    },
+    {
+      "label": "\"Összefoglaló megjelenítése\" gomb felirata",
+      "default": "Tovább"
+    },
+    {
+      "label": "Az összefoglaló oldal címsora",
+      "default": "Összefoglaló"
+    },
+    {
+      "label": "\"Helyes kártyák:\" felirat",
+      "default": "Helyes kártyák:"
+    },
+    {
+      "label": "\"Helytelen kártyák:\" felirat",
+      "default": "Helytelen kártyák:"
+    },
+    {
+      "label": "\"Nem megjelenített kártyák:\" felirat",
+      "default": "Nem megjelenített kártyák:"
+    },
+    {
+      "label": "\"Összpontszám\" felirat",
+      "default": "Összpontszám"
+    },
+    {
+      "label": "\"Kész kártyák:\" felirat",
+      "default": "A kártyák, amiket már megtanultál:"
+    },
+    {
+      "label": "\"Befejezett körök:\" felirat",
+      "default": "Befejezett körök:"
+    },
+    {
+      "label": "Üzenet, amikor az összes kártya megtanultnak számít",
+      "description": "@cards az összes kártya számával, @max a maximális megtanulási szinttel helyettesítve.",
+      "default": "Szép munka! Minden @cards kártyát @max-szor egymás után helyesen válaszoltál meg!"
+    },
+    {
+      "label": "A haladásjelző szövege",
+      "description": "@card az aktuális kártya számával, @total az összes kártya számával helyettesítve",
+      "default": "Kártya @card/@total"
+    },
+    {
+      "label": "A kártya szövegének felirata",
+      "description": "Felolvasó eszközök által használt (akadálymentesség)",
+      "default": "Kártya előoldal"
+    },
+    {
+      "label": "A kártya hátoldalának felirata",
+      "description": "Felolvasó eszközök által használt (akadálymentesség)",
+      "default": "Kártya hátoldal"
+    },
+    {
+      "label": "\"Tipp megjelenítése\" gomb felirata",
+      "default": "Tipp megjelenítése"
+    },
+    {
+      "label": "Üzenet, ha a hangfelvétel nem játszható le",
+      "default": "A böngésződ nem támogatja ezt a hangfájlt"
+    },
+    {
+      "label": "Megerősítő párbeszédablak az újrakezdéshez",
+      "fields": [
+        {
+          "label": "Fejléc",
+          "default": "Újrakezdi?"
+        },
+        {
+          "label": "Főszöveg",
+          "default": "Az eddigi összes előrehaladásod törlődni fog. Biztosan újrakezdenéd?"
+        },
+        {
+          "label": "\"Mégse\" gomb felirata",
+          "default": "Mégse"
+        },
+        {
+          "label": "\"Igen, újrakezdem\" gomb felirata",
+          "default": "Igen, újrakezdem"
+        }
+      ]
+    }
+  ]
+}
