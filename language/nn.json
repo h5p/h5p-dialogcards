@@ -92,27 +92,27 @@
       ]
     },
     {
-      "label": "Namn på \"Snu\"-knappen",
+      "label": "Tekst på \"Snu\"-knapp",
       "default": "Snu"
     },
     {
-      "label": "Namn på \"Neste\"-knappen",
+      "label": "Tekst på \"Neste\"-knapp",
       "default": "Neste"
     },
     {
-      "label": "Namn på \"Førre\"-knappen",
+      "label": "Tekst på \"Førre\"-knapp",
       "default": "Førre"
     },
     {
-      "label": "Namn på \"Prøv igjen\"-knapp",
+      "label": "Tekst på \"Prøv igjen\"-knapp",
       "default": "Prøv igjen"
     },
     {
-      "label": "Namn på \"Rett svar\"-knapp",
+      "label": "Tekst på \"Rett svar\"-knapp",
       "default": "Eg svarte rett"
     },
     {
-      "label": "Namn på \"Feil svar\"-knapp",
+      "label": "Tekst på \"Feil svar\"-knapp",
       "default": "Eg svarte feil"
     },
     {
@@ -121,7 +121,7 @@
       "default": "Runde @round"
     },
     {
-      "label": "Tekst for talet på kort som er igjen",
+      "label": "Tekst for antal kort som er igjen",
       "description": "Variabelen @number blir erstatta av talet på kort som er igjen i denne runden.",
       "default": "Kort som er igjen: @number"
     },
@@ -131,11 +131,11 @@
       "default": "Gå vidare til runde @round"
     },
     {
-      "label": "Namn på \"Start på nytt\"-knapp",
+      "label": "Tekst på \"Start på nytt\"-knapp",
       "default": "Start på nytt"
     },
     {
-      "label": "Namn på \"Vis oppsummering\"-knapp",
+      "label": "Tekst på \"Vis oppsummering\"-knapp",
       "default": "Neste"
     },
     {
@@ -206,11 +206,11 @@
           "default": "Alt du har gjort til no, vil bli sletta. Er du sikker på at du vil starte på nytt?"
         },
         {
-          "label": "Namn på \"Avbryt\"-knapp",
+          "label": "Tekst på \"Avbryt\"-knapp",
           "default": "Avbryt"
         },
         {
-          "label": "Namn på stadfestingsknapp",
+          "label": "Tekst på stadfestingsknapp",
           "default": "Start på nytt"
         }
       ]
