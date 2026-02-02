@@ -504,7 +504,7 @@ class Card {
       // Wait for transition, then set focus
       const $card = this.getDOM();
       $card.one('transitionend', () => {
-        focusElement(this.$cardTextArea.get(0));
+        this.$cardTextArea.get(0).focus();
       });
     }
   }
