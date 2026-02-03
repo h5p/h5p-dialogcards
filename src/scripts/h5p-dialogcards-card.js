@@ -37,7 +37,6 @@ class Card {
     this.createCardContent(card)
       .appendTo(this.$cardHolder);
 
-
     return this;
   }
 
