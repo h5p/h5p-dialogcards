@@ -501,11 +501,20 @@ class Card {
       this.$cardTextArea.focus();
     }
     else {
-      // Wait for transition, then set focus
       const $card = this.getDOM();
-      $card.one('transitionend', () => {
-        this.$cardTextArea.get(0).focus();
-      });
+
+      const handleTransitionEnd = (e) => {
+        if (e.target === $card.get(0)) {
+          $card.get(0).focus();
+        }
+        // The transitionend event must have been dispatched from a child element.
+        // Let's try to listen once more to see if it is the card.
+        else {
+          $card.one('transitionend', handleTransitionEnd);
+        }
+      };
+
+      $card.one('transitionend', handleTransitionEnd);
     }
   }
 
