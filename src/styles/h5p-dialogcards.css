@@ -69,6 +69,14 @@
   transition: transform 0.2s ease-in-out;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .h5p-dialogcards .h5p-dialogcards-cardwrap,
+  .h5p-dialogcards .h5p-dialogcards-cardwrap.h5p-dialogcards-current,
+  .h5p-dialogcards .h5p-dialogcards-cardholder {
+    transition: none;
+  }
+}
+
 .h5p-dialogcards .h5p-dialogcards-mode-repetition .h5p-dialogcards-cardholder {
   max-width: 40em;
 }
