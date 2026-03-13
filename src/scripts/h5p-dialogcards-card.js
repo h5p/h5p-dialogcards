@@ -298,7 +298,7 @@ class Card {
   turnCard() {
     const $card = this.getDOM();
     const $c = $card.find('.h5p-dialogcards-card-content');
-    const $ch = $card.find('.h5p-dialogcards-cardholder').addClass('h5p-dialogcards-collapse');
+    const $ch = $card.find('.h5p-dialogcards-cardholder');
 
     // Removes tip, since it destroys the animation:
     $c.find('.joubel-tip-container').remove();
@@ -308,6 +308,13 @@ class Card {
 
     // Update HTML class for card
     $c.toggleClass('h5p-dialogcards-turned', !turned);
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const flipDuration = reducedMotion ? 0 : 200;
+
+    if (!reducedMotion) {
+      $ch.addClass('h5p-dialogcards-collapse');
+    }
 
     setTimeout(() => {
       $ch.removeClass('h5p-dialogcards-collapse');
@@ -351,7 +358,7 @@ class Card {
 
       // Focus text
       this.$cardTextArea.focus();
-    }, 200);
+    }, flipDuration);
   }
 
   /**
@@ -502,6 +509,11 @@ class Card {
     }
     else {
       const $card = this.getDOM();
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        $card.get(0).focus();
+        return;
+      }
 
       const handleTransitionEnd = (e) => {
         if (e.target === $card.get(0)) {
