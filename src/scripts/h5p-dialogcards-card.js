@@ -309,14 +309,12 @@ class Card {
     // Update HTML class for card
     $c.toggleClass('h5p-dialogcards-turned', !turned);
 
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const flipDuration = reducedMotion ? 0 : 200;
+    const handleFlipEnd = (e) => {
+      if (e.target !== $ch.get(0)) {
+        return; // Ignore child transitions
+      }
 
-    if (!reducedMotion) {
-      $ch.addClass('h5p-dialogcards-collapse');
-    }
-
-    setTimeout(() => {
+      $ch.off('transitionend', handleFlipEnd);
       $ch.removeClass('h5p-dialogcards-collapse');
       this.changeText(turned ? this.getText() : this.getAnswer());
 
@@ -358,7 +356,15 @@ class Card {
 
       // Focus text
       this.$cardTextArea.focus();
-    }, flipDuration);
+    };
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      handleFlipEnd({ target: $ch.get(0) });
+    }
+    else {
+      $ch.addClass('h5p-dialogcards-collapse');
+      $ch.on('transitionend', handleFlipEnd);
+    }
   }
 
   /**
