@@ -338,16 +338,6 @@ class Card {
         }
       }
 
-      // Add backside tip
-      // Had to wait a little, if not Chrome will displace tip icon
-      setTimeout(() => {
-        this.addTipToCard($c, turned ? 'front' : 'back');
-
-        if (typeof this.callbacks.onCardTurned === 'function') {
-          this.callbacks.onCardTurned(turned);
-        }
-      }, 200);
-
       this.resizeOverflowingText();
 
       if (!this.params.behaviour.scaleTextNotCard) {
