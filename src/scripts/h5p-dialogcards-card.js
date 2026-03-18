@@ -298,7 +298,7 @@ class Card {
   turnCard() {
     const $card = this.getDOM();
     const $c = $card.find('.h5p-dialogcards-card-content');
-    const $ch = $card.find('.h5p-dialogcards-cardholder').addClass('h5p-dialogcards-collapse');
+    const $ch = $card.find('.h5p-dialogcards-cardholder');
 
     // Removes tip, since it destroys the animation:
     $c.find('.joubel-tip-container').remove();
@@ -309,7 +309,12 @@ class Card {
     // Update HTML class for card
     $c.toggleClass('h5p-dialogcards-turned', !turned);
 
-    setTimeout(() => {
+    const handleFlipEnd = (e) => {
+      if (e.target !== $ch.get(0)) {
+        return; // Ignore child transitions
+      }
+
+      $ch.off('transitionend', handleFlipEnd);
       $ch.removeClass('h5p-dialogcards-collapse');
       this.changeText(turned ? this.getText() : this.getAnswer());
 
@@ -333,15 +338,12 @@ class Card {
         }
       }
 
-      // Add backside tip
-      // Had to wait a little, if not Chrome will displace tip icon
-      setTimeout(() => {
-        this.addTipToCard($c, turned ? 'front' : 'back');
+      this.addTipToCard($c, turned ? 'front' : 'back');
 
-        if (typeof this.callbacks.onCardTurned === 'function') {
-          this.callbacks.onCardTurned(turned);
-        }
-      }, 200);
+      if (typeof this.callbacks.onCardTurned === 'function') {
+        this.callbacks.onCardTurned(turned);
+      }
+
 
       this.resizeOverflowingText();
 
@@ -351,7 +353,15 @@ class Card {
 
       // Focus text
       this.$cardTextArea.focus();
-    }, 200);
+    };
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      handleFlipEnd({ target: $ch.get(0) });
+    }
+    else {
+      $ch.addClass('h5p-dialogcards-collapse');
+      $ch.on('transitionend', handleFlipEnd);
+    }
   }
 
   /**
@@ -502,6 +512,11 @@ class Card {
     }
     else {
       const $card = this.getDOM();
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        $card.get(0).focus();
+        return;
+      }
 
       const handleTransitionEnd = (e) => {
         if (e.target === $card.get(0)) {

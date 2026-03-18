@@ -180,7 +180,6 @@ class SummaryScreen {
 
   setButtonLabel(button, label) {
     button.innerHTML = `<span class="h5p-theme-label">${label}</span>`;
-    button.title = label;
     button.setAttribute('aria-label', label);
   }
 
