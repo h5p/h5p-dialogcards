@@ -338,6 +338,13 @@ class Card {
         }
       }
 
+      this.addTipToCard($c, turned ? 'front' : 'back');
+
+      if (typeof this.callbacks.onCardTurned === 'function') {
+        this.callbacks.onCardTurned(turned);
+      }
+
+
       this.resizeOverflowingText();
 
       if (!this.params.behaviour.scaleTextNotCard) {
