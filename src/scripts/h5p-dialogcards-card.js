@@ -20,18 +20,18 @@ class Card {
     this.callbacks = callbacks;
 
     this.$cardWrapper = $('<div>', {
-      'class': 'h5p-dialogcards-cardwrap',
-      'role': 'group',
-      'tabindex': '-1'
+      class: 'h5p-dialogcards-cardwrap',
+      role: 'group',
+      tabindex: '-1',
     });
 
-    this.$cardWrapper.addClass('h5p-dialogcards-mode-' + this.params.mode);
+    this.$cardWrapper.addClass(`h5p-dialogcards-mode-${this.params.mode}`);
 
     if (this.params.mode !== 'repetition') {
-      this.$cardWrapper.attr('aria-labelledby', 'h5p-dialogcards-progress-' + idCounter);
+      this.$cardWrapper.attr('aria-labelledby', `h5p-dialogcards-progress-${idCounter}`);
     }
 
-    this.$cardHolder = $('<div>', {'class': 'h5p-dialogcards-cardholder'})
+    this.$cardHolder = $('<div>', { class: 'h5p-dialogcards-cardholder h5p-cardholder' })
       .appendTo(this.$cardWrapper);
 
     this.createCardContent(card)
@@ -48,35 +48,35 @@ class Card {
    */
   createCardContent(card) {
     const $cardContent = $('<div>', {
-      'class': 'h5p-dialogcards-card-content'
+      class: 'h5p-dialogcards-card-content',
     });
 
     this.createCardImage(card)
       .appendTo($cardContent);
 
     const $cardTextWrapper = $('<div>', {
-      'class': 'h5p-dialogcards-card-text-wrapper'
+      class: 'h5p-dialogcards-card-text-wrapper',
     }).appendTo($cardContent);
 
     const $cardTextInner = $('<div>', {
-      'class': 'h5p-dialogcards-card-text-inner'
+      class: 'h5p-dialogcards-card-text-inner',
     }).appendTo($cardTextWrapper);
 
     const $cardTextInnerContent = $('<div>', {
-      'class': 'h5p-dialogcards-card-text-inner-content'
+      class: 'h5p-dialogcards-card-text-inner-content',
     }).appendTo($cardTextInner);
 
     this.createCardAudio(card)
       .appendTo($cardTextInnerContent);
 
     const $cardText = $('<div>', {
-      'class': 'h5p-dialogcards-card-text'
+      class: 'h5p-dialogcards-card-text',
     }).appendTo($cardTextInnerContent);
 
     this.$cardTextArea = $('<div>', {
-      'class': 'h5p-dialogcards-card-text-area',
-      'tabindex': '-1',
-      'html': card.text
+      class: 'h5p-dialogcards-card-text-area',
+      tabindex: '-1',
+      html: card.text,
     }).appendTo($cardText);
 
     if (!card.text || !card.text.length) {
@@ -98,9 +98,9 @@ class Card {
   massageAttributeOutput(value) {
     const dparser = new DOMParser().parseFromString(value, 'text/html');
     const div = document.createElement('div');
-    div.innerHTML = dparser.documentElement.textContent;;
+    div.innerHTML = dparser.documentElement.textContent;
     return div.textContent || div.innerText || '';
-  };
+  }
 
   /**
    * Create card image
@@ -111,12 +111,12 @@ class Card {
   createCardImage(card) {
     this.$image;
     const $imageWrapper = $('<div>', {
-      'class': 'h5p-dialogcards-image-wrapper'
+      class: 'h5p-dialogcards-image-wrapper',
     });
 
     if (card.image !== undefined) {
       this.image = card.image;
-      this.$image = $('<img class="h5p-dialogcards-image" src="' + H5P.getPath(card.image.path, this.contentId) + '"/>');
+      this.$image = $(`<img class="h5p-dialogcards-image" src="${H5P.getPath(card.image.path, this.contentId)}"/>`);
 
       if (card.imageAltText) {
         this.$image.attr('alt', this.massageAttributeOutput(card.imageAltText));
@@ -141,13 +141,13 @@ class Card {
     this.audio;
 
     this.$audioWrapper = $('<div>', {
-      'class': 'h5p-dialogcards-audio-wrapper'
+      class: 'h5p-dialogcards-audio-wrapper',
     });
 
     if (card.audio !== undefined) {
       const audioDefaults = {
         files: card.audio,
-        audioNotSupported: this.params.audioNotSupported
+        audioNotSupported: this.params.audioNotSupported,
       };
 
       this.audio = new H5P.Audio(audioDefaults, this.contentId);
@@ -172,7 +172,7 @@ class Card {
    */
   createCardFooter() {
     const $cardFooter = $('<div>', {
-      'class': 'h5p-dialogcards-card-footer'
+      class: 'h5p-dialogcards-card-footer',
     });
 
     let classesRepetition = 'h5p-dialogcards-button-hidden';
@@ -186,35 +186,53 @@ class Card {
       }
     }
 
-    this.$buttonTurn = H5P.JoubelUI.createButton({
-      'class': 'h5p-dialogcards-turn',
-      'html': this.params.answer
-    }).appendTo($cardFooter);
+    this.$buttonTurn = $(H5P.Components.Button({
+      label: this.params.answer,
+      icon: 'flip',
+    })).appendTo($cardFooter);
 
     if (this.params.mode === 'repetition') {
-      this.$buttonShowSummary = H5P.JoubelUI.createButton({
-        'class': 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone',
-        'html': this.params.showSummary
-      }).appendTo($cardFooter);
+      this.$buttonShowSummary = $(H5P.Components.Button({
+        classes: 'h5p-dialogcards-show-summary h5p-dialogcards-button-gone h5p-theme-results',
+        styleType: 'secondary',
+        label: this.params.showSummary,
+        icon: 'show-results',
+      })).appendTo($cardFooter);
 
-      this.$buttonIncorrect = H5P.JoubelUI.createButton({
-        'class': 'h5p-dialogcards-answer-button',
-        'html': this.params.incorrectAnswer
-      }).addClass('incorrect')
-        .addClass(classesRepetition)
-        .attr('tabindex', attributeTabindex)
-        .appendTo($cardFooter);
+      this.$buttonIncorrect = $(H5P.Components.Button({
+        classes: `h5p-dialogcards-answer-button incorrect ${classesRepetition}`,
+        label: this.params.incorrectAnswer,
+        disabled: !this.params.behaviour.quickProgression,
+        tabIndex: attributeTabindex,
+        styleType: 'secondary',
+        onClick: (event) => {
+          this.handleAnswerButton(event, false);
+        },
+      })).appendTo($cardFooter);
 
-      this.$buttonCorrect = H5P.JoubelUI.createButton({
-        'class': 'h5p-dialogcards-answer-button',
-        'html': this.params.correctAnswer
-      }).addClass('correct')
-        .addClass(classesRepetition)
-        .attr('tabindex', attributeTabindex)
-        .appendTo($cardFooter);
+      this.$buttonCorrect = $(H5P.Components.Button({
+        classes: `h5p-dialogcards-answer-button correct ${classesRepetition}`,
+        label: this.params.correctAnswer,
+        disabled: !this.params.behaviour.quickProgression,
+        tabIndex: attributeTabindex,
+        styleType: 'secondary',
+        onClick: (event) => {
+          this.handleAnswerButton(event, true);
+        },
+      })).appendTo($cardFooter);
     }
 
     return $cardFooter;
+  }
+
+  handleAnswerButton(event, result) {
+    if (this.params.mode === 'repetition') {
+      const button = event.target.closest('.h5p-dialogcards-answer-button');
+      if (!button.classList.contains('h5p-dialogcards-quick-progression')) {
+        return;
+      }
+      this.callbacks.onNextCard({ cardId: this.id, result });
+    }
   }
 
   /**
@@ -227,26 +245,6 @@ class Card {
       .click(() => {
         this.turnCard();
       });
-
-    if (this.params.mode === 'repetition') {
-      this.$buttonIncorrect
-        .unbind('click')
-        .click(event => {
-          if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
-            return;
-          }
-          this.callbacks.onNextCard({cardId: this.id, result: false});
-        });
-
-      this.$buttonCorrect
-        .unbind('click')
-        .click(event => {
-          if (!event.target.classList.contains('h5p-dialogcards-quick-progression')) {
-            return;
-          }
-          this.callbacks.onNextCard({cardId: this.id, result: true});
-        });
-    }
   }
 
   /**
@@ -330,7 +328,8 @@ class Card {
         if ($answerButtons.hasClass('h5p-dialogcards-quick-progression') === false) {
           $answerButtons
             .addClass('h5p-dialogcards-quick-progression')
-            .attr('tabindex', 0);
+            .attr('tabindex', 0)
+            .attr('disabled', false);
         }
       }
 
@@ -346,6 +345,10 @@ class Card {
       }, 200);
 
       this.resizeOverflowingText();
+
+      if (!this.params.behaviour.scaleTextNotCard) {
+        this.callbacks.onCardSize();
+      }
 
       // Focus text
       this.$cardTextArea.focus();
@@ -376,7 +379,7 @@ class Card {
       .replace('@card', (position).toString())
       .replace('@total', (total).toString());
 
-    this.$cardWrapper.attr('aria-label', progressText)
+    this.$cardWrapper.attr('aria-label', progressText);
   }
 
   /**
@@ -417,7 +420,6 @@ class Card {
     if (currentTextHeight > currentTextContainerHeight) {
       let decreaseFontSize = true;
       while (decreaseFontSize) {
-
         fontSize -= Card.SCALEINTERVAL;
 
         if (fontSize < Card.MINSCALE) {
@@ -425,14 +427,13 @@ class Card {
           break;
         }
 
-        $text.css('font-size', (fontSize / parentFontSize) + 'em');
+        $text.css('font-size', `${fontSize / parentFontSize}em`);
 
         currentTextHeight = $text.get(0).getBoundingClientRect().height;
         if (currentTextHeight <= currentTextContainerHeight) {
           decreaseFontSize = false;
         }
       }
-
     }
     else { // Increase font size
       let increaseFontSize = true;
@@ -446,12 +447,12 @@ class Card {
         }
 
         // Set relative font size to scale with full screen.
-        $text.css('font-size', fontSize / parentFontSize + 'em');
+        $text.css('font-size', `${fontSize / parentFontSize}em`);
         currentTextHeight = $text.get(0).getBoundingClientRect().height;
         if (currentTextHeight >= currentTextContainerHeight) {
           increaseFontSize = false;
-          fontSize = fontSize- Card.SCALEINTERVAL;
-          $text.css('font-size', fontSize / parentFontSize + 'em');
+          fontSize -= Card.SCALEINTERVAL;
+          $text.css('font-size', `${fontSize / parentFontSize}em`);
         }
       }
     }
@@ -480,13 +481,13 @@ class Card {
     $card.find('.joubel-tip-container').remove();
 
     // Add new tip if set and has length after trim
-    const tips = this.card.tips;
+    const { tips } = this.card;
     if (tips !== undefined && tips[side] !== undefined) {
       const tip = tips[side].trim();
       if (tip.length) {
         $card.find('.h5p-dialogcards-card-text-wrapper .h5p-dialogcards-card-text-inner')
           .after(H5P.JoubelUI.createTip(tip, {
-            tipLabel: this.params.tipButtonLabel
+            tipLabel: this.params.tipButtonLabel,
           }));
       }
     }
@@ -501,11 +502,20 @@ class Card {
       this.$cardTextArea.focus();
     }
     else {
-      // Wait for transition, then set focus
       const $card = this.getDOM();
-      $card.one('transitionend', () => {
-        $card.focus()
-      });
+
+      const handleTransitionEnd = (e) => {
+        if (e.target === $card.get(0)) {
+          $card.get(0).focus();
+        }
+        // The transitionend event must have been dispatched from a child element.
+        // Let's try to listen once more to see if it is the card.
+        else {
+          $card.one('transitionend', handleTransitionEnd);
+        }
+      };
+
+      $card.one('transitionend', handleTransitionEnd);
     }
   }
 
@@ -521,7 +531,7 @@ class Card {
      * We need to reset the audio button to its initial visual state, but it
      * doesn't have a function to to that -> force ended event and reload.
      */
-    const duration = this.audio.audio.duration;
+    const { duration } = this.audio.audio;
     if (duration > 0 && duration < Number.MAX_SAFE_INTEGER) {
       this.audio.seekTo(duration);
     }
@@ -585,7 +595,7 @@ class Card {
    * @return {jQuery} Card's image.
    */
   getImageSize() {
-    return this.image ? {width: this.image.width, height: this.image.height} : this.image;
+    return this.image ? { width: this.image.width, height: this.image.height } : this.image;
   }
 
   /**

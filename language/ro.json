@@ -1,0 +1,219 @@
+{
+  "semantics": [
+    {
+      "label": "Antet"
+    },
+    {
+      "label": "Mod",
+      "description": "Modul de prezentare a cardurilor de dialog",
+      "options": [
+        {
+          "label": "Normal"
+        },
+        {
+          "label": "Repetiție"
+        }
+      ]
+    },
+    {
+      "label": "Descrierea sarcinii"
+    },
+    {
+      "widgets": [
+        {
+          "label": "Implicit"
+        }
+      ],
+      "label": "Dialoguri",
+      "entity": "dialog",
+      "field": {
+        "label": "Întrebare",
+        "fields": [
+          {
+            "label": "Text",
+            "description": "Indiciu pentru prima parte a dialogului"
+          },
+          {
+            "label": "Răspuns",
+            "description": "Indiciu pentru a doua parte a dialogului"
+          },
+          {
+            "label": "Imagine",
+            "description": "Imagine opțională pentru card. (Cardul poate folosi doar o imagine, doar un text sau ambele)"
+          },
+          {
+            "label": "Text alternativ pentru imagine"
+          },
+          {
+            "label": "Fișiere audio"
+          },
+          {
+            "label": "Sfaturi",
+            "fields": [
+              {
+                "label": "Sfat pentru text",
+                "description": "Sfat pentru prima parte a dialogului"
+              },
+              {
+                "label": "Sfat pentru răspuns",
+                "description": "Sfat pentru a doua parte a dialogului"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "Setări de comportament",
+      "description": "Aceste opțiuni vă vor permite să controlați modul în care se comportă sarcina.",
+      "fields": [
+        {
+          "label": "Activați butonul „Reîncercare”"
+        },
+        {
+          "label": "Dezactivați navigarea înapoi",
+          "description": "Această opțiune vă va permite să avansați doar cu Cardurile de Dialog"
+        },
+        {
+          "label": "Scalează textul pentru a se potrivi pe card",
+          "description": "Debifarea acestei opțiuni va face ca dimensiunea cardului să se adapteze la dimensiunea textului"
+        },
+        {
+          "label": "Amestecă cardurile",
+          "description": "Activați pentru a amesteca ordinea de afișare a cardurilor."
+        },
+        {
+          "label": "Nivel maxim de competență"
+        },
+        {
+          "label": "Permite progresia rapidă",
+          "description": "Dacă este activată, cursanții pot decide să indice că știu un card fără a-l întoarce"
+        }
+      ]
+    },
+    {
+      "label": "Text pentru butonul de întoarcere",
+      "default": "Întoarce"
+    },
+    {
+      "label": "Text pentru butonul următor",
+      "default": "Următorul"
+    },
+    {
+      "label": "Text pentru butonul anterior",
+      "default": "Anteriorul"
+    },
+    {
+      "label": "Text pentru butonul de reîncercare",
+      "default": "Reîncearcă"
+    },
+    {
+      "label": "Text pentru butonul „răspuns corect”",
+      "default": "Am răspuns corect!"
+    },
+    {
+      "label": "Text pentru butonul „răspuns incorect”",
+      "default": "Am greșit"
+    },
+    {
+      "label": "Text pentru mesajul „Runda” de sub carduri și pe ecranul de rezumat",
+      "description": "@round va fi înlocuit cu numărul rundei curente",
+      "default": "Runda @round"
+    },
+    {
+      "label": "Text pentru mesajul „Carduri rămase”",
+      "description": "@number va fi înlocuit cu numărul de carduri rămase în această rundă",
+      "default": "Carduri rămase: @number"
+    },
+    {
+      "label": "Text pentru butonul „runda următoare”",
+      "description": "@round va fi înlocuit cu numărul rundei",
+      "default": "Continuă la runda @round"
+    },
+    {
+      "label": "Text pentru butonul „Începe de la capăt”",
+      "default": "Începe de la capăt"
+    },
+    {
+      "label": "Text pentru butonul „arată rezumat”",
+      "default": "Următorul"
+    },
+    {
+      "label": "Textul titlului pentru pagina de rezumat",
+      "default": "Rezumat"
+    },
+    {
+      "label": "Text pentru „Carduri la care ai răspuns corect:”",
+      "default": "Carduri la care ai răspuns corect:"
+    },
+    {
+      "label": "Text pentru „Carduri la care ai greșit:”",
+      "default": "Carduri la care ai greșit:"
+    },
+    {
+      "label": "Text pentru „Carduri din set neafișate:”",
+      "default": "Carduri din set neafișate:"
+    },
+    {
+      "label": "Text pentru „Scor general”",
+      "default": "Scor general"
+    },
+    {
+      "label": "Text pentru „Carduri pe care le-ai învățat complet:”",
+      "default": "Carduri a căror învățare ai finalizat-o:"
+    },
+    {
+      "label": "Text pentru „Runde finalizate:”",
+      "default": "Runde finalizate:"
+    },
+    {
+      "label": "Mesaj atunci când toate cardurile au fost învățate la nivel de competență",
+      "description": "@cards va fi înlocuit cu numărul tuturor cardurilor din set. @max va fi înlocuit cu nivelul maxim de competență.",
+      "default": "Felicitări! Ai stăpânit toate cele @cards carduri, răspunzând corect de @max ori!"
+    },
+    {
+      "label": "Text progres",
+      "description": "Variabilele disponibile sunt @card și @total.",
+      "default": "Cardul @card din @total"
+    },
+    {
+      "label": "Etichetă pentru textul cardului",
+      "description": "Utilizată pentru accesibilitate de către tehnologiile asistive",
+      "default": "Fața cardului"
+    },
+    {
+      "label": "Etichetă pentru spatele cardului",
+      "description": "Utilizată pentru accesibilitate de către tehnologiile asistive",
+      "default": "Spatele cardului"
+    },
+    {
+      "label": "Etichetă pentru butonul de afișare a sfatului",
+      "default": "Arată sfatul"
+    },
+    {
+      "label": "Mesaj audio neacceptat",
+      "default": "Browserul dumneavoastră nu suportă acest format audio"
+    },
+    {
+      "label": "Dialog de confirmare pentru a începe de la capăt",
+      "fields": [
+        {
+          "label": "Text antet",
+          "default": "Începi de la capăt?"
+        },
+        {
+          "label": "Text corp",
+          "default": "Tot progresul va fi pierdut. Ești sigur că vrei să începi de la capăt?"
+        },
+        {
+          "label": "Eticheta butonului de anulare",
+          "default": "Anulează"
+        },
+        {
+          "label": "Eticheta butonului de confirmare",
+          "default": "Începe de la capăt"
+        }
+      ]
+    }
+  ]
+}   

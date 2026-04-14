@@ -3,14 +3,14 @@
   "description": "Makes it possible to create learning tasks for your site visitors.",
   "majorVersion": 1,
   "minorVersion": 9,
-  "patchVersion": 18,
+  "patchVersion": 36,
   "runnable": 1,
   "author": "Joubel",
   "license": "MIT",
   "machineName": "H5P.Dialogcards",
   "coreApi": {
     "majorVersion": 1,
-    "minorVersion": 26
+    "minorVersion": 28
   },
   "embedTypes": [
     "iframe"
@@ -40,6 +40,11 @@
       "machineName": "H5P.Audio",
       "majorVersion": 1,
       "minorVersion": 5
+    },
+    {
+      "machineName": "H5P.Components",
+      "majorVersion": 1,
+      "minorVersion": 0
     }
   ],
   "editorDependencies": [

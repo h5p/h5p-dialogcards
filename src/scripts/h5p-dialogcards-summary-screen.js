@@ -2,56 +2,70 @@ class SummaryScreen {
   /**
    * @constructor
    */
-  constructor(params, callbacks) {
+  constructor(params, callbacks, contentId) {
     this.params = params;
     this.callbacks = callbacks;
+    this.contentId = contentId;
 
     this.currentCallback = callbacks.nextRound;
 
     this.fields = [];
 
+    this.tableRows = {
+      right: {
+        title: this.params.summaryCardsRight,
+        symbol: 'check',
+      },
+      wrong: {
+        title: this.params.summaryCardsWrong,
+        symbol: 'times',
+      },
+      'not-shown': {
+        title: this.params.summaryCardsNotShown,
+      },
+    };
+
+    this.overallTableRows = {
+      'cards-completed': {
+        title: this.params.summaryCardsCompleted,
+        symbol: 'check',
+      },
+      'completed-rounds': {
+        title: this.params.summaryCompletedRounds,
+      },
+    };
+
     this.container = document.createElement('div');
     this.container.classList.add('h5p-dialogcards-summary-screen');
-
-    const containerRound = this.createContainerDOM(params.summary);
-    this.fields['round'] = containerRound.getElementsByClassName('h5p-dialogcards-summary-subheader')[0];
-
-    this.fields['h5p-dialogcards-round-cards-right'] = this.addTableRow(
-      containerRound, {category: this.params.summaryCardsRight, symbol: 'h5p-dialogcards-check'});
-    this.fields['h5p-dialogcards-round-cards-wrong'] = this.addTableRow(
-      containerRound, {category: this.params.summaryCardsWrong, symbol: 'h5p-dialogcards-times'});
-    this.fields['h5p-dialogcards-round-cards-not-shown'] = this.addTableRow(
-      containerRound, {category: this.params.summaryCardsNotShown});
-
-    const containerOverall = this.createContainerDOM(params.summaryOverallScore);
-    this.fields['h5p-dialogcards-overall-cards-completed'] = this.addTableRow(
-      containerOverall, {category: this.params.summaryCardsCompleted, symbol: 'h5p-dialogcards-check'});
-    this.fields['h5p-dialogcards-overall-completed-rounds'] = this.addTableRow(
-      containerOverall, {category: this.params.summaryCompletedRounds, symbol: ''});
 
     const message = document.createElement('div');
     message.classList.add('h5p-dialogcards-summary-message');
 
-    this.fields['message'] = message;
+    this.fields.message = message;
 
-    const buttonNextRound = H5P.JoubelUI.createButton({
-      'class': 'h5p-dialogcards-buttonNextRound',
-      'title': this.params.nextRound.replace('@round', 2),
-      'html': this.params.nextRound.replace('@round', 2)
-    }).click(this.currentCallback).get(0);
+    const buttonNextRound = H5P.Components.Button({
+      classes: 'h5p-dialogcards-button-next-round',
+      styleType: 'primary',
+      icon: 'continue',
+      label: this.params.nextRound.replace('@round', 2),
+      onClick: () => {
+        this.currentCallback();
+      },
+    });
 
-    this.fields['button'] = buttonNextRound;
+    this.fields.button = buttonNextRound;
 
     // Button to start over including confirmation dialog
-    const buttonStartOver = H5P.JoubelUI.createButton({
-      'class': 'h5p-dialogcards-button-restart',
-      'title': this.params.startOver,
-      'html': this.params.startOver
-    }).get(0);
+    const buttonStartOver = H5P.Components.Button({
+      classes: 'h5p-dialogcards-button-restart',
+      styleType: 'secondary',
+      label: this.params.startOver,
+      icon: 'retry',
+    });
 
     const confirmationDialog = this.createConfirmationDialog({
       l10n: this.params.confirmStartingOver,
-      instance: this
+      instance: this,
     }, () => {
       // Stop interference with confirm dialog animation and goto animation
       setTimeout(() => {
@@ -67,7 +81,7 @@ class SummaryScreen {
       confirmationDialog.show(event.target.offsetTop);
     });
 
-    this.fields['buttonStartOver'] = buttonStartOver;
+    this.fields.buttonStartOver = buttonStartOver;
 
     // Footer
     const footer = document.createElement('div');
@@ -75,8 +89,6 @@ class SummaryScreen {
     footer.appendChild(buttonStartOver);
     footer.appendChild(buttonNextRound);
 
-    this.container.appendChild(containerRound);
-    this.container.appendChild(containerOverall);
     this.container.appendChild(message);
     this.container.appendChild(footer);
 
@@ -94,67 +106,82 @@ class SummaryScreen {
   }
 
   /**
-   * Create container DOM.
-   * @param {string} headerText Header text.
-   * @param {string} [subheaderText=''] Sub-Header text.
-   * @return {object} Container DOM.
+   * Create the score element to send to the ResultScreen component
+   * @param {string} [symbol] Which
+   * @param {number} score Which score the user got
+   * @param {number} [maxScore] What the max score is
    */
-  createContainerDOM(headerText, subheaderText = '') {
-    const container = document.createElement('div');
-    container.classList.add('h5p-dialogcards-summary-container');
+  createScoreElement({ symbol, score, maxScore }) {
+    let element = '';
 
-    const header = document.createElement('div');
-    header.classList.add('h5p-dialogcards-summary-header');
-    header.innerHTML = headerText;
-    container.appendChild(header);
+    if (symbol) {
+      element += `<div class="h5p-dialogcards-summary-table-row-symbol h5p-dialogcards-${symbol}"></div>`;
+    }
 
-    const subheader = document.createElement('div');
-    subheader.classList.add('h5p-dialogcards-summary-subheader');
-    subheader.innerHTML = subheaderText;
-    container.appendChild(subheader);
+    if (score !== undefined) {
+      element += `<div class="h5p-dialogcards-summary-table-row-score">${score.toString()}`;
 
-    const table = document.createElement('table');
-    table.classList.add('h5p-dialogcards-summary-table');
-    container.appendChild(table);
+      if (maxScore) {
+        element += ` <span>/</span> ${maxScore}`;
+      }
 
-    return container;
+      element += '</div>';
+    }
+
+    return element;
   }
 
   /**
-   * Add row to a table.
-   * @param {object} container Container to add table to.
-   * @param {object} cols Columns.
-   * @param {string} cols.category Category text.
-   * @param {string} [cols.symbol=''] Symbol.
-   * @param {object} [cols.score] Score value and maximum value.
-   * @param {number|string} [cols.score.value=''] Value.
-   * @param {number|string} [cols.score.max] Maximum value.
-   * @return {object} Score field for updating later.
+   * Create the question array for the ResultScreen component based on user results
+   * @param {object[]} results The list of scores
+   * @param {string} results.field Which field to update
+   * @param {number} results.score.value How the user did
+   * @param {number} [results.score.max] What the max score is
    */
-  addTableRow(container, cols) {
-    const table = container.getElementsByClassName('h5p-dialogcards-summary-table')[0];
+  createQuestions(results) {
+    const questions = [];
+    const overallQuestions = [];
 
-    const row = document.createElement('tr');
+    results.forEach((result) => {
+      const field = result.field.split('h5p-dialogcards-round-cards-');
+      let data = this.tableRows[field[1]];
+      let overallGroup = false;
 
-    const category = document.createElement('td');
-    category.classList.add('h5p-dialogcards-summary-table-row-category');
-    category.innerHTML = cols.category;
-    row.appendChild(category);
+      if (!data) {
+        data = this.overallTableRows[result.field.split('h5p-dialogcards-overall-')[1]];
+        overallGroup = true;
+      }
 
-    const symbol = document.createElement('td');
-    symbol.classList.add('h5p-dialogcards-summary-table-row-symbol');
-    if (cols.symbol !== undefined && cols.symbol !== '') {
-      symbol.classList.add(cols.symbol);
-    }
-    row.appendChild(symbol);
+      const question = {
+        title: data.title,
+        points: this.createScoreElement({
+          symbol: data.symbol,
+          score: result.score.value,
+          maxScore: result.score.max,
+        }),
+      };
 
-    const score = document.createElement('td');
-    score.classList.add('h5p-dialogcards-summary-table-row-score');
-    row.appendChild(score);
+      if (overallGroup) {
+        overallQuestions.push(question);
+      }
+      else {
+        questions.push(question);
+      }
+    });
 
-    table.appendChild(row);
+    return [
+      { questions },
+      {
+        listHeaders: [this.params.summaryOverallScore],
+        questions: overallQuestions,
+      },
+    ];
+  }
 
-    return score;
+  setButtonLabel(button, label) {
+    button.innerHTML = `<span class="h5p-theme-label">${label}</span>`;
+    button.title = label;
+    button.setAttribute('aria-label', label);
   }
 
   /**
@@ -169,54 +196,55 @@ class SummaryScreen {
    * @param {number} [args.results.score.value] Score value for field.
    * @param {number} [args.results.score.max] Score max value for field.
    */
-  update({done = false, round = undefined, message = undefined, results = []} = {}) {
+  update({
+    done = false, round = undefined, message = undefined, results = [],
+  } = {}) {
+    // Remove the old one
+    if (this.resultScreen) {
+      this.resultScreen.remove();
+    }
+
+    this.resultScreen = H5P.Components.ResultScreen({
+      header: this.params.summary,
+      scoreHeader: this.params.round.replace('@round', round),
+      questionGroups: this.createQuestions(results),
+    });
+
+    this.container.prepend(this.resultScreen);
+
     if (done === true) {
-      this.fields['buttonStartOver'].classList.add('h5p-dialogcards-button-gone');
+      this.fields.buttonStartOver.classList.add('h5p-dialogcards-button-gone');
 
       if (this.params.behaviour.enableRetry) {
-        this.fields['button'].classList.remove('h5p-dialogcards-button-next-round');
-        this.fields['button'].classList.add('h5p-dialogcards-button-restart');
-        this.fields['button'].innerHTML = this.params.retry;
-        this.fields['button'].title = this.params.retry;
+        this.fields.button.classList.remove('h5p-dialogcards-button-next-round');
+        this.fields.button.classList.add('h5p-dialogcards-button-restart');
+        this.setButtonLabel(this.fields.button, this.params.retry);
         this.currentCallback = this.callbacks.retry;
       }
       else {
-        this.fields['button'].classList.add('h5p-dialogcards-button-gone');
+        this.fields.button.classList.add('h5p-dialogcards-button-gone');
       }
     }
     else {
-      this.fields['buttonStartOver'].classList.remove('h5p-dialogcards-button-gone');
-
-      this.fields['button'].classList.add('h5p-dialogcards-button-next-round');
-      this.fields['button'].classList.remove('h5p-dialogcards-button-restart');
-      this.fields['button'].innerHTML = this.params.nextRound;
-      this.fields['button'].title = this.params.nextRound;
+      this.fields.buttonStartOver.classList.remove('h5p-dialogcards-button-gone');
+      this.fields.button.classList.add('h5p-dialogcards-button-next-round');
+      this.fields.button.classList.remove('h5p-dialogcards-button-restart');
+      this.setButtonLabel(this.fields.button, this.params.nextRound);
       this.currentCallback = this.callbacks.nextRound;
     }
-    H5P.jQuery(this.fields['button']).unbind('click').click(this.currentCallback);
-
-    this.fields['round'].innerHTML = this.params.round.replace('@round', round);
 
     if (!done && round !== undefined) {
-      this.fields['button'].innerHTML = this.params.nextRound.replace('@round', round + 1);
-      this.fields['button'].title = this.params.nextRound.replace('@round', round + 1);
+      const label = this.params.nextRound.replace('@round', round + 1);
+      this.setButtonLabel(this.fields.button, label);
     }
 
     if (done && message !== undefined && message !== '') {
-      this.fields['message'].classList.remove('h5p-dialogcards-gone');
-      this.fields['message'].innerHTML = message;
+      this.fields.message.classList.remove('h5p-dialogcards-gone');
+      this.fields.message.innerHTML = message;
     }
     else {
-      this.fields['message'].classList.add('h5p-dialogcards-gone');
+      this.fields.message.classList.add('h5p-dialogcards-gone');
     }
-
-    results.forEach(result => {
-      let scoreHTML = (result.score.value !== undefined) ? result.score.value : '';
-      if (result.score.max !== undefined) {
-        scoreHTML = `${scoreHTML}&nbsp;<span class="h5p-dialogcards-summary-table-row-score-divider">/</span>&nbsp;${result.score.max}`;
-      }
-      this.fields[result.field].innerHTML = scoreHTML;
-    });
   }
 
   /**
@@ -226,7 +254,7 @@ class SummaryScreen {
     this.container.classList.remove('h5p-dialogcards-gone');
     // iOS13 requires DOM to be visible to focus
     setTimeout(() => {
-      this.fields['button'].focus();
+      this.fields.button.focus();
     }, 0);
   }
 
@@ -246,12 +274,13 @@ class SummaryScreen {
   createConfirmationDialog(options, clicked) {
     options = options || {};
 
-    var confirmationDialog = new H5P.ConfirmationDialog({
+    const confirmationDialog = new H5P.ConfirmationDialog({
       instance: options.instance,
       headerText: options.l10n.header,
       dialogText: options.l10n.body,
       cancelText: options.l10n.cancelLabel,
-      confirmText: options.l10n.confirmLabel
+      confirmText: options.l10n.confirmLabel,
+      theme: true,
     });
 
     confirmationDialog.on('confirmed', () => {
@@ -268,7 +297,7 @@ class SummaryScreen {
    * @return {HTMLElement} Container to attach dialogs to.
    */
   getContainer() {
-    const $content = H5P.jQuery('[data-content-id="' + self.contentId + '"].h5p-content');
+    const $content = H5P.jQuery(`[data-content-id="${this.contentId}"].h5p-content`);
     const $containerParents = $content.parents('.h5p-container');
 
     let $container;
