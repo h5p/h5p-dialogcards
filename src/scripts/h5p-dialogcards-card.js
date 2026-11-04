@@ -19,6 +19,19 @@ class Card {
     this.contentId = contentId;
     this.callbacks = callbacks;
 
+    // Check if to use front settings for back, too
+    if (this.card.back.useImageFromFront) {
+      this.card.back.image = this.card.front.image;
+      this.card.back.imageAltText = this.card.front.imageAltText;
+    }
+
+    if (this.card.back.useAudioFromFront) {
+      this.card.back.audio = this.card.front.audio;
+    }
+
+    this.audios = {};
+    this.$audioWrappers = {}
+
     this.$cardWrapper = $('<div>', {
       class: 'h5p-dialogcards-cardwrap',
       role: 'group',
@@ -51,8 +64,13 @@ class Card {
       class: 'h5p-dialogcards-card-content',
     });
 
-    this.createCardImage(card)
-      .appendTo($cardContent);
+    // Images
+    this.$imageWrapper = $('<div>', {
+      'class': 'h5p-dialogcards-image-wrapper'
+    });
+    this.createCardImage(card, 'front').appendTo(this.$imageWrapper);
+    this.createCardImage(card, 'back').appendTo(this.$imageWrapper);
+    this.$imageWrapper.appendTo($cardContent);
 
     const $cardTextWrapper = $('<div>', {
       class: 'h5p-dialogcards-card-text-wrapper',
@@ -66,7 +84,12 @@ class Card {
       class: 'h5p-dialogcards-card-text-inner-content',
     }).appendTo($cardTextInner);
 
-    this.createCardAudio(card)
+    // Front audio
+    this.$audioWrappers.front = this.createCardAudio(card, 'front')
+      .appendTo($cardTextInnerContent);
+
+    // Back audio
+    this.$audioWrappers.back = this.createCardAudio(card, 'back')
       .appendTo($cardTextInnerContent);
 
     const $cardText = $('<div>', {
@@ -74,14 +97,10 @@ class Card {
     }).appendTo($cardTextInnerContent);
 
     this.$cardTextArea = $('<div>', {
-      class: 'h5p-dialogcards-card-text-area',
-      tabindex: '-1',
-      html: card.text,
+      'class': 'h5p-dialogcards-card-text-area',
+      'tabindex': '-1',
+      'html': card.front.text
     }).appendTo($cardText);
-
-    if (!card.text || !card.text.length) {
-      $cardText.addClass('hide');
-    }
 
     this.createCardFooter()
       .appendTo($cardTextWrapper);
@@ -107,63 +126,67 @@ class Card {
    * Create card image
    *
    * @param {object} card Card parameters
+   * @param {string} side Side, either front or back.
    * @returns {*|jQuery|HTMLElement} Card image wrapper
    */
-  createCardImage(card) {
-    this.$image;
-    const $imageWrapper = $('<div>', {
-      class: 'h5p-dialogcards-image-wrapper',
-    });
+  createCardImage(card, side) {
+    let $image;
 
-    if (card.image !== undefined) {
-      this.image = card.image;
-      this.$image = $(`<img class="h5p-dialogcards-image" src="${H5P.getPath(card.image.path, this.contentId)}"/>`);
+    if (card[side].image !== undefined) {
+      $image = $(`<img class="h5p-dialogcards-image" src="${H5P.getPath(card[side].image.path, this.contentId)}"/>`);
+      $image.addClass(`h5p-dialogcards-image-${side}`);
 
-      if (card.imageAltText) {
-        this.$image.attr('alt', this.massageAttributeOutput(card.imageAltText));
+      if (card[side].imageAltText) {
+        $image.attr('alt', this.massageAttributeOutput(card[side].imageAltText));
       }
     }
     else {
-      this.$image = $('<div class="h5p-dialogcards-image"></div>');
+      $image = $('<div class="h5p-dialogcards-image"></div>');
     }
 
-    this.$image.appendTo($imageWrapper);
-
-    return $imageWrapper;
+    return $image;
   }
 
   /**
    * Create card audio.
    *
    * @param {object} card Card parameters.
+   * @param {string} side Side, either front or back.
    * @returns {*|jQuery|HTMLElement} Card audio element.
    */
-  createCardAudio(card) {
-    this.audio;
+  createCardAudio(card, side = 'front') {
+    const $audioWrapper = $('<div>')
+      .addClass('h5p-dialogcards-audio-wrapper')
+      .addClass(`h5p-dialogcards-audio-wrapper-${side}`);
 
-    this.$audioWrapper = $('<div>', {
-      class: 'h5p-dialogcards-audio-wrapper',
-    });
+    if (!card[side].text || card[side].text === '') {
+      $audioWrapper.addClass('h5p-no-text');
+    }
 
-    if (card.audio !== undefined) {
+    if (card[side].audio !== undefined) {
       const audioDefaults = {
-        files: card.audio,
+        files: card[side].audio,
         audioNotSupported: this.params.audioNotSupported,
       };
 
-      this.audio = new H5P.Audio(audioDefaults, this.contentId);
-      this.audio.attach(this.$audioWrapper);
+      const audio = new H5P.Audio(audioDefaults, this.contentId);
+      this.audios[side] = audio;
+      audio.attach($audioWrapper);
 
       // Have to stop else audio will take up a socket pending forever in chrome.
-      if (this.audio.audio && this.audio.audio.preload) {
-        this.audio.audio.preload = 'none';
+      if (audio.audio && audio.audio.preload) {
+        audio.audio.preload = 'none';
       }
     }
     else {
-      this.$audioWrapper.addClass('hide');
+      // Keep space for audio button if other side has audio to prevent resizing
+      const otherSide = (side === 'front') ? 'back' : 'front';
+      $audioWrapper.addClass(
+        card[otherSide].audio !== undefined ? 'h5p-dialogcards-audio-placeholder' : 'hide',
+      );
     }
 
-    return this.$audioWrapper;
+    return $audioWrapper;
   }
 
   /**
@@ -293,7 +316,7 @@ class Card {
   }
 
   /**
-   * Show the opposite site of the card.
+   * Show the opposite side of the card.
    */
   turnCard() {
     const $card = this.getDOM();
@@ -304,10 +327,7 @@ class Card {
     $c.find('.joubel-tip-container').remove();
 
     // Check if card has been turned before
-    const turned = $c.hasClass('h5p-dialogcards-turned');
-
-    // Update HTML class for card
-    $c.toggleClass('h5p-dialogcards-turned', !turned);
+    const turned = this.isTurned();
 
     const handleFlipEnd = (e) => {
       if (e.target !== $ch.get(0)) {
@@ -315,15 +335,20 @@ class Card {
       }
 
       $ch.off('transitionend', handleFlipEnd);
+
+      /*
+       * Update HTML class for card. Must happen while card is collapsed, as
+       * the class determines which side's image and audio are displayed.
+       */
+      $c.toggleClass('h5p-dialogcards-turned', !turned);
+
       $ch.removeClass('h5p-dialogcards-collapse');
       this.changeText(turned ? this.getText() : this.getAnswer());
 
-      if (turned) {
-        $ch.find('.h5p-audio-inner').removeClass('hide');
-      }
-      else {
-        this.removeAudio($ch);
-      }
+      // Image shown/hidden via CSS
+
+      // Audio buttons shown/hidden via CSS
+      this.stopAudio()
 
       // Toggle state for knowledge confirmation buttons
       if (this.params.mode === 'repetition' && !this.params.behaviour.quickProgression) {
@@ -490,15 +515,12 @@ class Card {
     $card.find('.joubel-tip-container').remove();
 
     // Add new tip if set and has length after trim
-    const { tips } = this.card;
-    if (tips !== undefined && tips[side] !== undefined) {
-      const tip = tips[side].trim();
-      if (tip.length) {
-        $card.find('.h5p-dialogcards-card-text-wrapper .h5p-dialogcards-card-text-inner')
-          .after(H5P.JoubelUI.createTip(tip, {
-            tipLabel: this.params.tipButtonLabel,
-          }));
-      }
+    const tip = (this.card[side].tip || '').trim();
+    if (tip.length) {
+      $card.find('.h5p-dialogcards-card-text-wrapper .h5p-dialogcards-card-text-inner')
+        .after(H5P.JoubelUI.createTip(tip, {
+          tipLabel: this.params.tipButtonLabel,
+        }));
     }
   }
 
@@ -537,34 +559,27 @@ class Card {
    * Stop audio of card.
    */
   stopAudio() {
-    if (!this.audio || !this.audio.audio) {
-      return;
-    }
+    const sides = ['front', 'back'];
+    sides.forEach(side => {
+      if (!this.audios[side] || !this.audios[side].audio) {
+        return;
+      }
 
-    /*
-     * We need to reset the audio button to its initial visual state, but it
-     * doesn't have a function to to that -> force ended event and reload.
-     */
-    const { duration } = this.audio.audio;
-    if (duration > 0 && duration < Number.MAX_SAFE_INTEGER) {
-      this.audio.seekTo(duration);
-    }
+      /*
+       * We need to reset the audio button to its initial visual state, but it
+       * doesn't have a function to to that -> force ended event and reload.
+       */
+      const { duration } = this.audios[side].audio;
+      if (duration > 0 && duration < Number.MAX_SAFE_INTEGER) {
+        this.audios[side].seekTo(duration);
+      }
 
-    if (this.audio.audio.load) {
-      setTimeout(() => {
-        this.audio.audio.load();
-      }, 100);
-    }
-  }
-
-  /**
-   * Hide audio button.
-   *
-   * @param $card
-   */
-  removeAudio() {
-    this.stopAudio();
-    this.getDOM().find('.h5p-audio-inner').addClass('hide');
+      if (this.audios[side].audio.load) {
+        setTimeout(() => {
+          this.audios[side].audio.load();
+        }, 100);
+      }
+    });
   }
 
   /**
@@ -577,12 +592,19 @@ class Card {
   }
 
   /**
+   * Set no text mode.
+   */
+  setNoText() {
+    this.getDOM().addClass('h5p-no-text');
+  }
+
+  /**
    * Get card's text.
    *
    * @return {string} Card's text.
    */
   getText() {
-    return this.card.text;
+    return this.card.front.text;
   }
 
   /**
@@ -591,34 +613,43 @@ class Card {
    * @return {string} Card's answer.
    */
   getAnswer() {
-    return this.card.answer;
+    return this.card.back.text;
   }
 
   /**
-   * Get card's Image.
+   * Get card's image wrapper.
    *
    * @return {jQuery} Card's image.
    */
-  getImage() {
-    return this.$image;
+  getImageWrapper() {
+    return this.$imageWrapper;
   }
 
   /**
-   * Get card's Image.
-   *
-   * @return {jQuery} Card's image.
+   * Set card image height.
+   * @param {string} height CSS height value.
    */
-  getImageSize() {
-    return this.image ? { width: this.image.width, height: this.image.height } : this.image;
+  setImageHeight(height) {
+    this.$imageWrapper.css('height', height);
   }
 
   /**
-   * Get card's Image.
+   * Get card's Audio.
    *
-   * @return {Element} Card's image.
+   * @return {Element} Card's audio.
    */
   getAudio() {
-    return this.$audioWrapper;
+    return this.isTurned() ? this.$audioWrappers.back : this.$audioWrappers.front;
+  }
+
+  /**
+   * Detect whether card is turned.
+   * @return {boolean} True, if card is turned.
+   */
+  isTurned() {
+    return this.getDOM()
+      .find('.h5p-dialogcards-card-content')
+      .hasClass('h5p-dialogcards-turned');
   }
 
   /**

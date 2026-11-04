@@ -30,32 +30,57 @@
         "label": "Вопрос",
         "fields": [
           {
-            "label": "Текст",
-            "description": "Подсказка для первой части диалога"
-          },
-          {
-            "label": "Ответ",
-            "description": "Подсказка для второй части диалога"
-          },
-          {
-            "label": "Изображение",
-            "description": "Необязательное изображение для карточки.(На карточке может быть только картинка, только текст или оба одновременно)"
-          },
-          {
-            "label": "Альтернативный текст для изображения"
-          },
-          {
-            "label": "Аудио файлы"
-          },
-          {
-            "label": "Подсказки",
+            "label": "Front",
             "fields": [
               {
-                "label": "Подсказка в тексте",
+                "label": "Текст",
                 "description": "Подсказка для первой части диалога"
               },
               {
-                "label": "Подсказка для ответа",
+                "label": "Изображение",
+                "description": "Необязательное изображение для карточки."
+              },
+              {
+                "label": "Альтернативный текст для изображения"
+              },
+              {
+                "label": "Аудио файлы",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Подсказка в тексте",
+                "description": "Подсказка для первой части диалога"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "Текст",
+                "description": "Подсказка для второй части диалога"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Изображение",
+                "description": "Необязательное изображение для карточки."
+              },
+              {
+                "label": "Альтернативный текст для изображения"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Аудио файлы",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Подсказка в тексте",
                 "description": "Подсказка для второй части диалога"
               }
             ]

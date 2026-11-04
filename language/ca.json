@@ -25,38 +25,63 @@
         }
       ],
       "label": "Diàlegs",
-      "entity": "diàleg",
+      "entity": "dialeg",
       "field": {
         "label": "Pregunta",
         "fields": [
           {
-            "label": "Text",
-            "description": "Pista per a la primera part de la targeta d’aprenentatge"
-          },
-          {
-            "label": "Resposta",
-            "description": "Pista per a la segona part de la targeta d’aprenentatge"
-          },
-          {
-            "label": "Imatge",
-            "description": "Imatge opcional de la fitxa. (La fitxa pot utilitzar només una imatge, només un text o ambdues)"
-          },
-          {
-            "label": "Text alternatiu per a la imatge"
-          },
-          {
-            "label": "Fitxers d’àudio"
-          },
-          {
-            "label": "Pistes",
+            "label": "Frontal",
             "fields": [
               {
-                "label": "Pista per al text",
+                "label": "Text",
                 "description": "Pista per a la primera part del diàleg"
               },
               {
-                "label": "Pista per a la resposta",
+                "label": "Imatge",
+                "description": "Imatge opcional de la fitxa."
+              },
+              {
+                "label": "Text alternatiu per a la imatge"
+              },
+              {
+                "label": "Fitxers d’àudio",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Pista per al text",
+                "description": "Consell per a la primera part del diàleg"
+              }
+            ]
+          },
+          {
+            "label": "Esquena",
+            "fields": [
+              {
+                "label": "Text",
                 "description": "Pista per a la segona part del diàleg"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Imatge",
+                "description": "Imatge opcional de la fitxa."
+              },
+              {
+                "label": "Text alternatiu per a la imatge"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "Fitxers d’àudio",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Pista per al text",
+                "description": "Consell per a la segona part del diàleg"
               }
             ]
           }

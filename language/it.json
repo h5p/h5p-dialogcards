@@ -30,32 +30,57 @@
         "label": "Domanda",
         "fields": [
           {
-            "label": "Testo",
-            "description": "Suggerimento per la prima parte del dialogo"
-          },
-          {
-            "label": "Risposta",
-            "description": "Suggerimento per la seconda parte del dialogo"
-          },
-          {
-            "label": "Immagine",
-            "description": "Immagine opzionale per la carta (la carta può usare solo un'immagine, solo un testo o entrambi)"
-          },
-          {
-            "label": "Testo alternativo per l'immagine"
-          },
-          {
-            "label": "File audio"
-          },
-          {
-            "label": "Suggerimenti",
+            "label": "Davanti",
             "fields": [
               {
-                "label": "Suggerimento per il testo",
+                "label": "Testo",
                 "description": "Suggerimento per la prima parte del dialogo"
               },
               {
-                "label": "Suggerimento per la risposta",
+                "label": "Imagine",
+                "description": "Immagine opzionale per la carta"
+              },
+              {
+                "label": "Testo alternativo per l'immagine"
+              },
+              {
+                "label": "File audio",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Suggerimento per il testo",
+                "description": "Suggerimento per la prima parte del dialogo"
+              }
+            ]
+          },
+          {
+            "label": "Indietro",
+            "fields": [
+              {
+                "label": "Testo",
+                "description": "Suggerimento per la seconda parte del dialogo"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Imagine",
+                "description": "Immagine opzionale per la carta"
+              },
+              {
+                "label": "Testo alternativo per l'immagine"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "File audio",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Suggerimento per il testo",
                 "description": "Suggerimento per la seconda parte del dialogo"
               }
             ]

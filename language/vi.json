@@ -30,32 +30,57 @@
         "label": "Câu hỏi",
         "fields": [
           {
-            "label": "Văn bản",
-            "description": "Gợi ý cho phần đầu của hội thoại"
-          },
-          {
-            "label": "Trả lời",
-            "description": "Gợi ý cho phần thứ 2 của hội thoại"
-          },
-          {
-            "label": "Hình ảnh",
-            "description": "Hình ảnh tùy chọn cho thẻ. (Thẻ có thể sử dụng chỉ hình ảnh, chỉ văn bản, hoặc cả hai)"
-          },
-          {
-            "label": "Văn bản thay thế cho hình ảnh"
-          },
-          {
-            "label": "File audion"
-          },
-          {
-            "label": "Gợi ý",
+            "label": "Front",
             "fields": [
               {
-                "label": "Gợi ý cho văn bản",
-                "description": "Gợi ý cho phần đầu hội thoại"
+                "label": "Text",
+                "description": "Gợi ý cho phần đầu của hội thoại"
               },
               {
-                "label": "Tip for answer",
+                "label": "Hình ảnh",
+                "description": "Hình ảnh tùy chọn cho thẻ."
+              },
+              {
+                "label": "Văn bản thay thế cho hình ảnh"
+              },
+              {
+                "label": "File audion",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Tip for text",
+                "description": "Gợi ý cho phần đầu hội thoại"
+              }
+            ]
+          },
+          {
+            "label": "Back",
+            "fields": [
+              {
+                "label": "Text",
+                "description": "Gợi ý cho phần thứ 2 của hội thoại"
+              },
+              {
+                "label": "Use front image",
+                "description": "If set, the card's back will use the same image as the card's front"
+              },
+              {
+                "label": "Hình ảnh",
+                "description": "Hình ảnh tùy chọn cho thẻ."
+              },
+              {
+                "label": "Văn bản thay thế cho hình ảnh"
+              },
+              {
+                "label": "Use front audio",
+                "description": "If set, the card's back will use the same audio as the card's front"
+              },
+              {
+                "label": "File audion",
+                "description": "Optional audio for the card."
+              },
+              {
+                "label": "Tip for text",
                 "description": "Gợi ý cho phần thứ 2 hội thoại"
               }
             ]
